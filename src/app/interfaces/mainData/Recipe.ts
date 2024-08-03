@@ -1,17 +1,20 @@
 export interface Recipe {
+    ID: number;
+    Type: string;
     name: string;
-    id: number;
-    sid: string;
-    type: number;
-    handcraft: boolean;
-    explicit: boolean;
-    time_spend: number;
-    items: number[];
-    item_counts: number[];
-    results: number[];
-    result_counts: number[];
-    grid_index: number;
-    icon_path: string;
+    index: number;
     description: string;
-    non_productive: boolean;
+    madeFromString: string;
+    productive: boolean;
+    NonProductive: boolean;
+    Handcraft: boolean;
+    Explicit: boolean;
+    hasIcon: boolean;
+    TimeSpend: number;
+    GridIndex: number;
+    IconPath: string;
+    Items: number[];
+    ItemCounts: number[];
+    Results: number[];
+    ResultCounts: number[];
 }

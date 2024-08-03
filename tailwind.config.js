@@ -3,7 +3,12 @@ import daisyui from "daisyui"
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'sans': ['Poppins', 'sans-serif'], // Configura Poppins como la fuente predeterminada
+        'title': ['Satoshi', 'sans-serif'], // Configura Satoshi como la fuente para títulos
+      },
+    },
   },
   plugins: [
     daisyui
@@ -32,6 +37,10 @@ module.exports = {
           "success": "#009485",
           "warning": "#ff9900",
           "error": "#ff5724",
+          "fontFamily": {
+            'body': ['Poppins', 'sans-serif'],
+            'display': ['Satoshi', 'sans-serif'],
+          }
         },
       },
       // otros temas que desees mantener

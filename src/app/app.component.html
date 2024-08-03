@@ -21,7 +21,12 @@
     </svg>
   </label>
 
-  @for (recipe of recipes; track $index) {
+  @for (recipe of dataTest; track $index) {
     <p>{{recipe.name}}</p>
   }
+<!-- Ejemplo de uso en un componente -->
+<h1 class="font-title">Este es un título con Satoshi</h1>
+<p>Este es un texto normal con Poppins</p>
+<p class="font-title">Este es otro título con Satoshi</p>
+<p>Choose any recipe</p>
 <router-outlet />

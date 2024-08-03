@@ -10,7 +10,7 @@ import { Item } from "../interfaces/mainData/Item";
 @Injectable({
     providedIn: 'root',
   })
-export class AppDB extends Dexie {
+export class AppDB extends Dexie{
     public itemsTable!: Table<Item, number>;
     public recipesTable!: Table<Recipe, number>;
     public techsTable!: Table<Tech, number>;
@@ -18,8 +18,8 @@ export class AppDB extends Dexie {
     constructor(private http: HttpClient) {
         super('dspData');
 
-        this.version(1).stores({
-            itemsTable: 'ID',
+        this.version(2).stores({
+            itemsTable: 'ID,typeString',
             recipesTable: 'ID',
             techsTable: 'ID',
         });
@@ -62,7 +62,6 @@ export class AppDB extends Dexie {
 
         if (!isFirstTime) {
             await this.populate();
-            localStorage.setItem('isFirstTime', 'false');
         }
     }
 }
