@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { DataManagementService } from './services/data-management.service';
 import { AppDB } from './services/db';
 import { from, Observable, toArray } from 'rxjs';
@@ -12,7 +12,7 @@ import { Item } from './interfaces/mainData/Item';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, RouterLink,RouterLinkActive],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
