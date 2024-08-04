@@ -60,7 +60,7 @@ export class DataManagementService {
     )
   }
 
-  getAllAssemblingMachines(typeStringValue: string): Observable<Item[]>{
+  getAllMachinesByType(typeStringValue: string): Observable<Item[]>{
     return from(this.db.itemsTable.where('typeString').equals(typeStringValue).toArray());
   }
 

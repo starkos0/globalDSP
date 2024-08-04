@@ -48,14 +48,14 @@ export class AppComponent implements OnInit{
        
       }
     })
-    // this.dataManagement.getAllAssemblingMachines('Smelting Facility').subscribe({
+    // this.dataManagement.getAllMachinesByType('Smelting Facility').subscribe({
     //   next: (data) =>{
     //     data.forEach(element => {
     //       console.log(element.prefabDesc.assemblerSpeed / this.dataManagement.machinesSpeedRatio)
     //     });
     //   }
     // })
-    // this.dataManagement.getAllAssemblingMachines('Assembler').subscribe({
+    // this.dataManagement.getAllMachinesByType('Assembler').subscribe({
     //   next: (data) =>{
     //     data.forEach(element => {
     //       console.log(element.prefabDesc.assemblerSpeed / this.dataManagement.machinesSpeedRatio)

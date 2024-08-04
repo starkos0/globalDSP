@@ -1,2 +1,30 @@
 <app-navbar></app-navbar>
-<h1>calculator</h1>
+<div class="flex flex-col">
+    <form [formGroup]="globalSettingsForm">
+
+        <div class="flex-grow flex flex-col">
+            <input formControlName="initialAmountValue" type="number"
+                class="input input-bordered input-xs w-24 max-w-xs rounded-sm" />
+            <select formControlName="unitSelected" class="select select-bordered rounded-sm select-xs  max-w-xs">
+                <option value="m">items/m</option>
+                <option value="s">items/s</option>
+            </select>
+
+            <div class="flex-grow"></div>
+        </div>
+       
+        <div>
+            <details class="dropdown">
+                <summary class="btn m-1">
+                    <img class="w-8 h-8" [src]="'assets/' + globalSettingsForm.get('assemblerSelect')?.value.IconPath + '.png'" alt="">
+                </summary>
+                <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                    @for (machine of assemblerSelectOptions; track $index) {
+                    <li (click)="selectAssembler(machine)"><a><img class="w-8 h-8" [src]="'assets/' + machine.IconPath + '.png'" alt=""></a></li>
+                    }
+                </ul>
+            </details>
+        </div>
+        
+    </form>
+</div>
