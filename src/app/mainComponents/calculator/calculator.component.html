@@ -10,21 +10,132 @@
                 <option value="s">items/s</option>
             </select>
 
+            <button class="btn btn-sm w-40" onclick="my_modal_2.showModal()">
+                <img class="w-5 h-5" src="assets/Icons/ItemRecipe/various/select-recipe.png" alt="">
+                Add Recipe +
+            </button>
+
+            <dialog id="my_modal_2" #myModal class="modal">
+                <div class="modal-box w-11/12 max-w-5xl">
+                    <div class="flex flex-col">
+                        <h1>Tip: You can choose more than one at once.</h1>
+                        <div role="tablist" class="tabs tabs-bordered w-full">
+                            <input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="Components"
+                                checked="checked" />
+                            <div role="tabpanel" class="tab-content p-10">
+                                <div class="flex flex-wrap">
+                                    @for (recipe of resourcesMaterialsProducts; track $index) {
+                                    <div class="tooltip" [attr.data-tip]="recipe.name">
+                                        <button [ngClass]="{
+                                            'bg-base-content': selectedItemsSet.has(recipe.ID),
+                                            'scale-90': selectedItemsSet.has(recipe.ID),
+                                            'transition-all': true, 
+                                            'duration-200': true
+                                        }" (click)="toggleSelection(recipe, myModal)"
+                                            class="btn btn-sm rounded-sm w-14 h-14 m-2 p-2 hover:bg-base-content border-1 transition-all hover:scale-90 duration-200 no-animation"><img
+                                                class="w-full h-auto"
+                                                [src]="'assets/' + getImageSrc(recipe.name) + '.png'" alt=""></button>
+                                    </div>
+                                    }
+                                </div>
+                            </div>
+                            <input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="Buildings" />
+
+                            <div role="tabpanel" class="tab-content p-10">
+                                <div class="flex flex-wrap">
+                                    @for (recipe of buildings; track $index) {
+                                    <button
+                                        class="btn btn-sm rounded-sm w-14 h-14 m-2 p-2 hover:bg-base-content border-1 transition-all hover:scale-90 duration-200"><img
+                                            class="w-full h-auto" [src]="'assets/' + getImageSrc(recipe.name) + '.png'"
+                                            alt=""></button>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <form method="dialog" class="modal-backdrop">
+                            <button>close</button>
+                        </form>
+                    </div>
+                </div>
+                <form method="dialog" class="modal-backdrop">
+                    <button>close</button>
+                </form>
+            </dialog>
             <div class="flex-grow"></div>
         </div>
-       
+
         <div>
             <details class="dropdown">
                 <summary class="btn m-1">
-                    <img class="w-8 h-8" [src]="'assets/' + globalSettingsForm.get('assemblerSelect')?.value.IconPath + '.png'" alt="">
+                    <img class="w-8 h-8"
+                        [src]="'assets/' + (globalSettingsForm.get('assemblerSelect')?.value?.IconPath || '') + '.png'"
+                        alt="">
                 </summary>
                 <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                     @for (machine of assemblerSelectOptions; track $index) {
-                    <li (click)="selectAssembler(machine)"><a><img class="w-8 h-8" [src]="'assets/' + machine.IconPath + '.png'" alt=""></a></li>
+                    <li (click)="selectAssembler(machine)"><a><img class="w-8 h-8"
+                                [src]="'assets/' + machine.IconPath + '.png'" alt=""></a></li>
+                    }
+                </ul>
+            </details>
+            <details class="dropdown">
+                <summary class="btn m-1">
+                    <img class="w-8 h-8"
+                        [src]="'assets/' + (globalSettingsForm.get('smelterSelect')?.value?.IconPath || '') + '.png'"
+                        alt="">
+                </summary>
+                <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                    @for (machine of smelterSelectOptions; track $index) {
+                    <li (click)="selectSmelter(machine)"><a><img class="w-8 h-8"
+                                [src]="'assets/' + machine.IconPath + '.png'" alt=""></a></li>
+                    }
+                </ul>
+            </details>
+            <details class="dropdown">
+                <summary class="btn m-1">
+                    <img class="w-8 h-8"
+                        [src]="'assets/' + (globalSettingsForm.get('miningMachineSelect')?.value?.IconPath || '') + '.png'"
+                        alt="">
+                </summary>
+                <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                    @for (machine of miningMachineSelectOptions; track $index) {
+                    <li (click)="selectMiningMachine(machine)"><a><img class="w-8 h-8"
+                                [src]="'assets/' + machine.IconPath + '.png'" alt=""></a></li>
+                    }
+                </ul>
+            </details>
+            <details class="dropdown">
+                <summary class="btn m-1">
+                    <img class="w-8 h-8"
+                        [src]="'assets/' + (globalSettingsForm.get('matrixLabSelect')?.value?.IconPath || '') + '.png'"
+                        alt="">
+                </summary>
+                <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                    @for (machine of matrixLabSelectOptions; track $index) {
+                    <li (click)="selectMatrixLab(machine)"><a><img class="w-8 h-8"
+                                [src]="'assets/' + machine.IconPath + '.png'" alt=""></a></li>
+                    }
+                </ul>
+            </details>
+            <details class="dropdown">
+                <summary class="btn m-1">
+                    <img class="w-8 h-8"
+                        [src]="'assets/' + (globalSettingsForm.get('chemicalPlantSelect')?.value.IconPath || '') + '.png'"
+                        alt="">
+                </summary>
+                <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                    @for (machine of chemicalPlantSelectOptions; track $index) {
+                    <li (click)="selectChemicalPlant(machine)"><a><img class="w-8 h-8"
+                                [src]="'assets/' + machine.IconPath + '.png'" alt=""></a></li>
                     }
                 </ul>
             </details>
         </div>
-        
+        <p>{{selectedItem()[0].name}}</p>
     </form>
+    <div>
+        @for (item of selectedItem(); track $index) {
+            <img [src]="'assets/' + item.IconPath + '.png'" alt="">
+        }
+    </div>
 </div>
