@@ -1,0 +1,30 @@
+<div>
+    @for (item of dataManagement.selectedItem(); track $index) {
+        <p>{{item.name}}</p>
+    }
+</div>
+<div class="overflow-x-auto">
+    <table class="table">
+        <!-- head -->
+        <thead>
+            <tr>
+                <th></th>
+                <th>Item</th>
+                <th>Proliferation</th>
+                <th>Machine</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (item of dataManagement.selectedItem(); track $index) {
+                <tr class="hover">
+                    <th>{{$index + 1}}</th>
+                    <td><img class="w-10 h-10 m-2" [src]="'assets/' + item.IconPath +'.png'" alt=""></td>
+                    <td>Desktop Support Technician</td>
+                    <td>Purple</td>
+                </tr>
+            }
+            <!-- row 3 -->
+            
+        </tbody>
+    </table>
+</div>

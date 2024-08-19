@@ -27,11 +27,11 @@
                                     @for (recipe of resourcesMaterialsProducts; track $index) {
                                     <div class="tooltip" [attr.data-tip]="recipe.name">
                                         <button [ngClass]="{
-                                            'bg-base-content': selectedItemsSet.has(recipe.ID),
-                                            'scale-90': selectedItemsSet.has(recipe.ID),
+                                            'bg-base-content': dataManagement.selectedItemsSet.has(recipe.ID),
+                                            'scale-90': dataManagement.selectedItemsSet.has(recipe.ID),
                                             'transition-all': true, 
                                             'duration-200': true
-                                        }" (click)="toggleSelection(recipe, myModal)"
+                                        }" (click)="dataManagement.toggleSelection(recipe, myModal)"
                                             class="btn btn-sm rounded-sm w-14 h-14 m-2 p-2 hover:bg-base-content border-1 transition-all hover:scale-90 duration-200 no-animation"><img
                                                 class="w-full h-auto"
                                                 [src]="'assets/' + getImageSrc(recipe.name) + '.png'" alt=""></button>
@@ -44,7 +44,12 @@
                             <div role="tabpanel" class="tab-content p-10">
                                 <div class="flex flex-wrap">
                                     @for (recipe of buildings; track $index) {
-                                    <button
+                                    <button [ngClass]="{
+                                        'bg-base-content': dataManagement.selectedItemsSet.has(recipe.ID),
+                                        'scale-90': dataManagement.selectedItemsSet.has(recipe.ID),
+                                        'transition-all': true, 
+                                        'duration-200': true
+                                    }" (click)="dataManagement.toggleSelection(recipe, myModal)"
                                         class="btn btn-sm rounded-sm w-14 h-14 m-2 p-2 hover:bg-base-content border-1 transition-all hover:scale-90 duration-200"><img
                                             class="w-full h-auto" [src]="'assets/' + getImageSrc(recipe.name) + '.png'"
                                             alt=""></button>
@@ -131,11 +136,12 @@
                 </ul>
             </details>
         </div>
-        <p>{{selectedItem()[0].name}}</p>
+        <p>{{dataManagement.selectedItem()[0].name}}</p>
     </form>
     <div>
-        @for (item of selectedItem(); track $index) {
+        <!-- @for (item of selectedItem(); track $index) {
             <img [src]="'assets/' + item.IconPath + '.png'" alt="">
-        }
+        } -->
+        <app-table-ratios></app-table-ratios>
     </div>
 </div>
