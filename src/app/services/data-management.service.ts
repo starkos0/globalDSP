@@ -136,9 +136,9 @@ export class DataManagementService {
     fuelTypeString: '',
     name: ''
   }
-  public selectedItem: WritableSignal<Item[]>  = signal([{...this.defaultItem}]);
+  public selectedItem: WritableSignal<Item[]> = signal([]);
   selectedItemsSet = new Set<number>(); // Set to track selected item IDs
-
+  public childs: WritableSignal<Item[]> = signal([]);
   constructor(private db: AppDB, private http: HttpClient) { }
   //from converts promise to observable
 
@@ -180,13 +180,13 @@ export class DataManagementService {
     )
   }
 
-  getAllMachinesByType(typeStringValue: string): Observable<Item[]>{
+  getAllMachinesByType(typeStringValue: string): Observable<Item[]> {
     return from(this.db.itemsTable.where('typeString').equals(typeStringValue).toArray());
   }
 
-  getAllMadeFromStringRecipes(): Observable<string[]>{
+  getAllMadeFromStringRecipes(): Observable<string[]> {
     return from(this.db.recipesTable.toArray()).pipe(
-      map(records =>{
+      map(records => {
         const madeFromStrings = new Set(records.map(record => record.madeFromString))
         return Array.from(madeFromStrings)
       })
@@ -224,9 +224,79 @@ export class DataManagementService {
 
     console.log("Selected items:", this.selectedItem());
     console.log("computed items ", this.selectedItemsSet);
+    this.getRecipesFromSelectedItems()
     // Close modal if provided
     if (modal) {
       // modal.close();
     }
+  }
+  
+  async getRecipesFromSelectedItems() {
+    const selectedItems = this.selectedItem(); 
+    console.log("Selected items in data management:", selectedItems);
+  
+    this.setChilds([]); 
+  
+    selectedItems.forEach(item => {
+      this.setChilds([...this.getChilds(), item]); // Add the selected item to the childs signal
+    });
+    const promises = selectedItems.map(item => this.processRecipe(item));
+    
+    await Promise.all(promises); // Wait for all processRecipe calls to complete
+
+  }
+  
+
+  async processRecipe(item: Item) {
+    try {
+      let recipesSelection: Recipe[] = [];
+  
+      if (item.recipes !== undefined) {
+        const promises = item.recipes.map(async rec => {
+          let recipeFound = await this.db.recipesTable.where('ID').equals(rec.ID).first();
+          if (recipeFound) {
+            recipesSelection.push(recipeFound);
+          }
+        });
+  
+        await Promise.all(promises); // Ensure all recipe fetching is completed
+      }
+  
+      console.log('recipesSelection:', recipesSelection);
+      const advancedRecipeFound = recipesSelection.find(recipe => recipe.name.includes('advanced') && recipe.Explicit === true);
+  
+      if (advancedRecipeFound) {
+        console.log('At least one recipe contains "advanced" in its name.', advancedRecipeFound);
+        for (let itemId of advancedRecipeFound.Items) {
+          const item = await this.db.itemsTable.where('ID').equals(itemId).toArray();
+          if (item.length > 0) {
+            const itemObject = item[0];
+            this.setChilds([...this.getChilds(), itemObject]); // Update using signal
+          }
+        }
+      } else {
+        console.log('No recipe contains "advanced" in its name.');
+        for (let itemId of recipesSelection[0].Items) {
+          const item = await this.db.itemsTable.where('ID').equals(itemId).toArray();
+          if (item.length > 0) {
+            const itemObject = item[0];
+            this.setChilds([...this.getChilds(), itemObject]); // Update using signal
+            await this.processRecipe(itemObject); // Recursive call
+          }
+        }
+      }
+    } catch (error) {
+      console.error('Error processing recipe:', error);
+    }
+  
+    console.log('childs2:', this.getChilds()); // Updated after every async operation
+  }
+
+  getChilds(): Item[] {
+    return this.childs();
+  }
+
+  setChilds(newChilds: Item[]): void {
+    this.childs.set(newChilds); // Use signal's set method to update state
   }
 }

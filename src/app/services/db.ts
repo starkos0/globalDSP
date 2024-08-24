@@ -18,9 +18,9 @@ export class AppDB extends Dexie{
     constructor(private http: HttpClient) {
         super('dspData');
 
-        this.version(2).stores({
-            itemsTable: 'ID,typeString',
-            recipesTable: 'ID',
+        this.version(4).stores({
+            itemsTable: 'ID,typeString,name',
+            recipesTable: 'ID,name',
             techsTable: 'ID',
         });
         this.itemsTable = this.table('itemsTable');
@@ -62,6 +62,7 @@ export class AppDB extends Dexie{
 
         if (!isFirstTime) {
             await this.populate();
+            localStorage.setItem('isFirstTime','false')
         }
     }
 }

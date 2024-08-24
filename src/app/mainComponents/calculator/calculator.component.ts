@@ -230,6 +230,7 @@ export class CalculatorComponent implements OnInit {
   }
   selectAssembler(item: Item) {
     this.globalSettingsForm.get('assemblerSelect')?.setValue(item)
+    console.log(this.globalSettingsForm)
     console.log(this.globalSettingsForm.get('assemblerSelect')?.value)
     localStorage.setItem('savedAssemblerID', item.ID.toString());
   }
@@ -274,7 +275,7 @@ export class CalculatorComponent implements OnInit {
   }
   setFormControlWithLocalStorage(controlName: string, options: Item[], localStorageKey: string) {
     const savedID = localStorage.getItem(localStorageKey);
-    console.log(savedID)
+    // console.log(savedID)
     if (savedID) {
       const selectedItem = options.find(item => item.ID === parseInt(savedID, 10));
       if (selectedItem) {
