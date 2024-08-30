@@ -12,69 +12,95 @@
                 <th></th>
                 <th>Transform to ore</th>
                 <th>Item</th>
+                <th>Buildings</th>
                 <th>Recipe</th>
                 <th>Proliferation</th>
-                <th>Machine</th>
+                <th>Belts</th>
+                <th>Power</th>
             </tr>
         </thead>
         <tbody>
-            @if (this.dataManagement.childs().length !== 0) {
+            @if (this.dataManagement.childs().length !== 0 && recipesForm) {
             @for (item of this.dataManagement.childs(); track $index) {
             <tr class="hover">
-                <th>{{$index + 1}}</th>
-                <th><button class="btn">make it ore</button></th>
+                <td>{{$index + 1}}</td>
+                <td><button class="btn">make it ore</button></td>
                 <div class="tooltip" [attr.data-tip]="item.name">
-                    <td class="flex items-center justify-center">
+                    <td>
+                       <div class="flex items-center justify-center">
                         <img class="w-10 h-10 m-2" [src]="'assets/' + item.IconPath +'.png'" alt="">
                         <input type="number" class="input input-bordered input-xs w-20 max-w-xs rounded-sm">
+                       </div>
                     </td>
                 </div>
-                <th>
+                <td>
+                    <div class="flex justify-center items-center">
+                        <img class="w-10 h-10 m-2" [src]="'assets/Icons/ItemRecipe/assembler-4.png'" alt="">
+                        <!-- @switch (item.) {} -->
+                        <input type="number" class="input input-bordered input-xs w-20 max-w-xs rounded-sm">
+                    </div>
+                </td>
+                <td>
                     @if (item.recipes !== undefined) {
-                    <!-- Check if the child has more than one recipe -->
                     @if (item.recipes.length > 1) {
-                    <!-- Form for each item with more than one recipe -->
                     <form [formGroup]="recipesForm">
                         <div class="m-1">
-                            <!-- Create radio buttons for each recipe -->
                             @for (recipe of item.recipes; track $index) {
-                            <p>form controlname: {{item.ID.toString()}}</p>
-                            <p>name attribute: {{item.ID.toString()}}</p>
-                            <P>value: {{recipe.ID}}</P>
-                            <label class="label cursor-pointer">
-                                <!-- Display information and images inside label -->
-                                <input type="radio" 
-                                       [name]="item.ID.toString()"
-                                       [id]="recipe.ID.toString()" 
-                                       [value]="recipe.ID"
-                                       [formControlName]="item.ID.toString()" 
-                                       class="radio hidden"
-                                       (change)="changeRecipeSelection(item.ID.toString())" 
-                                />
-                                <span class="label-text flex items-center justify-center border-red-400"
-                                      [ngClass]="{'bg-base-content text-base-100': recipesForm.get(item.ID.toString())?.value === recipe.ID}">
-                                  <img [src]="'assets/' + item.IconPath + '.png'" class="w-8 h-8 m-2" alt="">
-                                  <span class="material-symbols-outlined">arrow_forward</span>
-                                  <img src="assets/Icons/ItemRecipe/accelerator-3.png" class="w-8 h-8 m-2" alt="">
-                                  <img src="assets/Icons/ItemRecipe/accelerator-3.png" class="w-8 h-8 m-2" alt="">
+                            <label class="label cursor-pointer flex">
+                                <input type="radio" [name]="item.ID.toString()" [id]="recipe.ID.toString()"
+                                    [value]="recipe.ID" [formControlName]="item.ID.toString()" class="radio hidden"
+                                    (change)="changeRecipeSelection(item.ID.toString())" />
+                                <span
+                                    class="label-text flex items-center justify-center border border-primary rounded-sm hover:bg-primary duration-200"
+                                    [ngClass]="{'bg-primary': recipesForm.get(item.ID.toString())?.value === recipe.ID}">
+                                    <img [src]="getRecipeImage(recipe.ID)" class="w-8 h-8 m-2" alt="">
+                                    
+                                    <span class="material-symbols-outlined">arrow_forward</span>
+                                    <img src="assets/Icons/ItemRecipe/accelerator-3.png" class="w-8 h-8 m-2" alt="">
+                                    <img src="assets/Icons/ItemRecipe/accelerator-3.png" class="w-8 h-8 m-2" alt="">
                                 </span>
-                              </label>
+                            </label>
                             }
                         </div>
                     </form>
+                    }@else {
+                    <div class="m-1">
+                        @for (recipe of item.recipes; track $index) {
+                        <label class="label cursor-pointer flex">
+                            <input type="radio" [name]="item.ID.toString()" [id]="recipe.ID.toString()"
+                                 class="radio hidden disabled" />
+                            <span
+                                class="label-text flex items-center justify-center border border-primary rounded-sm hover:bg-primary duration-200"
+                                >
+                                <img [src]="'assets/' + item.IconPath + '.png'" class="w-8 h-8 m-2" alt="">
+                                <span class="material-symbols-outlined">arrow_forward</span>
+                                <img src="assets/Icons/ItemRecipe/accelerator-3.png" class="w-8 h-8 m-2" alt="">
+                                <img src="assets/Icons/ItemRecipe/accelerator-3.png" class="w-8 h-8 m-2" alt="">
+                            </span>
+                        </label>
+                        }
+                    </div>
                     }
                     }
-                </th>
+                </td>
                 <td>
                     <!-- this should not be a static image, depends on what type of proliferator user chooses -->
-                    <img src="assets/Icons/ItemRecipe/accelerator-3.png" class="w-10 h-10 m-2" alt="">
-                    <select class="select select-bordered rounded-sm select-xs  max-w-xs">
-                        <option value="">none</option>
-                        <option value="">accelerate</option>
-                        <option value="">Increase production</option>
-                    </select>
+                    <div class="flex items-center justify-center">
+                        <img src="assets/Icons/ItemRecipe/accelerator-3.png" class="w-10 h-10 m-2" alt="">
+                        <select class="select select-bordered rounded-sm select-xs  max-w-xs">
+                            <option value="">none</option>
+                            <option value="">accelerate</option>
+                            <option value="">Increase production</option>
+                        </select>
+                    </div>
                 </td>
-                <td>Purple</td>
+                <td>
+                    <div class="flex justify-center items-center">
+                        <img class="w-10 h-10 m-2" [src]="'assets/Icons/ItemRecipe/belt-3.png'" alt="">
+                        <input type="number" class="input input-bordered input-xs w-20 max-w-xs rounded-sm">
+                    </div>
+                </td>
+                <td><span>34.6 kW</span></td>
             </tr>
             }
             }

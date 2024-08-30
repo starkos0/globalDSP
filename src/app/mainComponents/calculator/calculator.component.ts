@@ -273,6 +273,18 @@ export class CalculatorComponent implements OnInit {
 
     return src;
   }
+
+  // getBuildingSrcById(): string{
+  //   let src = "";
+
+  //   this.dataManagement.getItemById(buildingId).subscribe(data =>{
+  //     if(data){
+  //       src = `assets/${data[0].IconPath}.png` 
+  //     }
+  //   })
+  //   return src;
+  // }
+
   setFormControlWithLocalStorage(controlName: string, options: Item[], localStorageKey: string) {
     const savedID = localStorage.getItem(localStorageKey);
     // console.log(savedID)

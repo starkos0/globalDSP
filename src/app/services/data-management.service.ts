@@ -6,13 +6,14 @@ import { AppDB } from './db';
 import { Tech } from '../interfaces/mainData/Tech';
 import { Recipe } from '../interfaces/mainData/Recipe';
 import { Item } from '../interfaces/mainData/Item';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 @Injectable({
   providedIn: 'root'
 })
 export class DataManagementService {
   private _globalSettingsForm!: FormGroup;
-
+  public recipesForm: FormGroup = new FormGroup({}); 
+  
   setGlobalSettingsForm(form: FormGroup) {
     this._globalSettingsForm = form;
   }
@@ -139,6 +140,9 @@ export class DataManagementService {
   public selectedItem: WritableSignal<Item[]> = signal([]);
   selectedItemsSet = new Set<number>(); // Set to track selected item IDs
   public childs: WritableSignal<Item[]> = signal([]);
+  public recipesImages: WritableSignal<Recipe[]> = signal([]);
+
+  
   constructor(private db: AppDB, private http: HttpClient) { }
   //from converts promise to observable
 
@@ -232,20 +236,38 @@ export class DataManagementService {
   }
   
   async getRecipesFromSelectedItems() {
-    const selectedItems = this.selectedItem(); 
+    const selectedItems = this.selectedItem(); // Get the selected items from the signal
     console.log("Selected items in data management:", selectedItems);
-  
-    this.setChilds([]); 
-  
-    selectedItems.forEach(item => {
-      this.setChilds([...this.getChilds(), item]); // Add the selected item to the childs signal
-    });
-    const promises = selectedItems.map(item => this.processRecipe(item));
-    
-    await Promise.all(promises); // Wait for all processRecipe calls to complete
 
+    this.setChilds([]); 
+
+    for (const item of selectedItems) {
+      this.setChilds([...this.getChilds(), item]);
+      await this.processRecipe(item);
+    }
+
+    console.log('Final childs:', this.getChilds());
+    this.updateForm(); // Update form after processing
+    this.getChilds().forEach(element => {
+      console.log(element);
+    });
   }
-  
+
+  updateForm(): void {
+    console.log("update form called")
+    this.recipesForm = new FormGroup({});
+
+    this.getChilds().forEach((child) => {
+      if (child.recipes !== undefined) {
+        if (child.recipes.length > 1 || (child.recipes.length > 0 && child.typeString === "Natural Resource")) {
+          if (!this.recipesForm.contains(child.ID.toString())) {
+            console.log(`Adding FormControl for child ${child.ID}.`);
+            this.recipesForm.addControl(child.ID.toString(), new FormControl(null));
+          }
+        }
+      }
+    });
+  }
 
   async processRecipe(item: Item) {
     try {
@@ -256,6 +278,7 @@ export class DataManagementService {
           let recipeFound = await this.db.recipesTable.where('ID').equals(rec.ID).first();
           if (recipeFound) {
             recipesSelection.push(recipeFound);
+            this.recipesImages.set([...this.recipesImages(), recipeFound])
           }
         });
   
@@ -298,5 +321,12 @@ export class DataManagementService {
 
   setChilds(newChilds: Item[]): void {
     this.childs.set(newChilds); // Use signal's set method to update state
+  }
+
+  getItemById(itemId: number){
+    return from(this.db.itemsTable.where('ID').equals(itemId).toArray());
+  }
+  getRecipeById(recipeId: number){
+    return from(this.db.recipesTable.where('ID').equals(recipeId).toArray());
   }
 }
