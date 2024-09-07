@@ -20,17 +20,17 @@
             </tr>
         </thead>
         <tbody>
-            @if (this.dataManagement.childs().length !== 0 && recipesForm) {
-            @for (item of this.dataManagement.childs(); track $index) {
+            @if (this.childs.length !== 0 && this.isRecipesFormInitialized) {
+            @for (item of this.childs; track $index) {
             <tr class="hover">
                 <td>{{$index + 1}}</td>
-                <td><button class="btn">make it ore</button></td>
+                <td><button class="btn" (click)="makeItOre(item)">make it ore</button></td>
                 <div class="tooltip" [attr.data-tip]="item.name">
                     <td>
-                       <div class="flex items-center justify-center">
-                        <img class="w-10 h-10 m-2" [src]="'assets/' + item.IconPath +'.png'" alt="">
-                        <input type="number" class="input input-bordered input-xs w-20 max-w-xs rounded-sm">
-                       </div>
+                        <div class="flex items-center justify-center">
+                            <img class="w-10 h-10 m-2" [src]="'assets/' + item.IconPath +'.png'" alt="">
+                            <input type="number" class="input input-bordered input-xs w-20 max-w-xs rounded-sm">
+                        </div>
                     </td>
                 </div>
                 <td>
@@ -49,15 +49,20 @@
                             <label class="label cursor-pointer flex">
                                 <input type="radio" [name]="item.ID.toString()" [id]="recipe.ID.toString()"
                                     [value]="recipe.ID" [formControlName]="item.ID.toString()" class="radio hidden"
-                                    (change)="changeRecipeSelection(item.ID.toString())" />
+                                    (change)="changeRecipeSelection(item.ID,recipe.ID.toString())" 
+                                    [checked]="item.name.includes('advanced') ? recipe.ID === recipesForm.get(item.ID.toString())?.value : $index === 0" />
                                 <span
                                     class="label-text flex items-center justify-center border border-primary rounded-sm hover:bg-primary duration-200"
                                     [ngClass]="{'bg-primary': recipesForm.get(item.ID.toString())?.value === recipe.ID}">
-                                    <img [src]="getRecipeImage(recipe.ID)" class="w-8 h-8 m-2" alt="">
-                                    
+
+                                    @for (recSrc of getRecipesItemsSrc(recipe.ID); track $index) {
+                                    <img [src]="'assets/' + recSrc + '.png'" class="w-8 h-8 m-2" alt="">
+                                    }
+
                                     <span class="material-symbols-outlined">arrow_forward</span>
-                                    <img src="assets/Icons/ItemRecipe/accelerator-3.png" class="w-8 h-8 m-2" alt="">
-                                    <img src="assets/Icons/ItemRecipe/accelerator-3.png" class="w-8 h-8 m-2" alt="">
+                                    @for (recSrc of getRecipesResultsSrc(recipe.ID); track $index) {
+                                    <img [src]="'assets/' + recSrc + '.png'" class="w-8 h-8 m-2" alt="">
+                                    }
                                 </span>
                             </label>
                             }
@@ -68,10 +73,9 @@
                         @for (recipe of item.recipes; track $index) {
                         <label class="label cursor-pointer flex">
                             <input type="radio" [name]="item.ID.toString()" [id]="recipe.ID.toString()"
-                                 class="radio hidden disabled" />
+                                class="radio hidden disabled" />
                             <span
-                                class="label-text flex items-center justify-center border border-primary rounded-sm hover:bg-primary duration-200"
-                                >
+                                class="label-text flex items-center justify-center border border-primary rounded-sm hover:bg-primary duration-200">
                                 <img [src]="'assets/' + item.IconPath + '.png'" class="w-8 h-8 m-2" alt="">
                                 <span class="material-symbols-outlined">arrow_forward</span>
                                 <img src="assets/Icons/ItemRecipe/accelerator-3.png" class="w-8 h-8 m-2" alt="">

@@ -5,7 +5,6 @@ import { Item } from '../../interfaces/mainData/Item';
 import { AppDB } from '../../services/db';
 import { Recipe } from '../../interfaces/mainData/Recipe';
 import { CommonModule } from '@angular/common';
-import { map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-table-ratios',
@@ -17,63 +16,59 @@ import { map, Observable } from 'rxjs';
 export class TableRatiosComponent implements OnInit {
   public globalSettingsForm!: FormGroup;
   public recipesForm!: FormGroup;
-  public formTest!: FormGroup;
   public childs: Item[] = [];
   public recipesImages: Recipe[] = []
+  public isRecipesFormInitialized: boolean = false;
   constructor(public dataManagement: DataManagementService, private db: AppDB, private fb: FormBuilder) {
     effect(() => {
       const items = this.dataManagement.selectedItem(); // Reactively access the signal's value
-      console.log('Selected items updated in ComponentB:', items);
+      
       this.performActionOnSelectedItems(items);
       this.childs = this.dataManagement.childs()
-      console.log("CHILDS IN EFFECT", this.childs)
-      this.updateForm(this.childs)
+      this.recipesForm = this.dataManagement.recipesForm;
+      // this.updateForm(this.childs)
       this.recipesImages = this.dataManagement.recipesImages();
-      console.log("recipes IMages> ", this.recipesImages)
-      
+      this.isRecipesFormInitialized = this.dataManagement.isRecipesFormInitialized()
+
     });
   }
   updateForm(childs: Item[]): void {
-    console.log("Updating form with new child items");
+    
     this.recipesForm = new FormGroup([])
-    console.log(childs.length)
     // Loop through each child and add a FormControl to the FormGroup if it has more than one recipe
     childs.forEach((child) => {
       if(child.recipes !== undefined){
         if (child.recipes.length > 1 || (child.recipes.length >0 && child.typeString === "Natural Resource")) {
           
-          console.log("recipeeeeeeeeeeee ", child)
-          if (this.recipesForm.contains(child.ID.toString())) {
-            console.log(`FormControl for child ${child.ID} already exists.`);
-          } else {
+          if (!this.recipesForm.contains(child.ID.toString())) {
             this.recipesForm.addControl(child.ID.toString(), new FormControl(null));
-          }
+          } 
         }
       }
     });
 
-    console.log(this.recipesForm)
     this.recipesForm.valueChanges.subscribe((values) => {
-      console.log('Form values changed:', values);
+      console.log(values)
     });
   }
   ngOnInit(): void {
+
+    // Subscribe to value changes
+    this.recipesForm.valueChanges.subscribe(values => {
+      
+    });
     this.globalSettingsForm = this.dataManagement.globalSettingsForm;
     this.globalSettingsForm.valueChanges.subscribe(values => {
-      // console.log(values)
+      // 
     })
     this.recipesForm = this.fb.group({});
     this.recipesForm.valueChanges.subscribe(values => {
-      console.log(values)
+      
     })
-    const group2: any = {}
-    group2['1121'] = new FormControl(null);
-    this.formTest = this.fb.group(group2)
-    console.log("FORM TEST, ", this.formTest)
+
   }
   performActionOnSelectedItems(newItems: Item[]): void {
-    // Logic to perform action on updated items
-    console.log('Performing action on updated items:', newItems);
+    
   }
   async getRecipesImages(recipeId: number): Promise<string[]> {
     let srcImages: string[] = [];
@@ -90,11 +85,16 @@ export class TableRatiosComponent implements OnInit {
 
     return srcImages;
   }
-  changeRecipeSelection(recipeId: string) {
-    console.log(this.recipesForm.get(recipeId))
-  }
-  changeRecipeSelection2(event: Event) {
-    console.log("changerecipeselection: ", event)
+  async changeRecipeSelection(itemId: number,recipeId: string) {
+    console.log(recipeId)
+    console.log(this.recipesForm.value)
+    console.log(this.childs.find(item => item.ID === itemId))
+    let recipe = await this.db.recipesTable.where('ID').equals(parseInt(recipeId)).toArray();
+    console.log(recipe[0])
+    if(recipe[0]){
+      this.childs = this.childs.filter(item => !recipe[0].Items.includes(item.ID))
+      console.log(this.childs)
+    }
   }
 
   getRecipeImage(recipeId: number) {
@@ -104,6 +104,27 @@ export class TableRatiosComponent implements OnInit {
     }
     return src;
   }
-  
-  
+  getRecipesItemsSrc(recipeID: number): string[]{
+    let recipe = this.dataManagement.imagesRecipes.find(el => el.ID === recipeID);
+
+    if(recipe &&  recipe.items !== undefined){
+      return this.dataManagement.imagesRecipes.find(el => el.ID === recipeID)!.items
+    }else{
+      return []
+    }
+  }
+  getRecipesResultsSrc(recipeID: number): string[]{
+    let recipe = this.dataManagement.imagesRecipes.find(el => el.ID === recipeID);
+
+    if(recipe &&  recipe.results !== undefined){
+      return this.dataManagement.imagesRecipes.find(el => el.ID === recipeID)!.items
+    }else{
+      return []
+    }
+  }
+  async makeItOre(item: Item){
+    
+    let recipe = await this.db.itemsTable.where('name').equals(item.name).toArray();
+    
+  }
 }

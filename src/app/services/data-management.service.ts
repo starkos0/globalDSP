@@ -6,14 +6,15 @@ import { AppDB } from './db';
 import { Tech } from '../interfaces/mainData/Tech';
 import { Recipe } from '../interfaces/mainData/Recipe';
 import { Item } from '../interfaces/mainData/Item';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 @Injectable({
   providedIn: 'root'
 })
 export class DataManagementService {
   private _globalSettingsForm!: FormGroup;
-  public recipesForm: FormGroup = new FormGroup({}); 
-  
+  public recipesForm: FormGroup = new FormGroup({});
+  public isRecipesFormInitialized = signal(false); // Flag to track form initialization
+
   setGlobalSettingsForm(form: FormGroup) {
     this._globalSettingsForm = form;
   }
@@ -21,6 +22,7 @@ export class DataManagementService {
   get globalSettingsForm(): FormGroup {
     return this._globalSettingsForm;
   }
+
 
   //to get changes 
   private typesSubject: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
@@ -141,9 +143,10 @@ export class DataManagementService {
   selectedItemsSet = new Set<number>(); // Set to track selected item IDs
   public childs: WritableSignal<Item[]> = signal([]);
   public recipesImages: WritableSignal<Recipe[]> = signal([]);
+  public imagesRecipes: {ID:number,items: string[],results: string[]}[] = []
 
   
-  constructor(private db: AppDB, private http: HttpClient) { }
+  constructor(private db: AppDB, private http: HttpClient, private fb: FormBuilder) { }
   //from converts promise to observable
 
   //Common use cases from the db or more complex stuff
@@ -225,52 +228,98 @@ export class DataManagementService {
       this.selectedItemsSet.add(selectedItem.ID);
       this.selectedItem.set([...this.selectedItem(), selectedItem]);
     }
-
-    console.log("Selected items:", this.selectedItem());
-    console.log("computed items ", this.selectedItemsSet);
     this.getRecipesFromSelectedItems()
-    // Close modal if provided
-    if (modal) {
-      // modal.close();
-    }
   }
   
   async getRecipesFromSelectedItems() {
     const selectedItems = this.selectedItem(); // Get the selected items from the signal
-    console.log("Selected items in data management:", selectedItems);
-
     this.setChilds([]); 
-
+    this.isRecipesFormInitialized.set(false)
     for (const item of selectedItems) {
       this.setChilds([...this.getChilds(), item]);
       await this.processRecipe(item);
     }
-
-    console.log('Final childs:', this.getChilds());
-    this.updateForm(); // Update form after processing
-    this.getChilds().forEach(element => {
-      console.log(element);
-    });
+    this.imagesRecipes.length = 0 
+    await this.processRecipesImages()
+    this.updateForm()
+    console.log("childs: ", this.childs());
+    console.log("recipesForm: ", this.recipesForm.value)
+    console.log("recipes images: ", this.imagesRecipes)
+    console.log(" recipesImages(): ", this.recipesImages())
   }
 
   updateForm(): void {
-    console.log("update form called")
     this.recipesForm = new FormGroup({});
-
     this.getChilds().forEach((child) => {
       if (child.recipes !== undefined) {
+        // Verificamos que cumpla con las condiciones para agregar el FormControl
         if (child.recipes.length > 1 || (child.recipes.length > 0 && child.typeString === "Natural Resource")) {
+          console.log(child.name)
           if (!this.recipesForm.contains(child.ID.toString())) {
-            console.log(`Adding FormControl for child ${child.ID}.`);
-            this.recipesForm.addControl(child.ID.toString(), new FormControl(null));
+            // Condiciones para seleccionar automáticamente un valor
+            let defaultValue = null;
+            if(child.recipes.find(rec => rec.name.includes("advanced"))){
+              defaultValue = child.recipes.find(rec => rec.name.includes("advanced"))!.ID
+            }else{
+              defaultValue = child.recipes[0].ID;
+
+            }
+
+            // Agregar el FormControl con el valor por defecto
+            this.recipesForm.addControl(child.ID.toString(), new FormControl(defaultValue));
           }
         }
       }
     });
-  }
 
+    this.isRecipesFormInitialized.set(true);
+    
+}
+
+  async processRecipesImages() {
+    // Reset imagesRecipes to ensure it's empty before processing
+    this.imagesRecipes = [];
+  
+    // Use for...of loop to handle asynchronous operations properly
+    for (const recipe of this.recipesImages()) {
+      const recipeEntry: {ID:number,items: string[],results: string[]} = {
+        ID: recipe.ID,
+        items: [],
+        results: []
+      };
+  
+      // Process items array with await inside a for...of loop
+      for (const element of recipe.Items) {
+        try {
+          const itemFound = await this.db.itemsTable.where('ID').equals(element).first();
+          if (itemFound) {
+            recipeEntry.items.push(itemFound.IconPath);
+          }
+        } catch (error) {
+          
+        }
+      }
+  
+      // Process results array with await inside a for...of loop
+      for (const element of recipe.Results) {
+        try {
+          const resultFound = await this.db.itemsTable.where('ID').equals(element).first();
+          if (resultFound) {
+            recipeEntry.results.push(resultFound.IconPath);
+          }
+        } catch (error) {
+          
+        }
+      }
+  
+      // Push the fully populated recipe entry to imagesRecipes
+      this.imagesRecipes.push(recipeEntry);
+    }
+  }
+  
   async processRecipe(item: Item) {
     try {
+      // this.recipesImages.set([])
       let recipesSelection: Recipe[] = [];
   
       if (item.recipes !== undefined) {
@@ -285,11 +334,13 @@ export class DataManagementService {
         await Promise.all(promises); // Ensure all recipe fetching is completed
       }
   
-      console.log('recipesSelection:', recipesSelection);
+      
       const advancedRecipeFound = recipesSelection.find(recipe => recipe.name.includes('advanced') && recipe.Explicit === true);
-  
+      if(this.recipesForm.value.hasOwnProperty(item.ID)){
+        
+      }
       if (advancedRecipeFound) {
-        console.log('At least one recipe contains "advanced" in its name.', advancedRecipeFound);
+        
         for (let itemId of advancedRecipeFound.Items) {
           const item = await this.db.itemsTable.where('ID').equals(itemId).toArray();
           if (item.length > 0) {
@@ -298,7 +349,7 @@ export class DataManagementService {
           }
         }
       } else {
-        console.log('No recipe contains "advanced" in its name.');
+        
         for (let itemId of recipesSelection[0].Items) {
           const item = await this.db.itemsTable.where('ID').equals(itemId).toArray();
           if (item.length > 0) {
@@ -308,11 +359,11 @@ export class DataManagementService {
           }
         }
       }
+      console.log("recipe selection: ", recipesSelection)
     } catch (error) {
-      console.error('Error processing recipe:', error);
+      
     }
-  
-    console.log('childs2:', this.getChilds()); // Updated after every async operation
+    
   }
 
   getChilds(): Item[] {
