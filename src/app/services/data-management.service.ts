@@ -234,12 +234,14 @@ export class DataManagementService {
   async getRecipesFromSelectedItems() {
     const selectedItems = this.selectedItem(); // Get the selected items from the signal
     this.setChilds([]); 
+    this.imagesRecipes.length = 0 
+    this.recipesImages.set([])
     this.isRecipesFormInitialized.set(false)
     for (const item of selectedItems) {
       this.setChilds([...this.getChilds(), item]);
       await this.processRecipe(item);
     }
-    this.imagesRecipes.length = 0 
+
     await this.processRecipesImages()
     this.updateForm()
     console.log("childs: ", this.childs());
@@ -254,7 +256,7 @@ export class DataManagementService {
       if (child.recipes !== undefined) {
         // Verificamos que cumpla con las condiciones para agregar el FormControl
         if (child.recipes.length > 1 || (child.recipes.length > 0 && child.typeString === "Natural Resource")) {
-          console.log(child.name)
+          // console.log(child.name)
           if (!this.recipesForm.contains(child.ID.toString())) {
             // Condiciones para seleccionar automáticamente un valor
             let defaultValue = null;
@@ -321,7 +323,8 @@ export class DataManagementService {
     try {
       // this.recipesImages.set([])
       let recipesSelection: Recipe[] = [];
-  
+      console.log(item)
+      console.log("item.recipes ", item.recipes)
       if (item.recipes !== undefined) {
         const promises = item.recipes.map(async rec => {
           let recipeFound = await this.db.recipesTable.where('ID').equals(rec.ID).first();
@@ -346,6 +349,7 @@ export class DataManagementService {
           if (item.length > 0) {
             const itemObject = item[0];
             this.setChilds([...this.getChilds(), itemObject]); // Update using signal
+            await this.processRecipe(itemObject); 
           }
         }
       } else {

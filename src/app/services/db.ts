@@ -18,9 +18,9 @@ export class AppDB extends Dexie{
     constructor(private http: HttpClient) {
         super('dspData');
 
-        this.version(4).stores({
+        this.version(5).stores({
             itemsTable: 'ID,typeString,name',
-            recipesTable: 'ID,name',
+            recipesTable: 'ID,name,Results',
             techsTable: 'ID',
         });
         this.itemsTable = this.table('itemsTable');

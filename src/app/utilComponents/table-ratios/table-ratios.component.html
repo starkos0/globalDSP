@@ -4,6 +4,7 @@
     <p>{{item.name}}</p>
     }
 </div>
+
 <div class="overflow-x-auto">
     <table class="table">
         <!-- head -->
@@ -48,7 +49,7 @@
                             @for (recipe of item.recipes; track $index) {
                             <label class="label cursor-pointer flex">
                                 <input type="radio" [name]="item.ID.toString()" [id]="recipe.ID.toString()"
-                                    [value]="recipe.ID" [formControlName]="item.ID.toString()" class="radio hidden"
+                                    [value]="recipe.ID" [formControlName]="item.ID.toString()" class="radio hidden"      (click)="storePreviousValues(item.ID)"
                                     (change)="changeRecipeSelection(item.ID,recipe.ID.toString())" 
                                     [checked]="item.name.includes('advanced') ? recipe.ID === recipesForm.get(item.ID.toString())?.value : $index === 0" />
                                 <span
@@ -71,18 +72,23 @@
                     }@else {
                     <div class="m-1">
                         @for (recipe of item.recipes; track $index) {
-                        <label class="label cursor-pointer flex">
-                            <input type="radio" [name]="item.ID.toString()" [id]="recipe.ID.toString()"
-                                class="radio hidden disabled" />
-                            <span
-                                class="label-text flex items-center justify-center border border-primary rounded-sm hover:bg-primary duration-200">
-                                <img [src]="'assets/' + item.IconPath + '.png'" class="w-8 h-8 m-2" alt="">
-                                <span class="material-symbols-outlined">arrow_forward</span>
-                                <img src="assets/Icons/ItemRecipe/accelerator-3.png" class="w-8 h-8 m-2" alt="">
-                                <img src="assets/Icons/ItemRecipe/accelerator-3.png" class="w-8 h-8 m-2" alt="">
-                            </span>
-                        </label>
-                        }
+                            <label class="label cursor-pointer flex">
+                                <input type="radio" [name]="item.ID.toString()" [id]="recipe.ID.toString()"
+                                    checked="checked" class="radio hidden"   />
+                                <span
+                                    class="label-text flex items-center justify-center border border-primary rounded-sm hover:bg-primary duration-200 bg-primary">
+
+                                    @for (recSrc of getRecipesItemsSrc(recipe.ID); track $index) {
+                                    <img [src]="'assets/' + recSrc + '.png'" class="w-8 h-8 m-2" alt="">
+                                    }
+
+                                    <span class="material-symbols-outlined">arrow_forward</span>
+                                    @for (recSrc of getRecipesResultsSrc(recipe.ID); track $index) {
+                                    <img [src]="'assets/' + recSrc + '.png'" class="w-8 h-8 m-2" alt="">
+                                    }
+                                </span>
+                            </label>
+                            }
                     </div>
                     }
                     }
