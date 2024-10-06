@@ -1,3 +1,78 @@
+<!-- <div>
+    <pre>{{this.dataManagement.test() | json}}</pre>
+</div>-->
+@if (this.dataManagement.test().length > 0) {
+<div class="overflow-x-auto">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Table number</th>
+                <th>Transform to ore</th>
+                <th>Item</th>
+                <th>Buildings</th>
+                <th>Recipe</th>
+                <th>Proliferation</th>
+                <th>Belts</th>
+                <th>Power</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @for (item of this.dataManagement.test(); track $index) {
+                <ng-container>
+                    <ng-container *ngTemplateOutlet="recursiveTemplate; context: { $implicit: item }"></ng-container>
+                </ng-container>
+
+                <ng-template #recursiveTemplate let-item>
+                    <tr class="hover">
+                        <td>-</td>
+                        <td><button class="btn" (click)="makeItOre(item)">make it ore</button></td>
+                        <div class="tooltip" [attr.data-tip]="item.name">
+                            <td>
+                                <div class="flex items-center justify-center">
+                                    <img class="w-10 h-10 m-2" [src]="'assets/' + item.IconPath +'.png'" alt="">
+                                    <input type="number" class="input input-bordered input-xs w-20 max-w-xs rounded-sm">
+                                </div>
+                            </td>
+                        </div>
+                        <td>
+                            <div class="flex justify-center items-center">
+                                <img class="w-10 h-10 m-2" [src]="'assets/Icons/ItemRecipe/assembler-4.png'" alt="">
+                                <!-- @switch (item.) {} -->
+                                <input type="number" class="input input-bordered input-xs w-20 max-w-xs rounded-sm">
+                            </div>
+                        </td>
+                        <td>
+                            RECIPE
+                        </td>
+                        <td>
+                            <!-- this should not be a static image, depends on what type of proliferator user chooses -->
+                            <div class="flex items-center justify-center">
+                                <img src="assets/Icons/ItemRecipe/accelerator-3.png" class="w-10 h-10 m-2" alt="">
+                                <select class="select select-bordered rounded-sm select-xs  max-w-xs">
+                                    <option value="">none</option>
+                                    <option value="">accelerate</option>
+                                    <option value="">Increase production</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="flex justify-center items-center">
+                                <img class="w-10 h-10 m-2" [src]="'assets/Icons/ItemRecipe/belt-3.png'" alt="">
+                                <input type="number" class="input input-bordered input-xs w-20 max-w-xs rounded-sm">
+                            </div>
+                        </td>
+                        <td><span>34.6 kW</span></td>
+                    </tr>
+                    @for (child of item.childs; track $index) {
+                        <ng-container *ngTemplateOutlet="recursiveTemplate; context: { $implicit: child }"></ng-container>
+                    }
+                </ng-template>
+            }
+        </tbody>
+    </table>
+</div>
+}
 @if (dataManagement.selectedItem().length > 0) {
 <div>
     @for (item of dataManagement.selectedItem(); track $index) {
@@ -49,8 +124,9 @@
                             @for (recipe of item.recipes; track $index) {
                             <label class="label cursor-pointer flex">
                                 <input type="radio" [name]="item.ID.toString()" [id]="recipe.ID.toString()"
-                                    [value]="recipe.ID" [formControlName]="item.ID.toString()" class="radio hidden"      (click)="storePreviousValues(item.ID)"
-                                    (change)="changeRecipeSelection(item.ID,recipe.ID.toString())" 
+                                    [value]="recipe.ID" [formControlName]="item.ID.toString()" class="radio hidden"
+                                    (click)="storePreviousValues(item.ID)"
+                                    (change)="changeRecipeSelection(item.ID,recipe.ID.toString())"
                                     [checked]="item.name.includes('advanced') ? recipe.ID === recipesForm.get(item.ID.toString())?.value : $index === 0" />
                                 <span
                                     class="label-text flex items-center justify-center border border-primary rounded-sm hover:bg-primary duration-200"
@@ -72,23 +148,23 @@
                     }@else {
                     <div class="m-1">
                         @for (recipe of item.recipes; track $index) {
-                            <label class="label cursor-pointer flex">
-                                <input type="radio" [name]="item.ID.toString()" [id]="recipe.ID.toString()"
-                                    checked="checked" class="radio hidden"   />
-                                <span
-                                    class="label-text flex items-center justify-center border border-primary rounded-sm hover:bg-primary duration-200 bg-primary">
+                        <label class="label cursor-pointer flex">
+                            <input type="radio" [name]="item.ID.toString()" [id]="recipe.ID.toString()"
+                                checked="checked" class="radio hidden" />
+                            <span
+                                class="label-text flex items-center justify-center border border-primary rounded-sm hover:bg-primary duration-200 bg-primary">
 
-                                    @for (recSrc of getRecipesItemsSrc(recipe.ID); track $index) {
-                                    <img [src]="'assets/' + recSrc + '.png'" class="w-8 h-8 m-2" alt="">
-                                    }
+                                @for (recSrc of getRecipesItemsSrc(recipe.ID); track $index) {
+                                <img [src]="'assets/' + recSrc + '.png'" class="w-8 h-8 m-2" alt="">
+                                }
 
-                                    <span class="material-symbols-outlined">arrow_forward</span>
-                                    @for (recSrc of getRecipesResultsSrc(recipe.ID); track $index) {
-                                    <img [src]="'assets/' + recSrc + '.png'" class="w-8 h-8 m-2" alt="">
-                                    }
-                                </span>
-                            </label>
-                            }
+                                <span class="material-symbols-outlined">arrow_forward</span>
+                                @for (recSrc of getRecipesResultsSrc(recipe.ID); track $index) {
+                                <img [src]="'assets/' + recSrc + '.png'" class="w-8 h-8 m-2" alt="">
+                                }
+                            </span>
+                        </label>
+                        }
                     </div>
                     }
                     }

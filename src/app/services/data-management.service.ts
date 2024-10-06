@@ -7,6 +7,7 @@ import { Tech } from '../interfaces/mainData/Tech';
 import { Recipe } from '../interfaces/mainData/Recipe';
 import { Item } from '../interfaces/mainData/Item';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { TransformedItems } from '../interfaces/transformed-items';
 @Injectable({
   providedIn: 'root'
 })
@@ -143,9 +144,9 @@ export class DataManagementService {
   selectedItemsSet = new Set<number>(); // Set to track selected item IDs
   public childs: WritableSignal<Item[]> = signal([]);
   public recipesImages: WritableSignal<Recipe[]> = signal([]);
-  public imagesRecipes: {ID:number,items: string[],results: string[]}[] = []
+  public imagesRecipes: { ID: number, items: string[], results: string[] }[] = []
 
-  
+
   constructor(private db: AppDB, private http: HttpClient, private fb: FormBuilder) { }
   //from converts promise to observable
 
@@ -218,23 +219,82 @@ export class DataManagementService {
     return this.selectedItemsSet.has(selectedItem.ID);
   }
 
-  toggleSelection(selectedItem: Item, modal?: HTMLDialogElement) {
-    if (this.isSelected(selectedItem)) {
-      // Remove item from the Set and the signal array
-      this.selectedItemsSet.delete(selectedItem.ID);
-      this.selectedItem.set(this.selectedItem().filter(item => item.ID !== selectedItem.ID));
-    } else {
-      // Add item to the Set and the signal array
-      this.selectedItemsSet.add(selectedItem.ID);
-      this.selectedItem.set([...this.selectedItem(), selectedItem]);
-    }
-    this.getRecipesFromSelectedItems()
+  isSelectedTest(selectedItem: TransformedItems): boolean {
+    return this.selectedItemsSetTest.has(selectedItem.ID);
   }
-  
+  public test: WritableSignal<TransformedItems[]> = signal([]);
+  selectedItemsSetTest = new Set<number>();
+  async toggleSelection(selectedItem: Item, modal?: HTMLDialogElement) {
+    // if (this.isSelected(selectedItem)) {
+    //   // Remove item from the Set and the signal array
+    //   this.selectedItemsSet.delete(selectedItem.ID);
+    //   this.selectedItem.set(this.selectedItem().filter(item => item.ID !== selectedItem.ID));
+    // } else {
+    //   // Add item to the Set and the signal array
+    //   this.selectedItemsSet.add(selectedItem.ID);
+    //   this.selectedItem.set([...this.selectedItem(), selectedItem]);
+    // }
+    // this.getRecipesFromSelectedItems()
+    console.log(selectedItem);
+    const newItem: TransformedItems = {
+      ID: selectedItem.ID,
+      name: selectedItem.name,
+      Type: selectedItem.Type,
+      IconPath: selectedItem.IconPath,
+      GridIndex: selectedItem.GridIndex,
+      recipes: selectedItem.recipes,
+      typeString: selectedItem.typeString,
+      fuelTypeString: selectedItem.fuelTypeString,
+      childs: []
+    }
+    if (this.isSelectedTest(newItem)) {
+      this.selectedItemsSetTest.delete(newItem.ID);
+      this.test.set(this.test().filter(item => item.ID !== newItem.ID))
+    } else {
+      this.selectedItemsSetTest.add(newItem.ID);
+      this.test.set([...this.test(), newItem])
+    }
+
+    console.log(this.test());
+    for (const item of this.test()) {
+      await this.createTreeStructure(item);
+    }
+  }
+
+  async createTreeStructure(item: TransformedItems) {
+    console.log(item.recipes);
+    if (item.recipes !== undefined) {
+      let advancedRecipeFound = item.recipes.find(recipe => recipe.name.includes('advanced'));
+      let recipeToUse = advancedRecipeFound ? advancedRecipeFound : item.recipes[0]; // Use the first recipe if no advanced recipe is found
+
+      if (recipeToUse) {
+        let recipe = await this.db.recipesTable.where('ID').equals(recipeToUse.ID).toArray();
+        console.log(recipe);
+        for (const itemId of recipe[0].Items) {
+          let itemFound = await this.db.itemsTable.where('ID').equals(itemId).toArray();
+          console.log("items required: ", itemFound[0].name);
+          const newItem: TransformedItems = {
+            ID: itemFound[0].ID,
+            name: itemFound[0].name,
+            Type: itemFound[0].Type,
+            IconPath: itemFound[0].IconPath,
+            GridIndex: itemFound[0].GridIndex,
+            recipes: itemFound[0].recipes,
+            typeString: itemFound[0].typeString,
+            fuelTypeString: itemFound[0].fuelTypeString,
+            childs: []
+          };
+          item.childs.push(newItem);
+          await this.createTreeStructure(newItem); // Recursive call to continue building the tree
+        }
+      }
+    }
+  }
+
   async getRecipesFromSelectedItems() {
     const selectedItems = this.selectedItem(); // Get the selected items from the signal
-    this.setChilds([]); 
-    this.imagesRecipes.length = 0 
+    this.setChilds([]);
+    this.imagesRecipes.length = 0
     this.recipesImages.set([])
     this.isRecipesFormInitialized.set(false)
     for (const item of selectedItems) {
@@ -260,9 +320,9 @@ export class DataManagementService {
           if (!this.recipesForm.contains(child.ID.toString())) {
             // Condiciones para seleccionar automáticamente un valor
             let defaultValue = null;
-            if(child.recipes.find(rec => rec.name.includes("advanced"))){
+            if (child.recipes.find(rec => rec.name.includes("advanced"))) {
               defaultValue = child.recipes.find(rec => rec.name.includes("advanced"))!.ID
-            }else{
+            } else {
               defaultValue = child.recipes[0].ID;
 
             }
@@ -275,21 +335,21 @@ export class DataManagementService {
     });
 
     this.isRecipesFormInitialized.set(true);
-    
-}
+
+  }
 
   async processRecipesImages() {
     // Reset imagesRecipes to ensure it's empty before processing
     this.imagesRecipes = [];
-  
+
     // Use for...of loop to handle asynchronous operations properly
     for (const recipe of this.recipesImages()) {
-      const recipeEntry: {ID:number,items: string[],results: string[]} = {
+      const recipeEntry: { ID: number, items: string[], results: string[] } = {
         ID: recipe.ID,
         items: [],
         results: []
       };
-  
+
       // Process items array with await inside a for...of loop
       for (const element of recipe.Items) {
         try {
@@ -298,10 +358,10 @@ export class DataManagementService {
             recipeEntry.items.push(itemFound.IconPath);
           }
         } catch (error) {
-          
+
         }
       }
-  
+
       // Process results array with await inside a for...of loop
       for (const element of recipe.Results) {
         try {
@@ -310,15 +370,15 @@ export class DataManagementService {
             recipeEntry.results.push(resultFound.IconPath);
           }
         } catch (error) {
-          
+
         }
       }
-  
+
       // Push the fully populated recipe entry to imagesRecipes
       this.imagesRecipes.push(recipeEntry);
     }
   }
-  
+
   async processRecipe(item: Item) {
     try {
       // this.recipesImages.set([])
@@ -333,27 +393,27 @@ export class DataManagementService {
             this.recipesImages.set([...this.recipesImages(), recipeFound])
           }
         });
-  
+
         await Promise.all(promises); // Ensure all recipe fetching is completed
       }
-  
-      
+
+
       const advancedRecipeFound = recipesSelection.find(recipe => recipe.name.includes('advanced') && recipe.Explicit === true);
-      if(this.recipesForm.value.hasOwnProperty(item.ID)){
-        
+      if (this.recipesForm.value.hasOwnProperty(item.ID)) {
+
       }
       if (advancedRecipeFound) {
-        
+
         for (let itemId of advancedRecipeFound.Items) {
           const item = await this.db.itemsTable.where('ID').equals(itemId).toArray();
           if (item.length > 0) {
             const itemObject = item[0];
             this.setChilds([...this.getChilds(), itemObject]); // Update using signal
-            await this.processRecipe(itemObject); 
+            await this.processRecipe(itemObject);
           }
         }
       } else {
-        
+
         for (let itemId of recipesSelection[0].Items) {
           const item = await this.db.itemsTable.where('ID').equals(itemId).toArray();
           if (item.length > 0) {
@@ -365,9 +425,9 @@ export class DataManagementService {
       }
       console.log("recipe selection: ", recipesSelection)
     } catch (error) {
-      
+
     }
-    
+
   }
 
   getChilds(): Item[] {
@@ -378,10 +438,10 @@ export class DataManagementService {
     this.childs.set(newChilds); // Use signal's set method to update state
   }
 
-  getItemById(itemId: number){
+  getItemById(itemId: number) {
     return from(this.db.itemsTable.where('ID').equals(itemId).toArray());
   }
-  getRecipeById(recipeId: number){
+  getRecipeById(recipeId: number) {
     return from(this.db.recipesTable.where('ID').equals(recipeId).toArray());
   }
 }
