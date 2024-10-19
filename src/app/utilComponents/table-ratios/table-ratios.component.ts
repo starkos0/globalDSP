@@ -23,25 +23,14 @@ export class TableRatiosComponent implements OnInit {
 
   constructor(public dataManagement: DataManagementService, private db: AppDB, private fb: FormBuilder) {
     effect(() => {
-      const items = this.dataManagement.selectedItem(); // Reactively access the signal's value
 
-      this.performActionOnSelectedItems(items);
       this.childs = this.dataManagement.childs()
       console.log("CHILDS -> ", this.childs)
       this.recipesForm = this.dataManagement.recipesForm;
       this.recipesImages = this.dataManagement.recipesImages();
       this.isRecipesFormInitialized = this.dataManagement.isRecipesFormInitialized()
 
-      // //this part right here is just to know which recipe was selected before the user changes it, so i can delete the exact current items from the previous recipe and put the new ones
-      // //to add the new ones i thought this: i count exactly how many items are used in the previous recipe, i find the exact location of the item, i remove the next X items and then just in the same
-      // //position i add the new ones
-      // this.previousFormValues = { ...this.recipesForm.value };
 
-      // this.recipesForm.valueChanges.subscribe(newFormValues => {
-      //   console.log('Valor anterior del formulario:', this.previousFormValues); 
-      //   console.log('Nuevo valor del formulario:', newFormValues); 
-      //   this.previousFormValues = { ...newFormValues };
-      // });
     });
   }
   storePreviousValues(itemId: number) {
@@ -199,4 +188,13 @@ export class TableRatiosComponent implements OnInit {
   previousValue(recipeId: number) {
     console.log(recipeId)
   }
+
+  getMachineFromRecipe(itemId:number){
+
+  }
+
+  getRecipeSelection(recipeId: number){
+    console.log(this.dataManagement.recipesFromTreeStructure().find(recipe => recipe.ID === recipeId))
+  }
+
 }

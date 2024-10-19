@@ -44,12 +44,7 @@
                             <div role="tabpanel" class="tab-content p-10">
                                 <div class="flex flex-wrap">
                                     @for (recipe of buildings; track $index) {
-                                    <button [ngClass]="{
-                                        'bg-base-content': dataManagement.selectedItemsSet.has(recipe.ID),
-                                        'scale-90': dataManagement.selectedItemsSet.has(recipe.ID),
-                                        'transition-all': true, 
-                                        'duration-200': true
-                                    }" (click)="dataManagement.toggleSelection(recipe, myModal)"
+                                    <button (click)="dataManagement.toggleSelection(recipe, myModal)"
                                         class="btn btn-sm rounded-sm w-14 h-14 m-2 p-2 hover:bg-base-content border-1 transition-all hover:scale-90 duration-200"><img
                                             class="w-full h-auto" [src]="'assets/' + getImageSrc(recipe.name) + '.png'"
                                             alt=""></button>

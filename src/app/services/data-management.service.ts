@@ -140,11 +140,14 @@ export class DataManagementService {
     fuelTypeString: '',
     name: ''
   }
-  public selectedItem: WritableSignal<Item[]> = signal([]);
-  selectedItemsSet = new Set<number>(); // Set to track selected item IDs
+
+  public selectedItems: WritableSignal<TransformedItems[]> = signal([]);
+  selectedItemsSet = new Set<number>();
+
   public childs: WritableSignal<Item[]> = signal([]);
   public recipesImages: WritableSignal<Recipe[]> = signal([]);
   public imagesRecipes: { ID: number, items: string[], results: string[] }[] = []
+  public recipesFromTreeStructure: WritableSignal<Recipe[]> = signal([]);
 
 
   constructor(private db: AppDB, private http: HttpClient, private fb: FormBuilder) { }
@@ -215,15 +218,11 @@ export class DataManagementService {
     )
   }
 
-  isSelected(selectedItem: Item): boolean {
+
+  isSelectedTest(selectedItem: TransformedItems): boolean {
     return this.selectedItemsSet.has(selectedItem.ID);
   }
 
-  isSelectedTest(selectedItem: TransformedItems): boolean {
-    return this.selectedItemsSetTest.has(selectedItem.ID);
-  }
-  public test: WritableSignal<TransformedItems[]> = signal([]);
-  selectedItemsSetTest = new Set<number>();
   async toggleSelection(selectedItem: Item, modal?: HTMLDialogElement) {
     // if (this.isSelected(selectedItem)) {
     //   // Remove item from the Set and the signal array
@@ -235,7 +234,10 @@ export class DataManagementService {
     //   this.selectedItem.set([...this.selectedItem(), selectedItem]);
     // }
     // this.getRecipesFromSelectedItems()
+    this.isRecipesFormInitialized.set(false);
+    this.recipesForm = new FormGroup({});
     console.log(selectedItem);
+    this.recipesFromTreeStructure.set([]);
     const newItem: TransformedItems = {
       ID: selectedItem.ID,
       name: selectedItem.name,
@@ -248,31 +250,69 @@ export class DataManagementService {
       childs: []
     }
     if (this.isSelectedTest(newItem)) {
-      this.selectedItemsSetTest.delete(newItem.ID);
-      this.test.set(this.test().filter(item => item.ID !== newItem.ID))
+      this.selectedItemsSet.delete(newItem.ID);
+      this.selectedItems.set(this.selectedItems().filter(item => item.ID !== newItem.ID))
     } else {
-      this.selectedItemsSetTest.add(newItem.ID);
-      this.test.set([...this.test(), newItem])
+      this.selectedItemsSet.add(newItem.ID);
+      this.selectedItems.set([...this.selectedItems(), newItem])
     }
 
-    console.log(this.test());
-    for (const item of this.test()) {
+    console.log(this.selectedItems());
+    for (const item of this.selectedItems()) {
       await this.createTreeStructure(item);
+    }
+
+    console.log("recipesFromTreeStructure: ", this.recipesFromTreeStructure())
+    console.log(this.recipesForm.value)
+    console.log(this.recipesImages())
+    this.processRecipesImages();
+    this.isRecipesFormInitialized.set(true);
+  }
+
+  async processRecipes(item: TransformedItems) {
+    // Verifica y procesa las recetas en el nivel actual
+    if (item.recipes) {
+      let containsAdvancedRecipe = item.recipes.findIndex(recipe => recipe.name.includes('advanced'));
+      if(containsAdvancedRecipe !== -1){
+        this.recipesForm.addControl(item.ID.toString(), new FormControl(item.recipes[containsAdvancedRecipe].ID));
+      }else{
+        this.recipesForm.addControl(item.ID.toString(), new FormControl(item.recipes[0].ID));
+      }
+      for (const recipe of item.recipes) {
+        if(recipe.name.includes("advanced")){
+          this.recipesForm.addControl(item.ID.toString(), new FormControl(recipe.ID));
+        }
+        let recipeFound = await this.db.recipesTable.where('ID').equals(recipe.ID).toArray();
+        this.recipesFromTreeStructure().push(recipeFound[0]);
+      }
+    }
+  
+    // Recorre recursivamente los childs si existen
+    if (item.childs) {
+      for (const child of item.childs) {
+        await this.processRecipes(child); // Llama recursivamente a la función para cada hijo
+      }
     }
   }
 
+
   async createTreeStructure(item: TransformedItems) {
-    console.log(item.recipes);
+    // console.log(item.recipes);
     if (item.recipes !== undefined) {
       let advancedRecipeFound = item.recipes.find(recipe => recipe.name.includes('advanced'));
       let recipeToUse = advancedRecipeFound ? advancedRecipeFound : item.recipes[0]; // Use the first recipe if no advanced recipe is found
 
       if (recipeToUse) {
         let recipe = await this.db.recipesTable.where('ID').equals(recipeToUse.ID).toArray();
-        console.log(recipe);
+        this.recipesImages.set([...this.recipesImages(), recipe[0]]);
+
+        this.recipesForm.addControl(item.ID.toString(), new FormControl(recipeToUse.ID));
+        this.recipesForm.addControl(item.ID.toString(), new FormControl(item.recipes[0].ID));
+        
+        // console.log(recipe);
         for (const itemId of recipe[0].Items) {
           let itemFound = await this.db.itemsTable.where('ID').equals(itemId).toArray();
-          console.log("items required: ", itemFound[0].name);
+          // console.log("items required: ", itemFound[0].name);
           const newItem: TransformedItems = {
             ID: itemFound[0].ID,
             name: itemFound[0].name,
@@ -291,25 +331,7 @@ export class DataManagementService {
     }
   }
 
-  async getRecipesFromSelectedItems() {
-    const selectedItems = this.selectedItem(); // Get the selected items from the signal
-    this.setChilds([]);
-    this.imagesRecipes.length = 0
-    this.recipesImages.set([])
-    this.isRecipesFormInitialized.set(false)
-    for (const item of selectedItems) {
-      this.setChilds([...this.getChilds(), item]);
-      await this.processRecipe(item);
-    }
-
-    await this.processRecipesImages()
-    this.updateForm()
-    console.log("childs: ", this.childs());
-    console.log("recipesForm: ", this.recipesForm.value)
-    console.log("recipes images: ", this.imagesRecipes)
-    console.log(" recipesImages(): ", this.recipesImages())
-  }
-
+  
   updateForm(): void {
     this.recipesForm = new FormGroup({});
     this.getChilds().forEach((child) => {
@@ -326,7 +348,6 @@ export class DataManagementService {
               defaultValue = child.recipes[0].ID;
 
             }
-
             // Agregar el FormControl con el valor por defecto
             this.recipesForm.addControl(child.ID.toString(), new FormControl(defaultValue));
           }
