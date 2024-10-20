@@ -297,22 +297,23 @@ export class DataManagementService {
 
 
   async createTreeStructure(item: TransformedItems) {
-    // console.log(item.recipes);
     if (item.recipes !== undefined) {
+      // Guardar todas las recetas en recipesImages
+      for (const recipe of item.recipes) {
+        let recipeDetails = await this.db.recipesTable.where('ID').equals(recipe.ID).toArray();
+        this.recipesImages.set([...this.recipesImages(), recipeDetails[0]]);
+      }
+  
       let advancedRecipeFound = item.recipes.find(recipe => recipe.name.includes('advanced'));
-      let recipeToUse = advancedRecipeFound ? advancedRecipeFound : item.recipes[0]; // Use the first recipe if no advanced recipe is found
-
+      let recipeToUse = advancedRecipeFound ? advancedRecipeFound : item.recipes[0]; // Usar la primera receta si no hay ninguna avanzada
+      
       if (recipeToUse) {
-        let recipe = await this.db.recipesTable.where('ID').equals(recipeToUse.ID).toArray();
-        this.recipesImages.set([...this.recipesImages(), recipe[0]]);
-
         this.recipesForm.addControl(item.ID.toString(), new FormControl(recipeToUse.ID));
-        this.recipesForm.addControl(item.ID.toString(), new FormControl(item.recipes[0].ID));
         
-        // console.log(recipe);
+        let recipe = await this.db.recipesTable.where('ID').equals(recipeToUse.ID).toArray();
+        
         for (const itemId of recipe[0].Items) {
           let itemFound = await this.db.itemsTable.where('ID').equals(itemId).toArray();
-          // console.log("items required: ", itemFound[0].name);
           const newItem: TransformedItems = {
             ID: itemFound[0].ID,
             name: itemFound[0].name,
@@ -325,11 +326,12 @@ export class DataManagementService {
             childs: []
           };
           item.childs.push(newItem);
-          await this.createTreeStructure(newItem); // Recursive call to continue building the tree
+          await this.createTreeStructure(newItem); // Llamada recursiva para seguir construyendo el árbol
         }
       }
     }
   }
+  
 
   
   updateForm(): void {
