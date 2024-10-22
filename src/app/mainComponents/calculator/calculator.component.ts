@@ -161,7 +161,7 @@ export class CalculatorComponent implements OnInit {
   }
   optionsChanged(values: any) {
     // console.log(values)
-    console.log(Object.keys(this.globalSettingsForm.controls))
+    // console.log(Object.keys(this.globalSettingsForm.controls))
   }
   ngOnInit(): void {
     this.dataManagement.getItemTypeString().pipe(

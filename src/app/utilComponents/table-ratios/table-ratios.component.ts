@@ -26,12 +26,9 @@ export class TableRatiosComponent implements OnInit {
     effect(() => {
 
       this.childs = this.dataManagement.childs()
-      console.log("CHILDS -> ", this.childs)
       this.recipesForm = this.dataManagement.recipesForm;
       this.recipesImages = this.dataManagement.recipesImages();
       this.isRecipesFormInitialized = this.dataManagement.isRecipesFormInitialized()
-
-
     });
   }
   storePreviousValues(itemId: number) {
@@ -94,68 +91,187 @@ export class TableRatiosComponent implements OnInit {
       // Crear el nuevo subárbol basado en la nueva receta
       const newItem = await this.buildNewSubtree(item, changedRecipe[parseInt(Object.keys(changedRecipe)[0])]);
 
+      console.log("recipesimages: ", this.dataManagement.imagesRecipes)
       // Reemplazar el subárbol en la misma posición en la señal
       this.replaceSubtreeByIndex(index, newItem);
+
+      await this.processSingleRecipeImage(changedRecipe[parseInt(Object.keys(changedRecipe)[0])]);
+      // this.dataManagement.processRecipesImages();
+
     }
   }
   replaceSubtreeByIndex(index: string, newItem: TransformedItems) {
+    console.log("this is the newitem", newItem)
     // Convertir el índice de cadena a un array de números
     const indexArray = index.toString().split('-').map(i => parseInt(i, 10));
-  
+
     // Obtener los ítems seleccionados
     let items = this.dataManagement.selectedItems();
-  
+
     // Función para navegar en los índices y encontrar el ítem
     let currentItem = items;
     for (let i = 0; i < indexArray.length - 1; i++) {
       currentItem = currentItem[indexArray[i]].childs;
     }
-  
+
     // Reemplazar el ítem con el nuevo subárbol en la posición exacta
     currentItem[indexArray[indexArray.length - 1]] = newItem;
-  
+
     // Actualizar la señal para reflejar los cambios
     this.dataManagement.selectedItems.set(items);
   }
-  
+
   removeSubtreeByIndex(index: string) {
     // Convertir el índice de cadena a un array de números
     console.log("index: ", index)
     const indexArray = index.toString().split('-').map(i => parseInt(i, 10));
-  
+
     // Obtener los ítems seleccionados
     let items = this.dataManagement.selectedItems();
-  
+
     // Función para navegar en los índices
     let currentItem = items;
     for (let i = 0; i < indexArray.length - 1; i++) {
       currentItem = currentItem[indexArray[i]].childs;
     }
-  
+
     // Eliminar el subárbol vaciando el array de `childs` del ítem encontrado
     const itemToRemove = currentItem[indexArray[indexArray.length - 1]];
     if (itemToRemove) {
+      this.removeRecipeImages(itemToRemove)
       itemToRemove.childs = [];
     }
-  
+
     // Actualizar la señal para reflejar los cambios
     this.dataManagement.selectedItems.set(items);
   }
-  async buildNewSubtree(item: TransformedItems, recipeId: number): Promise<TransformedItems> {
-    console.log("--------- NEW SUBTREE ---------")
-    console.log(item)
-    console.log(recipeId)
-    let recipe = await this.db.recipesTable.where('ID').equals(recipeId).toArray();
-    console.log(recipe[0].Items)
-    const newItem: TransformedItems = {
-      ...item, // Copiar las propiedades originales del ítem
-      childs: [], // Inicializamos el nuevo array de childs
+
+  removeRecipeImages(item: TransformedItems) {
+    this.dataManagement.recipesImages.set(
+      this.dataManagement.recipesImages().filter(recipe => recipe.ID !== item.ID)
+    )
+    this.dataManagement.imagesRecipes = this.dataManagement.imagesRecipes.filter(rec => rec.ID !== item.ID);
+
+    if (item.childs.length > 0) {
+      for (const child of item.childs) {
+        this.removeRecipeImages(child);
+      }
+    }
+  }
+
+  removeRecipeFromIndex(index: string) {
+    const indexArray = index.toString().split('-').map(i => parseInt(i, 10));
+    let items = this.dataManagement.selectedItems();
+
+    let currentItem = items;
+    for (let i = 0; i < indexArray.length - 1; i++) {
+      currentItem = currentItem[indexArray[i]].childs;
+    }
+
+    const itemToRemove = currentItem[indexArray[indexArray.length - 1]];
+    if (itemToRemove) {
+      this.dataManagement.recipesImages.set(
+        this.dataManagement.recipesImages().filter(recipe => {
+          // Eliminar las imágenes de recetas asociadas con este ítem y sus childs
+          return !this.isRecipeRelatedToItem(recipe, itemToRemove);
+        })
+      )
+    }
+  }
+
+
+  async processSingleRecipeImage(recipe: any) {
+    const recipeEntry: { ID: number, items: string[], results: string[] } = {
+      ID: recipe.ID,
+      items: [],
+      results: []
     };
-  
-    // Para cada ítem necesario en la receta, construimos el subárbol
+    if (recipe.items !== undefined) {
+      // Procesar el array de items
+      for (const element of recipe.Items) {
+        try {
+          const itemFound = await this.db.itemsTable.where('ID').equals(element).first();
+          if (itemFound) {
+            recipeEntry.items.push(itemFound.IconPath);
+          }
+        } catch (error) {
+          console.error("Error processing items for recipe:", recipe.ID, error);
+        }
+      }
+
+      // Procesar el array de results
+      for (const element of recipe.Results) {
+        try {
+          const resultFound = await this.db.itemsTable.where('ID').equals(element).first();
+          if (resultFound) {
+            recipeEntry.results.push(resultFound.IconPath);
+          }
+        } catch (error) {
+          console.error("Error processing results for recipe:", recipe.ID, error);
+        }
+      }
+
+      // Agregar la receta procesada a imagesRecipes
+      this.dataManagement.imagesRecipes.push(recipeEntry);
+    }
+
+  }
+
+  isRecipeRelatedToItem(recipe: any, item: TransformedItems): boolean {
+    // Verificar si la receta está relacionada con el ítem o alguno de sus childs
+    if (recipe.ID === item.ID) {
+      return true;
+    }
+
+    // Revisar recursivamente en los childs
+    for (let child of item.childs) {
+      if (this.isRecipeRelatedToItem(recipe, child)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  async buildNewSubtree(item: TransformedItems, recipeId: number): Promise<TransformedItems> {
+    console.log("--------- NEW SUBTREE for Item:", item.name, "Recipe ID:", recipeId);
+
+    // Procesar todas las recetas del ítem
+    for (const recipe of item.recipes) {
+      let recipeDetails = await this.db.recipesTable.where('ID').equals(recipe.ID).toArray();
+      this.dataManagement.recipesImages.set([...this.dataManagement.recipesImages(), recipeDetails[0]]);
+      await this.ProcessrecipeImage(recipeDetails[0]);
+
+    }
+
+    // Obtener detalles de la receta
+    let recipe = await this.db.recipesTable.where('ID').equals(recipeId).toArray();
+    if (!recipe[0]) {
+      console.error("No recipe found for ID:", recipeId);
+      return item; // Retornar el ítem actual si no se encontró la receta
+    }
+
+    console.log("Processing recipe for item:", item.name, "Recipe items:", recipe[0].Items);
+
+    // Crear un nuevo ítem, copiando las propiedades originales pero con los childs vacíos
+    const newItem: TransformedItems = {
+      ...item,
+      childs: [] // Inicializamos el nuevo array de childs
+    };
+
+    this.recipesForm.addControl(item.ID.toString(), new FormControl(recipe[0].ID));
+
+    // Procesar los ítems de la receta
     for (const itemId of recipe[0].Items) {
       let itemFound = await this.db.itemsTable.where('ID').equals(itemId).toArray();
-      console.log("itemfound: ",itemFound)
+
+      if (!itemFound[0]) {
+        console.error("No item found for ID:", itemId);
+        continue; // Si no se encuentra el ítem, continuar con el siguiente
+      }
+
+      console.log("Found item:", itemFound[0].name);
+
       const childItem: TransformedItems = {
         ID: itemFound[0].ID,
         name: itemFound[0].name,
@@ -165,22 +281,63 @@ export class TableRatiosComponent implements OnInit {
         recipes: itemFound[0].recipes,
         typeString: itemFound[0].typeString,
         fuelTypeString: itemFound[0].fuelTypeString,
-        childs: []
+        childs: [] // Inicializamos el array de childs
       };
-  
-      // Añadir el hijo al nuevo subárbol
-      newItem.childs.push(childItem);
-      console.log("newItem: ",newItem)
-      // Llamada recursiva para construir subárboles de los ítems hijos
-      if(itemFound[0].recipes !== undefined){
 
-        await this.buildNewSubtree(childItem, itemFound[0].recipes[0]?.ID);
+      // Recursivamente construir el subárbol de este ítem
+      if (itemFound[0].recipes !== undefined && itemFound[0].recipes.length > 0) {
+        console.log("Recursing into child item:", itemFound[0].name, "with recipe ID:", itemFound[0].recipes[0]?.ID);
+        const recursiveChildItem = await this.buildNewSubtree(childItem, itemFound[0].recipes[0]?.ID);
+
+        // Asegurar que el subárbol del hijo sea añadido correctamente
+        newItem.childs.push(recursiveChildItem);
+      } else {
+        // Si no hay recursión, simplemente añadimos el ítem hijo tal cual
+        newItem.childs.push(childItem);
+      }
+    }
+
+    console.log("Finished processing newItem:", newItem.name, "with children:", newItem.childs);
+
+    return newItem; // Retornamos el nuevo subárbol
+  }
+
+  async ProcessrecipeImage(recipeDetails: any) {
+    const recipeEntry: { ID: number, items: string[], results: string[] } = {
+      ID: recipeDetails.ID,
+      items: [],
+      results: []
+    };
+  
+    // Procesar los items de la receta
+    for (const element of recipeDetails.Items) {
+      try {
+        const itemFound = await this.db.itemsTable.where('ID').equals(element).first();
+        if (itemFound) {
+          recipeEntry.items.push(itemFound.IconPath);
+        }
+      } catch (error) {
+        console.error(`Error processing item ID: ${element}`, error);
       }
     }
   
-    return newItem; // Retornamos el nuevo subárbol
+    // Procesar los resultados de la receta
+    for (const element of recipeDetails.Results) {
+      try {
+        const resultFound = await this.db.itemsTable.where('ID').equals(element).first();
+        if (resultFound) {
+          recipeEntry.results.push(resultFound.IconPath);
+        }
+      } catch (error) {
+        console.error(`Error processing result ID: ${element}`, error);
+      }
+    }
+  
+    // Añadir la receta procesada a imagesRecipes
+    this.dataManagement.imagesRecipes.push(recipeEntry);
   }
   
+
 
   async removeCurrentRecipe(oldRecipe: { [key: string]: number }) {
     let oldRecipeKey: string = Object.keys(oldRecipe)[0];

@@ -23,9 +23,6 @@ export class DataManagementService {
   get globalSettingsForm(): FormGroup {
     return this._globalSettingsForm;
   }
-
-
-  //to get changes 
   private typesSubject: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
   public types$: Observable<string[]> = this.typesSubject.asObservable();
 
@@ -151,9 +148,6 @@ export class DataManagementService {
 
 
   constructor(private db: AppDB, private http: HttpClient, private fb: FormBuilder) { }
-  //from converts promise to observable
-
-  //Common use cases from the db or more complex stuff
   getItems(): Observable<Item[]> {
     return from(this.db.itemsTable.toArray());
   }
@@ -219,21 +213,11 @@ export class DataManagementService {
   }
 
 
-  isSelectedTest(selectedItem: TransformedItems): boolean {
+  isSelectedItem(selectedItem: TransformedItems): boolean {
     return this.selectedItemsSet.has(selectedItem.ID);
   }
 
   async toggleSelection(selectedItem: Item, modal?: HTMLDialogElement) {
-    // if (this.isSelected(selectedItem)) {
-    //   // Remove item from the Set and the signal array
-    //   this.selectedItemsSet.delete(selectedItem.ID);
-    //   this.selectedItem.set(this.selectedItem().filter(item => item.ID !== selectedItem.ID));
-    // } else {
-    //   // Add item to the Set and the signal array
-    //   this.selectedItemsSet.add(selectedItem.ID);
-    //   this.selectedItem.set([...this.selectedItem(), selectedItem]);
-    // }
-    // this.getRecipesFromSelectedItems()
     this.isRecipesFormInitialized.set(false);
     this.recipesForm = new FormGroup({});
     console.log(selectedItem);
@@ -249,7 +233,7 @@ export class DataManagementService {
       fuelTypeString: selectedItem.fuelTypeString,
       childs: []
     }
-    if (this.isSelectedTest(newItem)) {
+    if (this.isSelectedItem(newItem)) {
       this.selectedItemsSet.delete(newItem.ID);
       this.selectedItems.set(this.selectedItems().filter(item => item.ID !== newItem.ID))
     } else {
@@ -362,10 +346,8 @@ export class DataManagementService {
   }
 
   async processRecipesImages() {
-    // Reset imagesRecipes to ensure it's empty before processing
     this.imagesRecipes = [];
 
-    // Use for...of loop to handle asynchronous operations properly
     for (const recipe of this.recipesImages()) {
       const recipeEntry: { ID: number, items: string[], results: string[] } = {
         ID: recipe.ID,
@@ -373,7 +355,6 @@ export class DataManagementService {
         results: []
       };
 
-      // Process items array with await inside a for...of loop
       for (const element of recipe.Items) {
         try {
           const itemFound = await this.db.itemsTable.where('ID').equals(element).first();
@@ -385,7 +366,6 @@ export class DataManagementService {
         }
       }
 
-      // Process results array with await inside a for...of loop
       for (const element of recipe.Results) {
         try {
           const resultFound = await this.db.itemsTable.where('ID').equals(element).first();
