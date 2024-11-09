@@ -124,7 +124,8 @@ export class CalculatorComponent implements OnInit {
     canUpgrade: false,
     typeString: '',
     fuelTypeString: '',
-    name: ''
+    name: '',
+    isRaw: false
   }
   public userInitialAmount: number = 0;
   public typeStrings: string[] = [];
@@ -160,46 +161,46 @@ export class CalculatorComponent implements OnInit {
     })
   }
   optionsChanged(values: any) {
-    // console.log(values)
-    // console.log(Object.keys(this.globalSettingsForm.controls))
+    console.log(values)
+    this.dataManagement.powerFacilitiesMap.set({})
   }
   ngOnInit(): void {
     this.dataManagement.getItemTypeString().pipe(
       switchMap(data => {
         return forkJoin(
-          data.map((str: string) =>
-            this.dataManagement.getAllMachinesByType(str).pipe(
+          data.map((item: { typeString: string; IconPath: string }) =>
+            this.dataManagement.getAllMachinesByType(item.typeString).pipe(
               map(res => {
-                switch (str) {
+                switch (item.typeString) {
                   case 'Assembler':
                     this.assemblerSelectOptions = res;
-                    this.setFormControlWithLocalStorage('assemblerSelect',this.assemblerSelectOptions,'savedAssemblerID');
+                    this.setFormControlWithLocalStorage('assemblerSelect', this.assemblerSelectOptions, 'savedAssemblerID');
                     break;
-
+    
                   case 'Mining Facility':
                     this.miningMachineSelectOptions = res;
-                    this.setFormControlWithLocalStorage('miningMachineSelect',this.miningMachineSelectOptions,'savedMiningMachineID');
+                    this.setFormControlWithLocalStorage('miningMachineSelect', this.miningMachineSelectOptions, 'savedMiningMachineID');
                     break;
-
+    
                   case 'Smelting Facility':
                     this.smelterSelectOptions = res;
-                    this.setFormControlWithLocalStorage('smelterSelect',this.smelterSelectOptions,'savedSmelterID');
+                    this.setFormControlWithLocalStorage('smelterSelect', this.smelterSelectOptions, 'savedSmelterID');
                     break;
-
+    
                   case 'Research Facility':
                     this.matrixLabSelectOptions = res;
-                    this.setFormControlWithLocalStorage('matrixLabSelect',this.matrixLabSelectOptions,'savedMatrixLabID');
+                    this.setFormControlWithLocalStorage('matrixLabSelect', this.matrixLabSelectOptions, 'savedMatrixLabID');
                     break;
-
+    
                   case 'Chemical Facility':
                     this.chemicalPlantSelectOptions = res;
-                    this.setFormControlWithLocalStorage('chemicalPlantSelect',this.chemicalPlantSelectOptions,'savedChemicalPlantID');
+                    this.setFormControlWithLocalStorage('chemicalPlantSelect', this.chemicalPlantSelectOptions, 'savedChemicalPlantID');
                     break;
-
+    
                   default:
                     break;
                 }
-                return { str, res };
+                return { typeString: item.typeString, res };
               })
             )
           )
@@ -207,12 +208,13 @@ export class CalculatorComponent implements OnInit {
       })
     ).subscribe({
       next: data => {
-        console.log(data);
+        // Manejo de los datos resultantes si es necesario
       },
       error: err => {
         console.error('Error:', err);
       }
     });
+    
 
     const recipes$ = this.dataManagement.getRecipes();
     const items$ = this.dataManagement.getItems();
@@ -227,32 +229,32 @@ export class CalculatorComponent implements OnInit {
 
   }
   initialAmountChanged() {
-    console.log(this.userInitialAmount)
+    
   }
   selectAssembler(item: Item) {
     this.globalSettingsForm.get('assemblerSelect')?.setValue(item)
-    console.log(this.globalSettingsForm)
-    console.log(this.globalSettingsForm.get('assemblerSelect')?.value)
+    
+    
     localStorage.setItem('savedAssemblerID', item.ID.toString());
   }
   selectSmelter(item: Item) {
     this.globalSettingsForm.get('smelterSelect')?.setValue(item);
-    console.log(this.globalSettingsForm.get('smelterSelect')?.value);
+    
     localStorage.setItem('savedSmelterID', item.ID.toString());
   }
   selectMiningMachine(item: Item) {
     this.globalSettingsForm.get('miningMachineSelect')?.setValue(item)
-    console.log(this.globalSettingsForm.get('miningMachineSelect')?.value)
+    
     localStorage.setItem('savedMiningMachineID', item.ID.toString());
   }
   selectMatrixLab(item: Item) {
     this.globalSettingsForm.get('matrixLabSelect')?.setValue(item)
-    console.log(this.globalSettingsForm.get('matrixLabSelect')?.value)
+    
     localStorage.setItem('savedMatrixLabID', item.ID.toString());
   }
   selectChemicalPlant(item: Item) {
     this.globalSettingsForm.get('chemicalPlantSelect')?.setValue(item)
-    console.log(this.globalSettingsForm.get('chemicalPlantSelect')?.value)
+    
     localStorage.setItem('savedChemicalPlantID', item.ID.toString());
   }
   getImageSrc(itemName: string): string {
@@ -268,7 +270,7 @@ export class CalculatorComponent implements OnInit {
     if (item !== undefined) {
       src = item.IconPath;
     } else {
-      // console.log(itemName);
+      // 
       src = "Icons/ItemRecipe/various/warning-signal-round";
     }
 
@@ -288,7 +290,7 @@ export class CalculatorComponent implements OnInit {
 
   setFormControlWithLocalStorage(controlName: string, options: Item[], localStorageKey: string) {
     const savedID = localStorage.getItem(localStorageKey);
-    // console.log(savedID)
+    // 
     if (savedID) {
       const selectedItem = options.find(item => item.ID === parseInt(savedID, 10));
       if (selectedItem) {

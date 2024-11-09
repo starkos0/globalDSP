@@ -21,7 +21,7 @@ export class TableRatiosComponent implements OnInit {
   public recipesImages: Recipe[] = []
   public isRecipesFormInitialized: boolean = false;
   previousFormValues: any = {};
-
+  
   constructor(public dataManagement: DataManagementService, private db: AppDB, private fb: FormBuilder) {
     effect(() => {
 
@@ -33,17 +33,16 @@ export class TableRatiosComponent implements OnInit {
   }
   storePreviousValues(itemId: number) {
     this.previousFormValues = { ...this.recipesForm.value };
-    // console.log('Valor del formulario antes del cambio (click):', this.previousFormValues)
+    // 
   }
   ngOnInit(): void {
+    
 
-    // Subscribe to value changes
     this.recipesForm.valueChanges.subscribe(values => {
-
     });
     this.globalSettingsForm = this.dataManagement.globalSettingsForm;
     this.globalSettingsForm.valueChanges.subscribe(values => {
-      // 
+      console.log(values)
     })
     this.recipesForm = this.fb.group({});
     this.recipesForm.valueChanges.subscribe(values => {
@@ -71,8 +70,6 @@ export class TableRatiosComponent implements OnInit {
   }
   async changeRecipeSelection(itemId: number, recipeId: string, item: TransformedItems, index: string) {
 
-    console.log('Valor del formulario después del cambio (change):', this.recipesForm.value);
-    console.log('Valor anterior del formulario:', this.previousFormValues);
     const changedRecipe: { [key: string]: number } = {};
     const oldRecipe: { [key: string]: number } = {};
     for (let key in this.recipesForm.value) {
@@ -81,27 +78,19 @@ export class TableRatiosComponent implements OnInit {
         oldRecipe[key] = this.previousFormValues[key]
       }
     }
-    console.log("this is the new recipe ", changedRecipe)
-    console.log("this is the old recipe: ", oldRecipe)
 
     if (oldRecipe && oldRecipe !== changedRecipe) {
       this.removeSubtreeByIndex(index)
     }
     if (changedRecipe) {
-      // Crear el nuevo subárbol basado en la nueva receta
       const newItem = await this.buildNewSubtree(item, changedRecipe[parseInt(Object.keys(changedRecipe)[0])]);
-
-      console.log("recipesimages: ", this.dataManagement.imagesRecipes)
-      // Reemplazar el subárbol en la misma posición en la señal
       this.replaceSubtreeByIndex(index, newItem);
 
       await this.processSingleRecipeImage(changedRecipe[parseInt(Object.keys(changedRecipe)[0])]);
-      // this.dataManagement.processRecipesImages();
-
     }
   }
   replaceSubtreeByIndex(index: string, newItem: TransformedItems) {
-    console.log("this is the newitem", newItem)
+
     // Convertir el índice de cadena a un array de números
     const indexArray = index.toString().split('-').map(i => parseInt(i, 10));
 
@@ -123,7 +112,7 @@ export class TableRatiosComponent implements OnInit {
 
   removeSubtreeByIndex(index: string) {
     // Convertir el índice de cadena a un array de números
-    console.log("index: ", index)
+
     const indexArray = index.toString().split('-').map(i => parseInt(i, 10));
 
     // Obtener los ítems seleccionados
@@ -234,9 +223,7 @@ export class TableRatiosComponent implements OnInit {
   }
 
   async buildNewSubtree(item: TransformedItems, recipeId: number): Promise<TransformedItems> {
-    console.log("--------- NEW SUBTREE for Item:", item.name, "Recipe ID:", recipeId);
 
-    // Procesar todas las recetas del ítem
     for (const recipe of item.recipes) {
       let recipeDetails = await this.db.recipesTable.where('ID').equals(recipe.ID).toArray();
       this.dataManagement.recipesImages.set([...this.dataManagement.recipesImages(), recipeDetails[0]]);
@@ -244,33 +231,34 @@ export class TableRatiosComponent implements OnInit {
 
     }
 
-    // Obtener detalles de la receta
     let recipe = await this.db.recipesTable.where('ID').equals(recipeId).toArray();
     if (!recipe[0]) {
       console.error("No recipe found for ID:", recipeId);
-      return item; // Retornar el ítem actual si no se encontró la receta
+      return item;
     }
 
-    console.log("Processing recipe for item:", item.name, "Recipe items:", recipe[0].Items);
-
-    // Crear un nuevo ítem, copiando las propiedades originales pero con los childs vacíos
     const newItem: TransformedItems = {
       ...item,
-      childs: [] // Inicializamos el nuevo array de childs
+      childs: []
     };
 
     this.recipesForm.addControl(item.ID.toString(), new FormControl(recipe[0].ID));
 
-    // Procesar los ítems de la receta
     for (const itemId of recipe[0].Items) {
       let itemFound = await this.db.itemsTable.where('ID').equals(itemId).toArray();
 
-      if (!itemFound[0]) {
-        console.error("No item found for ID:", itemId);
-        continue; // Si no se encuentra el ítem, continuar con el siguiente
+      // Verificación adicional: asegurarse de que itemFound[0] tenga recetas
+      let madeFromString = "";
+      if (itemFound[0].recipes && itemFound[0].recipes.length > 0) {
+        let childRecipe = await this.db.recipesTable.where('ID').equals(itemFound[0].recipes[0].ID).toArray();
+        madeFromString = childRecipe[0]?.madeFromString || "";
+      } else {
+        if(itemFound[0].IsFluid){
+          madeFromString = "Oil Extraction Facility";
+        }else{
+          madeFromString = "Mining Facility";
+        }
       }
-
-      console.log("Found item:", itemFound[0].name);
 
       const childItem: TransformedItems = {
         ID: itemFound[0].ID,
@@ -281,23 +269,21 @@ export class TableRatiosComponent implements OnInit {
         recipes: itemFound[0].recipes,
         typeString: itemFound[0].typeString,
         fuelTypeString: itemFound[0].fuelTypeString,
-        childs: [] // Inicializamos el array de childs
+        childs: [],
+        madeFromString: madeFromString 
       };
 
-      // Recursivamente construir el subárbol de este ítem
       if (itemFound[0].recipes !== undefined && itemFound[0].recipes.length > 0) {
-        console.log("Recursing into child item:", itemFound[0].name, "with recipe ID:", itemFound[0].recipes[0]?.ID);
+
         const recursiveChildItem = await this.buildNewSubtree(childItem, itemFound[0].recipes[0]?.ID);
 
-        // Asegurar que el subárbol del hijo sea añadido correctamente
         newItem.childs.push(recursiveChildItem);
       } else {
-        // Si no hay recursión, simplemente añadimos el ítem hijo tal cual
         newItem.childs.push(childItem);
       }
     }
 
-    console.log("Finished processing newItem:", newItem.name, "with children:", newItem.childs);
+
 
     return newItem; // Retornamos el nuevo subárbol
   }
@@ -308,7 +294,7 @@ export class TableRatiosComponent implements OnInit {
       items: [],
       results: []
     };
-  
+
     // Procesar los items de la receta
     for (const element of recipeDetails.Items) {
       try {
@@ -320,7 +306,7 @@ export class TableRatiosComponent implements OnInit {
         console.error(`Error processing item ID: ${element}`, error);
       }
     }
-  
+
     // Procesar los resultados de la receta
     for (const element of recipeDetails.Results) {
       try {
@@ -332,11 +318,11 @@ export class TableRatiosComponent implements OnInit {
         console.error(`Error processing result ID: ${element}`, error);
       }
     }
-  
+
     // Añadir la receta procesada a imagesRecipes
     this.dataManagement.imagesRecipes.push(recipeEntry);
   }
-  
+
 
 
   async removeCurrentRecipe(oldRecipe: { [key: string]: number }) {
@@ -346,17 +332,17 @@ export class TableRatiosComponent implements OnInit {
     //search old recipe in db
     let recipe = await this.db.recipesTable.where("ID").equals(recipeId).toArray();
     if (recipe.length === 0) {
-      console.log("Recipe not found");
+
       return;
     }
 
     let lastItem: number = recipe[0].Items[recipe[0].Items.length - 1];
-    console.log("Last item from the recipe: ", lastItem);
+
 
     //find index of item in this.childs
     let indexOfOldRecipe = this.childs.findIndex(item => item.ID === parseInt(oldRecipeKey));
     if (indexOfOldRecipe === -1) {
-      console.log("Recipe not found in the current array.");
+
       return;
     }
     const eliminarSubarbol = async (itemId: number) => {
@@ -368,13 +354,13 @@ export class TableRatiosComponent implements OnInit {
         .filter(recipe => recipe.Results.includes(itemId))
         .toArray();
       if (itemId === 1104) {
-        console.log("XDDDDD")
-        console.log(childRecipe)
+
+
       }
       if (childRecipe.length > 0) {
         // Para cada ítem que es parte de la receta, eliminarlos también recursivamente
         for (let neededItem of childRecipe[0].Items) {
-          console.log("needed Item: ", neededItem)
+
           await eliminarSubarbol(neededItem); // Llamada recursiva para eliminar dependencias
         }
       }
@@ -382,9 +368,9 @@ export class TableRatiosComponent implements OnInit {
 
     // Empezar a eliminar desde el índice de la receta cambiada
     for (let i = indexOfOldRecipe + 1; i < this.childs.length; i++) {
-      console.log(this.childs[i].ID)
+
       if (this.childs[i].ID === lastItem) {
-        console.log("last item found: ", this.childs[i].ID)
+
         // Eliminar el último ítem y salir del bucle
         await eliminarSubarbol(this.childs[i].ID);
         break;
@@ -427,7 +413,7 @@ export class TableRatiosComponent implements OnInit {
 
   }
   previousValue(recipeId: number) {
-    console.log(recipeId)
+
   }
 
   getMachineFromRecipe(itemId: number) {
@@ -435,7 +421,7 @@ export class TableRatiosComponent implements OnInit {
   }
 
   getRecipeSelection(recipeId: number) {
-    console.log(this.dataManagement.recipesFromTreeStructure().find(recipe => recipe.ID === recipeId))
+
   }
 
 }

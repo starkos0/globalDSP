@@ -8,6 +8,7 @@ export interface TransformedItems {
     typeString: string;
     fuelTypeString: string;
     childs: TransformedItems[];
+    madeFromString: string;
 }
 
 export interface recipes{

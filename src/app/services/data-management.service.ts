@@ -28,7 +28,7 @@ export class DataManagementService {
 
   private facilityTypes: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
   public facilityTypes$: Observable<string[]> = this.facilityTypes.asObservable();
-
+  powerFacilitiesMap: WritableSignal<{ [key: string]: string }> = signal({});
   public machinesSpeedRatio: number = 10000;
   public defaultItem: Item = {
     Type: '',
@@ -135,7 +135,8 @@ export class DataManagementService {
     canUpgrade: false,
     typeString: '',
     fuelTypeString: '',
-    name: ''
+    name: '',
+    isRaw: false
   }
 
   public selectedItems: WritableSignal<TransformedItems[]> = signal([]);
@@ -145,6 +146,7 @@ export class DataManagementService {
   public recipesImages: WritableSignal<Recipe[]> = signal([]);
   public imagesRecipes: { ID: number, items: string[], results: string[] }[] = []
   public recipesFromTreeStructure: WritableSignal<Recipe[]> = signal([]);
+  public powerFacilities: { typeString: string; IconPath: string }[] = [];
 
 
   constructor(private db: AppDB, private http: HttpClient, private fb: FormBuilder) { }
@@ -198,20 +200,31 @@ export class DataManagementService {
     )
   }
 
-  getItemTypeString(): Observable<string[]> {
+  getItemTypeString(): Observable<{ typeString: string; IconPath: string }[]> {
     return from(this.db.itemsTable.toArray()).pipe(
       map(records => {
         const filterRecordsByProduction = records.filter(record => record.Type === "Production");
-        const typesValues = new Set(filterRecordsByProduction.map(record => record.typeString));
-        if (typesValues) {
-          return Array.from(typesValues)
-        } else {
-          return [];
-        }
+  
+        const uniqueRecordsMap = new Map(
+          filterRecordsByProduction
+            .filter(record => record.typeString && record.IconPath) // Filtrar registros válidos
+            .map(record => [record.typeString, { typeString: record.typeString, IconPath: record.IconPath }])
+        );
+  
+        return Array.from(uniqueRecordsMap.values());
+      })
+    );
+  }
+  
+
+  getMadeFromString(): Observable<string[]> {
+    return from(this.db.recipesTable.toArray()).pipe(
+      map(records => {
+        const madeFromStrings = new Set(records.map(record => record.madeFromString))
+        return Array.from(madeFromStrings)
       })
     )
   }
-
 
   isSelectedItem(selectedItem: TransformedItems): boolean {
     return this.selectedItemsSet.has(selectedItem.ID);
@@ -220,8 +233,14 @@ export class DataManagementService {
   async toggleSelection(selectedItem: Item, modal?: HTMLDialogElement) {
     this.isRecipesFormInitialized.set(false);
     this.recipesForm = new FormGroup({});
-    console.log(selectedItem);
+    
     this.recipesFromTreeStructure.set([]);
+
+    let advancedRecipeFound = selectedItem.recipes.find(recipe => recipe.name.includes('advanced'));
+    let recipeToUse = advancedRecipeFound ? advancedRecipeFound : selectedItem.recipes[0]; // Usar la primera receta si no hay ninguna avanzada
+      
+    this.recipesForm.addControl(selectedItem.ID.toString(), new FormControl(recipeToUse.ID));
+    let recipe = await this.db.recipesTable.where('ID').equals(recipeToUse.ID).toArray();
     const newItem: TransformedItems = {
       ID: selectedItem.ID,
       name: selectedItem.name,
@@ -231,7 +250,8 @@ export class DataManagementService {
       recipes: selectedItem.recipes,
       typeString: selectedItem.typeString,
       fuelTypeString: selectedItem.fuelTypeString,
-      childs: []
+      childs: [],
+      madeFromString: recipe[0].madeFromString
     }
     if (this.isSelectedItem(newItem)) {
       this.selectedItemsSet.delete(newItem.ID);
@@ -241,16 +261,27 @@ export class DataManagementService {
       this.selectedItems.set([...this.selectedItems(), newItem])
     }
 
-    console.log(this.selectedItems());
+    
     for (const item of this.selectedItems()) {
       await this.createTreeStructure(item);
     }
-
-    console.log("recipesFromTreeStructure: ", this.recipesFromTreeStructure())
-    console.log(this.recipesForm.value)
-    console.log(this.recipesImages())
+    
+    
     this.processRecipesImages();
+
+    const itemTypeStrings$ = this.getItemTypeString();
+    itemTypeStrings$.subscribe({
+      next: (data) => {
+
+        this.powerFacilities = data;
+        console.log(this.powerFacilities)
+        this.powerFacilities.forEach(facility => {
+          this.powerFacilitiesMap()[facility.typeString] = facility.IconPath; // o el valor que necesitas
+        });
+      }
+    })
     this.isRecipesFormInitialized.set(true);
+    console.log("Selected Items: ", this.selectedItems());
   }
 
   async processRecipes(item: TransformedItems) {
@@ -295,9 +326,22 @@ export class DataManagementService {
         this.recipesForm.addControl(item.ID.toString(), new FormControl(recipeToUse.ID));
         
         let recipe = await this.db.recipesTable.where('ID').equals(recipeToUse.ID).toArray();
-        
         for (const itemId of recipe[0].Items) {
           let itemFound = await this.db.itemsTable.where('ID').equals(itemId).toArray();
+  
+          // Verificación adicional: asegurarse de que itemFound[0] tenga recetas
+          let madeFromString = "";
+          if (itemFound[0].recipes && itemFound[0].recipes.length > 0) {
+            let childRecipe = await this.db.recipesTable.where('ID').equals(itemFound[0].recipes[0].ID).toArray();
+            madeFromString = childRecipe[0]?.madeFromString || "";
+          }else{
+            if(itemFound[0].IsFluid){
+              madeFromString = "Oil Extraction Facility";
+            }else{
+              madeFromString = "Mining Facility";
+            }
+          }
+   
           const newItem: TransformedItems = {
             ID: itemFound[0].ID,
             name: itemFound[0].name,
@@ -307,8 +351,12 @@ export class DataManagementService {
             recipes: itemFound[0].recipes,
             typeString: itemFound[0].typeString,
             fuelTypeString: itemFound[0].fuelTypeString,
-            childs: []
+            childs: [],
+            madeFromString: madeFromString // Asignar madeFromString solo si se encuentra
           };
+  
+          // console.log("Recipe:", recipe);
+          // console.log("NewItem:", newItem);
           item.childs.push(newItem);
           await this.createTreeStructure(newItem); // Llamada recursiva para seguir construyendo el árbol
         }
@@ -316,15 +364,13 @@ export class DataManagementService {
     }
   }
   
-
-  
   updateForm(): void {
     this.recipesForm = new FormGroup({});
     this.getChilds().forEach((child) => {
       if (child.recipes !== undefined) {
         // Verificamos que cumpla con las condiciones para agregar el FormControl
         if (child.recipes.length > 1 || (child.recipes.length > 0 && child.typeString === "Natural Resource")) {
-          // console.log(child.name)
+          // 
           if (!this.recipesForm.contains(child.ID.toString())) {
             // Condiciones para seleccionar automáticamente un valor
             let defaultValue = null;
@@ -386,8 +432,8 @@ export class DataManagementService {
     try {
       // this.recipesImages.set([])
       let recipesSelection: Recipe[] = [];
-      console.log(item)
-      console.log("item.recipes ", item.recipes)
+      
+      
       if (item.recipes !== undefined) {
         const promises = item.recipes.map(async rec => {
           let recipeFound = await this.db.recipesTable.where('ID').equals(rec.ID).first();
@@ -426,7 +472,7 @@ export class DataManagementService {
           }
         }
       }
-      console.log("recipe selection: ", recipesSelection)
+      
     } catch (error) {
 
     }

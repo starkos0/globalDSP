@@ -35,9 +35,7 @@
                         </div>
                         <td>
                             <div class="flex justify-center items-center">
-                                 <!-- hacer tambien un node tre pero solo objetos, o sea no el node tree tal cual, de todas las recetas que existern en los item seleccionados -->
-                                <img class="w-10 h-10 m-2" [src]="'assets/Icons/ItemRecipe/assembler-4.png'" alt="">
-                                <!-- @switch (item.) {} -->
+                                <img class="w-10 h-10 m-2" [src]="'assets/' + this.dataManagement.powerFacilitiesMap()[item.madeFromString] + '.png'" alt="">
                                 <input type="number" class="input input-bordered input-xs w-20 max-w-xs rounded-sm">
                             </div>
                         </td>
