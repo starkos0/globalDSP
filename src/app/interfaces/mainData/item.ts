@@ -31,6 +31,9 @@ export interface Item {
     typeString: string;
     fuelTypeString: string;
     name: string;
+    IsFluid?: boolean;
+    miningFrom?: string;
+    isRaw: boolean;
 }
 
 export interface Handcraft {

@@ -22,52 +22,28 @@ export class AppComponent implements OnInit{
   public techs: Tech[] = [];
   public recipes: Recipe[] = [];
   public types: string[] = [];
-  public typeStrings: string[] = [];
+  public typeStrings: { typeString: string; IconPath: string }[] = [];
   constructor(private db: AppDB, private dataManagement: DataManagementService, private http: HttpClient){}
 
   async ngOnInit() {
     await this.db.checkFirstTimeAndLoadData();
-    // this.comprobarLista();
-    // this.comprobarRecipes();
-    // this.comprobarLista();
-    // this.getAllAssembling();
-    // this.getItemType();
-    // this.getItemTypeString();
 
-    // const types$ = this.dataManagement.getItemTypes();
-    // types$.subscribe({
-    //   next: (data) =>{
-    //     console.log(data)
-    //   }
-    // })
     const itemTypeStrings$ = this.dataManagement.getItemTypeString();
     itemTypeStrings$.subscribe({
       next: (data) =>{
-        console.log(data)
+        
         this.typeStrings = data;
+        
        
       }
     })
-    // this.dataManagement.getAllMachinesByType('Smelting Facility').subscribe({
-    //   next: (data) =>{
-    //     data.forEach(element => {
-    //       console.log(element.prefabDesc.assemblerSpeed / this.dataManagement.machinesSpeedRatio)
-    //     });
-    //   }
-    // })
-    // this.dataManagement.getAllMachinesByType('Assembler').subscribe({
-    //   next: (data) =>{
-    //     data.forEach(element => {
-    //       console.log(element.prefabDesc.assemblerSpeed / this.dataManagement.machinesSpeedRatio)
-    //     });
-    //   }
-    // })
-    // this.dataManagement.getAllMadeFromStringRecipes().subscribe({
-    //   next: (data) =>{
-    //     console.log(data)
-    //   }
-    // })
-
+    const madeFromStrings$ = this.dataManagement.getMadeFromString();
+    madeFromStrings$.subscribe({
+      next: (data) =>{
+        
+        
+      }
+    })  
 
   }
 
@@ -78,7 +54,7 @@ export class AppComponent implements OnInit{
   comprobarTechs(){
     this.dataManagement.getTechs().subscribe({
       next: (data) => {
-        console.log(data)
+        
         this.techs = data;
       }
     })
@@ -87,7 +63,7 @@ export class AppComponent implements OnInit{
   comprobarLista(){
     this.dataManagement.getItems().subscribe({
       next: (data) =>{
-        console.log(data)
+        
         this.dataTest = data;
       }
     })
@@ -95,7 +71,7 @@ export class AppComponent implements OnInit{
   comprobarRecipes(){
     this.dataManagement.getRecipes().subscribe({
       next: (data) =>{
-        console.log(data)
+        
         this.recipes = data;
       }
     })
@@ -104,14 +80,14 @@ export class AppComponent implements OnInit{
   getItemType(){
     this.dataManagement.getItemTypes().subscribe({
       next: (data) => {
-        console.log(data)
+        
       }
     })
   }
   getItemTypeString(){
     this.dataManagement.getItemTypeString().subscribe({
       next: (data) =>{
-        console.log(data)
+        
       }
     })
   }

@@ -1,7 +1,7 @@
 import { Injectable, signal, WritableSignal } from '@angular/core';
 import Dexie, { liveQuery, Table } from 'dexie';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, from, map, Observable } from 'rxjs';
+import { BehaviorSubject, forkJoin, from, map, Observable, switchMap } from 'rxjs';
 import { AppDB } from './db';
 import { Tech } from '../interfaces/mainData/Tech';
 import { Recipe } from '../interfaces/mainData/Recipe';
@@ -28,7 +28,7 @@ export class DataManagementService {
 
   private facilityTypes: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
   public facilityTypes$: Observable<string[]> = this.facilityTypes.asObservable();
-
+  powerFacilitiesMap: WritableSignal<{ [key: string]: string }> = signal({});
   public machinesSpeedRatio: number = 10000;
   public defaultItem: Item = {
     Type: '',
@@ -135,7 +135,8 @@ export class DataManagementService {
     canUpgrade: false,
     typeString: '',
     fuelTypeString: '',
-    name: ''
+    name: '',
+    isRaw: false
   }
 
   public selectedItems: WritableSignal<TransformedItems[]> = signal([]);
@@ -145,6 +146,7 @@ export class DataManagementService {
   public recipesImages: WritableSignal<Recipe[]> = signal([]);
   public imagesRecipes: { ID: number, items: string[], results: string[] }[] = []
   public recipesFromTreeStructure: WritableSignal<Recipe[]> = signal([]);
+  public powerFacilities: { typeString: string; IconPath: string }[] = [];
 
 
   constructor(private db: AppDB, private http: HttpClient, private fb: FormBuilder) { }
@@ -198,20 +200,31 @@ export class DataManagementService {
     )
   }
 
-  getItemTypeString(): Observable<string[]> {
+  getItemTypeString(): Observable<{ typeString: string; IconPath: string }[]> {
     return from(this.db.itemsTable.toArray()).pipe(
       map(records => {
         const filterRecordsByProduction = records.filter(record => record.Type === "Production");
-        const typesValues = new Set(filterRecordsByProduction.map(record => record.typeString));
-        if (typesValues) {
-          return Array.from(typesValues)
-        } else {
-          return [];
-        }
+
+        const uniqueRecordsMap = new Map(
+          filterRecordsByProduction
+            .filter(record => record.typeString && record.IconPath) // Filtrar registros válidos
+            .map(record => [record.typeString, { typeString: record.typeString, IconPath: record.IconPath }])
+        );
+
+        return Array.from(uniqueRecordsMap.values());
+      })
+    );
+  }
+
+
+  getMadeFromString(): Observable<string[]> {
+    return from(this.db.recipesTable.toArray()).pipe(
+      map(records => {
+        const madeFromStrings = new Set(records.map(record => record.madeFromString))
+        return Array.from(madeFromStrings)
       })
     )
   }
-
 
   isSelectedItem(selectedItem: TransformedItems): boolean {
     return this.selectedItemsSet.has(selectedItem.ID);
@@ -220,8 +233,14 @@ export class DataManagementService {
   async toggleSelection(selectedItem: Item, modal?: HTMLDialogElement) {
     this.isRecipesFormInitialized.set(false);
     this.recipesForm = new FormGroup({});
-    console.log(selectedItem);
+
     this.recipesFromTreeStructure.set([]);
+
+    let advancedRecipeFound = selectedItem.recipes.find(recipe => recipe.name.includes('advanced'));
+    let recipeToUse = advancedRecipeFound ? advancedRecipeFound : selectedItem.recipes[0]; // Usar la primera receta si no hay ninguna avanzada
+
+    this.recipesForm.addControl(selectedItem.ID.toString(), new FormControl(recipeToUse.ID));
+    let recipe = await this.db.recipesTable.where('ID').equals(recipeToUse.ID).toArray();
     const newItem: TransformedItems = {
       ID: selectedItem.ID,
       name: selectedItem.name,
@@ -231,7 +250,8 @@ export class DataManagementService {
       recipes: selectedItem.recipes,
       typeString: selectedItem.typeString,
       fuelTypeString: selectedItem.fuelTypeString,
-      childs: []
+      childs: [],
+      madeFromString: recipe[0].madeFromString
     }
     if (this.isSelectedItem(newItem)) {
       this.selectedItemsSet.delete(newItem.ID);
@@ -241,36 +261,119 @@ export class DataManagementService {
       this.selectedItems.set([...this.selectedItems(), newItem])
     }
 
-    console.log(this.selectedItems());
+
     for (const item of this.selectedItems()) {
       await this.createTreeStructure(item);
     }
 
-    console.log("recipesFromTreeStructure: ", this.recipesFromTreeStructure())
-    console.log(this.recipesForm.value)
-    console.log(this.recipesImages())
+
     this.processRecipesImages();
+    this.getItemTypeString().pipe(
+      switchMap(data => {
+        // Procesa cada facility usando `getAllMachinesByType` y almacena el observable en `machineObservables`
+        const machineObservables = data.map((item: { typeString: string; IconPath: string }) =>
+          this.getAllMachinesByType(item.typeString).pipe(
+            map(res => {
+              // Configura el `FormControl` con el valor del `localStorage` o el primer valor disponible
+              switch (item.typeString) {
+                case 'Assembler':
+                  this.setFormControlWithLocalStorage('assemblerSelect', res, 'savedAssemblerID');
+                  break;
+                case 'Mining Facility':
+                  this.setFormControlWithLocalStorage('miningMachineSelect', res, 'savedMiningMachineID');
+                  break;
+                case 'Smelting Facility':
+                  this.setFormControlWithLocalStorage('smelterSelect', res, 'savedSmelterID');
+                  break;
+                case 'Research Facility':
+                  this.setFormControlWithLocalStorage('matrixLabSelect', res, 'savedMatrixLabID');
+                  break;
+                case 'Chemical Facility':
+                  this.setFormControlWithLocalStorage('chemicalPlantSelect', res, 'savedChemicalPlantID');
+                  break;
+                default:
+                  break;
+              }
+
+              // Devolver el `typeString`, el array completo `res` y el valor seleccionado en `FormControl`
+              const selectedFacility = this.globalSettingsForm.get(this.getControlName(item.typeString))?.value;
+              return { typeString: item.typeString, IconPath: selectedFacility?.IconPath, machineId: selectedFacility?.ID };
+            })
+          )
+        );
+
+        // Combina todos los observables en `machineObservables` usando `forkJoin`
+        return forkJoin(machineObservables);
+      })
+    ).subscribe({
+      next: facilities => {
+        // Crear una copia de `powerFacilitiesMap` para actualizar los valores
+        const updatedMap = { ...this.powerFacilitiesMap() };
+
+        facilities.forEach(facility => {
+          if (facility.typeString && facility.IconPath) {
+            updatedMap[facility.typeString] = facility.IconPath;
+          }
+        });
+
+        // Reasigna el nuevo mapa actualizado a `powerFacilitiesMap`
+        this.powerFacilitiesMap.set(updatedMap);
+        
+      },
+      error: err => {
+        console.error('Error:', err);
+      }
+    });
+
+    // Función de ayuda para obtener el nombre del control basado en `typeString`
+
     this.isRecipesFormInitialized.set(true);
+    
+  }
+  getControlName(typeString: string): string {
+    switch (typeString) {
+      case 'Assembler': return 'assemblerSelect';
+      case 'Mining Facility': return 'miningMachineSelect';
+      case 'Smelting Facility': return 'smelterSelect';
+      case 'Research Facility': return 'matrixLabSelect';
+      case 'Chemical Facility': return 'chemicalPlantSelect';
+      default: return '';
+    }
+  }
+
+  setFormControlWithLocalStorage(controlName: string, options: Item[], localStorageKey: string) {
+    const savedID = localStorage.getItem(localStorageKey);
+    // 
+    if (savedID) {
+      const selectedItem = options.find(item => item.ID === parseInt(savedID, 10));
+      if (selectedItem) {
+        this.globalSettingsForm.get(controlName)?.setValue(selectedItem);
+      } else {
+        this.globalSettingsForm.get(controlName)?.setValue(options[0]);
+      }
+    } else {
+      this.globalSettingsForm.get(controlName)?.setValue(options[0]);
+    }
   }
 
   async processRecipes(item: TransformedItems) {
     // Verifica y procesa las recetas en el nivel actual
     if (item.recipes) {
       let containsAdvancedRecipe = item.recipes.findIndex(recipe => recipe.name.includes('advanced'));
-      if(containsAdvancedRecipe !== -1){
+      if (containsAdvancedRecipe !== -1) {
         this.recipesForm.addControl(item.ID.toString(), new FormControl(item.recipes[containsAdvancedRecipe].ID));
-      }else{
+      } else {
         this.recipesForm.addControl(item.ID.toString(), new FormControl(item.recipes[0].ID));
       }
       for (const recipe of item.recipes) {
-        if(recipe.name.includes("advanced")){
+        if (recipe.name.includes("advanced")) {
           this.recipesForm.addControl(item.ID.toString(), new FormControl(recipe.ID));
         }
         let recipeFound = await this.db.recipesTable.where('ID').equals(recipe.ID).toArray();
         this.recipesFromTreeStructure().push(recipeFound[0]);
       }
     }
-  
+
     // Recorre recursivamente los childs si existen
     if (item.childs) {
       for (const child of item.childs) {
@@ -287,17 +390,30 @@ export class DataManagementService {
         let recipeDetails = await this.db.recipesTable.where('ID').equals(recipe.ID).toArray();
         this.recipesImages.set([...this.recipesImages(), recipeDetails[0]]);
       }
-  
+
       let advancedRecipeFound = item.recipes.find(recipe => recipe.name.includes('advanced'));
       let recipeToUse = advancedRecipeFound ? advancedRecipeFound : item.recipes[0]; // Usar la primera receta si no hay ninguna avanzada
-      
+
       if (recipeToUse) {
         this.recipesForm.addControl(item.ID.toString(), new FormControl(recipeToUse.ID));
-        
+
         let recipe = await this.db.recipesTable.where('ID').equals(recipeToUse.ID).toArray();
-        
         for (const itemId of recipe[0].Items) {
           let itemFound = await this.db.itemsTable.where('ID').equals(itemId).toArray();
+
+          // Verificación adicional: asegurarse de que itemFound[0] tenga recetas
+          let madeFromString = "";
+          if (itemFound[0].recipes && itemFound[0].recipes.length > 0) {
+            let childRecipe = await this.db.recipesTable.where('ID').equals(itemFound[0].recipes[0].ID).toArray();
+            madeFromString = childRecipe[0]?.madeFromString || "";
+          } else {
+            if (itemFound[0].IsFluid) {
+              madeFromString = "Oil Extraction Facility";
+            } else {
+              madeFromString = "Mining Facility";
+            }
+          }
+
           const newItem: TransformedItems = {
             ID: itemFound[0].ID,
             name: itemFound[0].name,
@@ -307,24 +423,26 @@ export class DataManagementService {
             recipes: itemFound[0].recipes,
             typeString: itemFound[0].typeString,
             fuelTypeString: itemFound[0].fuelTypeString,
-            childs: []
+            childs: [],
+            madeFromString: madeFromString // Asignar madeFromString solo si se encuentra
           };
+
+          // 
+          // 
           item.childs.push(newItem);
           await this.createTreeStructure(newItem); // Llamada recursiva para seguir construyendo el árbol
         }
       }
     }
   }
-  
 
-  
   updateForm(): void {
     this.recipesForm = new FormGroup({});
     this.getChilds().forEach((child) => {
       if (child.recipes !== undefined) {
         // Verificamos que cumpla con las condiciones para agregar el FormControl
         if (child.recipes.length > 1 || (child.recipes.length > 0 && child.typeString === "Natural Resource")) {
-          // console.log(child.name)
+          // 
           if (!this.recipesForm.contains(child.ID.toString())) {
             // Condiciones para seleccionar automáticamente un valor
             let defaultValue = null;
@@ -386,8 +504,8 @@ export class DataManagementService {
     try {
       // this.recipesImages.set([])
       let recipesSelection: Recipe[] = [];
-      console.log(item)
-      console.log("item.recipes ", item.recipes)
+
+
       if (item.recipes !== undefined) {
         const promises = item.recipes.map(async rec => {
           let recipeFound = await this.db.recipesTable.where('ID').equals(rec.ID).first();
@@ -426,7 +544,7 @@ export class DataManagementService {
           }
         }
       }
-      console.log("recipe selection: ", recipesSelection)
+
     } catch (error) {
 
     }

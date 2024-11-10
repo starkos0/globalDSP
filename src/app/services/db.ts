@@ -44,11 +44,11 @@ export class AppDB extends Dexie{
                 ]);
             });
     
-            console.log('Data populated successfully');
+            
         } catch (err) {
             console.error('Error populating data:', err);
         } finally {
-            console.log("all good");
+            
         }
     }
 
@@ -58,7 +58,7 @@ export class AppDB extends Dexie{
 
     public async checkFirstTimeAndLoadData() {
         const isFirstTime = localStorage.getItem("isFirstTime");
-        console.log(isFirstTime)
+        
 
         if (!isFirstTime) {
             await this.populate();
