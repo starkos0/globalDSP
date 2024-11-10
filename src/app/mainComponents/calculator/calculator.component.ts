@@ -161,9 +161,22 @@ export class CalculatorComponent implements OnInit {
     })
   }
   optionsChanged(values: any) {
-    console.log(values)
-    this.dataManagement.powerFacilitiesMap.set({})
+    console.log("Form values changed:", values);
+  
+    const updatedMap: { [key: string]: string } = {};
+  
+    Object.keys(values).forEach(controlName => {
+      const selectedFacility = values[controlName];
+      if (selectedFacility?.typeString && selectedFacility.IconPath) {
+        updatedMap[selectedFacility.typeString] = selectedFacility.IconPath;
+      }
+    });
+  
+    this.dataManagement.powerFacilitiesMap.set(updatedMap);
+  
+    console.log("Updated powerFacilitiesMap:", this.dataManagement.powerFacilitiesMap());
   }
+  
   ngOnInit(): void {
     this.dataManagement.getItemTypeString().pipe(
       switchMap(data => {
