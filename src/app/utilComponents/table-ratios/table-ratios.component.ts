@@ -42,7 +42,7 @@ export class TableRatiosComponent implements OnInit {
     });
     this.globalSettingsForm = this.dataManagement.globalSettingsForm;
     this.globalSettingsForm.valueChanges.subscribe(values => {
-      console.log(values)
+      
     })
     this.recipesForm = this.fb.group({});
     this.recipesForm.valueChanges.subscribe(values => {

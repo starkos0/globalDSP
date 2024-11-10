@@ -318,7 +318,7 @@ export class DataManagementService {
 
         // Reasigna el nuevo mapa actualizado a `powerFacilitiesMap`
         this.powerFacilitiesMap.set(updatedMap);
-        console.log("Power Facilities Map:", this.powerFacilitiesMap());
+        
       },
       error: err => {
         console.error('Error:', err);
@@ -328,7 +328,7 @@ export class DataManagementService {
     // Función de ayuda para obtener el nombre del control basado en `typeString`
 
     this.isRecipesFormInitialized.set(true);
-    console.log("Selected Items: ", this.selectedItems());
+    
   }
   getControlName(typeString: string): string {
     switch (typeString) {
@@ -427,8 +427,8 @@ export class DataManagementService {
             madeFromString: madeFromString // Asignar madeFromString solo si se encuentra
           };
 
-          // console.log("Recipe:", recipe);
-          // console.log("NewItem:", newItem);
+          // 
+          // 
           item.childs.push(newItem);
           await this.createTreeStructure(newItem); // Llamada recursiva para seguir construyendo el árbol
         }

@@ -33,7 +33,7 @@ export class AppComponent implements OnInit{
       next: (data) =>{
         
         this.typeStrings = data;
-        console.log(this.typeStrings)
+        
        
       }
     })
@@ -41,7 +41,7 @@ export class AppComponent implements OnInit{
     madeFromStrings$.subscribe({
       next: (data) =>{
         
-        console.log(data)
+        
       }
     })  
 

@@ -161,7 +161,7 @@ export class CalculatorComponent implements OnInit {
     })
   }
   optionsChanged(values: any) {
-    console.log("Form values changed:", values);
+    
   
     const updatedMap: { [key: string]: string } = {};
   
@@ -174,7 +174,7 @@ export class CalculatorComponent implements OnInit {
   
     this.dataManagement.powerFacilitiesMap.set(updatedMap);
   
-    console.log("Updated powerFacilitiesMap:", this.dataManagement.powerFacilitiesMap());
+    
   }
   
   ngOnInit(): void {
