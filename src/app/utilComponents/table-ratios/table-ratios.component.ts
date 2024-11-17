@@ -15,13 +15,14 @@ import { TransformedItems } from '../../interfaces/transformed-items';
   styleUrl: './table-ratios.component.scss'
 })
 export class TableRatiosComponent implements OnInit {
-  public globalSettingsForm!: FormGroup;
   public recipesForm!: FormGroup;
   public childs: Item[] = [];
   public recipesImages: Recipe[] = []
   public isRecipesFormInitialized: boolean = false;
   previousFormValues: any = {};
-  
+  public globalSettingsForm!: FormGroup;
+
+
   constructor(public dataManagement: DataManagementService, private db: AppDB, private fb: FormBuilder) {
     effect(() => {
 
@@ -36,14 +37,12 @@ export class TableRatiosComponent implements OnInit {
     // 
   }
   ngOnInit(): void {
+    this.globalSettingsForm = this.dataManagement.getGlobalSettingsForm();
     
-
     this.recipesForm.valueChanges.subscribe(values => {
+
     });
-    this.globalSettingsForm = this.dataManagement.globalSettingsForm;
-    this.globalSettingsForm.valueChanges.subscribe(values => {
-      
-    })
+    
     this.recipesForm = this.fb.group({});
     this.recipesForm.valueChanges.subscribe(values => {
 
@@ -270,7 +269,13 @@ export class TableRatiosComponent implements OnInit {
         typeString: itemFound[0].typeString,
         fuelTypeString: itemFound[0].fuelTypeString,
         childs: [],
-        madeFromString: madeFromString 
+        madeFromString: madeFromString,
+        TimeSpend: recipe[0].TimeSpend,
+        Items: recipe[0].Items,
+        ItemCounts: recipe[0].ItemCounts,
+        Results: recipe[0].Results,
+        ResultCounts: recipe[0].ResultCounts,
+        totalValue: 0
       };
 
       if (itemFound[0].recipes !== undefined && itemFound[0].recipes.length > 0) {

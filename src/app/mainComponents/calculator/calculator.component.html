@@ -94,11 +94,11 @@
             <details class="dropdown">
                 <summary class="btn m-1">
                     <img class="w-8 h-8"
-                        [src]="'assets/' + (globalSettingsForm.get('miningMachineSelect')?.value?.IconPath || '') + '.png'"
+                        [src]="'assets/' + (globalSettingsForm.get('miningmachineSelect')?.value?.IconPath || '') + '.png'"
                         alt="">
                 </summary>
                 <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                    @for (machine of miningMachineSelectOptions; track $index) {
+                    @for (machine of miningmachineSelectOptions; track $index) {
                     <li (click)="selectMiningMachine(machine)"><a><img class="w-8 h-8"
                                 [src]="'assets/' + machine.IconPath + '.png'" alt=""></a></li>
                     }
@@ -120,11 +120,11 @@
             <details class="dropdown">
                 <summary class="btn m-1">
                     <img class="w-8 h-8"
-                        [src]="'assets/' + (globalSettingsForm.get('chemicalPlantSelect')?.value.IconPath || '') + '.png'"
+                        [src]="'assets/' + (globalSettingsForm.get('chemicalplantSelect')?.value.IconPath || '') + '.png'"
                         alt="">
                 </summary>
                 <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                    @for (machine of chemicalPlantSelectOptions; track $index) {
+                    @for (machine of chemicalplantSelectOptions; track $index) {
                     <li (click)="selectChemicalPlant(machine)"><a><img class="w-8 h-8"
                                 [src]="'assets/' + machine.IconPath + '.png'" alt=""></a></li>
                     }

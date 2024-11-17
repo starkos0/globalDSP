@@ -9,6 +9,12 @@ export interface TransformedItems {
     fuelTypeString: string;
     childs: TransformedItems[];
     madeFromString: string;
+    TimeSpend: number;
+    Items: number[];
+    ItemCounts: number[];
+    Results: number[];
+    ResultCounts: number[];
+    totalValue: number;
 }
 
 export interface recipes{
