@@ -12,17 +12,30 @@ import { TransformedItems } from '../interfaces/transformed-items';
   providedIn: 'root'
 })
 export class DataManagementService {
-  private _globalSettingsForm!: FormGroup;
   public recipesForm: FormGroup = new FormGroup({});
   public isRecipesFormInitialized = signal(false); // Flag to track form initialization
 
-  setGlobalSettingsForm(form: FormGroup) {
-    this._globalSettingsForm = form;
+  private globalSettingsForm!: FormGroup;
+
+  // Initialize the form
+  initializeForm(defaultItem: any) {
+    this.globalSettingsForm = new FormGroup({
+      initialAmountValue: new FormControl(60),
+      unitSelected: new FormControl('m'),
+      assemblerSelect: new FormControl(defaultItem),
+      smelterSelect: new FormControl(defaultItem),
+      miningmachineSelect: new FormControl(defaultItem),
+      matrixLabSelect: new FormControl(defaultItem),
+      chemicalplantSelect: new FormControl(defaultItem)
+    });
+
   }
 
-  get globalSettingsForm(): FormGroup {
-    return this._globalSettingsForm;
+  getGlobalSettingsForm(): FormGroup {
+    return this.globalSettingsForm;
   }
+
+
   private typesSubject: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
   public types$: Observable<string[]> = this.typesSubject.asObservable();
 
@@ -149,6 +162,7 @@ export class DataManagementService {
   public powerFacilities: { typeString: string; IconPath: string }[] = [];
 
 
+
   constructor(private db: AppDB, private http: HttpClient, private fb: FormBuilder) { }
   getItems(): Observable<Item[]> {
     return from(this.db.itemsTable.toArray());
@@ -231,6 +245,7 @@ export class DataManagementService {
   }
 
   async toggleSelection(selectedItem: Item, modal?: HTMLDialogElement) {
+    console.log("assembler speed: ", this.globalSettingsForm.get('assemblerSelect')?.value.prefabDesc.assemblerSpeed)
     this.isRecipesFormInitialized.set(false);
     this.recipesForm = new FormGroup({});
 
@@ -251,7 +266,13 @@ export class DataManagementService {
       typeString: selectedItem.typeString,
       fuelTypeString: selectedItem.fuelTypeString,
       childs: [],
-      madeFromString: recipe[0].madeFromString
+      madeFromString: recipe[0].madeFromString,
+      TimeSpend: recipe[0].TimeSpend,
+      Items: recipe[0].Items,
+      ItemCounts: recipe[0].ItemCounts,
+      Results: recipe[0].Results,
+      ResultCounts: recipe[0].ResultCounts,
+      totalValue: this.globalSettingsForm.get('initialAmountValue')?.value
     }
     if (this.isSelectedItem(newItem)) {
       this.selectedItemsSet.delete(newItem.ID);
@@ -270,17 +291,15 @@ export class DataManagementService {
     this.processRecipesImages();
     this.getItemTypeString().pipe(
       switchMap(data => {
-        // Procesa cada facility usando `getAllMachinesByType` y almacena el observable en `machineObservables`
         const machineObservables = data.map((item: { typeString: string; IconPath: string }) =>
           this.getAllMachinesByType(item.typeString).pipe(
             map(res => {
-              // Configura el `FormControl` con el valor del `localStorage` o el primer valor disponible
               switch (item.typeString) {
                 case 'Assembler':
                   this.setFormControlWithLocalStorage('assemblerSelect', res, 'savedAssemblerID');
                   break;
                 case 'Mining Facility':
-                  this.setFormControlWithLocalStorage('miningMachineSelect', res, 'savedMiningMachineID');
+                  this.setFormControlWithLocalStorage('miningmachineSelect', res, 'savedMiningMachineID');
                   break;
                 case 'Smelting Facility':
                   this.setFormControlWithLocalStorage('smelterSelect', res, 'savedSmelterID');
@@ -289,54 +308,49 @@ export class DataManagementService {
                   this.setFormControlWithLocalStorage('matrixLabSelect', res, 'savedMatrixLabID');
                   break;
                 case 'Chemical Facility':
-                  this.setFormControlWithLocalStorage('chemicalPlantSelect', res, 'savedChemicalPlantID');
+                  this.setFormControlWithLocalStorage('chemicalplantSelect', res, 'savedChemicalPlantID');
                   break;
                 default:
                   break;
               }
 
-              // Devolver el `typeString`, el array completo `res` y el valor seleccionado en `FormControl`
               const selectedFacility = this.globalSettingsForm.get(this.getControlName(item.typeString))?.value;
               return { typeString: item.typeString, IconPath: selectedFacility?.IconPath, machineId: selectedFacility?.ID };
             })
           )
         );
 
-        // Combina todos los observables en `machineObservables` usando `forkJoin`
         return forkJoin(machineObservables);
       })
     ).subscribe({
       next: facilities => {
-        // Crear una copia de `powerFacilitiesMap` para actualizar los valores
         const updatedMap = { ...this.powerFacilitiesMap() };
-
+        console.log(facilities)
         facilities.forEach(facility => {
           if (facility.typeString && facility.IconPath) {
             updatedMap[facility.typeString] = facility.IconPath;
           }
         });
 
-        // Reasigna el nuevo mapa actualizado a `powerFacilitiesMap`
         this.powerFacilitiesMap.set(updatedMap);
-        
+        console.log("powerFacilities ", this.powerFacilitiesMap())
       },
       error: err => {
         console.error('Error:', err);
       }
     });
 
-    // Función de ayuda para obtener el nombre del control basado en `typeString`
-
+    console.log(this.selectedItems())
     this.isRecipesFormInitialized.set(true);
-    
+
   }
   getControlName(typeString: string): string {
     switch (typeString) {
       case 'Assembler': return 'assemblerSelect';
-      case 'Mining Facility': return 'miningMachineSelect';
+      case 'Mining Facility': return 'miningmachineSelect';
       case 'Smelting Facility': return 'smelterSelect';
       case 'Research Facility': return 'matrixLabSelect';
-      case 'Chemical Facility': return 'chemicalPlantSelect';
+      case 'Chemical Facility': return 'chemicalplantSelect';
       default: return '';
     }
   }
@@ -385,35 +399,35 @@ export class DataManagementService {
 
   async createTreeStructure(item: TransformedItems) {
     if (item.recipes !== undefined) {
-      // Guardar todas las recetas en recipesImages
+
       for (const recipe of item.recipes) {
         let recipeDetails = await this.db.recipesTable.where('ID').equals(recipe.ID).toArray();
         this.recipesImages.set([...this.recipesImages(), recipeDetails[0]]);
       }
-
+  
       let advancedRecipeFound = item.recipes.find(recipe => recipe.name.includes('advanced'));
-      let recipeToUse = advancedRecipeFound ? advancedRecipeFound : item.recipes[0]; // Usar la primera receta si no hay ninguna avanzada
-
+      let recipeToUse = advancedRecipeFound ? advancedRecipeFound : item.recipes[0]; 
+  
       if (recipeToUse) {
         this.recipesForm.addControl(item.ID.toString(), new FormControl(recipeToUse.ID));
-
+  
         let recipe = await this.db.recipesTable.where('ID').equals(recipeToUse.ID).toArray();
-        for (const itemId of recipe[0].Items) {
+        let resultCount = recipe[0].ResultCounts[0] || 1; 
+  
+        for (let i = 0; i < recipe[0].Items.length; i++) {
+          const itemId = recipe[0].Items[i];
           let itemFound = await this.db.itemsTable.where('ID').equals(itemId).toArray();
-
-          // Verificación adicional: asegurarse de que itemFound[0] tenga recetas
+  
           let madeFromString = "";
           if (itemFound[0].recipes && itemFound[0].recipes.length > 0) {
             let childRecipe = await this.db.recipesTable.where('ID').equals(itemFound[0].recipes[0].ID).toArray();
             madeFromString = childRecipe[0]?.madeFromString || "";
           } else {
-            if (itemFound[0].IsFluid) {
-              madeFromString = "Oil Extraction Facility";
-            } else {
-              madeFromString = "Mining Facility";
-            }
+            madeFromString = itemFound[0].IsFluid ? "Oil Extraction Facility" : "Mining Facility";
           }
-
+        
+          const totalValue = (item.totalValue * recipe[0].ItemCounts[i]) / resultCount;
+  
           const newItem: TransformedItems = {
             ID: itemFound[0].ID,
             name: itemFound[0].name,
@@ -424,17 +438,23 @@ export class DataManagementService {
             typeString: itemFound[0].typeString,
             fuelTypeString: itemFound[0].fuelTypeString,
             childs: [],
-            madeFromString: madeFromString // Asignar madeFromString solo si se encuentra
+            madeFromString: madeFromString,
+            TimeSpend: recipe[0].TimeSpend,
+            Items: recipe[0].Items,
+            ItemCounts: recipe[0].ItemCounts,
+            Results: recipe[0].Results,
+            ResultCounts: recipe[0].ResultCounts,
+            totalValue: totalValue 
           };
-
-          // 
-          // 
+  
           item.childs.push(newItem);
-          await this.createTreeStructure(newItem); // Llamada recursiva para seguir construyendo el árbol
+  
+          await this.createTreeStructure(newItem);
         }
       }
     }
   }
+  
 
   updateForm(): void {
     this.recipesForm = new FormGroup({});
