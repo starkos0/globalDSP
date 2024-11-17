@@ -325,7 +325,7 @@ export class DataManagementService {
     ).subscribe({
       next: facilities => {
         const updatedMap = { ...this.powerFacilitiesMap() };
-
+        console.log(facilities)
         facilities.forEach(facility => {
           if (facility.typeString && facility.IconPath) {
             updatedMap[facility.typeString] = facility.IconPath;
@@ -399,35 +399,35 @@ export class DataManagementService {
 
   async createTreeStructure(item: TransformedItems) {
     if (item.recipes !== undefined) {
-      // Guardar todas las recetas en recipesImages
+
       for (const recipe of item.recipes) {
         let recipeDetails = await this.db.recipesTable.where('ID').equals(recipe.ID).toArray();
         this.recipesImages.set([...this.recipesImages(), recipeDetails[0]]);
       }
-
+  
       let advancedRecipeFound = item.recipes.find(recipe => recipe.name.includes('advanced'));
-      let recipeToUse = advancedRecipeFound ? advancedRecipeFound : item.recipes[0]; // Usar la primera receta si no hay ninguna avanzada
-
+      let recipeToUse = advancedRecipeFound ? advancedRecipeFound : item.recipes[0]; 
+  
       if (recipeToUse) {
         this.recipesForm.addControl(item.ID.toString(), new FormControl(recipeToUse.ID));
-
+  
         let recipe = await this.db.recipesTable.where('ID').equals(recipeToUse.ID).toArray();
-        for (const itemId of recipe[0].Items) {
+        let resultCount = recipe[0].ResultCounts[0] || 1; 
+  
+        for (let i = 0; i < recipe[0].Items.length; i++) {
+          const itemId = recipe[0].Items[i];
           let itemFound = await this.db.itemsTable.where('ID').equals(itemId).toArray();
-
-          // Verificación adicional: asegurarse de que itemFound[0] tenga recetas
+  
           let madeFromString = "";
           if (itemFound[0].recipes && itemFound[0].recipes.length > 0) {
             let childRecipe = await this.db.recipesTable.where('ID').equals(itemFound[0].recipes[0].ID).toArray();
             madeFromString = childRecipe[0]?.madeFromString || "";
           } else {
-            if (itemFound[0].IsFluid) {
-              madeFromString = "Oil Extraction Facility";
-            } else {
-              madeFromString = "Mining Facility";
-            }
+            madeFromString = itemFound[0].IsFluid ? "Oil Extraction Facility" : "Mining Facility";
           }
-
+        
+          const totalValue = (item.totalValue * recipe[0].ItemCounts[i]) / resultCount;
+  
           const newItem: TransformedItems = {
             ID: itemFound[0].ID,
             name: itemFound[0].name,
@@ -444,15 +444,17 @@ export class DataManagementService {
             ItemCounts: recipe[0].ItemCounts,
             Results: recipe[0].Results,
             ResultCounts: recipe[0].ResultCounts,
-            totalValue: 0
+            totalValue: totalValue 
           };
-
+  
           item.childs.push(newItem);
-          await this.createTreeStructure(newItem); // Llamada recursiva para seguir construyendo el árbol
+  
+          await this.createTreeStructure(newItem);
         }
       }
     }
   }
+  
 
   updateForm(): void {
     this.recipesForm = new FormGroup({});
