@@ -26,7 +26,9 @@ export class DataManagementService {
       smelterSelect: new FormControl(defaultItem),
       miningmachineSelect: new FormControl(defaultItem),
       matrixLabSelect: new FormControl(defaultItem),
-      chemicalplantSelect: new FormControl(defaultItem)
+      chemicalplantSelect: new FormControl(defaultItem),
+      refiningSelect: new FormControl(defaultItem),
+      oilextractionSelect: new FormControl(defaultItem)
     });
 
   }
@@ -310,6 +312,12 @@ export class DataManagementService {
                 case 'Chemical Facility':
                   this.setFormControlWithLocalStorage('chemicalplantSelect', res, 'savedChemicalPlantID');
                   break;
+                case 'Refining Facility':
+                  this.setFormControlWithLocalStorage('refiningSelect', res, 'savedrefiningID');
+                  break;
+                case 'Oil Extraction Facility':
+                  this.setFormControlWithLocalStorage('oilextractionSelect', res, 'savedoilextractionID');
+                  break;
                 default:
                   break;
               }
@@ -351,6 +359,8 @@ export class DataManagementService {
       case 'Smelting Facility': return 'smelterSelect';
       case 'Research Facility': return 'matrixLabSelect';
       case 'Chemical Facility': return 'chemicalplantSelect';
+      case 'Refining Facility': return 'refiningSelect';
+      case 'Oil Extraction Facility': return 'oilextractionSelect'
       default: return '';
     }
   }
