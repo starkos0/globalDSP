@@ -25,7 +25,6 @@
 
             <ng-template #recursiveTemplate let-item let-index="index">
                 <tr class="hover">
-                    <td>{{index}}</td>
                     <td><button class="btn" (click)="makeItOre(item)">make it ore</button></td>
                     <div class="tooltip" [attr.data-tip]="item.name">
                         <td>

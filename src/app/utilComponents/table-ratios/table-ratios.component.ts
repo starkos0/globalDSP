@@ -24,6 +24,7 @@ export class TableRatiosComponent implements OnInit {
 
 
   constructor(public dataManagement: DataManagementService, private db: AppDB, private fb: FormBuilder) {
+    
     effect(() => {
 
       this.childs = this.dataManagement.childs()
@@ -37,19 +38,11 @@ export class TableRatiosComponent implements OnInit {
     // 
   }
   ngOnInit(): void {
-    this.globalSettingsForm = this.dataManagement.getGlobalSettingsForm();
-    console.log(this.globalSettingsForm.value)
-    this.globalSettingsForm.valueChanges.subscribe(values => {
-      console.log(values)
-    });
     
     this.recipesForm = this.fb.group({});
 
-
   }
-  performActionOnSelectedItems(newItems: Item[]): void {
 
-  }
   async getRecipesImages(recipeId: number): Promise<string[]> {
     let srcImages: string[] = [];
     let recipe = await this.db.recipesTable.where('ID').equals(recipeId).toArray();
@@ -427,10 +420,13 @@ export class TableRatiosComponent implements OnInit {
 
   }
 
-  roundNumber(item: TransformedItems){
-    let value = (item.TimeSpend / 60) / 
-    (this.globalSettingsForm.get(item.madeFromString.split(' ')[0].toLowerCase() + 'Select')?.value?.prefabDesc?.assemblerSpeed / 10000 || 1)
-    return Number(value.toFixed(2))
+  roundNumber(item: TransformedItems): number {
+    const globalValues = this.dataManagement.globalSettingsFormSignal();
+    const control =
+      globalValues[item.madeFromString.split(' ')[0].toLowerCase() + 'Select'];
+    let value =
+      (item.TimeSpend / 60) /
+      ((control?.prefabDesc?.assemblerSpeed / 10000) || 1);
+    return Number(value.toFixed(2));
   }
-    
 }
