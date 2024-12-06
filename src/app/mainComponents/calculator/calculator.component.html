@@ -10,7 +10,7 @@
                 <option value="s">items/s</option>
             </select>
 
-            <button class="btn btn-sm w-40" onclick="my_modal_2.showModal()">
+            <button class="btn btn-sm w-40 rounded-sm" onclick="my_modal_2.showModal()">
                 <img class="w-5 h-5" src="assets/Icons/ItemRecipe/various/select-recipe.png" alt="">
                 Add Recipe +
             </button>
@@ -65,8 +65,8 @@
         </div>
 
         <div>
-            <details class="dropdown">
-                <summary class="btn m-1">
+            <details class="dropdown ">
+                <summary class="btn m-1 rounded-sm">
                     <img class="w-8 h-8"
                         [src]="'assets/' + (globalSettingsForm.get('assemblerSelect')?.value?.IconPath || '') + '.png'"
                         alt="">
@@ -79,52 +79,52 @@
                 </ul>
             </details>
             <details class="dropdown">
-                <summary class="btn m-1">
+                <summary class="btn m-1 rounded-sm">
                     <img class="w-8 h-8"
-                        [src]="'assets/' + (globalSettingsForm.get('smelterSelect')?.value?.IconPath || '') + '.png'"
+                        [src]="'assets/' + (globalSettingsForm.get('smeltingSelect')?.value?.IconPath || '') + '.png'"
                         alt="">
                 </summary>
                 <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                    @for (machine of smelterSelectOptions; track $index) {
+                    @for (machine of smeltingSelectOptions; track $index) {
                     <li (click)="selectSmelter(machine)"><a><img class="w-8 h-8"
                                 [src]="'assets/' + machine.IconPath + '.png'" alt=""></a></li>
                     }
                 </ul>
             </details>
             <details class="dropdown">
-                <summary class="btn m-1">
+                <summary class="btn m-1 rounded-sm">
                     <img class="w-8 h-8"
-                        [src]="'assets/' + (globalSettingsForm.get('miningmachineSelect')?.value?.IconPath || '') + '.png'"
+                        [src]="'assets/' + (globalSettingsForm.get('miningSelect')?.value?.IconPath || '') + '.png'"
                         alt="">
                 </summary>
                 <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                    @for (machine of miningmachineSelectOptions; track $index) {
+                    @for (machine of miningSelectOptions; track $index) {
                     <li (click)="selectMiningMachine(machine)"><a><img class="w-8 h-8"
                                 [src]="'assets/' + machine.IconPath + '.png'" alt=""></a></li>
                     }
                 </ul>
             </details>
             <details class="dropdown">
-                <summary class="btn m-1">
+                <summary class="btn m-1 rounded-sm">
                     <img class="w-8 h-8"
-                        [src]="'assets/' + (globalSettingsForm.get('matrixLabSelect')?.value?.IconPath || '') + '.png'"
+                        [src]="'assets/' + (globalSettingsForm.get('researchSelect')?.value?.IconPath || '') + '.png'"
                         alt="">
                 </summary>
                 <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                    @for (machine of matrixLabSelectOptions; track $index) {
+                    @for (machine of researchSelectOptions; track $index) {
                     <li (click)="selectMatrixLab(machine)"><a><img class="w-8 h-8"
                                 [src]="'assets/' + machine.IconPath + '.png'" alt=""></a></li>
                     }
                 </ul>
             </details>
             <details class="dropdown">
-                <summary class="btn m-1">
+                <summary class="btn m-1 rounded-sm">
                     <img class="w-8 h-8"
-                        [src]="'assets/' + (globalSettingsForm.get('chemicalplantSelect')?.value.IconPath || '') + '.png'"
+                        [src]="'assets/' + (globalSettingsForm.get('chemicalSelect')?.value.IconPath || '') + '.png'"
                         alt="">
                 </summary>
-                <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                    @for (machine of chemicalplantSelectOptions; track $index) {
+                <ul class="menu dropdown-content bg-base-100 z-[1] w-52 p-2 shadow rounded-sm">
+                    @for (machine of chemicalSelectOptions; track $index) {
                     <li (click)="selectChemicalPlant(machine)"><a><img class="w-8 h-8"
                                 [src]="'assets/' + machine.IconPath + '.png'" alt=""></a></li>
                     }

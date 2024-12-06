@@ -7,6 +7,9 @@ module.exports = {
       fontFamily: {
         'sans': ['Poppins', 'sans-serif'], // Configura Poppins como la fuente predeterminada
         'title': ['Satoshi', 'sans-serif'], // Configura Satoshi como la fuente para títulos
+      },     
+      borderRadius: {
+        DEFAULT: '0.125rem', // Cambia el valor predeterminado a rounded-sm
       },
     },
   },
@@ -29,8 +32,8 @@ module.exports = {
           "neutral": "#3d4451",
           "neutral-focus": "#2a2e37",
           "neutral-content": "#ffffff",
-          "base-100": "#10100E",
-          "base-200": "#282825",
+          "base-100": "#0e1015",
+          "base-200": "#272a30",
           "base-300": "#080807",
           "base-content": "#E1D5CD",
           "info": "#2094f3",

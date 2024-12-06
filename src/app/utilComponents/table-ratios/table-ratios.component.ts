@@ -1,5 +1,5 @@
 import { Component, OnInit, WritableSignal, effect } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DataManagementService } from '../../services/data-management.service';
 import { Item } from '../../interfaces/mainData/Item';
 import { AppDB } from '../../services/db';
@@ -10,7 +10,7 @@ import { TransformedItems } from '../../interfaces/transformed-items';
 @Component({
   selector: 'app-table-ratios',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule,FormsModule],
   templateUrl: './table-ratios.component.html',
   styleUrl: './table-ratios.component.scss'
 })
@@ -38,15 +38,13 @@ export class TableRatiosComponent implements OnInit {
   }
   ngOnInit(): void {
     this.globalSettingsForm = this.dataManagement.getGlobalSettingsForm();
-    
-    this.recipesForm.valueChanges.subscribe(values => {
-
+    console.log(this.globalSettingsForm.value)
+    this.globalSettingsForm.valueChanges.subscribe(values => {
+      console.log(values)
     });
     
     this.recipesForm = this.fb.group({});
-    this.recipesForm.valueChanges.subscribe(values => {
 
-    })
 
   }
   performActionOnSelectedItems(newItems: Item[]): void {
@@ -429,4 +427,10 @@ export class TableRatiosComponent implements OnInit {
 
   }
 
+  roundNumber(item: TransformedItems){
+    let value = (item.TimeSpend / 60) / 
+    (this.globalSettingsForm.get(item.madeFromString.split(' ')[0].toLowerCase() + 'Select')?.value?.prefabDesc?.assemblerSpeed / 10000 || 1)
+    return Number(value.toFixed(2))
+  }
+    
 }

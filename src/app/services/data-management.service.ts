@@ -23,10 +23,12 @@ export class DataManagementService {
       initialAmountValue: new FormControl(60),
       unitSelected: new FormControl('m'),
       assemblerSelect: new FormControl(defaultItem),
-      smelterSelect: new FormControl(defaultItem),
-      miningmachineSelect: new FormControl(defaultItem),
-      matrixLabSelect: new FormControl(defaultItem),
-      chemicalplantSelect: new FormControl(defaultItem)
+      smeltingSelect: new FormControl(defaultItem),
+      miningSelect: new FormControl(defaultItem),
+      researchSelect: new FormControl(defaultItem),
+      chemicalSelect: new FormControl(defaultItem),
+      refiningSelect: new FormControl(defaultItem),
+      oilSelect: new FormControl(defaultItem)
     });
 
   }
@@ -299,16 +301,22 @@ export class DataManagementService {
                   this.setFormControlWithLocalStorage('assemblerSelect', res, 'savedAssemblerID');
                   break;
                 case 'Mining Facility':
-                  this.setFormControlWithLocalStorage('miningmachineSelect', res, 'savedMiningMachineID');
+                  this.setFormControlWithLocalStorage('miningSelect', res, 'savedMiningMachineID');
                   break;
                 case 'Smelting Facility':
-                  this.setFormControlWithLocalStorage('smelterSelect', res, 'savedSmelterID');
+                  this.setFormControlWithLocalStorage('smeltingSelect', res, 'savedSmelterID');
                   break;
                 case 'Research Facility':
-                  this.setFormControlWithLocalStorage('matrixLabSelect', res, 'savedMatrixLabID');
+                  this.setFormControlWithLocalStorage('researchSelect', res, 'savedMatrixLabID');
                   break;
                 case 'Chemical Facility':
-                  this.setFormControlWithLocalStorage('chemicalplantSelect', res, 'savedChemicalPlantID');
+                  this.setFormControlWithLocalStorage('chemicalSelect', res, 'savedChemicalPlantID');
+                  break;
+                case 'Refining Facility':
+                  this.setFormControlWithLocalStorage('refiningSelect', res, 'savedrefiningID');
+                  break;
+                case 'Oil Extraction Facility':
+                  this.setFormControlWithLocalStorage('oilSelect', res, 'savedoilextractionID');
                   break;
                 default:
                   break;
@@ -347,10 +355,12 @@ export class DataManagementService {
   getControlName(typeString: string): string {
     switch (typeString) {
       case 'Assembler': return 'assemblerSelect';
-      case 'Mining Facility': return 'miningmachineSelect';
-      case 'Smelting Facility': return 'smelterSelect';
-      case 'Research Facility': return 'matrixLabSelect';
-      case 'Chemical Facility': return 'chemicalplantSelect';
+      case 'Mining Facility': return 'miningSelect';
+      case 'Smelting Facility': return 'smeltingSelect';
+      case 'Research Facility': return 'researchSelect';
+      case 'Chemical Facility': return 'chemicalSelect';
+      case 'Refining Facility': return 'refiningSelect';
+      case 'Oil Extraction Facility': return 'oilSelect'
       default: return '';
     }
   }
@@ -420,8 +430,8 @@ export class DataManagementService {
   
           let madeFromString = "";
           if (itemFound[0].recipes && itemFound[0].recipes.length > 0) {
-            let childRecipe = await this.db.recipesTable.where('ID').equals(itemFound[0].recipes[0].ID).toArray();
-            madeFromString = childRecipe[0]?.madeFromString || "";
+            let childRecipe = await this.db.recipesTable.where('ID').equals(itemFound[0].recipes[0].ID).first();
+            madeFromString = childRecipe?.madeFromString || "";
           } else {
             madeFromString = itemFound[0].IsFluid ? "Oil Extraction Facility" : "Mining Facility";
           }
