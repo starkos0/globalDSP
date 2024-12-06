@@ -25,12 +25,13 @@
 
             <ng-template #recursiveTemplate let-item let-index="index">
                 <tr class="hover">
+                    <td>{{index}}</td>
                     <td><button class="btn" (click)="makeItOre(item)">make it ore</button></td>
                     <div class="tooltip" [attr.data-tip]="item.name">
                         <td>
                             <div class="flex items-center justify-center">
                                 <img class="w-10 h-10 m-2" [src]="'assets/' + item.IconPath +'.png'" alt="">
-                                <input [value]="item.totalValue"
+                                <input [(ngModel)]="item.totalValue" 
                                     type="number" class="input input-bordered input-xs w-20 max-w-xs rounded-sm">
                             </div>
                         </td>
@@ -41,9 +42,7 @@
                                 [src]="'assets/' + this.dataManagement.powerFacilitiesMap()[item.madeFromString] + '.png'"
                                 alt="">
                             <input
-                            [value]="
-                                   (item.TimeSpend / 60) / 
-                                   (this.globalSettingsForm.get(item.madeFromString.split(' ')[0].toLowerCase() + 'Select')?.value?.prefabDesc?.assemblerSpeed / 10000 || 1)"
+                            [value]="roundNumber(item)"
                             type="number" class="input input-bordered input-xs w-20 max-w-xs rounded-sm">
                         </div>
                     </td>
@@ -58,7 +57,7 @@
                                     [checked]="item.name.includes('advanced') ? recipe.ID === recipesForm.get(item.ID.toString())?.value : $index === 0" />
                                 <span
                                     class="label-text flex items-center justify-center border border-primary rounded-sm hover:bg-primary duration-200"
-                                    [ngClass]="{'bg-primary': recipesForm.get(item.ID.toString())?.value === recipe.ID}">
+                                    [ngClass]="{'bg-base-200': recipesForm.get(item.ID.toString())?.value === recipe.ID}">
                                     @for (recSrc of getRecipesItemsSrc(recipe.ID); track $index) {
                                     <img [src]="'assets/' + recSrc + '.png'" class="w-8 h-8 m-2" alt="">
                                     }

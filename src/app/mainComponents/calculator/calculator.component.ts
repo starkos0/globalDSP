@@ -132,10 +132,10 @@ export class CalculatorComponent implements OnInit {
   public machines: Item[][] = [];
 
   public assemblerSelectOptions: Item[] = [];
-  public smelterSelectOptions: Item[] = [];
-  public miningmachineSelectOptions: Item[] = [];
-  public chemicalplantSelectOptions: Item[] = [];
-  public matrixLabSelectOptions: Item[] = [];
+  public smeltingSelectOptions: Item[] = [];
+  public miningSelectOptions: Item[] = [];
+  public chemicalSelectOptions: Item[] = [];
+  public researchSelectOptions: Item[] = [];
   public selectedRecipes: Item[][] = [];
   public recipes: Recipe[] = [];
   public items: Item[] = [];
@@ -177,23 +177,23 @@ export class CalculatorComponent implements OnInit {
                     break;
 
                   case 'Mining Facility':
-                    this.miningmachineSelectOptions = res;
-                    this.setFormControlWithLocalStorage('miningmachineSelect', this.miningmachineSelectOptions, 'savedMiningMachineID');
+                    this.miningSelectOptions = res;
+                    this.setFormControlWithLocalStorage('miningSelect', this.miningSelectOptions, 'savedMiningMachineID');
                     break;
 
                   case 'Smelting Facility':
-                    this.smelterSelectOptions = res;
-                    this.setFormControlWithLocalStorage('smelterSelect', this.smelterSelectOptions, 'savedSmelterID');
+                    this.smeltingSelectOptions = res;
+                    this.setFormControlWithLocalStorage('smeltingSelect', this.smeltingSelectOptions, 'savedSmelterID');
                     break;
 
                   case 'Research Facility':
-                    this.matrixLabSelectOptions = res;
-                    this.setFormControlWithLocalStorage('matrixLabSelect', this.matrixLabSelectOptions, 'savedMatrixLabID');
+                    this.researchSelectOptions = res;
+                    this.setFormControlWithLocalStorage('researchSelect', this.researchSelectOptions, 'savedMatrixLabID');
                     break;
 
                   case 'Chemical Facility':
-                    this.chemicalplantSelectOptions = res;
-                    this.setFormControlWithLocalStorage('chemicalplantSelect', this.chemicalplantSelectOptions, 'savedChemicalPlantID');
+                    this.chemicalSelectOptions = res;
+                    this.setFormControlWithLocalStorage('chemicalSelect', this.chemicalSelectOptions, 'savedChemicalPlantID');
                     break;
 
                   default:
@@ -236,25 +236,25 @@ export class CalculatorComponent implements OnInit {
     this.dataManagement.powerFacilitiesMap()['Assembler'] = item.IconPath
   }
   selectSmelter(item: Item) {
-    this.globalSettingsForm.get('smelterSelect')?.setValue(item);
+    this.globalSettingsForm.get('smeltingSelect')?.setValue(item);
     localStorage.setItem('savedSmelterID', item.ID.toString());
   
     this.dataManagement.powerFacilitiesMap()['Smelting Facility'] = item.IconPath
   }
   selectMiningMachine(item: Item) {
-    this.globalSettingsForm.get('miningmachineSelect')?.setValue(item)
+    this.globalSettingsForm.get('miningSelect')?.setValue(item)
     localStorage.setItem('savedMiningMachineID', item.ID.toString());
 
     this.dataManagement.powerFacilitiesMap()['Mining Facility'] = item.IconPath
   }
   selectMatrixLab(item: Item) {
-    this.globalSettingsForm.get('matrixLabSelect')?.setValue(item)
+    this.globalSettingsForm.get('researchSelect')?.setValue(item)
     localStorage.setItem('savedMatrixLabID', item.ID.toString());
 
     this.dataManagement.powerFacilitiesMap()['Research Facility'] = item.IconPath
   }
   selectChemicalPlant(item: Item) {
-    this.globalSettingsForm.get('chemicalplantSelect')?.setValue(item)
+    this.globalSettingsForm.get('chemicalSelect')?.setValue(item)
     localStorage.setItem('savedChemicalPlantID', item.ID.toString());
 
     this.dataManagement.powerFacilitiesMap()['Chemical Facility'] = item.IconPath
