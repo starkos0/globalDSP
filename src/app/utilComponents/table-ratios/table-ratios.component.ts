@@ -24,23 +24,18 @@ export class TableRatiosComponent implements OnInit {
 
 
   constructor(public dataManagement: DataManagementService, private db: AppDB, private fb: FormBuilder) {
-    
     effect(() => {
-
       this.childs = this.dataManagement.childs()
       this.recipesForm = this.dataManagement.recipesForm;
       this.recipesImages = this.dataManagement.recipesImages();
       this.isRecipesFormInitialized = this.dataManagement.isRecipesFormInitialized()
     });
   }
-  storePreviousValues(itemId: number) {
+  storePreviousValues() {
     this.previousFormValues = { ...this.recipesForm.value };
-    // 
   }
   ngOnInit(): void {
-    
     this.recipesForm = this.fb.group({});
-
   }
 
   async getRecipesImages(recipeId: number): Promise<string[]> {
@@ -58,27 +53,34 @@ export class TableRatiosComponent implements OnInit {
 
     return srcImages;
   }
-  async changeRecipeSelection(itemId: number, recipeId: string, item: TransformedItems, index: string) {
-
+  async changeRecipeSelection(item: TransformedItems, index: string): Promise<void> {
     const changedRecipe: { [key: string]: number } = {};
     const oldRecipe: { [key: string]: number } = {};
-    for (let key in this.recipesForm.value) {
+  
+    for (const key in this.recipesForm.value) {
       if (this.recipesForm.value[key] !== this.previousFormValues[key]) {
-        changedRecipe[key] = this.recipesForm.value[key]
-        oldRecipe[key] = this.previousFormValues[key]
+        changedRecipe[key] = this.recipesForm.value[key];
+        oldRecipe[key] = this.previousFormValues[key];
       }
     }
-
-    if (oldRecipe && oldRecipe !== changedRecipe) {
-      this.removeSubtreeByIndex(index)
+  
+    if (Object.keys(oldRecipe).length > 0 && Object.keys(changedRecipe).length > 0) {
+      await this.removeSubtreeByIndex(index);
     }
-    if (changedRecipe) {
-      const newItem = await this.buildNewSubtree(item, changedRecipe[parseInt(Object.keys(changedRecipe)[0])]);
-      this.replaceSubtreeByIndex(index, newItem);
-
-      await this.processSingleRecipeImage(changedRecipe[parseInt(Object.keys(changedRecipe)[0])]);
+  
+    if (Object.keys(changedRecipe).length > 0) {
+      const newRecipeId = changedRecipe[Object.keys(changedRecipe)[0]];
+      try {
+        const newSubtree = await this.buildNewSubtree(item, newRecipeId, item.totalValue);
+        this.replaceSubtreeByIndex(index, newSubtree);
+  
+        await this.processSingleRecipeImage(newRecipeId);
+      } catch (error) {
+        console.error(`Error building new subtree for recipe ${newRecipeId}:`, error);
+      }
     }
   }
+  
   replaceSubtreeByIndex(index: string, newItem: TransformedItems) {
 
     // Convertir el índice de cadena a un array de números
@@ -138,27 +140,6 @@ export class TableRatiosComponent implements OnInit {
     }
   }
 
-  removeRecipeFromIndex(index: string) {
-    const indexArray = index.toString().split('-').map(i => parseInt(i, 10));
-    let items = this.dataManagement.selectedItems();
-
-    let currentItem = items;
-    for (let i = 0; i < indexArray.length - 1; i++) {
-      currentItem = currentItem[indexArray[i]].childs;
-    }
-
-    const itemToRemove = currentItem[indexArray[indexArray.length - 1]];
-    if (itemToRemove) {
-      this.dataManagement.recipesImages.set(
-        this.dataManagement.recipesImages().filter(recipe => {
-          // Eliminar las imágenes de recetas asociadas con este ítem y sus childs
-          return !this.isRecipeRelatedToItem(recipe, itemToRemove);
-        })
-      )
-    }
-  }
-
-
   async processSingleRecipeImage(recipe: any) {
     const recipeEntry: { ID: number, items: string[], results: string[] } = {
       ID: recipe.ID,
@@ -212,44 +193,43 @@ export class TableRatiosComponent implements OnInit {
     return false;
   }
 
-  async buildNewSubtree(item: TransformedItems, recipeId: number): Promise<TransformedItems> {
-
+  async buildNewSubtree(item: TransformedItems, recipeId: number, parentTotalValue: number = 1): Promise<TransformedItems> {
     for (const recipe of item.recipes) {
       let recipeDetails = await this.db.recipesTable.where('ID').equals(recipe.ID).toArray();
       this.dataManagement.recipesImages.set([...this.dataManagement.recipesImages(), recipeDetails[0]]);
       await this.ProcessrecipeImage(recipeDetails[0]);
-
     }
-
+  
     let recipe = await this.db.recipesTable.where('ID').equals(recipeId).toArray();
     if (!recipe[0]) {
       console.error("No recipe found for ID:", recipeId);
       return item;
     }
-
+  
+    const resultCount = recipe[0].ResultCounts[0] || 1; // Fallback to 1 if no resultCount exists
+  
     const newItem: TransformedItems = {
       ...item,
-      childs: []
+      childs: [],
+      totalValue: parentTotalValue // Inherit from parent
     };
-
+  
     this.recipesForm.addControl(item.ID.toString(), new FormControl(recipe[0].ID));
-
-    for (const itemId of recipe[0].Items) {
+  
+    for (let i = 0; i < recipe[0].Items.length; i++) {
+      const itemId = recipe[0].Items[i];
       let itemFound = await this.db.itemsTable.where('ID').equals(itemId).toArray();
-
-      // Verificación adicional: asegurarse de que itemFound[0] tenga recetas
+  
       let madeFromString = "";
       if (itemFound[0].recipes && itemFound[0].recipes.length > 0) {
         let childRecipe = await this.db.recipesTable.where('ID').equals(itemFound[0].recipes[0].ID).toArray();
         madeFromString = childRecipe[0]?.madeFromString || "";
       } else {
-        if(itemFound[0].IsFluid){
-          madeFromString = "Oil Extraction Facility";
-        }else{
-          madeFromString = "Mining Facility";
-        }
+        madeFromString = itemFound[0].IsFluid ? "Oil Extraction Facility" : "Mining Facility";
       }
-
+  
+      const childTotalValue = (newItem.totalValue * recipe[0].ItemCounts[i]) / resultCount;
+  
       const childItem: TransformedItems = {
         ID: itemFound[0].ID,
         name: itemFound[0].name,
@@ -266,22 +246,18 @@ export class TableRatiosComponent implements OnInit {
         ItemCounts: recipe[0].ItemCounts,
         Results: recipe[0].Results,
         ResultCounts: recipe[0].ResultCounts,
-        totalValue: 0
+        totalValue: childTotalValue // Calculate totalValue for child
       };
-
+  
       if (itemFound[0].recipes !== undefined && itemFound[0].recipes.length > 0) {
-
-        const recursiveChildItem = await this.buildNewSubtree(childItem, itemFound[0].recipes[0]?.ID);
-
+        const recursiveChildItem = await this.buildNewSubtree(childItem, itemFound[0].recipes[0]?.ID, childTotalValue);
         newItem.childs.push(recursiveChildItem);
       } else {
         newItem.childs.push(childItem);
       }
     }
-
-
-
-    return newItem; // Retornamos el nuevo subárbol
+  
+    return newItem;
   }
 
   async ProcessrecipeImage(recipeDetails: any) {
@@ -318,65 +294,7 @@ export class TableRatiosComponent implements OnInit {
     // Añadir la receta procesada a imagesRecipes
     this.dataManagement.imagesRecipes.push(recipeEntry);
   }
-
-
-
-  async removeCurrentRecipe(oldRecipe: { [key: string]: number }) {
-    let oldRecipeKey: string = Object.keys(oldRecipe)[0];
-    let recipeId = Object.values(oldRecipe)[0];
-
-    //search old recipe in db
-    let recipe = await this.db.recipesTable.where("ID").equals(recipeId).toArray();
-    if (recipe.length === 0) {
-
-      return;
-    }
-
-    let lastItem: number = recipe[0].Items[recipe[0].Items.length - 1];
-
-
-    //find index of item in this.childs
-    let indexOfOldRecipe = this.childs.findIndex(item => item.ID === parseInt(oldRecipeKey));
-    if (indexOfOldRecipe === -1) {
-
-      return;
-    }
-    const eliminarSubarbol = async (itemId: number) => {
-      // Eliminar el ítem actual de `this.childs`
-      this.childs = this.childs.filter(item => item.ID !== itemId);
-
-      // Buscar la receta en la base de datos
-      let childRecipe = await this.db.recipesTable
-        .filter(recipe => recipe.Results.includes(itemId))
-        .toArray();
-      if (itemId === 1104) {
-
-
-      }
-      if (childRecipe.length > 0) {
-        // Para cada ítem que es parte de la receta, eliminarlos también recursivamente
-        for (let neededItem of childRecipe[0].Items) {
-
-          await eliminarSubarbol(neededItem); // Llamada recursiva para eliminar dependencias
-        }
-      }
-    };
-
-    // Empezar a eliminar desde el índice de la receta cambiada
-    for (let i = indexOfOldRecipe + 1; i < this.childs.length; i++) {
-
-      if (this.childs[i].ID === lastItem) {
-
-        // Eliminar el último ítem y salir del bucle
-        await eliminarSubarbol(this.childs[i].ID);
-        break;
-      } else {
-        // Eliminar ítems recursivamente
-        await eliminarSubarbol(this.childs[i].ID);
-        i--; // Ajustar el índice después de eliminar un ítem
-      }
-    }
-  }
+  
 
   getRecipeImage(recipeId: number) {
     let src = ""

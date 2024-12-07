@@ -51,8 +51,8 @@
                             <label class="label cursor-pointer flex w-full">
                                 <input type="radio" [name]="item.ID.toString()" [id]="recipe.ID.toString()"
                                     [value]="recipe.ID" [formControlName]="item.ID.toString()" class="radio hidden"
-                                    (click)="storePreviousValues(item.ID)"
-                                    (change)="changeRecipeSelection(item.ID, recipe.ID.toString(), item, index)"
+                                    (click)="storePreviousValues()"
+                                    (change)="changeRecipeSelection(item, index)"
                                     [checked]="item.name.includes('advanced') ? recipe.ID === recipesForm.get(item.ID.toString())?.value : $index === 0" />
                                 <span
                                     class="label-text flex items-center justify-center border border-primary rounded-sm hover:bg-primary duration-200"
