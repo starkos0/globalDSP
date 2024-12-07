@@ -1,4 +1,4 @@
-import { Injectable, signal, WritableSignal } from '@angular/core';
+import { effect, Injectable, signal, WritableSignal } from '@angular/core';
 import Dexie, { liveQuery, Table } from 'dexie';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, forkJoin, from, map, Observable, switchMap } from 'rxjs';
@@ -18,8 +18,8 @@ export class DataManagementService {
   private globalSettingsForm!: FormGroup;
 
   // Initialize the form
-  initializeForm(defaultItem: any) {
-    this.globalSettingsForm = new FormGroup({
+  initializeForm(defaultItem: any): FormGroup {
+    return new FormGroup({
       initialAmountValue: new FormControl(60),
       unitSelected: new FormControl('m'),
       assemblerSelect: new FormControl(defaultItem),
@@ -28,13 +28,8 @@ export class DataManagementService {
       researchSelect: new FormControl(defaultItem),
       chemicalSelect: new FormControl(defaultItem),
       refiningSelect: new FormControl(defaultItem),
-      oilSelect: new FormControl(defaultItem)
+      oilSelect: new FormControl(defaultItem),
     });
-
-  }
-
-  getGlobalSettingsForm(): FormGroup {
-    return this.globalSettingsForm;
   }
 
 
@@ -165,7 +160,33 @@ export class DataManagementService {
 
 
 
-  constructor(private db: AppDB, private http: HttpClient, private fb: FormBuilder) { }
+  // Signal para exponer los valores del formulario
+  public globalSettingsFormSignal: WritableSignal<any> = signal({});
+  constructor(private db: AppDB, private http: HttpClient, private fb: FormBuilder) { 
+    this.globalSettingsForm = this.initializeForm({});
+    this.syncFormWithSignal();
+  }
+  private syncFormWithSignal(): void {
+    this.globalSettingsForm.valueChanges.subscribe(values => {
+      this.globalSettingsFormSignal.set(values);
+    });
+
+    // Optionally, log changes to the console
+    effect(() => {
+      console.log('Signal updated:', this.globalSettingsFormSignal());
+    });
+  }
+
+  // Obtener el formulario reactivo
+  getGlobalSettingsForm(): FormGroup {
+    return this.globalSettingsForm;
+  }
+
+  // Método para obtener valores desde la signal
+  getGlobalSettingsFormValues(): any {
+    return this.globalSettingsFormSignal();
+  }
+
   getItems(): Observable<Item[]> {
     return from(this.db.itemsTable.toArray());
   }
