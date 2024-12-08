@@ -6,6 +6,7 @@ import { AppDB } from '../../services/db';
 import { Recipe } from '../../interfaces/mainData/Recipe';
 import { CommonModule } from '@angular/common';
 import { TransformedItems } from '../../interfaces/transformed-items';
+import { GlobalSettingsServiceService } from '../../services/global-settings-service.service';
 
 @Component({
   selector: 'app-table-ratios',
@@ -23,7 +24,7 @@ export class TableRatiosComponent implements OnInit {
   public globalSettingsForm!: FormGroup;
 
 
-  constructor(public dataManagement: DataManagementService, private db: AppDB, private fb: FormBuilder) {
+  constructor(public dataManagement: DataManagementService, private db: AppDB, private fb: FormBuilder, private globalSettingsService: GlobalSettingsServiceService) {
     effect(() => {
       this.childs = this.dataManagement.childs()
       this.recipesForm = this.dataManagement.recipesForm;
@@ -56,31 +57,31 @@ export class TableRatiosComponent implements OnInit {
   async changeRecipeSelection(item: TransformedItems, index: string): Promise<void> {
     const changedRecipe: { [key: string]: number } = {};
     const oldRecipe: { [key: string]: number } = {};
-  
+
     for (const key in this.recipesForm.value) {
       if (this.recipesForm.value[key] !== this.previousFormValues[key]) {
         changedRecipe[key] = this.recipesForm.value[key];
         oldRecipe[key] = this.previousFormValues[key];
       }
     }
-  
+
     if (Object.keys(oldRecipe).length > 0 && Object.keys(changedRecipe).length > 0) {
       await this.removeSubtreeByIndex(index);
     }
-  
+
     if (Object.keys(changedRecipe).length > 0) {
       const newRecipeId = changedRecipe[Object.keys(changedRecipe)[0]];
       try {
         const newSubtree = await this.buildNewSubtree(item, newRecipeId, item.totalValue);
         this.replaceSubtreeByIndex(index, newSubtree);
-  
+
         await this.processSingleRecipeImage(newRecipeId);
       } catch (error) {
         console.error(`Error building new subtree for recipe ${newRecipeId}:`, error);
       }
     }
   }
-  
+
   replaceSubtreeByIndex(index: string, newItem: TransformedItems) {
 
     // Convertir el índice de cadena a un array de números
@@ -199,27 +200,27 @@ export class TableRatiosComponent implements OnInit {
       this.dataManagement.recipesImages.set([...this.dataManagement.recipesImages(), recipeDetails[0]]);
       await this.ProcessrecipeImage(recipeDetails[0]);
     }
-  
+
     let recipe = await this.db.recipesTable.where('ID').equals(recipeId).toArray();
     if (!recipe[0]) {
       console.error("No recipe found for ID:", recipeId);
       return item;
     }
-  
+
     const resultCount = recipe[0].ResultCounts[0] || 1; // Fallback to 1 if no resultCount exists
-  
+
     const newItem: TransformedItems = {
       ...item,
       childs: [],
       totalValue: parentTotalValue // Inherit from parent
     };
-  
+
     this.recipesForm.addControl(item.ID.toString(), new FormControl(recipe[0].ID));
-  
+
     for (let i = 0; i < recipe[0].Items.length; i++) {
       const itemId = recipe[0].Items[i];
       let itemFound = await this.db.itemsTable.where('ID').equals(itemId).toArray();
-  
+
       let madeFromString = "";
       if (itemFound[0].recipes && itemFound[0].recipes.length > 0) {
         let childRecipe = await this.db.recipesTable.where('ID').equals(itemFound[0].recipes[0].ID).toArray();
@@ -227,9 +228,9 @@ export class TableRatiosComponent implements OnInit {
       } else {
         madeFromString = itemFound[0].IsFluid ? "Oil Extraction Facility" : "Mining Facility";
       }
-  
+
       const childTotalValue = (newItem.totalValue * recipe[0].ItemCounts[i]) / resultCount;
-  
+
       const childItem: TransformedItems = {
         ID: itemFound[0].ID,
         name: itemFound[0].name,
@@ -248,7 +249,7 @@ export class TableRatiosComponent implements OnInit {
         ResultCounts: recipe[0].ResultCounts,
         totalValue: childTotalValue // Calculate totalValue for child
       };
-  
+
       if (itemFound[0].recipes !== undefined && itemFound[0].recipes.length > 0) {
         const recursiveChildItem = await this.buildNewSubtree(childItem, itemFound[0].recipes[0]?.ID, childTotalValue);
         newItem.childs.push(recursiveChildItem);
@@ -256,7 +257,7 @@ export class TableRatiosComponent implements OnInit {
         newItem.childs.push(childItem);
       }
     }
-  
+
     return newItem;
   }
 
@@ -294,7 +295,7 @@ export class TableRatiosComponent implements OnInit {
     // Añadir la receta procesada a imagesRecipes
     this.dataManagement.imagesRecipes.push(recipeEntry);
   }
-  
+
 
   getRecipeImage(recipeId: number) {
     let src = ""
@@ -339,12 +340,35 @@ export class TableRatiosComponent implements OnInit {
   }
 
   roundNumber(item: TransformedItems): number {
-    const globalValues = this.dataManagement.globalSettingsFormSignal();
-    const control =
-      globalValues[item.madeFromString.split(' ')[0].toLowerCase() + 'Select'];
-    let value =
-      (item.TimeSpend / 60) /
-      ((control?.prefabDesc?.assemblerSpeed / 10000) || 1);
-    return Number(value.toFixed(2));
+    // const globalValues = this.dataManagement.globalSettingsFormSignal();
+    // const control = globalValues[item.madeFromString.split(' ')[0].toLowerCase() + 'Select'];
+    let result: number = 0;
+    let resultIndex = item.Items.findIndex(id => id === item.ID)
+    let resultQuantity = item.ItemCounts[resultIndex];
+    let timeConstant: number = 0;
+    let key = this.globalSettingsService.checkValidKey(item.madeFromString.split(' ')[0].toLowerCase() + 'Select');
+
+    // console.log(item.Items)
+    if(key){
+      const property = this.globalSettingsService.getProperty(key);
+      if(typeof property === 'object' && property !== null && 'prefabDesc' in property){
+
+        const assemblerSpeed = property?.prefabDesc?.assemblerSpeed;
+        // result = (resultQuantity / (item.TimeSpend / 60));
+        result = resultQuantity
+        // result *= (assemblerSpeed / 10000);
+
+      }
+
+    }
+    return result;
+    // let indexOfItem = item.ResultCounts.findIndex(id => id === item.ID);
+
+    // let value =
+    //   (item.TimeSpend / 60) /
+    //   ((control?.prefabDesc?.assemblerSpeed / 10000)) ;
+
+    // return Number(value.toFixed(2));
   }
 }
+// [1203,1204,1205]
