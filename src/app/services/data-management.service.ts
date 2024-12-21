@@ -7,7 +7,7 @@ import { Tech } from '../interfaces/mainData/Tech';
 import { Recipe } from '../interfaces/mainData/Recipe';
 import { Item } from '../interfaces/mainData/Item';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { TransformedItems } from '../interfaces/transformed-items';
+import { recipes, TransformedItems } from '../interfaces/transformed-items';
 import { GlobalSettingsFormValues } from '../interfaces/mainData/global-settings-form-values';
 import { GlobalSettingsServiceService } from './global-settings-service.service';
 @Injectable({
@@ -354,27 +354,23 @@ export class DataManagementService {
   }
 
   async createTreeStructure(item: TransformedItems) {
-    console.log(item)
     if (item.recipes !== undefined) {
-
       for (const recipe of item.recipes) {
         let recipeDetails = await this.db.recipesTable.where('ID').equals(recipe.ID).toArray();
         this.recipesImages.set([...this.recipesImages(), recipeDetails[0]]);
       }
-
+  
       let advancedRecipeFound = item.recipes.find(recipe => recipe.name.includes('advanced'));
       let recipeToUse = advancedRecipeFound ? advancedRecipeFound : item.recipes[0];
+  
       if (recipeToUse) {
         this.recipesForm.addControl(item.ID.toString(), new FormControl(recipeToUse.ID));
-
         let recipe = await this.db.recipesTable.where('ID').equals(recipeToUse.ID).toArray();
-
-        let resultCount = recipe[0].ResultCounts[0] || 1;
-        console.warn(recipe)
+  
         for (let i = 0; i < recipe[0].Items.length; i++) {
           const itemId = recipe[0].Items[i];
           let itemFound = await this.db.itemsTable.where('ID').equals(itemId).toArray();
-
+  
           let madeFromString = "";
           if (itemFound[0].recipes && itemFound[0].recipes.length > 0) {
             let childRecipe = await this.db.recipesTable.where('ID').equals(itemFound[0].recipes[0].ID).first();
@@ -382,35 +378,81 @@ export class DataManagementService {
           } else {
             madeFromString = itemFound[0].IsFluid ? "Oil Extraction Facility" : "Mining Facility";
           }
-
-          const totalValue = (item.totalValue * recipe[0].ItemCounts[i]) / resultCount;
-
-          const newItem: TransformedItems = {
-            ID: itemFound[0].ID,
-            name: itemFound[0].name,
-            Type: itemFound[0].Type,
-            IconPath: itemFound[0].IconPath,
-            GridIndex: itemFound[0].GridIndex,
-            recipes: itemFound[0].recipes,
-            typeString: itemFound[0].typeString,
-            fuelTypeString: itemFound[0].fuelTypeString,
-            childs: [],
-            madeFromString: madeFromString,
-            TimeSpend: recipe[0].TimeSpend,
-            Items: recipe[0].Items,
-            ItemCounts: recipe[0].ItemCounts,
-            Results: recipe[0].Results,
-            ResultCounts: recipe[0].ResultCounts,
-            totalValue: totalValue
-          };
-
-          item.childs.push(newItem);
-
-          await this.createTreeStructure(newItem);
+  
+          const childRecipeToUse = await this.getRecipeToUse(itemFound[0]);
+          if (childRecipeToUse !== null) {
+            const childRecipeDetails = await this.db.recipesTable.where('ID').equals(childRecipeToUse.ID).first();
+  
+            if (childRecipeDetails) {
+              const resultIndex = recipe[0].Results.findIndex(resultId => resultId === item.ID);
+              const resultCount = resultIndex >= 0 ? recipe[0].ResultCounts[resultIndex] : 1;
+  
+              const itemCount = recipe[0].ItemCounts[i] || 1;
+  
+              // Cálculo correcto de totalValue
+              const totalValue = (item.totalValue * itemCount) / resultCount;
+  
+              const newItem: TransformedItems = {
+                ID: itemFound[0].ID,
+                name: itemFound[0].name,
+                Type: itemFound[0].Type,
+                IconPath: itemFound[0].IconPath,
+                GridIndex: itemFound[0].GridIndex,
+                recipes: itemFound[0].recipes,
+                typeString: itemFound[0].typeString,
+                fuelTypeString: itemFound[0].fuelTypeString,
+                childs: [],
+                madeFromString: madeFromString,
+                TimeSpend: childRecipeDetails.TimeSpend,
+                Items: childRecipeDetails.Items,
+                ItemCounts: childRecipeDetails.ItemCounts,
+                Results: childRecipeDetails.Results,
+                ResultCounts: childRecipeDetails.ResultCounts,
+                totalValue: totalValue,
+              };
+  
+              this.recipesForm.addControl(newItem.ID.toString(), new FormControl(childRecipeDetails.ID));
+              item.childs.push(newItem);
+  
+              await this.createTreeStructure(newItem);
+            }
+          } else {
+            const coreItem: TransformedItems = {
+              ID: itemFound[0].ID,
+              name: itemFound[0].name,
+              Type: itemFound[0].Type,
+              IconPath: itemFound[0].IconPath,
+              GridIndex: itemFound[0].GridIndex,
+              recipes: [],
+              typeString: itemFound[0].typeString,
+              fuelTypeString: itemFound[0].fuelTypeString,
+              childs: [],
+              madeFromString: madeFromString,
+              TimeSpend: 0,
+              Items: [],
+              ItemCounts: [],
+              Results: [],
+              ResultCounts: [],
+              totalValue: (item.totalValue * recipe[0].ItemCounts[i]) || 0,
+            };
+  
+            item.childs.push(coreItem);
+          }
         }
       }
     }
   }
+  
+  
+
+  async getRecipeToUse(item: Item): Promise<recipes | null> {
+    if (!item.recipes || item.recipes.length === 0) {
+      return null;
+    }
+    return item.recipes.find(r => r.name.includes('advanced')) || item.recipes[0];
+  }
+  
+  
 
   getControlName(typeString: string): keyof GlobalSettingsFormValues | null {
     switch (typeString) {
@@ -444,7 +486,7 @@ export class DataManagementService {
         let recipeFound = await this.db.recipesTable.where('ID').equals(recipe.ID).toArray();
         this.recipesFromTreeStructure().push(recipeFound[0]);
       }
-    }
+     }
 
     // Recorre recursivamente los childs si existen
     if (item.childs) {

@@ -1,6 +1,4 @@
-<!-- <div>
-    <pre>{{this.dataManagement.selectedItems() | json}}</pre>
-</div> -->
+
 @if (this.dataManagement.selectedItems().length > 0 && this.isRecipesFormInitialized) {
 <div class="overflow-x-auto">
     <table class="table">
@@ -25,7 +23,7 @@
 
             <ng-template #recursiveTemplate let-item let-index="index">
                 <tr class="hover">
-                    <td><button class="btn" (click)="makeItOre(item)">make it ore</button></td>
+                    <td><button class="btn rounded-sm btn-sm" (click)="makeItOre(item)">make it ore</button></td>
                     <div class="tooltip" [attr.data-tip]="item.name">
                         <td>
                             <div class="flex items-center justify-center">
@@ -55,7 +53,7 @@
                                     (change)="changeRecipeSelection(item, index)"
                                     [checked]="item.name.includes('advanced') ? recipe.ID === recipesForm.get(item.ID.toString())?.value : $index === 0" />
                                 <span
-                                    class="label-text flex items-center justify-center border border-primary rounded-sm hover:bg-primary duration-200"
+                                    class="label-text flex items-center justify-center border border-primary rounded-sm hover:bg-primary duration-200 w-full"
                                     [ngClass]="{'bg-base-200': recipesForm.get(item.ID.toString())?.value === recipe.ID}">
                                     @for (recSrc of getRecipesItemsSrc(recipe.ID); track $index) {
                                     <img [src]="'assets/' + recSrc + '.png'" class="w-8 h-8 m-2" alt="">
@@ -103,3 +101,6 @@
     <h1 class="text-3xl font-bold">Select a recipe to see the results.</h1>
 </div>
 }
+<div>
+    <pre>{{this.dataManagement.selectedItems() | json}}</pre>
+</div>

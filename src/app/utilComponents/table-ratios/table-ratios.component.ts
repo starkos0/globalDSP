@@ -343,11 +343,11 @@ export class TableRatiosComponent implements OnInit {
     // const globalValues = this.dataManagement.globalSettingsFormSignal();
     // const control = globalValues[item.madeFromString.split(' ')[0].toLowerCase() + 'Select'];
     let result: number = 0;
-    let resultIndex = item.Items.findIndex(id => id === item.ID)
-    let resultQuantity = item.ItemCounts[resultIndex];
+    let resultIndex = item.Results.findIndex(id => id === item.ID)
+    let resultQuantity = item.ResultCounts[resultIndex];
     let timeConstant: number = 0;
     let key = this.globalSettingsService.checkValidKey(item.madeFromString.split(' ')[0].toLowerCase() + 'Select');
-
+    
     // console.log(item.Items)
     if(key){
       const property = this.globalSettingsService.getProperty(key);
