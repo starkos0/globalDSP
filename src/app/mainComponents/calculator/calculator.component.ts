@@ -116,7 +116,8 @@ export class CalculatorComponent implements OnInit {
       audioFalloff: 0,
       audioVolume: 0,
       audioPitch: 0,
-      audioDoppler: 0
+      audioDoppler: 0,
+      minerPeriod: 0
     },
     ID: 0,
     description: '',

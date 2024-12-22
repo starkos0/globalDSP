@@ -34,13 +34,16 @@
                         </td>
                     </div>
                     <td>
-                        <div class="flex justify-center items-center">
-                            <img class="w-10 h-10 m-2"
-                                [src]="'assets/' + this.dataManagement.powerFacilitiesMap()[item.madeFromString] + '.png'"
-                                alt="">
-                            <input
-                            [value]="roundNumber(item)"
-                            type="number" class="input input-bordered input-xs w-20 max-w-xs rounded-sm">
+                        <div class="tooltip" [attr.data-tip]="item.madeFromString">
+
+                            <div class="flex justify-center items-center">
+                                <img class="w-10 h-10 m-2"
+                                    [src]="'assets/' + this.dataManagement.powerFacilitiesMap()[item.madeFromString] + '.png'"
+                                    alt="">
+                                <input
+                                [value]="item.totalMachine"
+                                type="number" class="input input-bordered input-xs w-20 max-w-xs rounded-sm">
+                            </div>
                         </div>
                     </td>
                     <td>

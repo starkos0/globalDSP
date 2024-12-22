@@ -2,7 +2,7 @@ import { Item } from "./Item";
 
 export interface GlobalSettingsFormValues {
     initialAmountValue: number;
-    unitSelected: string;
+    unitSelected: "m" | "s";
     assemblerSelect: Item;
     smeltingSelect: Item;
     miningSelect: Item;

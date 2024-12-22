@@ -1,4 +1,4 @@
-import { effect, Injectable, signal, WritableSignal } from '@angular/core';
+import { effect, Injectable, output, signal, WritableSignal } from '@angular/core';
 import Dexie, { liveQuery, Table } from 'dexie';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, forkJoin, from, map, Observable, switchMap } from 'rxjs';
@@ -6,7 +6,7 @@ import { AppDB } from './db';
 import { Tech } from '../interfaces/mainData/Tech';
 import { Recipe } from '../interfaces/mainData/Recipe';
 import { Item } from '../interfaces/mainData/Item';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NumberValueAccessor } from '@angular/forms';
 import { recipes, TransformedItems } from '../interfaces/transformed-items';
 import { GlobalSettingsFormValues } from '../interfaces/mainData/global-settings-form-values';
 import { GlobalSettingsServiceService } from './global-settings-service.service';
@@ -121,7 +121,8 @@ export class DataManagementService {
       audioFalloff: 0,
       audioVolume: 0,
       audioPitch: 0,
-      audioDoppler: 0
+      audioDoppler: 0,
+      minerPeriod: 0
     },
     ID: 0,
     description: '',
@@ -254,7 +255,8 @@ export class DataManagementService {
       Results: recipe[0].Results,
       ResultCounts: recipe[0].ResultCounts,
       // totalValue: this.globalSettingsForm.get('initialAmountValue')?.value
-      totalValue: this.globalSettingsService.getProperty('initialAmountValue')
+      totalValue: this.globalSettingsService.getProperty('initialAmountValue'),
+      totalMachine: 0
     }
     if (this.isSelectedItem(newItem)) {
       this.selectedItemsSet.delete(newItem.ID);
@@ -391,7 +393,8 @@ export class DataManagementService {
   
               // Cálculo correcto de totalValue
               const totalValue = (item.totalValue * itemCount) / resultCount;
-  
+              let resultItemIndex = childRecipeDetails.Results.findIndex(resultId => resultId === itemFound[0].ID);
+              console.log("resultItemIndex", childRecipeDetails.ResultCounts[resultItemIndex])
               const newItem: TransformedItems = {
                 ID: itemFound[0].ID,
                 name: itemFound[0].name,
@@ -409,6 +412,8 @@ export class DataManagementService {
                 Results: childRecipeDetails.Results,
                 ResultCounts: childRecipeDetails.ResultCounts,
                 totalValue: totalValue,
+                totalMachine: this.calculateMachinesNeeded(totalValue, childRecipeDetails.ResultCounts[resultItemIndex],childRecipeDetails.TimeSpend,
+                  this.globalSettingsService.checkValidKey(madeFromString.split(' ')[0].toLowerCase() + 'Select'))
               };
   
               this.recipesForm.addControl(newItem.ID.toString(), new FormControl(childRecipeDetails.ID));
@@ -417,6 +422,7 @@ export class DataManagementService {
               await this.createTreeStructure(newItem);
             }
           } else {
+            let resultItemIndex = recipe[0].Results.findIndex(resultId => resultId === itemFound[0].ID);
             const coreItem: TransformedItems = {
               ID: itemFound[0].ID,
               name: itemFound[0].name,
@@ -434,6 +440,8 @@ export class DataManagementService {
               Results: [],
               ResultCounts: [],
               totalValue: (item.totalValue * recipe[0].ItemCounts[i]) || 0,
+              totalMachine: this.calculateMachinesNeeded(item.totalValue, recipe[0].ResultCounts[resultItemIndex],recipe[0].TimeSpend,
+                this.globalSettingsService.checkValidKey(madeFromString.split(' ')[0].toLowerCase() + 'Select'))
             };
   
             item.childs.push(coreItem);
@@ -443,7 +451,29 @@ export class DataManagementService {
     }
   }
   
-  
+  calculateMachinesNeeded(desiredOutput: number, itemsPerRecipe: number, recipeTime: number, machineType: keyof GlobalSettingsFormValues | null){
+    let machinesNeeded = 0;
+    if(machineType !== null){
+      console.log("machineType",machineType)
+      const property = this.globalSettingsService.getProperty(machineType);
+      if(typeof property === 'object' && property !== null && 'prefabDesc' in property){
+        let assemblerSpeed = 0;
+        if(machineType === 'miningSelect'){
+          recipeTime = 120;
+          assemblerSpeed = property?.prefabDesc?.minerPeriod;
+        }else{
+          assemblerSpeed = property?.prefabDesc?.assemblerSpeed;
+        }
+        const outputUnit = this.globalSettingsService.getProperty('unitSelected');
+        const desiredItemsPerMinute = outputUnit === 's' ? desiredOutput * 60 : desiredOutput;
+        const itemsPerMachinePerMinute = (itemsPerRecipe * 60) / (recipeTime / 60) * (assemblerSpeed / 10000);
+        console.log(assemblerSpeed / 10000)
+        machinesNeeded = desiredItemsPerMinute / itemsPerMachinePerMinute;
+      }
+
+    }
+    return Number(machinesNeeded.toFixed(2));
+  }
 
   async getRecipeToUse(item: Item): Promise<recipes | null> {
     if (!item.recipes || item.recipes.length === 0) {

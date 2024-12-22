@@ -247,7 +247,8 @@ export class TableRatiosComponent implements OnInit {
         ItemCounts: recipe[0].ItemCounts,
         Results: recipe[0].Results,
         ResultCounts: recipe[0].ResultCounts,
-        totalValue: childTotalValue // Calculate totalValue for child
+        totalValue: childTotalValue,
+        totalMachine: 0
       };
 
       if (itemFound[0].recipes !== undefined && itemFound[0].recipes.length > 0) {
@@ -348,16 +349,11 @@ export class TableRatiosComponent implements OnInit {
     let timeConstant: number = 0;
     let key = this.globalSettingsService.checkValidKey(item.madeFromString.split(' ')[0].toLowerCase() + 'Select');
     
-    // console.log(item.Items)
     if(key){
       const property = this.globalSettingsService.getProperty(key);
       if(typeof property === 'object' && property !== null && 'prefabDesc' in property){
 
         const assemblerSpeed = property?.prefabDesc?.assemblerSpeed;
-        // result = (resultQuantity / (item.TimeSpend / 60));
-        result = resultQuantity
-        // result *= (assemblerSpeed / 10000);
-
       }
 
     }
@@ -370,5 +366,6 @@ export class TableRatiosComponent implements OnInit {
 
     // return Number(value.toFixed(2));
   }
+  
 }
 // [1203,1204,1205]
