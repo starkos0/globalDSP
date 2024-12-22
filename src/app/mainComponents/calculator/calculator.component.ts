@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, effect, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from '../../utilComponents/navbar/navbar.component';
 import { AppDB } from '../../services/db';
@@ -9,6 +9,8 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
 import { Recipe } from '../../interfaces/mainData/Recipe';
 import { CommonModule } from '@angular/common';
 import { TableRatiosComponent } from "../../utilComponents/table-ratios/table-ratios.component";
+import { GlobalSettingsServiceService } from '../../services/global-settings-service.service';
+import { GlobalSettingsFormValues } from '../../interfaces/mainData/global-settings-form-values';
 @Component({
   selector: 'app-calculator',
   standalone: true,
@@ -18,7 +20,6 @@ import { TableRatiosComponent } from "../../utilComponents/table-ratios/table-ra
 })
 export class CalculatorComponent implements OnInit {
   @ViewChild('myModal') myModal!: ElementRef;
-  public globalSettingsForm: FormGroup;
   public defaultItem: Item = {
     Type: '',
     StackSize: 0,
@@ -115,7 +116,8 @@ export class CalculatorComponent implements OnInit {
       audioFalloff: 0,
       audioVolume: 0,
       audioPitch: 0,
-      audioDoppler: 0
+      audioDoppler: 0,
+      minerPeriod: 0
     },
     ID: 0,
     description: '',
@@ -142,13 +144,11 @@ export class CalculatorComponent implements OnInit {
   public resourcesMaterialsProducts: Item[] = [];
   public buildings: Item[] = [];
 
-  constructor(private db: AppDB, public dataManagement: DataManagementService) {
-    this.dataManagement.initializeForm(this.defaultItem);
-    this.globalSettingsForm = this.dataManagement.getGlobalSettingsForm();
+  
+  constructor(private db: AppDB, public dataManagement: DataManagementService, public globalSettingsService: GlobalSettingsServiceService) {
   }
   optionsChanged(values: any) {
 
-    console.log("!!!!!!!!")
     const updatedMap: { [key: string]: string } = {};
 
     Object.keys(values).forEach(controlName => {
@@ -159,8 +159,6 @@ export class CalculatorComponent implements OnInit {
     });
 
     this.dataManagement.powerFacilitiesMap.set(updatedMap);
-
-    console.log(this.globalSettingsForm.value)
   }
 
   ngOnInit(): void {
@@ -173,27 +171,27 @@ export class CalculatorComponent implements OnInit {
                 switch (item.typeString) {
                   case 'Assembler':
                     this.assemblerSelectOptions = res;
-                    this.setFormControlWithLocalStorage('assemblerSelect', this.assemblerSelectOptions, 'savedAssemblerID');
+                    this.globalSettingsService.setPropertyWithLocalStorage('assemblerSelect', this.assemblerSelectOptions, 'savedAssemblerID');
                     break;
 
                   case 'Mining Facility':
                     this.miningSelectOptions = res;
-                    this.setFormControlWithLocalStorage('miningSelect', this.miningSelectOptions, 'savedMiningMachineID');
+                    this.globalSettingsService.setPropertyWithLocalStorage('miningSelect', this.miningSelectOptions, 'savedMiningMachineID');
                     break;
 
                   case 'Smelting Facility':
                     this.smeltingSelectOptions = res;
-                    this.setFormControlWithLocalStorage('smeltingSelect', this.smeltingSelectOptions, 'savedSmelterID');
+                    this.globalSettingsService.setPropertyWithLocalStorage('smeltingSelect', this.smeltingSelectOptions, 'savedSmelterID');
                     break;
 
                   case 'Research Facility':
                     this.researchSelectOptions = res;
-                    this.setFormControlWithLocalStorage('researchSelect', this.researchSelectOptions, 'savedMatrixLabID');
+                    this.globalSettingsService.setPropertyWithLocalStorage('researchSelect', this.researchSelectOptions, 'savedMatrixLabID');
                     break;
 
                   case 'Chemical Facility':
                     this.chemicalSelectOptions = res;
-                    this.setFormControlWithLocalStorage('chemicalSelect', this.chemicalSelectOptions, 'savedChemicalPlantID');
+                    this.globalSettingsService.setPropertyWithLocalStorage('chemicalSelect', this.chemicalSelectOptions, 'savedChemicalPlantID');
                     break;
 
                   default:
@@ -227,34 +225,33 @@ export class CalculatorComponent implements OnInit {
     })
 
   }
-  initialAmountChanged() {
 
-  }
   selectAssembler(item: Item) {
-    this.globalSettingsForm.get('assemblerSelect')?.setValue(item)
+    this.globalSettingsService.updateProperty('assemblerSelect', item);
     localStorage.setItem('savedAssemblerID', item.ID.toString());
+
     this.dataManagement.powerFacilitiesMap()['Assembler'] = item.IconPath
   }
   selectSmelter(item: Item) {
-    this.globalSettingsForm.get('smeltingSelect')?.setValue(item);
+    this.globalSettingsService.updateProperty('smeltingSelect', item);
     localStorage.setItem('savedSmelterID', item.ID.toString());
   
     this.dataManagement.powerFacilitiesMap()['Smelting Facility'] = item.IconPath
   }
   selectMiningMachine(item: Item) {
-    this.globalSettingsForm.get('miningSelect')?.setValue(item)
+    this.globalSettingsService.updateProperty('miningSelect', item);
     localStorage.setItem('savedMiningMachineID', item.ID.toString());
 
     this.dataManagement.powerFacilitiesMap()['Mining Facility'] = item.IconPath
   }
   selectMatrixLab(item: Item) {
-    this.globalSettingsForm.get('researchSelect')?.setValue(item)
+    this.globalSettingsService.updateProperty('researchSelect', item);
     localStorage.setItem('savedMatrixLabID', item.ID.toString());
 
     this.dataManagement.powerFacilitiesMap()['Research Facility'] = item.IconPath
   }
   selectChemicalPlant(item: Item) {
-    this.globalSettingsForm.get('chemicalSelect')?.setValue(item)
+    this.globalSettingsService.updateProperty('chemicalSelect', item);
     localStorage.setItem('savedChemicalPlantID', item.ID.toString());
 
     this.dataManagement.powerFacilitiesMap()['Chemical Facility'] = item.IconPath
@@ -272,7 +269,6 @@ export class CalculatorComponent implements OnInit {
     if (item !== undefined) {
       src = item.IconPath;
     } else {
-      // 
       src = "Icons/ItemRecipe/various/warning-signal-round";
     }
 
@@ -289,21 +285,6 @@ export class CalculatorComponent implements OnInit {
   //   })
   //   return src;
   // }
-
-  setFormControlWithLocalStorage(controlName: string, options: Item[], localStorageKey: string) {
-    const savedID = localStorage.getItem(localStorageKey);
-    // 
-    if (savedID) {
-      const selectedItem = options.find(item => item.ID === parseInt(savedID, 10));
-      if (selectedItem) {
-        this.globalSettingsForm.get(controlName)?.setValue(selectedItem);
-      } else {
-        this.globalSettingsForm.get(controlName)?.setValue(options[0]);
-      }
-    } else {
-      this.globalSettingsForm.get(controlName)?.setValue(options[0]);
-    }
-  }
 
 
 }

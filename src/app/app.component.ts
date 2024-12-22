@@ -77,18 +77,4 @@ export class AppComponent implements OnInit{
     })
   }
 
-  getItemType(){
-    this.dataManagement.getItemTypes().subscribe({
-      next: (data) => {
-        
-      }
-    })
-  }
-  getItemTypeString(){
-    this.dataManagement.getItemTypeString().subscribe({
-      next: (data) =>{
-        
-      }
-    })
-  }
 }
