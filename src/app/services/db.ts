@@ -2,10 +2,11 @@ import Dexie, { Table } from "dexie";
 import { DataManagementService } from "./data-management.service";
 import { firstValueFrom } from "rxjs";
 import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
+import { Inject, Injectable } from "@angular/core";
 import { Recipe } from "../interfaces/mainData/Recipe";
 import { Tech } from "../interfaces/mainData/Tech";
 import { Item } from "../interfaces/mainData/Item";
+import { APP_BASE_HREF } from '@angular/common';
 
 @Injectable({
     providedIn: 'root',
@@ -15,7 +16,7 @@ export class AppDB extends Dexie{
     public recipesTable!: Table<Recipe, number>;
     public techsTable!: Table<Tech, number>;
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient,@Inject(APP_BASE_HREF) private baseHref: string) {
         super('dspData');
 
         this.version(5).stores({
@@ -31,9 +32,9 @@ export class AppDB extends Dexie{
     private async populate() {
         try {
             const [items, recipes, techs] = await Promise.all([
-                this.loadDataFromJSON<Item[]>('/assets/dspDataJson/ItemProtoSet.json'),
-                this.loadDataFromJSON<Recipe[]>('/assets/dspDataJson/RecipeProtoSet.json'),
-                this.loadDataFromJSON<Tech[]>('/assets/dspDataJson/TechProtoSet.json')
+                this.loadDataFromJSON<Item[]>(`${this.baseHref}assets/dspDataJson/ItemProtoSet.json`),
+                this.loadDataFromJSON<Recipe[]>(`${this.baseHref}assets/dspDataJson/RecipeProtoSet.json`),
+                this.loadDataFromJSON<Tech[]>(`${this.baseHref}assets/dspDataJson/TechProtoSet.json`)
             ]);
     
             await this.transaction('rw', this.itemsTable, this.recipesTable, this.techsTable, async () => {

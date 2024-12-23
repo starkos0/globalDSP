@@ -53,12 +53,16 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "baseHref": "/globalDSP/",
+              "fileReplacements": []
             },
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "baseHref": "/",
+              "fileReplacements": []
             }
           },
           "defaultConfiguration": "production"
