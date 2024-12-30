@@ -117,7 +117,8 @@ export class CalculatorComponent implements OnInit {
       audioVolume: 0,
       audioPitch: 0,
       audioDoppler: 0,
-      minerPeriod: 0
+      minerPeriod: 0,
+      labAssembleSpeed: 0
     },
     ID: 0,
     description: '',
@@ -168,32 +169,29 @@ export class CalculatorComponent implements OnInit {
           data.map((item: { typeString: string; IconPath: string }) =>
             this.dataManagement.getAllMachinesByType(item.typeString).pipe(
               map(res => {
+                console.log(item.typeString)
                 switch (item.typeString) {
                   case 'Assembler':
-                    this.assemblerSelectOptions = res;
-                    this.globalSettingsService.setPropertyWithLocalStorage('assemblerSelect', this.assemblerSelectOptions, 'savedAssemblerID');
+                    this.globalSettingsService.setPropertyWithLocalStorage('assemblerSelect', res, 'savedAssemblerID');
                     break;
-
                   case 'Mining Facility':
-                    this.miningSelectOptions = res;
-                    this.globalSettingsService.setPropertyWithLocalStorage('miningSelect', this.miningSelectOptions, 'savedMiningMachineID');
+                    this.globalSettingsService.setPropertyWithLocalStorage('miningSelect', res, 'savedMiningMachineID');
                     break;
-
                   case 'Smelting Facility':
-                    this.smeltingSelectOptions = res;
-                    this.globalSettingsService.setPropertyWithLocalStorage('smeltingSelect', this.smeltingSelectOptions, 'savedSmelterID');
+                    this.globalSettingsService.setPropertyWithLocalStorage('smeltingSelect', res, 'savedSmelterID');
                     break;
-
                   case 'Research Facility':
-                    this.researchSelectOptions = res;
-                    this.globalSettingsService.setPropertyWithLocalStorage('researchSelect', this.researchSelectOptions, 'savedMatrixLabID');
+                    this.globalSettingsService.setPropertyWithLocalStorage('researchSelect', res, 'savedMatrixLabID');
                     break;
-
                   case 'Chemical Facility':
-                    this.chemicalSelectOptions = res;
-                    this.globalSettingsService.setPropertyWithLocalStorage('chemicalSelect', this.chemicalSelectOptions, 'savedChemicalPlantID');
+                    this.globalSettingsService.setPropertyWithLocalStorage('chemicalSelect', res, 'savedChemicalPlantID');
                     break;
-
+                  case 'Refining Facility':
+                    this.globalSettingsService.setPropertyWithLocalStorage('refiningSelect', res, 'savedrefiningID');
+                    break;
+                  case 'Oil Extraction Facility':
+                    this.globalSettingsService.setPropertyWithLocalStorage('oilSelect', res, 'savedoilextractionID');
+                    break
                   default:
                     break;
                 }
