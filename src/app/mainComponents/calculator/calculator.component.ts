@@ -172,26 +172,30 @@ export class CalculatorComponent implements OnInit {
                 console.log(item.typeString)
                 switch (item.typeString) {
                   case 'Assembler':
-                    this.globalSettingsService.setPropertyWithLocalStorage('assemblerSelect', res, 'savedAssemblerID');
+                    this.assemblerSelectOptions = res;
+                    this.globalSettingsService.setPropertyWithLocalStorage('assemblerSelect', this.assemblerSelectOptions, 'savedAssemblerID');
                     break;
+
                   case 'Mining Facility':
-                    this.globalSettingsService.setPropertyWithLocalStorage('miningSelect', res, 'savedMiningMachineID');
+                    this.miningSelectOptions = res;
+                    this.globalSettingsService.setPropertyWithLocalStorage('miningSelect', this.miningSelectOptions, 'savedMiningMachineID');
                     break;
+
                   case 'Smelting Facility':
-                    this.globalSettingsService.setPropertyWithLocalStorage('smeltingSelect', res, 'savedSmelterID');
+                    this.smeltingSelectOptions = res;
+                    this.globalSettingsService.setPropertyWithLocalStorage('smeltingSelect', this.smeltingSelectOptions, 'savedSmelterID');
                     break;
+
                   case 'Research Facility':
-                    this.globalSettingsService.setPropertyWithLocalStorage('researchSelect', res, 'savedMatrixLabID');
+                    this.researchSelectOptions = res;
+                    this.globalSettingsService.setPropertyWithLocalStorage('researchSelect', this.researchSelectOptions, 'savedMatrixLabID');
                     break;
+
                   case 'Chemical Facility':
-                    this.globalSettingsService.setPropertyWithLocalStorage('chemicalSelect', res, 'savedChemicalPlantID');
+                    this.chemicalSelectOptions = res;
+                    this.globalSettingsService.setPropertyWithLocalStorage('chemicalSelect', this.chemicalSelectOptions, 'savedChemicalPlantID');
                     break;
-                  case 'Refining Facility':
-                    this.globalSettingsService.setPropertyWithLocalStorage('refiningSelect', res, 'savedrefiningID');
-                    break;
-                  case 'Oil Extraction Facility':
-                    this.globalSettingsService.setPropertyWithLocalStorage('oilSelect', res, 'savedoilextractionID');
-                    break
+
                   default:
                     break;
                 }

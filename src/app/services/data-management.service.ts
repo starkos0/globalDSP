@@ -1,7 +1,7 @@
 import { effect, Injectable, output, signal, WritableSignal } from '@angular/core';
 import Dexie, { liveQuery, Table } from 'dexie';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, forkJoin, from, map, Observable, switchMap } from 'rxjs';
+import { BehaviorSubject, forkJoin, from, map, Observable, of, switchMap } from 'rxjs';
 import { AppDB } from './db';
 import { Tech } from '../interfaces/mainData/Tech';
 import { Recipe } from '../interfaces/mainData/Recipe';
@@ -216,18 +216,17 @@ export class DataManagementService {
   }
 
   getItemTypeString(): Observable<{ typeString: string; IconPath: string }[]> {
-    return from(this.db.itemsTable.toArray()).pipe(
-      map(records => {
-        const filterRecordsByProduction = records.filter(record => record.Type === "Production");
-
-        const uniqueRecordsMap = new Map(
-          filterRecordsByProduction
-            .filter(record => record.typeString && record.IconPath) // Filtrar registros válidos
-            .map(record => [record.typeString, { typeString: record.typeString, IconPath: record.IconPath }])
-        );
-
-        return Array.from(uniqueRecordsMap.values());
-      })
+    return from(
+      this.db.itemsTable
+        .where("Type")
+        .equals("Production")
+        .toArray()
+    ).pipe(
+      map(records =>
+        records
+          .filter(record => record.typeString && record.IconPath)
+          .map(record => ({ typeString: record.typeString, IconPath: record.IconPath }))
+      )
     );
   }
 
@@ -246,6 +245,7 @@ export class DataManagementService {
   }
 
   async toggleSelection(selectedItem: Item, modal?: HTMLDialogElement) {
+    const start = performance.now();
     this.isRecipesFormInitialized.set(false);
     this.recipesForm = new FormGroup({});
 
@@ -257,6 +257,9 @@ export class DataManagementService {
     this.recipesForm.addControl(selectedItem.ID.toString(), new FormControl(recipeToUse.ID));
     let recipe = await this.db.recipesTable.where('ID').equals(recipeToUse.ID).toArray();
     let resultIndex = recipe[0].Results.findIndex(resultId => resultId === selectedItem.ID);
+
+
+    const setupTime = performance.now(); 
     const newItem: TransformedItems = {
       ID: selectedItem.ID,
       name: selectedItem.name,
@@ -284,63 +287,67 @@ export class DataManagementService {
       this.selectedItemsSet.add(newItem.ID);
       this.selectedItems.set([...this.selectedItems(), newItem])
     }
-
+    const beforeTreeStructure = performance.now();
     for (const item of this.selectedItems()) {
       await this.createTreeStructure(item);
     }
 
 
+    const afterTreeStructure = performance.now();
     this.processRecipesImages();
     this.getItemTypeString().pipe(
       switchMap(data => {
-        const machineObservables = data.map((item: { typeString: string; IconPath: string }) =>
-          this.getAllMachinesByType(item.typeString).pipe(
-            map(res => {
-              const key = this.getControlName(item.typeString);
+        const machines = data.map(item => {
+          const key = this.getControlName(item.typeString);
+          if (!key) return null;
 
-              if (key) {
-                const selectedFacility = this.globalSettingsService.getProperty(key) as Item | undefined;
+          const selectedFacility = this.globalSettingsService.getProperty(key) as Item | undefined;
+          if (!selectedFacility) return null;
 
-                if (selectedFacility) {
-                  return {
-                    typeString: item.typeString,
-                    IconPath: selectedFacility.IconPath,
-                    machineId: selectedFacility.ID
-                  };
-                }
-              }
+          return {
+            typeString: item.typeString,
+            IconPath: selectedFacility.IconPath,
+            machineId: selectedFacility.ID,
+          };
+        });
 
-              return null;
-            })
-          )
-        );
+        // Filtrar nulos directamente
+        const validMachines = machines.filter(machine => machine !== null) as {
+          typeString: string;
+          IconPath: string;
+          machineId: number;
+        }[];
 
-        // Filtrar los observables nulos antes de `forkJoin`
-        return forkJoin(machineObservables).pipe(
-          map(facilities => facilities.filter(facility => facility !== null))
-        );
+        // Convertirlo en un observable para mantener el flujo reactivo
+        return of(validMachines);
       })
     ).subscribe({
       next: facilities => {
         const updatedMap = { ...this.powerFacilitiesMap() };
-        facilities.forEach(facility => {
-          if (facility?.typeString && facility?.IconPath) {
+
+        facilities.forEach((facility: { typeString: string, IconPath: string, machineId: number }) => {
+          if (facility.typeString && facility.IconPath) {
             updatedMap[facility.typeString] = facility.IconPath;
           }
         });
 
         this.powerFacilitiesMap.set(updatedMap);
-        console.log("powerFacilities ", this.powerFacilitiesMap());
+        console.log("powerFacilities", this.powerFacilitiesMap());
       },
       error: err => {
-        console.error('Error:', err);
-      }
+        console.error("Error:", err);
+      },
     });
+
 
 
     console.log(this.selectedItems())
     this.isRecipesFormInitialized.set(true);
+    const end = performance.now(); // Tiempo después de toda la función
 
+    console.log(`Setup Time: ${((setupTime - start) / 1000)} seconds`);
+    console.log(`Tree Structure Time: ${((afterTreeStructure - beforeTreeStructure) / 1000)} seconds`);
+    console.log(`Remaining Function Time: ${((end - afterTreeStructure) / 1000)} seconds`);
   }
 
   async createTreeStructure(item: TransformedItems): Promise<void> {
@@ -382,7 +389,7 @@ export class DataManagementService {
           const totalValue = (item.totalValue * itemCount) / resultCount;
           const resultItemIndex = childRecipeDetails.Results.findIndex(resultId => resultId === currentItem.ID);
 
-          let newItem = this.createNewItem(currentItem,madeFromString,childRecipeDetails,totalValue,resultItemIndex)
+          let newItem = this.createNewItem(currentItem, madeFromString, childRecipeDetails, totalValue, resultItemIndex)
 
           this.recipesForm.addControl(newItem.ID.toString(), new FormControl(childRecipeDetails.ID));
 
@@ -426,7 +433,7 @@ export class DataManagementService {
     }
   }
 
-  createNewItem(currentItem: Item, madeFromString: string, childRecipeDetails: Recipe, totalValue: number,resultItemIndex: number): TransformedItems {
+  createNewItem(currentItem: Item, madeFromString: string, childRecipeDetails: Recipe, totalValue: number, resultItemIndex: number): TransformedItems {
     return {
       ID: currentItem.ID,
       name: currentItem.name,
@@ -462,9 +469,9 @@ export class DataManagementService {
         if (machineType === 'miningSelect') {
           recipeTime = 120;
           assemblerSpeed = property?.prefabDesc?.minerPeriod;
-        } else if(machineType === "researchSelect") {
+        } else if (machineType === "researchSelect") {
           assemblerSpeed = property.prefabDesc.labAssembleSpeed;
-        }else{
+        } else {
           assemblerSpeed = property?.prefabDesc?.assemblerSpeed;
         }
         const outputUnit = this.globalSettingsService.getProperty('unitSelected');
