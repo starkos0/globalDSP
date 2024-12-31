@@ -16,6 +16,7 @@ export interface TransformedItems {
     ResultCounts: number[];
     totalValue: number;
     totalMachine: number;
+    power: number;
 }
 
 export interface recipes{

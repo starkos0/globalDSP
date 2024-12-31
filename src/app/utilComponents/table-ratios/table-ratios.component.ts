@@ -7,11 +7,11 @@ import { Recipe } from '../../interfaces/mainData/Recipe';
 import { CommonModule } from '@angular/common';
 import { TransformedItems } from '../../interfaces/transformed-items';
 import { GlobalSettingsServiceService } from '../../services/global-settings-service.service';
-
+import { PowerConversionPipe } from '../../pipes/power-conversion.pipe';
 @Component({
   selector: 'app-table-ratios',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule,FormsModule],
+  imports: [ReactiveFormsModule, CommonModule,FormsModule,PowerConversionPipe],
   templateUrl: './table-ratios.component.html',
   styleUrl: './table-ratios.component.scss'
 })
@@ -248,7 +248,8 @@ export class TableRatiosComponent implements OnInit {
         Results: recipe[0].Results,
         ResultCounts: recipe[0].ResultCounts,
         totalValue: childTotalValue,
-        totalMachine: 0
+        totalMachine: 0,
+        power: 0
       };
 
       if (itemFound[0].recipes !== undefined && itemFound[0].recipes.length > 0) {

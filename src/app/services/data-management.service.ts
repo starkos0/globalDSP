@@ -10,6 +10,8 @@ import { recipes, TransformedItems } from '../interfaces/transformed-items';
 import { GlobalSettingsFormValues } from '../interfaces/mainData/global-settings-form-values';
 import { GlobalSettingsServiceService } from './global-settings-service.service';
 import { Item } from '../interfaces/mainData/Item';
+import { Totals } from '../interfaces/miscTypes/totals';
+import { TotalItems } from '../interfaces/miscTypes/TotalItems';
 @Injectable({
   providedIn: 'root'
 })
@@ -144,6 +146,12 @@ export class DataManagementService {
   public imagesRecipes: { ID: number, items: string[], results: string[] }[] = []
   public recipesFromTreeStructure: WritableSignal<Recipe[]> = signal([]);
   public powerFacilities: { typeString: string; IconPath: string }[] = [];
+  public totals: WritableSignal<Totals> = signal({
+    totalPower: 0,
+    totalMachinesByType: [],
+    totalItems: []
+  });
+
 
   constructor(private db: AppDB, private http: HttpClient, private fb: FormBuilder, private globalSettingsService: GlobalSettingsServiceService) {
     effect(() => {
@@ -258,8 +266,18 @@ export class DataManagementService {
     let recipe = await this.db.recipesTable.where('ID').equals(recipeToUse.ID).toArray();
     let resultIndex = recipe[0].Results.findIndex(resultId => resultId === selectedItem.ID);
 
+    let totalMachine = this.calculateMachinesNeeded(this.globalSettingsService.getProperty('initialAmountValue'), recipe[0].ResultCounts[resultIndex], recipe[0].TimeSpend,
+      this.globalSettingsService.checkValidKey(recipe[0].madeFromString.split(' ')[0].toLowerCase() + 'Select'))
 
-    const setupTime = performance.now(); 
+    let key = this.globalSettingsService.checkValidKey(recipe[0].madeFromString.split(' ')[0].toLowerCase() + 'Select')
+    let energyPerMachine = 0;
+    if (key !== null) {
+      const property = this.globalSettingsService.getProperty(key);
+      if (typeof property === 'object' && property !== null && 'prefabDesc' in property) {
+        energyPerMachine = (property.prefabDesc.workEnergyPerTick * 60) / 1000
+      }
+    }
+    const setupTime = performance.now();
     const newItem: TransformedItems = {
       ID: selectedItem.ID,
       name: selectedItem.name,
@@ -277,8 +295,8 @@ export class DataManagementService {
       Results: recipe[0].Results,
       ResultCounts: recipe[0].ResultCounts,
       totalValue: this.globalSettingsService.getProperty('initialAmountValue'),
-      totalMachine: this.calculateMachinesNeeded(this.globalSettingsService.getProperty('initialAmountValue'), recipe[0].ResultCounts[resultIndex], recipe[0].TimeSpend,
-        this.globalSettingsService.checkValidKey(recipe[0].madeFromString.split(' ')[0].toLowerCase() + 'Select'))
+      totalMachine: totalMachine,
+      power: Number((energyPerMachine * totalMachine).toFixed(2))
     }
     if (this.isSelectedItem(newItem)) {
       this.selectedItemsSet.delete(newItem.ID);
@@ -343,11 +361,14 @@ export class DataManagementService {
 
     console.log(this.selectedItems())
     this.isRecipesFormInitialized.set(true);
-    const end = performance.now(); // Tiempo después de toda la función
+    const end = performance.now(); 
 
     console.log(`Setup Time: ${((setupTime - start) / 1000)} seconds`);
     console.log(`Tree Structure Time: ${((afterTreeStructure - beforeTreeStructure) / 1000)} seconds`);
     console.log(`Remaining Function Time: ${((end - afterTreeStructure) / 1000)} seconds`);
+
+    this.calculateTotales(this.selectedItems());
+    console.log(this.totals())
   }
 
   async createTreeStructure(item: TransformedItems): Promise<void> {
@@ -407,6 +428,21 @@ export class DataManagementService {
   }
 
   createCoreItem(currentItem: Item, madeFromString: string, recipe: Recipe, parentItem: TransformedItems, resultItemIndex: number): TransformedItems {
+    let key = this.globalSettingsService.checkValidKey(madeFromString.split(' ')[0].toLowerCase() + 'Select')
+    let energyPerMachine = 0;
+    if (key !== null) {
+      const property = this.globalSettingsService.getProperty(key);
+      if (typeof property === 'object' && property !== null && 'prefabDesc' in property) {
+        energyPerMachine = (property.prefabDesc.workEnergyPerTick * 60) / 1000
+      }
+    }
+
+    let totalMachine = this.calculateMachinesNeeded(
+      parentItem.totalValue,
+      recipe.ResultCounts[resultItemIndex],
+      recipe.TimeSpend,
+      this.globalSettingsService.checkValidKey(madeFromString.split(' ')[0].toLowerCase() + 'Select')
+    )
     return {
       ID: currentItem.ID,
       name: currentItem.name,
@@ -429,11 +465,27 @@ export class DataManagementService {
         recipe.ResultCounts[resultItemIndex],
         recipe.TimeSpend,
         this.globalSettingsService.checkValidKey(madeFromString.split(' ')[0].toLowerCase() + 'Select')
-      )
+      ),
+      power: Number((energyPerMachine * totalMachine).toFixed(2)),
     }
   }
 
   createNewItem(currentItem: Item, madeFromString: string, childRecipeDetails: Recipe, totalValue: number, resultItemIndex: number): TransformedItems {
+    let key = this.globalSettingsService.checkValidKey(madeFromString.split(' ')[0].toLowerCase() + 'Select')
+    let energyPerMachine = 0;
+    if (key !== null) {
+      const property = this.globalSettingsService.getProperty(key);
+      if (typeof property === 'object' && property !== null && 'prefabDesc' in property) {
+        energyPerMachine = (property.prefabDesc.workEnergyPerTick * 60) / 1000
+      }
+    }
+
+    let totalMachine = this.calculateMachinesNeeded(
+      totalValue,
+      childRecipeDetails.ResultCounts[resultItemIndex],
+      childRecipeDetails.TimeSpend,
+      this.globalSettingsService.checkValidKey(madeFromString.split(' ')[0].toLowerCase() + 'Select')
+    )
     return {
       ID: currentItem.ID,
       name: currentItem.name,
@@ -451,12 +503,8 @@ export class DataManagementService {
       Results: childRecipeDetails.Results,
       ResultCounts: childRecipeDetails.ResultCounts,
       totalValue: totalValue,
-      totalMachine: this.calculateMachinesNeeded(
-        totalValue,
-        childRecipeDetails.ResultCounts[resultItemIndex],
-        childRecipeDetails.TimeSpend,
-        this.globalSettingsService.checkValidKey(madeFromString.split(' ')[0].toLowerCase() + 'Select')
-      )
+      totalMachine: totalMachine,
+      power: Number((energyPerMachine * totalMachine).toFixed(2))
     }
   }
 
@@ -663,5 +711,53 @@ export class DataManagementService {
   }
   getRecipeById(recipeId: number) {
     return from(this.db.recipesTable.where('ID').equals(recipeId).toArray());
+  }
+
+  calculateTotales(selectedItems: TransformedItems[]): void {
+    const totals: Totals = {
+      totalPower: 0,
+      totalMachinesByType: [],
+      totalItems: []
+    };
+  
+    const accumulateValues = (item: TransformedItems) => {
+      totals.totalPower += item.power || 0;
+  
+      if (item.madeFromString) {
+        const machineEntry = totals.totalMachinesByType.find(entry => entry.name === item.madeFromString);
+        if (machineEntry) {
+          machineEntry.total += item.totalMachine || 0;
+        } else {
+          totals.totalMachinesByType.push({ name: item.madeFromString, total: item.totalMachine || 0 });
+        }
+      }
+  
+      const itemEntry = totals.totalItems.find(entry => entry.name === item.name);
+      if (itemEntry) {
+        itemEntry.total += item.totalValue || 0;
+      } else {
+        totals.totalItems.push({
+          itemId: item.ID,
+          name: item.name,
+          total: item.totalValue || 0,
+          IconPath: item.IconPath
+        });
+      }
+  
+      for (const child of item.childs) {
+        accumulateValues(child);
+      }
+    };
+  
+    for (const tree of selectedItems) {
+      accumulateValues(tree);
+    }
+    this.totals.set(totals);
+    const sortedItems = [...this.totals().totalItems].sort((a, b) => a.itemId - b.itemId);
+
+    this.totals.set({
+      ...this.totals(),
+      totalItems: sortedItems,
+    });
   }
 }
