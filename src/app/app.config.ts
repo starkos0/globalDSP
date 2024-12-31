@@ -7,10 +7,14 @@ import { provideHttpClient } from '@angular/common/http';
 import { APP_BASE_HREF } from '@angular/common';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), AppDB, provideHttpClient(), 
+  providers: [
+    provideRouter(routes),
+    AppDB,
+    provideHttpClient(),
     {
-    provide: APP_BASE_HREF,
-    useValue: document.getElementsByTagName('base')[0]?.getAttribute('href') || '/',
-    }
-  ]
+      provide: APP_BASE_HREF,
+      useValue:
+        document.getElementsByTagName('base')[0]?.getAttribute('href') || '/',
+    },
+  ],
 };

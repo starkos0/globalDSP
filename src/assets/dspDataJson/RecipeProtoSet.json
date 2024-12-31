@@ -14,18 +14,10 @@
     "TimeSpend": 60,
     "GridIndex": 1101,
     "IconPath": "",
-    "Items": [
-      1001
-    ],
-    "ItemCounts": [
-      1
-    ],
-    "Results": [
-      1101
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1001],
+    "ItemCounts": [1],
+    "Results": [1101],
+    "ResultCounts": [1]
   },
   {
     "ID": 2,
@@ -42,18 +34,10 @@
     "TimeSpend": 90,
     "GridIndex": 1201,
     "IconPath": "",
-    "Items": [
-      1001
-    ],
-    "ItemCounts": [
-      1
-    ],
-    "Results": [
-      1102
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1001],
+    "ItemCounts": [1],
+    "Results": [1102],
+    "ResultCounts": [1]
   },
   {
     "ID": 3,
@@ -70,18 +54,10 @@
     "TimeSpend": 60,
     "GridIndex": 1102,
     "IconPath": "",
-    "Items": [
-      1002
-    ],
-    "ItemCounts": [
-      1
-    ],
-    "Results": [
-      1104
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1002],
+    "ItemCounts": [1],
+    "Results": [1104],
+    "ResultCounts": [1]
   },
   {
     "ID": 4,
@@ -98,18 +74,10 @@
     "TimeSpend": 60,
     "GridIndex": 1105,
     "IconPath": "",
-    "Items": [
-      1005
-    ],
-    "ItemCounts": [
-      1
-    ],
-    "Results": [
-      1108
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1005],
+    "ItemCounts": [1],
+    "Results": [1108],
+    "ResultCounts": [1]
   },
   {
     "ID": 5,
@@ -126,18 +94,10 @@
     "TimeSpend": 60,
     "GridIndex": 1401,
     "IconPath": "",
-    "Items": [
-      1101
-    ],
-    "ItemCounts": [
-      1
-    ],
-    "Results": [
-      1201
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1101],
+    "ItemCounts": [1],
+    "Results": [1201],
+    "ResultCounts": [1]
   },
   {
     "ID": 6,
@@ -154,20 +114,10 @@
     "TimeSpend": 60,
     "GridIndex": 1202,
     "IconPath": "",
-    "Items": [
-      1102,
-      1104
-    ],
-    "ItemCounts": [
-      2,
-      1
-    ],
-    "Results": [
-      1202
-    ],
-    "ResultCounts": [
-      2
-    ]
+    "Items": [1102, 1104],
+    "ItemCounts": [2, 1],
+    "Results": [1202],
+    "ResultCounts": [2]
   },
   {
     "ID": 7,
@@ -187,22 +137,10 @@
     "preTech": {
       "ID": 1001
     },
-    "Items": [
-      1101,
-      1201,
-      1202
-    ],
-    "ItemCounts": [
-      6,
-      1,
-      3
-    ],
-    "Results": [
-      2203
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1101, 1201, 1202],
+    "ItemCounts": [6, 1, 3],
+    "Results": [2203],
+    "ResultCounts": [1]
   },
   {
     "ID": 8,
@@ -222,20 +160,10 @@
     "preTech": {
       "ID": 1001
     },
-    "Items": [
-      1101,
-      1202
-    ],
-    "ItemCounts": [
-      2,
-      1
-    ],
-    "Results": [
-      2201
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1101, 1202],
+    "ItemCounts": [2, 1],
+    "Results": [2201],
+    "ResultCounts": [1]
   },
   {
     "ID": 9,
@@ -255,20 +183,10 @@
     "preTech": {
       "ID": 1002
     },
-    "Items": [
-      1202,
-      1301
-    ],
-    "ItemCounts": [
-      1,
-      1
-    ],
-    "Results": [
-      6001
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1202, 1301],
+    "ItemCounts": [1, 1],
+    "Results": [6001],
+    "ResultCounts": [1]
   },
   {
     "ID": 10,
@@ -288,24 +206,10 @@
     "preTech": {
       "ID": 1002
     },
-    "Items": [
-      1101,
-      1110,
-      1301,
-      1202
-    ],
-    "ItemCounts": [
-      8,
-      4,
-      4,
-      4
-    ],
-    "Results": [
-      2901
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1101, 1110, 1301, 1202],
+    "ItemCounts": [8, 4, 4, 4],
+    "Results": [2901],
+    "ResultCounts": [1]
   },
   {
     "ID": 11,
@@ -325,18 +229,10 @@
     "preTech": {
       "ID": 1101
     },
-    "Items": [
-      1110
-    ],
-    "ItemCounts": [
-      3
-    ],
-    "Results": [
-      1111
-    ],
-    "ResultCounts": [
-      2
-    ]
+    "Items": [1110],
+    "ItemCounts": [3],
+    "Results": [1111],
+    "ResultCounts": [2]
   },
   {
     "ID": 12,
@@ -356,20 +252,10 @@
     "preTech": {
       "ID": 1101
     },
-    "Items": [
-      1202,
-      1111
-    ],
-    "ItemCounts": [
-      4,
-      2
-    ],
-    "Results": [
-      1401
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1202, 1111],
+    "ItemCounts": [4, 2],
+    "Results": [1401],
+    "ResultCounts": [1]
   },
   {
     "ID": 13,
@@ -389,20 +275,10 @@
     "preTech": {
       "ID": 1101
     },
-    "Items": [
-      2201,
-      1401
-    ],
-    "ItemCounts": [
-      1,
-      3
-    ],
-    "Results": [
-      2202
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [2201, 1401],
+    "ItemCounts": [1, 3],
+    "Results": [2202],
+    "ResultCounts": [1]
   },
   {
     "ID": 14,
@@ -422,24 +298,10 @@
     "preTech": {
       "ID": 1102
     },
-    "Items": [
-      1103,
-      1108,
-      1301,
-      1401
-    ],
-    "ItemCounts": [
-      12,
-      12,
-      6,
-      4
-    ],
-    "Results": [
-      2307
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1103, 1108, 1301, 1401],
+    "ItemCounts": [12, 12, 6, 4],
+    "Results": [2307],
+    "ResultCounts": [1]
   },
   {
     "ID": 15,
@@ -459,24 +321,10 @@
     "preTech": {
       "ID": 1102
     },
-    "Items": [
-      1103,
-      1108,
-      1301,
-      1401
-    ],
-    "ItemCounts": [
-      10,
-      10,
-      6,
-      6
-    ],
-    "Results": [
-      2308
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1103, 1108, 1301, 1401],
+    "ItemCounts": [10, 10, 6, 6],
+    "Results": [2308],
+    "ResultCounts": [1]
   },
   {
     "ID": 16,
@@ -496,20 +344,10 @@
     "preTech": {
       "ID": 1102
     },
-    "Items": [
-      1007
-    ],
-    "ItemCounts": [
-      2
-    ],
-    "Results": [
-      1120,
-      1114
-    ],
-    "ResultCounts": [
-      1,
-      2
-    ]
+    "Items": [1007],
+    "ItemCounts": [2],
+    "Results": [1120, 1114],
+    "ResultCounts": [1, 2]
   },
   {
     "ID": 17,
@@ -529,18 +367,10 @@
     "preTech": {
       "ID": 1402
     },
-    "Items": [
-      1006
-    ],
-    "ItemCounts": [
-      2
-    ],
-    "Results": [
-      1109
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1006],
+    "ItemCounts": [2],
+    "Results": [1109],
+    "ResultCounts": [1]
   },
   {
     "ID": 18,
@@ -560,20 +390,10 @@
     "preTech": {
       "ID": 1111
     },
-    "Items": [
-      1109,
-      1120
-    ],
-    "ItemCounts": [
-      2,
-      2
-    ],
-    "Results": [
-      6002
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1109, 1120],
+    "ItemCounts": [2, 2],
+    "Results": [6002],
+    "ResultCounts": [1]
   },
   {
     "ID": 19,
@@ -593,20 +413,10 @@
     "preTech": {
       "ID": 1112
     },
-    "Items": [
-      1106,
-      1120
-    ],
-    "ItemCounts": [
-      1,
-      10
-    ],
-    "Results": [
-      1801
-    ],
-    "ResultCounts": [
-      2
-    ]
+    "Items": [1106, 1120],
+    "ItemCounts": [1, 10],
+    "Results": [1801],
+    "ResultCounts": [2]
   },
   {
     "ID": 20,
@@ -626,20 +436,10 @@
     "preTech": {
       "ID": 1113
     },
-    "Items": [
-      1103,
-      1104
-    ],
-    "ItemCounts": [
-      2,
-      3
-    ],
-    "Results": [
-      1405
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1103, 1104],
+    "ItemCounts": [2, 3],
+    "Results": [1405],
+    "ResultCounts": [1]
   },
   {
     "ID": 21,
@@ -659,20 +459,10 @@
     "preTech": {
       "ID": 1114
     },
-    "Items": [
-      1107,
-      1204
-    ],
-    "ItemCounts": [
-      5,
-      5
-    ],
-    "Results": [
-      1406
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1107, 1204],
+    "ItemCounts": [5, 5],
+    "Results": [1406],
+    "ResultCounts": [1]
   },
   {
     "ID": 22,
@@ -692,24 +482,10 @@
     "preTech": {
       "ID": 1121
     },
-    "Items": [
-      1103,
-      1108,
-      1110,
-      1301
-    ],
-    "ItemCounts": [
-      8,
-      8,
-      8,
-      2
-    ],
-    "Results": [
-      2309
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1103, 1108, 1110, 1301],
+    "ItemCounts": [8, 8, 8, 2],
+    "Results": [2309],
+    "ResultCounts": [1]
   },
   {
     "ID": 23,
@@ -729,20 +505,10 @@
     "preTech": {
       "ID": 1121
     },
-    "Items": [
-      1114,
-      1109
-    ],
-    "ItemCounts": [
-      2,
-      1
-    ],
-    "Results": [
-      1115
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1114, 1109],
+    "ItemCounts": [2, 1],
+    "Results": [1115],
+    "ResultCounts": [1]
   },
   {
     "ID": 24,
@@ -762,22 +528,10 @@
     "preTech": {
       "ID": 1121
     },
-    "Items": [
-      1114,
-      1005,
-      1000
-    ],
-    "ItemCounts": [
-      6,
-      8,
-      4
-    ],
-    "Results": [
-      1116
-    ],
-    "ResultCounts": [
-      4
-    ]
+    "Items": [1114, 1005, 1000],
+    "ItemCounts": [6, 8, 4],
+    "Results": [1116],
+    "ResultCounts": [4]
   },
   {
     "ID": 25,
@@ -797,22 +551,10 @@
     "preTech": {
       "ID": 1122
     },
-    "Items": [
-      1115,
-      1114,
-      1000
-    ],
-    "ItemCounts": [
-      2,
-      1,
-      1
-    ],
-    "Results": [
-      1117
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1115, 1114, 1000],
+    "ItemCounts": [2, 1, 1],
+    "Results": [1117],
+    "ResultCounts": [1]
   },
   {
     "ID": 26,
@@ -832,20 +574,10 @@
     "preTech": {
       "ID": 1123
     },
-    "Items": [
-      1117,
-      1106
-    ],
-    "ItemCounts": [
-      1,
-      3
-    ],
-    "Results": [
-      1118
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1117, 1106],
+    "ItemCounts": [1, 3],
+    "Results": [1118],
+    "ResultCounts": [1]
   },
   {
     "ID": 27,
@@ -865,20 +597,10 @@
     "preTech": {
       "ID": 1124
     },
-    "Items": [
-      1112,
-      1118
-    ],
-    "ItemCounts": [
-      1,
-      1
-    ],
-    "Results": [
-      6003
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1112, 1118],
+    "ItemCounts": [1, 1],
+    "Results": [6003],
+    "ResultCounts": [1]
   },
   {
     "ID": 28,
@@ -898,22 +620,10 @@
     "preTech": {
       "ID": 1125
     },
-    "Items": [
-      1118,
-      1123,
-      1120
-    ],
-    "ItemCounts": [
-      1,
-      2,
-      12
-    ],
-    "Results": [
-      1126
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1118, 1123, 1120],
+    "ItemCounts": [1, 2, 12],
+    "Results": [1126],
+    "ResultCounts": [1]
   },
   {
     "ID": 29,
@@ -933,22 +643,10 @@
     "preTech": {
       "ID": 1125
     },
-    "Items": [
-      1014,
-      1123,
-      1120
-    ],
-    "ItemCounts": [
-      8,
-      2,
-      12
-    ],
-    "Results": [
-      1126
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1014, 1123, 1120],
+    "ItemCounts": [8, 2, 12],
+    "Results": [1126],
+    "ResultCounts": [1]
   },
   {
     "ID": 30,
@@ -968,22 +666,10 @@
     "preTech": {
       "ID": 1126
     },
-    "Items": [
-      1110,
-      1106,
-      1000
-    ],
-    "ItemCounts": [
-      2,
-      2,
-      2
-    ],
-    "Results": [
-      1119
-    ],
-    "ResultCounts": [
-      2
-    ]
+    "Items": [1110, 1106, 1000],
+    "ItemCounts": [2, 2, 2],
+    "Results": [1119],
+    "ResultCounts": [2]
   },
   {
     "ID": 31,
@@ -1003,20 +689,10 @@
     "preTech": {
       "ID": 1131
     },
-    "Items": [
-      1109,
-      1116
-    ],
-    "ItemCounts": [
-      3,
-      1
-    ],
-    "Results": [
-      1123
-    ],
-    "ResultCounts": [
-      2
-    ]
+    "Items": [1109, 1116],
+    "ItemCounts": [3, 1],
+    "Results": [1123],
+    "ResultCounts": [2]
   },
   {
     "ID": 32,
@@ -1036,20 +712,10 @@
     "preTech": {
       "ID": 1131
     },
-    "Items": [
-      1011
-    ],
-    "ItemCounts": [
-      2
-    ],
-    "Results": [
-      1123,
-      1120
-    ],
-    "ResultCounts": [
-      2,
-      1
-    ]
+    "Items": [1011],
+    "ItemCounts": [2],
+    "Results": [1123, 1120],
+    "ResultCounts": [2, 1]
   },
   {
     "ID": 33,
@@ -1069,20 +735,10 @@
     "preTech": {
       "ID": 1132
     },
-    "Items": [
-      1123,
-      1106
-    ],
-    "ItemCounts": [
-      3,
-      1
-    ],
-    "Results": [
-      1124
-    ],
-    "ResultCounts": [
-      2
-    ]
+    "Items": [1123, 1106],
+    "ItemCounts": [3, 1],
+    "Results": [1124],
+    "ResultCounts": [2]
   },
   {
     "ID": 34,
@@ -1102,18 +758,10 @@
     "preTech": {
       "ID": 1402
     },
-    "Items": [
-      1005
-    ],
-    "ItemCounts": [
-      10
-    ],
-    "Results": [
-      1003
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1005],
+    "ItemCounts": [10],
+    "Results": [1003],
+    "ResultCounts": [1]
   },
   {
     "ID": 35,
@@ -1133,18 +781,10 @@
     "preTech": {
       "ID": 1132
     },
-    "Items": [
-      1015
-    ],
-    "ItemCounts": [
-      6
-    ],
-    "Results": [
-      1124
-    ],
-    "ResultCounts": [
-      2
-    ]
+    "Items": [1015],
+    "ItemCounts": [6],
+    "Results": [1124],
+    "ResultCounts": [2]
   },
   {
     "ID": 36,
@@ -1164,22 +804,10 @@
     "preTech": {
       "ID": 1133
     },
-    "Items": [
-      1124,
-      1113,
-      1115
-    ],
-    "ItemCounts": [
-      2,
-      2,
-      1
-    ],
-    "Results": [
-      1402
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1124, 1113, 1115],
+    "ItemCounts": [2, 2, 1],
+    "Results": [1402],
+    "ResultCounts": [1]
   },
   {
     "ID": 37,
@@ -1199,18 +827,10 @@
     "preTech": {
       "ID": 1403
     },
-    "Items": [
-      1105
-    ],
-    "ItemCounts": [
-      1
-    ],
-    "Results": [
-      1113
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1105],
+    "ItemCounts": [1],
+    "Results": [1113],
+    "ResultCounts": [1]
   },
   {
     "ID": 38,
@@ -1230,20 +850,10 @@
     "preTech": {
       "ID": 1141
     },
-    "Items": [
-      1126,
-      1119
-    ],
-    "ItemCounts": [
-      1,
-      2
-    ],
-    "Results": [
-      1304
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1126, 1119],
+    "ItemCounts": [1, 2],
+    "Results": [1304],
+    "ResultCounts": [1]
   },
   {
     "ID": 39,
@@ -1263,26 +873,10 @@
     "preTech": {
       "ID": 1142
     },
-    "Items": [
-      1107,
-      1125,
-      1205,
-      1123,
-      1303
-    ],
-    "ItemCounts": [
-      20,
-      20,
-      25,
-      10,
-      8
-    ],
-    "Results": [
-      2310
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1107, 1125, 1205, 1123, 1303],
+    "ItemCounts": [20, 20, 25, 10, 8],
+    "Results": [2310],
+    "ResultCounts": [1]
   },
   {
     "ID": 40,
@@ -1302,18 +896,10 @@
     "preTech": {
       "ID": 1142
     },
-    "Items": [
-      1120
-    ],
-    "ItemCounts": [
-      10
-    ],
-    "Results": [
-      1121
-    ],
-    "ResultCounts": [
-      5
-    ]
+    "Items": [1120],
+    "ItemCounts": [10],
+    "Results": [1121],
+    "ResultCounts": [5]
   },
   {
     "ID": 41,
@@ -1333,22 +919,10 @@
     "preTech": {
       "ID": 1416
     },
-    "Items": [
-      1107,
-      1121,
-      1205
-    ],
-    "ItemCounts": [
-      1,
-      20,
-      1
-    ],
-    "Results": [
-      1802
-    ],
-    "ResultCounts": [
-      2
-    ]
+    "Items": [1107, 1121, 1205],
+    "ItemCounts": [1, 20, 1],
+    "Results": [1802],
+    "ResultCounts": [2]
   },
   {
     "ID": 42,
@@ -1368,20 +942,10 @@
     "preTech": {
       "ID": 1145
     },
-    "Items": [
-      1206,
-      1303
-    ],
-    "ItemCounts": [
-      1,
-      1
-    ],
-    "Results": [
-      1403
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1206, 1303],
+    "ItemCounts": [1, 1],
+    "Results": [1403],
+    "ResultCounts": [1]
   },
   {
     "ID": 43,
@@ -1401,24 +965,10 @@
     "preTech": {
       "ID": 1144
     },
-    "Items": [
-      1107,
-      1125,
-      1403,
-      1305
-    ],
-    "ItemCounts": [
-      20,
-      20,
-      10,
-      10
-    ],
-    "Results": [
-      2210
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1107, 1125, 1403, 1305],
+    "ItemCounts": [20, 20, 10, 10],
+    "Results": [2210],
+    "ResultCounts": [1]
   },
   {
     "ID": 44,
@@ -1438,24 +988,10 @@
     "preTech": {
       "ID": 1145
     },
-    "Items": [
-      1122,
-      1120,
-      1403,
-      1107
-    ],
-    "ItemCounts": [
-      12,
-      12,
-      1,
-      1
-    ],
-    "Results": [
-      1803
-    ],
-    "ResultCounts": [
-      2
-    ]
+    "Items": [1122, 1120, 1403, 1107],
+    "ItemCounts": [12, 12, 1, 1],
+    "Results": [1803],
+    "ResultCounts": [2]
   },
   {
     "ID": 45,
@@ -1475,22 +1011,10 @@
     "preTech": {
       "ID": 1201
     },
-    "Items": [
-      1101,
-      1201,
-      1301
-    ],
-    "ItemCounts": [
-      4,
-      8,
-      4
-    ],
-    "Results": [
-      2303
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1101, 1201, 1301],
+    "ItemCounts": [4, 8, 4],
+    "Results": [2303],
+    "ResultCounts": [1]
   },
   {
     "ID": 46,
@@ -1510,22 +1034,10 @@
     "preTech": {
       "ID": 1202
     },
-    "Items": [
-      2303,
-      1123,
-      1303
-    ],
-    "ItemCounts": [
-      1,
-      8,
-      4
-    ],
-    "Results": [
-      2304
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [2303, 1123, 1303],
+    "ItemCounts": [1, 8, 4],
+    "Results": [2304],
+    "ResultCounts": [1]
   },
   {
     "ID": 47,
@@ -1545,22 +1057,10 @@
     "preTech": {
       "ID": 1203
     },
-    "Items": [
-      2304,
-      1402,
-      1305
-    ],
-    "ItemCounts": [
-      1,
-      8,
-      2
-    ],
-    "Results": [
-      2305
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [2304, 1402, 1305],
+    "ItemCounts": [1, 8, 2],
+    "Results": [2305],
+    "ResultCounts": [1]
   },
   {
     "ID": 48,
@@ -1580,24 +1080,10 @@
     "preTech": {
       "ID": 1001
     },
-    "Items": [
-      1101,
-      1301,
-      1202,
-      1201
-    ],
-    "ItemCounts": [
-      4,
-      2,
-      2,
-      2
-    ],
-    "Results": [
-      2301
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1101, 1301, 1202, 1201],
+    "ItemCounts": [4, 2, 2, 2],
+    "Results": [2301],
+    "ResultCounts": [1]
   },
   {
     "ID": 49,
@@ -1617,24 +1103,10 @@
     "preTech": {
       "ID": 1120
     },
-    "Items": [
-      1101,
-      1108,
-      1203,
-      1301
-    ],
-    "ItemCounts": [
-      8,
-      4,
-      4,
-      2
-    ],
-    "Results": [
-      2306
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1101, 1108, 1203, 1301],
+    "ItemCounts": [8, 4, 4, 2],
+    "Results": [2306],
+    "ResultCounts": [1]
   },
   {
     "ID": 50,
@@ -1651,20 +1123,10 @@
     "TimeSpend": 60,
     "GridIndex": 1404,
     "IconPath": "",
-    "Items": [
-      1101,
-      1104
-    ],
-    "ItemCounts": [
-      2,
-      1
-    ],
-    "Results": [
-      1301
-    ],
-    "ResultCounts": [
-      2
-    ]
+    "Items": [1101, 1104],
+    "ItemCounts": [2, 1],
+    "Results": [1301],
+    "ResultCounts": [2]
   },
   {
     "ID": 51,
@@ -1684,20 +1146,10 @@
     "preTech": {
       "ID": 1302
     },
-    "Items": [
-      1301,
-      1302
-    ],
-    "ItemCounts": [
-      2,
-      2
-    ],
-    "Results": [
-      1303
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1301, 1302],
+    "ItemCounts": [2, 2],
+    "Results": [1303],
+    "ResultCounts": [1]
   },
   {
     "ID": 52,
@@ -1717,20 +1169,10 @@
     "preTech": {
       "ID": 1303
     },
-    "Items": [
-      1303,
-      1304
-    ],
-    "ItemCounts": [
-      2,
-      2
-    ],
-    "Results": [
-      1305
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1303, 1304],
+    "ItemCounts": [2, 2],
+    "Results": [1305],
+    "ResultCounts": [1]
   },
   {
     "ID": 53,
@@ -1750,20 +1192,10 @@
     "preTech": {
       "ID": 1311
     },
-    "Items": [
-      1105,
-      1104
-    ],
-    "ItemCounts": [
-      2,
-      1
-    ],
-    "Results": [
-      1302
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1105, 1104],
+    "ItemCounts": [2, 1],
+    "Results": [1302],
+    "ResultCounts": [1]
   },
   {
     "ID": 54,
@@ -1783,22 +1215,10 @@
     "preTech": {
       "ID": 1122
     },
-    "Items": [
-      1030,
-      1031,
-      1000
-    ],
-    "ItemCounts": [
-      20,
-      30,
-      10
-    ],
-    "Results": [
-      1117
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1030, 1031, 1000],
+    "ItemCounts": [20, 30, 10],
+    "Results": [1117],
+    "ResultCounts": [1]
   },
   {
     "ID": 55,
@@ -1818,20 +1238,10 @@
     "preTech": {
       "ID": 1312
     },
-    "Items": [
-      1303,
-      1402
-    ],
-    "ItemCounts": [
-      2,
-      1
-    ],
-    "Results": [
-      6004
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1303, 1402],
+    "ItemCounts": [2, 1],
+    "Results": [6004],
+    "ResultCounts": [1]
   },
   {
     "ID": 56,
@@ -1851,24 +1261,10 @@
     "preTech": {
       "ID": 1401
     },
-    "Items": [
-      1101,
-      1108,
-      1301,
-      1202
-    ],
-    "ItemCounts": [
-      4,
-      2,
-      4,
-      2
-    ],
-    "Results": [
-      2302
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1101, 1108, 1301, 1202],
+    "ItemCounts": [4, 2, 4, 2],
+    "Results": [2302],
+    "ResultCounts": [1]
   },
   {
     "ID": 57,
@@ -1888,18 +1284,10 @@
     "preTech": {
       "ID": 1401
     },
-    "Items": [
-      1005
-    ],
-    "ItemCounts": [
-      2
-    ],
-    "Results": [
-      1110
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1005],
+    "ItemCounts": [2],
+    "Results": [1110],
+    "ResultCounts": [1]
   },
   {
     "ID": 58,
@@ -1919,22 +1307,10 @@
     "preTech": {
       "ID": 1103
     },
-    "Items": [
-      1114,
-      1120
-    ],
-    "ItemCounts": [
-      1,
-      2
-    ],
-    "Results": [
-      1120,
-      1109
-    ],
-    "ResultCounts": [
-      3,
-      1
-    ]
+    "Items": [1114, 1120],
+    "ItemCounts": [1, 2],
+    "Results": [1120, 1109],
+    "ResultCounts": [3, 1]
   },
   {
     "ID": 59,
@@ -1954,18 +1330,10 @@
     "preTech": {
       "ID": 1402
     },
-    "Items": [
-      1003
-    ],
-    "ItemCounts": [
-      2
-    ],
-    "Results": [
-      1105
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1003],
+    "ItemCounts": [2],
+    "Results": [1105],
+    "ResultCounts": [1]
   },
   {
     "ID": 60,
@@ -1985,18 +1353,10 @@
     "preTech": {
       "ID": 1403
     },
-    "Items": [
-      1109
-    ],
-    "ItemCounts": [
-      1
-    ],
-    "Results": [
-      1112
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1109],
+    "ItemCounts": [1],
+    "Results": [1112],
+    "ResultCounts": [1]
   },
   {
     "ID": 61,
@@ -2016,18 +1376,10 @@
     "preTech": {
       "ID": 1403
     },
-    "Items": [
-      1012
-    ],
-    "ItemCounts": [
-      1
-    ],
-    "Results": [
-      1112
-    ],
-    "ResultCounts": [
-      2
-    ]
+    "Items": [1012],
+    "ItemCounts": [1],
+    "Results": [1112],
+    "ResultCounts": [2]
   },
   {
     "ID": 62,
@@ -2047,18 +1399,10 @@
     "preTech": {
       "ID": 1133
     },
-    "Items": [
-      1013
-    ],
-    "ItemCounts": [
-      1
-    ],
-    "Results": [
-      1113
-    ],
-    "ResultCounts": [
-      2
-    ]
+    "Items": [1013],
+    "ItemCounts": [1],
+    "Results": [1113],
+    "ResultCounts": [2]
   },
   {
     "ID": 63,
@@ -2078,18 +1422,10 @@
     "preTech": {
       "ID": 1411
     },
-    "Items": [
-      1101
-    ],
-    "ItemCounts": [
-      3
-    ],
-    "Results": [
-      1103
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1101],
+    "ItemCounts": [3],
+    "Results": [1103],
+    "ResultCounts": [1]
   },
   {
     "ID": 64,
@@ -2109,24 +1445,10 @@
     "preTech": {
       "ID": 1412
     },
-    "Items": [
-      1101,
-      1108,
-      1201,
-      1202
-    ],
-    "ItemCounts": [
-      10,
-      4,
-      4,
-      4
-    ],
-    "Results": [
-      2204
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1101, 1108, 1201, 1202],
+    "ItemCounts": [10, 4, 4, 4],
+    "Results": [2204],
+    "ResultCounts": [1]
   },
   {
     "ID": 65,
@@ -2146,18 +1468,10 @@
     "preTech": {
       "ID": 1413
     },
-    "Items": [
-      1004
-    ],
-    "ItemCounts": [
-      2
-    ],
-    "Results": [
-      1106
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1004],
+    "ItemCounts": [2],
+    "Results": [1106],
+    "ResultCounts": [1]
   },
   {
     "ID": 66,
@@ -2177,22 +1491,10 @@
     "preTech": {
       "ID": 1414
     },
-    "Items": [
-      1106,
-      1103,
-      1116
-    ],
-    "ItemCounts": [
-      4,
-      4,
-      8
-    ],
-    "Results": [
-      1107
-    ],
-    "ResultCounts": [
-      4
-    ]
+    "Items": [1106, 1103, 1116],
+    "ItemCounts": [4, 4, 8],
+    "Results": [1107],
+    "ResultCounts": [4]
   },
   {
     "ID": 67,
@@ -2212,22 +1514,10 @@
     "preTech": {
       "ID": 1501
     },
-    "Items": [
-      1104,
-      1105,
-      1301
-    ],
-    "ItemCounts": [
-      10,
-      10,
-      5
-    ],
-    "Results": [
-      2205
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1104, 1105, 1301],
+    "ItemCounts": [10, 10, 5],
+    "Results": [2205],
+    "ResultCounts": [1]
   },
   {
     "ID": 68,
@@ -2247,20 +1537,10 @@
     "preTech": {
       "ID": 1502
     },
-    "Items": [
-      1111,
-      1301
-    ],
-    "ItemCounts": [
-      2,
-      1
-    ],
-    "Results": [
-      1404
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1111, 1301],
+    "ItemCounts": [2, 1],
+    "Results": [1404],
+    "ResultCounts": [1]
   },
   {
     "ID": 69,
@@ -2280,20 +1560,10 @@
     "preTech": {
       "ID": 1502
     },
-    "Items": [
-      1014,
-      1301
-    ],
-    "ItemCounts": [
-      1,
-      1
-    ],
-    "Results": [
-      1404
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1014, 1301],
+    "ItemCounts": [1, 1],
+    "Results": [1404],
+    "ResultCounts": [1]
   },
   {
     "ID": 70,
@@ -2313,20 +1583,10 @@
     "preTech": {
       "ID": 1503
     },
-    "Items": [
-      1123,
-      1404
-    ],
-    "ItemCounts": [
-      1,
-      1
-    ],
-    "Results": [
-      1501
-    ],
-    "ResultCounts": [
-      2
-    ]
+    "Items": [1123, 1404],
+    "ItemCounts": [1, 1],
+    "Results": [1501],
+    "ResultCounts": [2]
   },
   {
     "ID": 71,
@@ -2346,24 +1606,10 @@
     "preTech": {
       "ID": 1503
     },
-    "Items": [
-      1103,
-      1201,
-      1303,
-      1205
-    ],
-    "ItemCounts": [
-      20,
-      20,
-      5,
-      10
-    ],
-    "Results": [
-      2311
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1103, 1201, 1303, 1205],
+    "ItemCounts": [20, 20, 5, 10],
+    "Results": [2311],
+    "ResultCounts": [1]
   },
   {
     "ID": 72,
@@ -2383,26 +1629,10 @@
     "preTech": {
       "ID": 1504
     },
-    "Items": [
-      1103,
-      1105,
-      1404,
-      1303,
-      1205
-    ],
-    "ItemCounts": [
-      20,
-      20,
-      10,
-      5,
-      20
-    ],
-    "Results": [
-      2208
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1103, 1105, 1404, 1303, 1205],
+    "ItemCounts": [20, 20, 10, 5, 20],
+    "Results": [2208],
+    "ResultCounts": [1]
   },
   {
     "ID": 73,
@@ -2422,22 +1652,10 @@
     "preTech": {
       "ID": 1712
     },
-    "Items": [
-      2202,
-      1205,
-      1125
-    ],
-    "ItemCounts": [
-      1,
-      10,
-      2
-    ],
-    "Results": [
-      2212
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [2202, 1205, 1125],
+    "ItemCounts": [1, 10, 2],
+    "Results": [2212],
+    "ResultCounts": [1]
   },
   {
     "ID": 74,
@@ -2457,20 +1675,10 @@
     "preTech": {
       "ID": 1506
     },
-    "Items": [
-      1208
-    ],
-    "ItemCounts": [
-      2
-    ],
-    "Results": [
-      1122,
-      1120
-    ],
-    "ResultCounts": [
-      2,
-      2
-    ]
+    "Items": [1208],
+    "ItemCounts": [2],
+    "Results": [1122, 1120],
+    "ResultCounts": [2, 2]
   },
   {
     "ID": 75,
@@ -2490,28 +1698,10 @@
     "preTech": {
       "ID": 1507
     },
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005,
-      1122
-    ],
-    "ItemCounts": [
-      1,
-      1,
-      1,
-      1,
-      1,
-      1
-    ],
-    "Results": [
-      6006
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [6001, 6002, 6003, 6004, 6005, 1122],
+    "ItemCounts": [1, 1, 1, 1, 1, 1],
+    "Results": [6006],
+    "ResultCounts": [1]
   },
   {
     "ID": 76,
@@ -2531,22 +1721,10 @@
     "preTech": {
       "ID": 1511
     },
-    "Items": [
-      1101,
-      1205,
-      1113
-    ],
-    "ItemCounts": [
-      6,
-      1,
-      3
-    ],
-    "Results": [
-      2206
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1101, 1205, 1113],
+    "ItemCounts": [6, 1, 3],
+    "Results": [2206],
+    "ResultCounts": [1]
   },
   {
     "ID": 77,
@@ -2566,24 +1744,10 @@
     "preTech": {
       "ID": 1512
     },
-    "Items": [
-      1107,
-      1103,
-      1303,
-      1206
-    ],
-    "ItemCounts": [
-      40,
-      40,
-      40,
-      8
-    ],
-    "Results": [
-      2209
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1107, 1103, 1303, 1206],
+    "ItemCounts": [40, 40, 40, 8],
+    "Results": [2209],
+    "ResultCounts": [1]
   },
   {
     "ID": 78,
@@ -2603,18 +1767,10 @@
     "preTech": {
       "ID": 1704
     },
-    "Items": [
-      1209
-    ],
-    "ItemCounts": [
-      1
-    ],
-    "Results": [
-      1210
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1209],
+    "ItemCounts": [1],
+    "Results": [1210],
+    "ResultCounts": [1]
   },
   {
     "ID": 79,
@@ -2634,18 +1790,10 @@
     "preTech": {
       "ID": 1705
     },
-    "Items": [
-      6005
-    ],
-    "ItemCounts": [
-      1
-    ],
-    "Results": [
-      1210
-    ],
-    "ResultCounts": [
-      8
-    ]
+    "Items": [6005],
+    "ItemCounts": [1],
+    "Results": [1210],
+    "ResultCounts": [8]
   },
   {
     "ID": 80,
@@ -2665,22 +1813,10 @@
     "preTech": {
       "ID": 1521
     },
-    "Items": [
-      1124,
-      1107,
-      1105
-    ],
-    "ItemCounts": [
-      4,
-      1,
-      1
-    ],
-    "Results": [
-      1125
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1124, 1107, 1105],
+    "ItemCounts": [4, 1, 1],
+    "Results": [1125],
+    "ResultCounts": [1]
   },
   {
     "ID": 81,
@@ -2700,22 +1836,10 @@
     "preTech": {
       "ID": 1521
     },
-    "Items": [
-      1125,
-      1501,
-      1303
-    ],
-    "ItemCounts": [
-      3,
-      3,
-      3
-    ],
-    "Results": [
-      1502
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1125, 1501, 1303],
+    "ItemCounts": [3, 3, 3],
+    "Results": [1502],
+    "ResultCounts": [1]
   },
   {
     "ID": 82,
@@ -2735,24 +1859,10 @@
     "preTech": {
       "ID": 1522
     },
-    "Items": [
-      1107,
-      1125,
-      1209,
-      1305
-    ],
-    "ItemCounts": [
-      80,
-      30,
-      20,
-      10
-    ],
-    "Results": [
-      2312
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1107, 1125, 1209, 1305],
+    "ItemCounts": [80, 30, 20, 10],
+    "Results": [2312],
+    "ResultCounts": [1]
   },
   {
     "ID": 83,
@@ -2772,22 +1882,10 @@
     "preTech": {
       "ID": 1522
     },
-    "Items": [
-      1502,
-      1802,
-      1305
-    ],
-    "ItemCounts": [
-      2,
-      4,
-      2
-    ],
-    "Results": [
-      1503
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1502, 1802, 1305],
+    "ItemCounts": [2, 4, 2],
+    "Results": [1503],
+    "ResultCounts": [1]
   },
   {
     "ID": 84,
@@ -2807,20 +1905,10 @@
     "preTech": {
       "ID": 1601
     },
-    "Items": [
-      1101,
-      1201
-    ],
-    "ItemCounts": [
-      2,
-      1
-    ],
-    "Results": [
-      2001
-    ],
-    "ResultCounts": [
-      3
-    ]
+    "Items": [1101, 1201],
+    "ItemCounts": [2, 1],
+    "Results": [2001],
+    "ResultCounts": [3]
   },
   {
     "ID": 85,
@@ -2840,20 +1928,10 @@
     "preTech": {
       "ID": 1601
     },
-    "Items": [
-      1101,
-      1301
-    ],
-    "ItemCounts": [
-      1,
-      1
-    ],
-    "Results": [
-      2011
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1101, 1301],
+    "ItemCounts": [1, 1],
+    "Results": [2011],
+    "ResultCounts": [1]
   },
   {
     "ID": 86,
@@ -2873,20 +1951,10 @@
     "preTech": {
       "ID": 1601
     },
-    "Items": [
-      1101,
-      1108
-    ],
-    "ItemCounts": [
-      4,
-      4
-    ],
-    "Results": [
-      2101
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1101, 1108],
+    "ItemCounts": [4, 4],
+    "Results": [2101],
+    "ResultCounts": [1]
   },
   {
     "ID": 87,
@@ -2906,22 +1974,10 @@
     "preTech": {
       "ID": 1602
     },
-    "Items": [
-      1101,
-      1201,
-      1301
-    ],
-    "ItemCounts": [
-      3,
-      2,
-      1
-    ],
-    "Results": [
-      2020
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1101, 1201, 1301],
+    "ItemCounts": [3, 2, 1],
+    "Results": [2020],
+    "ResultCounts": [1]
   },
   {
     "ID": 88,
@@ -2941,20 +1997,10 @@
     "preTech": {
       "ID": 1602
     },
-    "Items": [
-      2011,
-      1203
-    ],
-    "ItemCounts": [
-      2,
-      1
-    ],
-    "Results": [
-      2012
-    ],
-    "ResultCounts": [
-      2
-    ]
+    "Items": [2011, 1203],
+    "ItemCounts": [2, 1],
+    "Results": [2012],
+    "ResultCounts": [2]
   },
   {
     "ID": 89,
@@ -2974,20 +2020,10 @@
     "preTech": {
       "ID": 1603
     },
-    "Items": [
-      2001,
-      1204
-    ],
-    "ItemCounts": [
-      3,
-      1
-    ],
-    "Results": [
-      2002
-    ],
-    "ResultCounts": [
-      3
-    ]
+    "Items": [2001, 1204],
+    "ItemCounts": [3, 1],
+    "Results": [2002],
+    "ResultCounts": [3]
   },
   {
     "ID": 90,
@@ -3007,20 +2043,10 @@
     "preTech": {
       "ID": 1603
     },
-    "Items": [
-      2012,
-      1204
-    ],
-    "ItemCounts": [
-      2,
-      1
-    ],
-    "Results": [
-      2013
-    ],
-    "ResultCounts": [
-      2
-    ]
+    "Items": [2012, 1204],
+    "ItemCounts": [2, 1],
+    "Results": [2013],
+    "ResultCounts": [2]
   },
   {
     "ID": 91,
@@ -3040,20 +2066,10 @@
     "preTech": {
       "ID": 1603
     },
-    "Items": [
-      1103,
-      1108
-    ],
-    "ItemCounts": [
-      8,
-      8
-    ],
-    "Results": [
-      2102
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1103, 1108],
+    "ItemCounts": [8, 8],
+    "Results": [2102],
+    "ResultCounts": [1]
   },
   {
     "ID": 92,
@@ -3073,22 +2089,10 @@
     "preTech": {
       "ID": 1604
     },
-    "Items": [
-      2002,
-      1205,
-      1123
-    ],
-    "ItemCounts": [
-      3,
-      1,
-      1
-    ],
-    "Results": [
-      2003
-    ],
-    "ResultCounts": [
-      3
-    ]
+    "Items": [2002, 1205, 1123],
+    "ItemCounts": [3, 1, 1],
+    "Results": [2003],
+    "ResultCounts": [3]
   },
   {
     "ID": 93,
@@ -3108,24 +2112,10 @@
     "preTech": {
       "ID": 1604
     },
-    "Items": [
-      1103,
-      1106,
-      1303,
-      1206
-    ],
-    "ItemCounts": [
-      40,
-      40,
-      40,
-      20
-    ],
-    "Results": [
-      2103
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1103, 1106, 1303, 1206],
+    "ItemCounts": [40, 40, 40, 20],
+    "Results": [2103],
+    "ResultCounts": [1]
   },
   {
     "ID": 94,
@@ -3145,22 +2135,10 @@
     "preTech": {
       "ID": 1604
     },
-    "Items": [
-      1101,
-      1303,
-      1405
-    ],
-    "ItemCounts": [
-      5,
-      2,
-      2
-    ],
-    "Results": [
-      5001
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1101, 1303, 1405],
+    "ItemCounts": [5, 2, 2],
+    "Results": [5001],
+    "ResultCounts": [1]
   },
   {
     "ID": 95,
@@ -3180,22 +2158,10 @@
     "preTech": {
       "ID": 1605
     },
-    "Items": [
-      2103,
-      1107,
-      1206
-    ],
-    "ItemCounts": [
-      1,
-      40,
-      20
-    ],
-    "Results": [
-      2104
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [2103, 1107, 1206],
+    "ItemCounts": [1, 40, 20],
+    "Results": [2104],
+    "ResultCounts": [1]
   },
   {
     "ID": 96,
@@ -3215,22 +2181,10 @@
     "preTech": {
       "ID": 1605
     },
-    "Items": [
-      1107,
-      1303,
-      1406
-    ],
-    "ItemCounts": [
-      10,
-      10,
-      2
-    ],
-    "Results": [
-      5002
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1107, 1303, 1406],
+    "ItemCounts": [10, 10, 2],
+    "Results": [5002],
+    "ResultCounts": [1]
   },
   {
     "ID": 97,
@@ -3250,22 +2204,10 @@
     "preTech": {
       "ID": 1701
     },
-    "Items": [
-      1101,
-      1201,
-      1202
-    ],
-    "ItemCounts": [
-      2,
-      1,
-      1
-    ],
-    "Results": [
-      1203
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1101, 1201, 1202],
+    "ItemCounts": [2, 1, 1],
+    "Results": [1203],
+    "ResultCounts": [1]
   },
   {
     "ID": 98,
@@ -3285,20 +2227,10 @@
     "preTech": {
       "ID": 1702
     },
-    "Items": [
-      1203,
-      1202
-    ],
-    "ItemCounts": [
-      2,
-      2
-    ],
-    "Results": [
-      1204
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1203, 1202],
+    "ItemCounts": [2, 2],
+    "Results": [1204],
+    "ResultCounts": [1]
   },
   {
     "ID": 99,
@@ -3318,22 +2250,10 @@
     "preTech": {
       "ID": 1703
     },
-    "Items": [
-      1204,
-      1104,
-      1123
-    ],
-    "ItemCounts": [
-      2,
-      2,
-      2
-    ],
-    "Results": [
-      1206
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1204, 1104, 1123],
+    "ItemCounts": [2, 2, 2],
+    "Results": [1206],
+    "ResultCounts": [1]
   },
   {
     "ID": 100,
@@ -3353,20 +2273,10 @@
     "preTech": {
       "ID": 1703
     },
-    "Items": [
-      1016,
-      1104
-    ],
-    "ItemCounts": [
-      10,
-      2
-    ],
-    "Results": [
-      1206
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1016, 1104],
+    "ItemCounts": [10, 2],
+    "Results": [1206],
+    "ResultCounts": [1]
   },
   {
     "ID": 101,
@@ -3386,20 +2296,10 @@
     "preTech": {
       "ID": 1704
     },
-    "Items": [
-      1112,
-      1127
-    ],
-    "ItemCounts": [
-      4,
-      1
-    ],
-    "Results": [
-      1209
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1112, 1127],
+    "ItemCounts": [4, 1],
+    "Results": [1209],
+    "ResultCounts": [1]
   },
   {
     "ID": 102,
@@ -3419,20 +2319,10 @@
     "preTech": {
       "ID": 1705
     },
-    "Items": [
-      1209,
-      1305
-    ],
-    "ItemCounts": [
-      1,
-      1
-    ],
-    "Results": [
-      6005
-    ],
-    "ResultCounts": [
-      2
-    ]
+    "Items": [1209, 1305],
+    "ItemCounts": [1, 1],
+    "Results": [6005],
+    "ResultCounts": [2]
   },
   {
     "ID": 103,
@@ -3452,22 +2342,10 @@
     "preTech": {
       "ID": 1711
     },
-    "Items": [
-      1204,
-      1102,
-      1109
-    ],
-    "ItemCounts": [
-      2,
-      3,
-      1
-    ],
-    "Results": [
-      1205
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1204, 1102, 1109],
+    "ItemCounts": [2, 3, 1],
+    "Results": [1205],
+    "ResultCounts": [1]
   },
   {
     "ID": 104,
@@ -3487,22 +2365,10 @@
     "preTech": {
       "ID": 1143
     },
-    "Items": [
-      1206,
-      1101,
-      1121
-    ],
-    "ItemCounts": [
-      2,
-      2,
-      10
-    ],
-    "Results": [
-      1127
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1206, 1101, 1121],
+    "ItemCounts": [2, 2, 10],
+    "Results": [1127],
+    "ResultCounts": [1]
   },
   {
     "ID": 106,
@@ -3522,18 +2388,10 @@
     "preTech": {
       "ID": 1151
     },
-    "Items": [
-      1006
-    ],
-    "ItemCounts": [
-      1
-    ],
-    "Results": [
-      1141
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1006],
+    "ItemCounts": [1],
+    "Results": [1141],
+    "ResultCounts": [1]
   },
   {
     "ID": 107,
@@ -3553,20 +2411,10 @@
     "preTech": {
       "ID": 1152
     },
-    "Items": [
-      1141,
-      1112
-    ],
-    "ItemCounts": [
-      2,
-      1
-    ],
-    "Results": [
-      1142
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1141, 1112],
+    "ItemCounts": [2, 1],
+    "Results": [1142],
+    "ResultCounts": [1]
   },
   {
     "ID": 108,
@@ -3586,20 +2434,10 @@
     "preTech": {
       "ID": 1153
     },
-    "Items": [
-      1142,
-      1124
-    ],
-    "ItemCounts": [
-      2,
-      1
-    ],
-    "Results": [
-      1143
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1142, 1124],
+    "ItemCounts": [2, 1],
+    "Results": [1143],
+    "ResultCounts": [1]
   },
   {
     "ID": 109,
@@ -3619,24 +2457,10 @@
     "preTech": {
       "ID": 1151
     },
-    "Items": [
-      1103,
-      1401,
-      1301,
-      1302
-    ],
-    "ItemCounts": [
-      4,
-      2,
-      2,
-      2
-    ],
-    "Results": [
-      2313
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1103, 1401, 1301, 1302],
+    "ItemCounts": [4, 2, 2, 2],
+    "Results": [2313],
+    "ResultCounts": [1]
   },
   {
     "ID": 110,
@@ -3656,24 +2480,10 @@
     "preTech": {
       "ID": 1134
     },
-    "Items": [
-      1103,
-      1108,
-      1110,
-      1303
-    ],
-    "ItemCounts": [
-      8,
-      4,
-      4,
-      1
-    ],
-    "Results": [
-      2314
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1103, 1108, 1110, 1303],
+    "ItemCounts": [8, 4, 4, 1],
+    "Results": [2314],
+    "ResultCounts": [1]
   },
   {
     "ID": 111,
@@ -3693,24 +2503,10 @@
     "preTech": {
       "ID": 1606
     },
-    "Items": [
-      2104,
-      1205,
-      1406,
-      2207
-    ],
-    "ItemCounts": [
-      1,
-      50,
-      20,
-      20
-    ],
-    "Results": [
-      2105
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [2104, 1205, 1406, 2207],
+    "ItemCounts": [1, 50, 20, 20],
+    "Results": [2105],
+    "ResultCounts": [1]
   },
   {
     "ID": 112,
@@ -3730,20 +2526,10 @@
     "preTech": {
       "ID": 1415
     },
-    "Items": [
-      1108,
-      1103
-    ],
-    "ItemCounts": [
-      3,
-      1
-    ],
-    "Results": [
-      1131
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1108, 1103],
+    "ItemCounts": [3, 1],
+    "Results": [1131],
+    "ResultCounts": [1]
   },
   {
     "ID": 113,
@@ -3763,24 +2549,10 @@
     "preTech": {
       "ID": 1416
     },
-    "Items": [
-      1107,
-      1205,
-      1124,
-      1303
-    ],
-    "ItemCounts": [
-      12,
-      10,
-      8,
-      4
-    ],
-    "Results": [
-      2211
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1107, 1205, 1124, 1303],
+    "ItemCounts": [12, 10, 8, 4],
+    "Results": [2211],
+    "ResultCounts": [1]
   },
   {
     "ID": 114,
@@ -3800,22 +2572,10 @@
     "preTech": {
       "ID": 1120
     },
-    "Items": [
-      1101,
-      1108,
-      1110
-    ],
-    "ItemCounts": [
-      8,
-      4,
-      4
-    ],
-    "Results": [
-      2106
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1101, 1108, 1110],
+    "ItemCounts": [8, 4, 4],
+    "Results": [2106],
+    "ResultCounts": [1]
   },
   {
     "ID": 115,
@@ -3835,18 +2595,10 @@
     "preTech": {
       "ID": 1134
     },
-    "Items": [
-      1120
-    ],
-    "ItemCounts": [
-      100
-    ],
-    "Results": [
-      1121
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1120],
+    "ItemCounts": [100],
+    "Results": [1121],
+    "ResultCounts": [1]
   },
   {
     "ID": 116,
@@ -3866,24 +2618,10 @@
     "preTech": {
       "ID": 1417
     },
-    "Items": [
-      2302,
-      1125,
-      1304,
-      1016
-    ],
-    "ItemCounts": [
-      1,
-      5,
-      4,
-      15
-    ],
-    "Results": [
-      2315
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [2302, 1125, 1304, 1016],
+    "ItemCounts": [1, 5, 4, 15],
+    "Results": [2315],
+    "ResultCounts": [1]
   },
   {
     "ID": 117,
@@ -3903,24 +2641,10 @@
     "preTech": {
       "ID": 1602
     },
-    "Items": [
-      1101,
-      1201,
-      1110,
-      1301
-    ],
-    "ItemCounts": [
-      3,
-      2,
-      1,
-      2
-    ],
-    "Results": [
-      2030
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1101, 1201, 1110, 1301],
+    "ItemCounts": [3, 2, 1, 2],
+    "Results": [2030],
+    "ResultCounts": [1]
   },
   {
     "ID": 118,
@@ -3940,24 +2664,10 @@
     "preTech": {
       "ID": 1513
     },
-    "Items": [
-      1103,
-      1104,
-      1404,
-      1205
-    ],
-    "ItemCounts": [
-      15,
-      20,
-      4,
-      1
-    ],
-    "Results": [
-      2213
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1103, 1104, 1404, 1205],
+    "ItemCounts": [15, 20, 4, 1],
+    "Results": [2213],
+    "ResultCounts": [1]
   },
   {
     "ID": 119,
@@ -3977,26 +2687,10 @@
     "preTech": {
       "ID": 1304
     },
-    "Items": [
-      1107,
-      1125,
-      1205,
-      1305,
-      1014
-    ],
-    "ItemCounts": [
-      20,
-      10,
-      10,
-      4,
-      40
-    ],
-    "Results": [
-      2316
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1107, 1125, 1205, 1305, 1014],
+    "ItemCounts": [20, 10, 10, 4, 40],
+    "Results": [2316],
+    "ResultCounts": [1]
   },
   {
     "ID": 120,
@@ -4016,24 +2710,10 @@
     "preTech": {
       "ID": 1607
     },
-    "Items": [
-      1103,
-      1201,
-      1205,
-      1303
-    ],
-    "ItemCounts": [
-      3,
-      4,
-      1,
-      2
-    ],
-    "Results": [
-      2040
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1103, 1201, 1205, 1303],
+    "ItemCounts": [3, 4, 1, 2],
+    "Results": [2040],
+    "ResultCounts": [1]
   },
   {
     "ID": 121,
@@ -4053,22 +2733,10 @@
     "preTech": {
       "ID": 1104
     },
-    "Items": [
-      1114,
-      1120,
-      1006
-    ],
-    "ItemCounts": [
-      2,
-      1,
-      1
-    ],
-    "Results": [
-      1114
-    ],
-    "ResultCounts": [
-      3
-    ]
+    "Items": [1114, 1120, 1006],
+    "ItemCounts": [2, 1, 1],
+    "Results": [1114],
+    "ResultCounts": [3]
   },
   {
     "ID": 122,
@@ -4088,22 +2756,10 @@
     "preTech": {
       "ID": 1608
     },
-    "Items": [
-      1101,
-      1401,
-      1303
-    ],
-    "ItemCounts": [
-      8,
-      4,
-      4
-    ],
-    "Results": [
-      2107
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1101, 1401, 1303],
+    "ItemCounts": [8, 4, 4],
+    "Results": [2107],
+    "ResultCounts": [1]
   },
   {
     "ID": 123,
@@ -4123,22 +2779,10 @@
     "preTech": {
       "ID": 1608
     },
-    "Items": [
-      1101,
-      1407,
-      1303
-    ],
-    "ItemCounts": [
-      2,
-      1,
-      1
-    ],
-    "Results": [
-      5003
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1101, 1407, 1303],
+    "ItemCounts": [2, 1, 1],
+    "Results": [5003],
+    "ResultCounts": [1]
   },
   {
     "ID": 124,
@@ -4158,24 +2802,10 @@
     "preTech": {
       "ID": 1305
     },
-    "Items": [
-      2309,
-      1119,
-      1127,
-      1305
-    ],
-    "ItemCounts": [
-      1,
-      10,
-      3,
-      3
-    ],
-    "Results": [
-      2317
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [2309, 1119, 1127, 1305],
+    "ItemCounts": [1, 10, 3, 3],
+    "Results": [2317],
+    "ResultCounts": [1]
   },
   {
     "ID": 125,
@@ -4195,24 +2825,10 @@
     "preTech": {
       "ID": 1801
     },
-    "Items": [
-      1101,
-      1201,
-      1301,
-      1202
-    ],
-    "ItemCounts": [
-      8,
-      8,
-      2,
-      4
-    ],
-    "Results": [
-      3001
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1101, 1201, 1301, 1202],
+    "ItemCounts": [8, 8, 2, 4],
+    "Results": [3001],
+    "ResultCounts": [1]
   },
   {
     "ID": 126,
@@ -4232,24 +2848,10 @@
     "preTech": {
       "ID": 1809
     },
-    "Items": [
-      1103,
-      1401,
-      1301,
-      1404
-    ],
-    "ItemCounts": [
-      9,
-      6,
-      6,
-      9
-    ],
-    "Results": [
-      3002
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1103, 1401, 1301, 1404],
+    "ItemCounts": [9, 6, 6, 9],
+    "Results": [3002],
+    "ResultCounts": [1]
   },
   {
     "ID": 127,
@@ -4269,24 +2871,10 @@
     "preTech": {
       "ID": 1807
     },
-    "Items": [
-      1103,
-      1203,
-      1301,
-      1205
-    ],
-    "ItemCounts": [
-      10,
-      8,
-      10,
-      2
-    ],
-    "Results": [
-      3003
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1103, 1203, 1301, 1205],
+    "ItemCounts": [10, 8, 10, 2],
+    "Results": [3003],
+    "ResultCounts": [1]
   },
   {
     "ID": 128,
@@ -4306,26 +2894,10 @@
     "preTech": {
       "ID": 1811
     },
-    "Items": [
-      1107,
-      1119,
-      1205,
-      1401,
-      1303
-    ],
-    "ItemCounts": [
-      20,
-      10,
-      10,
-      5,
-      5
-    ],
-    "Results": [
-      3004
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1107, 1119, 1205, 1401, 1303],
+    "ItemCounts": [20, 10, 10, 5, 5],
+    "Results": [3004],
+    "ResultCounts": [1]
   },
   {
     "ID": 129,
@@ -4345,24 +2917,10 @@
     "preTech": {
       "ID": 1806
     },
-    "Items": [
-      1103,
-      1203,
-      1301,
-      1407
-    ],
-    "ItemCounts": [
-      8,
-      6,
-      12,
-      6
-    ],
-    "Results": [
-      3005
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1103, 1203, 1301, 1407],
+    "ItemCounts": [8, 6, 12, 6],
+    "Results": [3005],
+    "ResultCounts": [1]
   },
   {
     "ID": 130,
@@ -4379,24 +2937,10 @@
     "TimeSpend": 300,
     "GridIndex": 0,
     "IconPath": "",
-    "Items": [
-      1104,
-      1401,
-      1112,
-      1303
-    ],
-    "ItemCounts": [
-      10,
-      10,
-      10,
-      2
-    ],
-    "Results": [
-      3006
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1104, 1401, 1112, 1303],
+    "ItemCounts": [10, 10, 10, 2],
+    "Results": [3006],
+    "ResultCounts": [1]
   },
   {
     "ID": 131,
@@ -4416,22 +2960,10 @@
     "preTech": {
       "ID": 1808
     },
-    "Items": [
-      2202,
-      1103,
-      1113
-    ],
-    "ItemCounts": [
-      2,
-      12,
-      6
-    ],
-    "Results": [
-      3007
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [2202, 1103, 1113],
+    "ItemCounts": [2, 12, 6],
+    "Results": [3007],
+    "ResultCounts": [1]
   },
   {
     "ID": 132,
@@ -4451,24 +2983,10 @@
     "preTech": {
       "ID": 1809
     },
-    "Items": [
-      1103,
-      1204,
-      1205,
-      1206
-    ],
-    "ItemCounts": [
-      20,
-      20,
-      5,
-      5
-    ],
-    "Results": [
-      3008
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1103, 1204, 1205, 1206],
+    "ItemCounts": [20, 20, 5, 5],
+    "Results": [3008],
+    "ResultCounts": [1]
   },
   {
     "ID": 133,
@@ -4488,18 +3006,10 @@
     "preTech": {
       "ID": 1802
     },
-    "Items": [
-      1006
-    ],
-    "ItemCounts": [
-      3
-    ],
-    "Results": [
-      1128
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1006],
+    "ItemCounts": [3],
+    "Results": [1128],
+    "ResultCounts": [1]
   },
   {
     "ID": 134,
@@ -4519,22 +3029,10 @@
     "preTech": {
       "ID": 1803
     },
-    "Items": [
-      1128,
-      1115,
-      1116
-    ],
-    "ItemCounts": [
-      2,
-      2,
-      1
-    ],
-    "Results": [
-      1129
-    ],
-    "ResultCounts": [
-      2
-    ]
+    "Items": [1128, 1115, 1116],
+    "ItemCounts": [2, 2, 1],
+    "Results": [1129],
+    "ResultCounts": [2]
   },
   {
     "ID": 135,
@@ -4554,22 +3052,10 @@
     "preTech": {
       "ID": 1804
     },
-    "Items": [
-      1129,
-      1126,
-      1113
-    ],
-    "ItemCounts": [
-      8,
-      1,
-      8
-    ],
-    "Results": [
-      1130
-    ],
-    "ResultCounts": [
-      8
-    ]
+    "Items": [1129, 1126, 1113],
+    "ItemCounts": [8, 1, 8],
+    "Results": [1130],
+    "ResultCounts": [8]
   },
   {
     "ID": 136,
@@ -4589,18 +3075,10 @@
     "preTech": {
       "ID": 1801
     },
-    "Items": [
-      1104
-    ],
-    "ItemCounts": [
-      4
-    ],
-    "Results": [
-      1601
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1104],
+    "ItemCounts": [4],
+    "Results": [1601],
+    "ResultCounts": [1]
   },
   {
     "ID": 137,
@@ -4620,20 +3098,10 @@
     "preTech": {
       "ID": 1812
     },
-    "Items": [
-      1601,
-      1106
-    ],
-    "ItemCounts": [
-      1,
-      2
-    ],
-    "Results": [
-      1602
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1601, 1106],
+    "ItemCounts": [1, 2],
+    "Results": [1602],
+    "ResultCounts": [1]
   },
   {
     "ID": 138,
@@ -4653,20 +3121,10 @@
     "preTech": {
       "ID": 1813
     },
-    "Items": [
-      1602,
-      1107
-    ],
-    "ItemCounts": [
-      1,
-      2
-    ],
-    "Results": [
-      1603
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1602, 1107],
+    "ItemCounts": [1, 2],
+    "Results": [1603],
+    "ResultCounts": [1]
   },
   {
     "ID": 139,
@@ -4686,20 +3144,10 @@
     "preTech": {
       "ID": 1807
     },
-    "Items": [
-      1104,
-      1128
-    ],
-    "ItemCounts": [
-      9,
-      2
-    ],
-    "Results": [
-      1604
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1104, 1128],
+    "ItemCounts": [9, 2],
+    "Results": [1604],
+    "ResultCounts": [1]
   },
   {
     "ID": 140,
@@ -4719,22 +3167,10 @@
     "preTech": {
       "ID": 1814
     },
-    "Items": [
-      1604,
-      1106,
-      1129
-    ],
-    "ItemCounts": [
-      1,
-      6,
-      2
-    ],
-    "Results": [
-      1605
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1604, 1106, 1129],
+    "ItemCounts": [1, 6, 2],
+    "Results": [1605],
+    "ResultCounts": [1]
   },
   {
     "ID": 141,
@@ -4754,22 +3190,10 @@
     "preTech": {
       "ID": 1816
     },
-    "Items": [
-      1605,
-      1107,
-      1130
-    ],
-    "ItemCounts": [
-      1,
-      3,
-      2
-    ],
-    "Results": [
-      1606
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1605, 1107, 1130],
+    "ItemCounts": [1, 3, 2],
+    "Results": [1606],
+    "ResultCounts": [1]
   },
   {
     "ID": 142,
@@ -4789,22 +3213,10 @@
     "preTech": {
       "ID": 1811
     },
-    "Items": [
-      1123,
-      1102,
-      1121
-    ],
-    "ItemCounts": [
-      1,
-      2,
-      10
-    ],
-    "Results": [
-      1607
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1123, 1102, 1121],
+    "ItemCounts": [1, 2, 10],
+    "Results": [1607],
+    "ResultCounts": [1]
   },
   {
     "ID": 143,
@@ -4824,24 +3236,10 @@
     "preTech": {
       "ID": 1818
     },
-    "Items": [
-      1607,
-      1206,
-      1120,
-      1122
-    ],
-    "ItemCounts": [
-      1,
-      1,
-      10,
-      10
-    ],
-    "Results": [
-      1608
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1607, 1206, 1120, 1122],
+    "ItemCounts": [1, 1, 10, 10],
+    "Results": [1608],
+    "ResultCounts": [1]
   },
   {
     "ID": 144,
@@ -4861,24 +3259,10 @@
     "preTech": {
       "ID": 1806
     },
-    "Items": [
-      1104,
-      1301,
-      1128,
-      1407
-    ],
-    "ItemCounts": [
-      6,
-      3,
-      2,
-      1
-    ],
-    "Results": [
-      1609
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1104, 1301, 1128, 1407],
+    "ItemCounts": [6, 3, 2, 1],
+    "Results": [1609],
+    "ResultCounts": [1]
   },
   {
     "ID": 145,
@@ -4898,24 +3282,10 @@
     "preTech": {
       "ID": 1815
     },
-    "Items": [
-      1609,
-      1303,
-      1129,
-      1405
-    ],
-    "ItemCounts": [
-      2,
-      4,
-      4,
-      2
-    ],
-    "Results": [
-      1610
-    ],
-    "ResultCounts": [
-      2
-    ]
+    "Items": [1609, 1303, 1129, 1405],
+    "ItemCounts": [2, 4, 4, 2],
+    "Results": [1610],
+    "ResultCounts": [2]
   },
   {
     "ID": 146,
@@ -4935,22 +3305,10 @@
     "preTech": {
       "ID": 1817
     },
-    "Items": [
-      1610,
-      1130,
-      1127
-    ],
-    "ItemCounts": [
-      3,
-      6,
-      3
-    ],
-    "Results": [
-      1611
-    ],
-    "ResultCounts": [
-      3
-    ]
+    "Items": [1610, 1130, 1127],
+    "ItemCounts": [3, 6, 3],
+    "Results": [1611],
+    "ResultCounts": [3]
   },
   {
     "ID": 147,
@@ -4970,24 +3328,10 @@
     "preTech": {
       "ID": 1819
     },
-    "Items": [
-      1101,
-      1407,
-      1301,
-      1401
-    ],
-    "ItemCounts": [
-      3,
-      1,
-      2,
-      1
-    ],
-    "Results": [
-      5101
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1101, 1407, 1301, 1401],
+    "ItemCounts": [3, 1, 2, 1],
+    "Results": [5101],
+    "ResultCounts": [1]
   },
   {
     "ID": 148,
@@ -5007,24 +3351,10 @@
     "preTech": {
       "ID": 1820
     },
-    "Items": [
-      5101,
-      1204,
-      1301,
-      1404
-    ],
-    "ItemCounts": [
-      1,
-      1,
-      2,
-      2
-    ],
-    "Results": [
-      5102
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [5101, 1204, 1301, 1404],
+    "ItemCounts": [1, 1, 2, 2],
+    "Results": [5102],
+    "ResultCounts": [1]
   },
   {
     "ID": 149,
@@ -5044,24 +3374,10 @@
     "preTech": {
       "ID": 1821
     },
-    "Items": [
-      5101,
-      1204,
-      1303,
-      1206
-    ],
-    "ItemCounts": [
-      1,
-      1,
-      1,
-      1
-    ],
-    "Results": [
-      5103
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [5101, 1204, 1303, 1206],
+    "ItemCounts": [1, 1, 1, 1],
+    "Results": [5103],
+    "ResultCounts": [1]
   },
   {
     "ID": 150,
@@ -5081,24 +3397,10 @@
     "preTech": {
       "ID": 1822
     },
-    "Items": [
-      1107,
-      1406,
-      1303,
-      1206
-    ],
-    "ItemCounts": [
-      5,
-      1,
-      2,
-      3
-    ],
-    "Results": [
-      5111
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1107, 1406, 1303, 1206],
+    "ItemCounts": [5, 1, 2, 3],
+    "Results": [5111],
+    "ResultCounts": [1]
   },
   {
     "ID": 151,
@@ -5118,24 +3420,10 @@
     "preTech": {
       "ID": 1823
     },
-    "Items": [
-      1125,
-      1406,
-      1303,
-      1127
-    ],
-    "ItemCounts": [
-      20,
-      4,
-      4,
-      1
-    ],
-    "Results": [
-      5112
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1125, 1406, 1303, 1127],
+    "ItemCounts": [20, 4, 4, 1],
+    "Results": [5112],
+    "ResultCounts": [1]
   },
   {
     "ID": 105,
@@ -5155,20 +3443,10 @@
     "preTech": {
       "ID": 1805
     },
-    "Items": [
-      1202,
-      1104
-    ],
-    "ItemCounts": [
-      1,
-      2
-    ],
-    "Results": [
-      1407
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1202, 1104],
+    "ItemCounts": [1, 2],
+    "Results": [1407],
+    "ResultCounts": [1]
   },
   {
     "ID": 152,
@@ -5188,24 +3466,10 @@
     "preTech": {
       "ID": 1826
     },
-    "Items": [
-      1103,
-      1301,
-      1302,
-      1407
-    ],
-    "ItemCounts": [
-      12,
-      18,
-      6,
-      12
-    ],
-    "Results": [
-      3009
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1103, 1301, 1302, 1407],
+    "ItemCounts": [12, 18, 6, 12],
+    "Results": [3009],
+    "ResultCounts": [1]
   },
   {
     "ID": 153,
@@ -5225,24 +3489,10 @@
     "preTech": {
       "ID": 1901
     },
-    "Items": [
-      2901,
-      5202,
-      5201,
-      1305
-    ],
-    "ItemCounts": [
-      1,
-      10,
-      20,
-      4
-    ],
-    "Results": [
-      2902
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [2901, 5202, 5201, 1305],
+    "ItemCounts": [1, 10, 20, 4],
+    "Results": [2902],
+    "ResultCounts": [1]
   },
   {
     "ID": 154,
@@ -5262,24 +3512,10 @@
     "preTech": {
       "ID": 1902
     },
-    "Items": [
-      2305,
-      5203,
-      5206,
-      1305
-    ],
-    "ItemCounts": [
-      1,
-      10,
-      30,
-      4
-    ],
-    "Results": [
-      2318
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [2305, 5203, 5206, 1305],
+    "ItemCounts": [1, 10, 30, 4],
+    "Results": [2318],
+    "ResultCounts": [1]
   },
   {
     "ID": 155,
@@ -5299,24 +3535,10 @@
     "preTech": {
       "ID": 1903
     },
-    "Items": [
-      2315,
-      5204,
-      5206,
-      1305
-    ],
-    "ItemCounts": [
-      1,
-      10,
-      30,
-      4
-    ],
-    "Results": [
-      2319
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [2315, 5204, 5206, 1305],
+    "ItemCounts": [1, 10, 30, 4],
+    "Results": [2319],
+    "ResultCounts": [1]
   },
   {
     "ID": 156,
@@ -5336,23 +3558,9 @@
     "preTech": {
       "ID": 1904
     },
-    "Items": [
-      1803,
-      5205,
-      1127,
-      1125
-    ],
-    "ItemCounts": [
-      8,
-      1,
-      2,
-      1
-    ],
-    "Results": [
-      1804
-    ],
-    "ResultCounts": [
-      1
-    ]
+    "Items": [1803, 5205, 1127, 1125],
+    "ItemCounts": [8, 1, 2, 1],
+    "Results": [1804],
+    "ResultCounts": [1]
   }
 ]
