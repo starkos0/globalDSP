@@ -8,10 +8,9 @@ describe('QuickRatiosComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [QuickRatiosComponent]
-    })
-    .compileComponents();
-    
+      imports: [QuickRatiosComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(QuickRatiosComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

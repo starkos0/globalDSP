@@ -8,10 +8,9 @@ describe('TableRatiosComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TableRatiosComponent]
-    })
-    .compileComponents();
-    
+      imports: [TableRatiosComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(TableRatiosComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

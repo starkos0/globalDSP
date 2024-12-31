@@ -1,11 +1,30 @@
-import { effect, Injectable, output, signal, WritableSignal } from '@angular/core';
+import {
+  effect,
+  Injectable,
+  output,
+  signal,
+  WritableSignal,
+} from '@angular/core';
 import Dexie, { liveQuery, Table } from 'dexie';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, forkJoin, from, map, Observable, of, switchMap } from 'rxjs';
+import {
+  BehaviorSubject,
+  forkJoin,
+  from,
+  map,
+  Observable,
+  of,
+  switchMap,
+} from 'rxjs';
 import { AppDB } from './db';
 import { Tech } from '../interfaces/mainData/Tech';
 import { Recipe } from '../interfaces/mainData/Recipe';
-import { FormBuilder, FormControl, FormGroup, NumberValueAccessor } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  NumberValueAccessor,
+} from '@angular/forms';
 import { recipes, TransformedItems } from '../interfaces/transformed-items';
 import { GlobalSettingsFormValues } from '../interfaces/mainData/global-settings-form-values';
 import { GlobalSettingsServiceService } from './global-settings-service.service';
@@ -13,18 +32,22 @@ import { Item } from '../interfaces/mainData/Item';
 import { Totals } from '../interfaces/miscTypes/totals';
 import { TotalItems } from '../interfaces/miscTypes/TotalItems';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DataManagementService {
   public recipesForm: FormGroup = new FormGroup({});
   public isRecipesFormInitialized = signal(false); // Flag to track form initialization
 
-
-  private typesSubject: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
+  private typesSubject: BehaviorSubject<string[]> = new BehaviorSubject<
+    string[]
+  >([]);
   public types$: Observable<string[]> = this.typesSubject.asObservable();
 
-  private facilityTypes: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
-  public facilityTypes$: Observable<string[]> = this.facilityTypes.asObservable();
+  private facilityTypes: BehaviorSubject<string[]> = new BehaviorSubject<
+    string[]
+  >([]);
+  public facilityTypes$: Observable<string[]> =
+    this.facilityTypes.asObservable();
   powerFacilitiesMap: WritableSignal<{ [key: string]: string }> = signal({});
   public machinesSpeedRatio: number = 10000;
   public defaultItem: Item = {
@@ -44,11 +67,11 @@ export class DataManagementService {
     DescFields: [],
     handcraft: {
       ID: 0,
-      name: ''
+      name: '',
     },
     maincraft: {
       ID: 0,
-      name: ''
+      name: '',
     },
     handcraftProductCount: 0,
     maincraftProductCount: 0,
@@ -58,7 +81,7 @@ export class DataManagementService {
     rawMats: [],
     preTech: {
       ID: 0,
-      name: ''
+      name: '',
     },
     prefabDesc: {
       modelIndex: 0,
@@ -75,13 +98,13 @@ export class DataManagementService {
       buildCollider: {
         idType: 0,
         pos: {
-          y: 0
+          y: 0,
         },
         ext: {},
         q: {
-          w: 0
+          w: 0,
         },
-        shape: ''
+        shape: '',
       },
       buildColliders: [],
       roughRadius: 0,
@@ -94,11 +117,11 @@ export class DataManagementService {
       dragBuild: false,
       dragBuildDist: {
         x: 0,
-        y: 0
+        y: 0,
       },
       blueprintBoxSize: {
         x: 0,
-        y: 0
+        y: 0,
       },
       isAssembler: false,
       assemblerSpeed: 0,
@@ -110,7 +133,7 @@ export class DataManagementService {
       minimapType: 0,
       slotPoses: [],
       selectCenter: {
-        y: 0
+        y: 0,
       },
       selectSize: {},
       selectAlpha: 0,
@@ -125,7 +148,7 @@ export class DataManagementService {
       audioPitch: 0,
       audioDoppler: 0,
       minerPeriod: 0,
-      labAssembleSpeed: 0
+      labAssembleSpeed: 0,
     },
     ID: 0,
     description: '',
@@ -135,41 +158,50 @@ export class DataManagementService {
     typeString: '',
     fuelTypeString: '',
     name: '',
-    isRaw: false
-  }
+    isRaw: false,
+  };
 
   public selectedItems: WritableSignal<TransformedItems[]> = signal([]);
   selectedItemsSet = new Set<number>();
 
   public childs: WritableSignal<Item[]> = signal([]);
   public recipesImages: WritableSignal<Recipe[]> = signal([]);
-  public imagesRecipes: { ID: number, items: string[], results: string[] }[] = []
+  public imagesRecipes: { ID: number; items: string[]; results: string[] }[] =
+    [];
   public recipesFromTreeStructure: WritableSignal<Recipe[]> = signal([]);
   public powerFacilities: { typeString: string; IconPath: string }[] = [];
   public totals: WritableSignal<Totals> = signal({
     totalPower: 0,
     totalMachinesByType: [],
-    totalItems: []
+    totalItems: [],
   });
 
-
-  constructor(private db: AppDB, private http: HttpClient, private fb: FormBuilder, private globalSettingsService: GlobalSettingsServiceService) {
+  constructor(
+    private db: AppDB,
+    private http: HttpClient,
+    private fb: FormBuilder,
+    private globalSettingsService: GlobalSettingsServiceService
+  ) {
     effect(() => {
       const globalSetting = this.globalSettingsService.globalSettingsSignal();
-      console.log(globalSetting)
-    })
+      console.log(globalSetting);
+    });
   }
 
-  updateTotalValues(item: TransformedItems, globalSettingsMap: Map<string, number>) {
+  updateTotalValues(
+    item: TransformedItems,
+    globalSettingsMap: Map<string, number>
+  ) {
     const key = item.madeFromString.split(' ')[0].toLowerCase() + 'Select';
 
     if (globalSettingsMap.has(key)) {
       const assemblerSpeed = globalSettingsMap.get(key) || 0;
 
-      const resultIndex = item.Results.findIndex(resultId => resultId === item.ID);
+      const resultIndex = item.Results.findIndex(
+        (resultId) => resultId === item.ID
+      );
       const resultQuantity = item.ResultCounts[resultIndex] || 0;
       const newTotalValue = resultQuantity / assemblerSpeed;
-
     }
   }
 
@@ -194,58 +226,63 @@ export class DataManagementService {
   }
 
   isUserFirstTime(): boolean {
-    return localStorage.getItem("isFirstTime") === null ? true : false;
+    return localStorage.getItem('isFirstTime') === null ? true : false;
   }
 
   getItemTypes(): Observable<string[]> {
     return from(this.db.itemsTable.toArray()).pipe(
-      map(records => {
-        const typesValues = new Set(records.map(record => record.Type));
+      map((records) => {
+        const typesValues = new Set(records.map((record) => record.Type));
         if (typesValues) {
-          return Array.from(typesValues)
+          return Array.from(typesValues);
         } else {
           return [];
         }
       })
-    )
+    );
   }
 
   getAllMachinesByType(typeStringValue: string): Observable<Item[]> {
-    return from(this.db.itemsTable.where('typeString').equals(typeStringValue).toArray());
+    return from(
+      this.db.itemsTable.where('typeString').equals(typeStringValue).toArray()
+    );
   }
 
   getAllMadeFromStringRecipes(): Observable<string[]> {
     return from(this.db.recipesTable.toArray()).pipe(
-      map(records => {
-        const madeFromStrings = new Set(records.map(record => record.madeFromString))
-        return Array.from(madeFromStrings)
+      map((records) => {
+        const madeFromStrings = new Set(
+          records.map((record) => record.madeFromString)
+        );
+        return Array.from(madeFromStrings);
       })
-    )
+    );
   }
 
   getItemTypeString(): Observable<{ typeString: string; IconPath: string }[]> {
     return from(
-      this.db.itemsTable
-        .where("Type")
-        .equals("Production")
-        .toArray()
+      this.db.itemsTable.where('Type').equals('Production').toArray()
     ).pipe(
-      map(records =>
+      map((records) =>
         records
-          .filter(record => record.typeString && record.IconPath)
-          .map(record => ({ typeString: record.typeString, IconPath: record.IconPath }))
+          .filter((record) => record.typeString && record.IconPath)
+          .map((record) => ({
+            typeString: record.typeString,
+            IconPath: record.IconPath,
+          }))
       )
     );
   }
 
-
   getMadeFromString(): Observable<string[]> {
     return from(this.db.recipesTable.toArray()).pipe(
-      map(records => {
-        const madeFromStrings = new Set(records.map(record => record.madeFromString))
-        return Array.from(madeFromStrings)
+      map((records) => {
+        const madeFromStrings = new Set(
+          records.map((record) => record.madeFromString)
+        );
+        return Array.from(madeFromStrings);
       })
-    )
+    );
   }
 
   isSelectedItem(selectedItem: TransformedItems): boolean {
@@ -259,22 +296,46 @@ export class DataManagementService {
 
     this.recipesFromTreeStructure.set([]);
 
-    let advancedRecipeFound = selectedItem.recipes.find(recipe => recipe.name.includes('advanced'));
-    let recipeToUse = advancedRecipeFound ? advancedRecipeFound : selectedItem.recipes[0]; // Usar la primera receta si no hay ninguna avanzada
+    let advancedRecipeFound = selectedItem.recipes.find((recipe) =>
+      recipe.name.includes('advanced')
+    );
+    let recipeToUse = advancedRecipeFound
+      ? advancedRecipeFound
+      : selectedItem.recipes[0]; // Usar la primera receta si no hay ninguna avanzada
 
-    this.recipesForm.addControl(selectedItem.ID.toString(), new FormControl(recipeToUse.ID));
-    let recipe = await this.db.recipesTable.where('ID').equals(recipeToUse.ID).toArray();
-    let resultIndex = recipe[0].Results.findIndex(resultId => resultId === selectedItem.ID);
+    this.recipesForm.addControl(
+      selectedItem.ID.toString(),
+      new FormControl(recipeToUse.ID)
+    );
+    let recipe = await this.db.recipesTable
+      .where('ID')
+      .equals(recipeToUse.ID)
+      .toArray();
+    let resultIndex = recipe[0].Results.findIndex(
+      (resultId) => resultId === selectedItem.ID
+    );
 
-    let totalMachine = this.calculateMachinesNeeded(this.globalSettingsService.getProperty('initialAmountValue'), recipe[0].ResultCounts[resultIndex], recipe[0].TimeSpend,
-      this.globalSettingsService.checkValidKey(recipe[0].madeFromString.split(' ')[0].toLowerCase() + 'Select'))
+    let totalMachine = this.calculateMachinesNeeded(
+      this.globalSettingsService.getProperty('initialAmountValue'),
+      recipe[0].ResultCounts[resultIndex],
+      recipe[0].TimeSpend,
+      this.globalSettingsService.checkValidKey(
+        recipe[0].madeFromString.split(' ')[0].toLowerCase() + 'Select'
+      )
+    );
 
-    let key = this.globalSettingsService.checkValidKey(recipe[0].madeFromString.split(' ')[0].toLowerCase() + 'Select')
+    let key = this.globalSettingsService.checkValidKey(
+      recipe[0].madeFromString.split(' ')[0].toLowerCase() + 'Select'
+    );
     let energyPerMachine = 0;
     if (key !== null) {
       const property = this.globalSettingsService.getProperty(key);
-      if (typeof property === 'object' && property !== null && 'prefabDesc' in property) {
-        energyPerMachine = (property.prefabDesc.workEnergyPerTick * 60) / 1000
+      if (
+        typeof property === 'object' &&
+        property !== null &&
+        'prefabDesc' in property
+      ) {
+        energyPerMachine = (property.prefabDesc.workEnergyPerTick * 60) / 1000;
       }
     }
     const setupTime = performance.now();
@@ -296,144 +357,216 @@ export class DataManagementService {
       ResultCounts: recipe[0].ResultCounts,
       totalValue: this.globalSettingsService.getProperty('initialAmountValue'),
       totalMachine: totalMachine,
-      power: Number((energyPerMachine * totalMachine).toFixed(2))
-    }
+      power: Number((energyPerMachine * totalMachine).toFixed(2)),
+    };
     if (this.isSelectedItem(newItem)) {
       this.selectedItemsSet.delete(newItem.ID);
-      this.selectedItems.set(this.selectedItems().filter(item => item.ID !== newItem.ID))
+      this.selectedItems.set(
+        this.selectedItems().filter((item) => item.ID !== newItem.ID)
+      );
     } else {
       this.selectedItemsSet.add(newItem.ID);
-      this.selectedItems.set([...this.selectedItems(), newItem])
+      this.selectedItems.set([...this.selectedItems(), newItem]);
     }
     const beforeTreeStructure = performance.now();
     for (const item of this.selectedItems()) {
       await this.createTreeStructure(item);
     }
 
-
     const afterTreeStructure = performance.now();
     this.processRecipesImages();
-    this.getItemTypeString().pipe(
-      switchMap(data => {
-        const machines = data.map(item => {
-          const key = this.getControlName(item.typeString);
-          if (!key) return null;
+    this.getItemTypeString()
+      .pipe(
+        switchMap((data) => {
+          const machines = data.map((item) => {
+            const key = this.getControlName(item.typeString);
+            if (!key) return null;
 
-          const selectedFacility = this.globalSettingsService.getProperty(key) as Item | undefined;
-          if (!selectedFacility) return null;
+            const selectedFacility = this.globalSettingsService.getProperty(
+              key
+            ) as Item | undefined;
+            if (!selectedFacility) return null;
 
-          return {
-            typeString: item.typeString,
-            IconPath: selectedFacility.IconPath,
-            machineId: selectedFacility.ID,
-          };
-        });
+            return {
+              typeString: item.typeString,
+              IconPath: selectedFacility.IconPath,
+              machineId: selectedFacility.ID,
+            };
+          });
 
-        // Filtrar nulos directamente
-        const validMachines = machines.filter(machine => machine !== null) as {
-          typeString: string;
-          IconPath: string;
-          machineId: number;
-        }[];
+          // Filtrar nulos directamente
+          const validMachines = machines.filter(
+            (machine) => machine !== null
+          ) as {
+            typeString: string;
+            IconPath: string;
+            machineId: number;
+          }[];
 
-        // Convertirlo en un observable para mantener el flujo reactivo
-        return of(validMachines);
-      })
-    ).subscribe({
-      next: facilities => {
-        const updatedMap = { ...this.powerFacilitiesMap() };
+          // Convertirlo en un observable para mantener el flujo reactivo
+          return of(validMachines);
+        })
+      )
+      .subscribe({
+        next: (facilities) => {
+          const updatedMap = { ...this.powerFacilitiesMap() };
 
-        facilities.forEach((facility: { typeString: string, IconPath: string, machineId: number }) => {
-          if (facility.typeString && facility.IconPath) {
-            updatedMap[facility.typeString] = facility.IconPath;
-          }
-        });
+          facilities.forEach(
+            (facility: {
+              typeString: string;
+              IconPath: string;
+              machineId: number;
+            }) => {
+              if (facility.typeString && facility.IconPath) {
+                updatedMap[facility.typeString] = facility.IconPath;
+              }
+            }
+          );
 
-        this.powerFacilitiesMap.set(updatedMap);
-        console.log("powerFacilities", this.powerFacilitiesMap());
-      },
-      error: err => {
-        console.error("Error:", err);
-      },
-    });
+          this.powerFacilitiesMap.set(updatedMap);
+          console.log('powerFacilities', this.powerFacilitiesMap());
+        },
+        error: (err) => {
+          console.error('Error:', err);
+        },
+      });
 
-
-
-    console.log(this.selectedItems())
+    console.log(this.selectedItems());
     this.isRecipesFormInitialized.set(true);
-    const end = performance.now(); 
+    const end = performance.now();
 
-    console.log(`Setup Time: ${((setupTime - start) / 1000)} seconds`);
-    console.log(`Tree Structure Time: ${((afterTreeStructure - beforeTreeStructure) / 1000)} seconds`);
-    console.log(`Remaining Function Time: ${((end - afterTreeStructure) / 1000)} seconds`);
+    console.log(`Setup Time: ${(setupTime - start) / 1000} seconds`);
+    console.log(
+      `Tree Structure Time: ${(afterTreeStructure - beforeTreeStructure) / 1000} seconds`
+    );
+    console.log(
+      `Remaining Function Time: ${(end - afterTreeStructure) / 1000} seconds`
+    );
 
     this.calculateTotales(this.selectedItems());
-    console.log(this.totals())
+    console.log(this.totals());
   }
 
   async createTreeStructure(item: TransformedItems): Promise<void> {
     if (!item.recipes || item.recipes.length === 0) return;
 
     // Obtener todas las recetas asociadas al item
-    const recipeIds = item.recipes.map(recipe => recipe.ID);
-    const recipeDetails = await this.db.recipesTable.where('ID').anyOf(recipeIds).toArray();
+    const recipeIds = item.recipes.map((recipe) => recipe.ID);
+    const recipeDetails = await this.db.recipesTable
+      .where('ID')
+      .anyOf(recipeIds)
+      .toArray();
     this.recipesImages.set([...this.recipesImages(), ...recipeDetails]);
 
     // Buscar la receta avanzada o usar la primera receta
-    let advancedRecipeFound = item.recipes.find(recipe => recipe.name.includes('advanced'));
+    let advancedRecipeFound = item.recipes.find((recipe) =>
+      recipe.name.includes('advanced')
+    );
     let recipeToUse = advancedRecipeFound || item.recipes[0];
     if (!recipeToUse) return;
 
-    this.recipesForm.addControl(item.ID.toString(), new FormControl(recipeToUse.ID));
-    const recipe = await this.db.recipesTable.where('ID').equals(recipeToUse.ID).first();
+    this.recipesForm.addControl(
+      item.ID.toString(),
+      new FormControl(recipeToUse.ID)
+    );
+    const recipe = await this.db.recipesTable
+      .where('ID')
+      .equals(recipeToUse.ID)
+      .first();
     if (!recipe) return;
 
-    const itemsForCurrentRecipe = await this.db.itemsTable.where('ID').anyOf(recipe.Items).toArray();
+    const itemsForCurrentRecipe = await this.db.itemsTable
+      .where('ID')
+      .anyOf(recipe.Items)
+      .toArray();
 
     for (const currentItem of itemsForCurrentRecipe) {
-      let madeFromString = "";
+      let madeFromString = '';
       if (currentItem.recipes && currentItem.recipes.length > 0) {
-        const childRecipe = await this.db.recipesTable.where('ID').equals(currentItem.recipes[0].ID).first();
-        madeFromString = childRecipe?.madeFromString || "";
+        const childRecipe = await this.db.recipesTable
+          .where('ID')
+          .equals(currentItem.recipes[0].ID)
+          .first();
+        madeFromString = childRecipe?.madeFromString || '';
       } else {
-        madeFromString = currentItem.IsFluid ? "Oil Extraction Facility" : "Mining Facility";
+        madeFromString = currentItem.IsFluid
+          ? 'Oil Extraction Facility'
+          : 'Mining Facility';
       }
 
       const childRecipeToUse = await this.getRecipeToUse(currentItem);
       if (childRecipeToUse) {
-        const childRecipeDetails = await this.db.recipesTable.where('ID').equals(childRecipeToUse.ID).first();
+        const childRecipeDetails = await this.db.recipesTable
+          .where('ID')
+          .equals(childRecipeToUse.ID)
+          .first();
         if (childRecipeDetails) {
-          const resultIndex = recipe.Results.findIndex(resultId => resultId === item.ID);
-          const resultCount = resultIndex >= 0 ? recipe.ResultCounts[resultIndex] : 1;
-          const itemCount = recipe.ItemCounts[recipe.Items.indexOf(currentItem.ID)] || 1;
+          const resultIndex = recipe.Results.findIndex(
+            (resultId) => resultId === item.ID
+          );
+          const resultCount =
+            resultIndex >= 0 ? recipe.ResultCounts[resultIndex] : 1;
+          const itemCount =
+            recipe.ItemCounts[recipe.Items.indexOf(currentItem.ID)] || 1;
 
           const totalValue = (item.totalValue * itemCount) / resultCount;
-          const resultItemIndex = childRecipeDetails.Results.findIndex(resultId => resultId === currentItem.ID);
+          const resultItemIndex = childRecipeDetails.Results.findIndex(
+            (resultId) => resultId === currentItem.ID
+          );
 
-          let newItem = this.createNewItem(currentItem, madeFromString, childRecipeDetails, totalValue, resultItemIndex)
+          let newItem = this.createNewItem(
+            currentItem,
+            madeFromString,
+            childRecipeDetails,
+            totalValue,
+            resultItemIndex
+          );
 
-          this.recipesForm.addControl(newItem.ID.toString(), new FormControl(childRecipeDetails.ID));
+          this.recipesForm.addControl(
+            newItem.ID.toString(),
+            new FormControl(childRecipeDetails.ID)
+          );
 
           item.childs.push(newItem);
 
           await this.createTreeStructure(newItem);
         }
       } else {
-        const resultItemIndex = recipe.Results.findIndex(resultId => resultId === currentItem.ID);
-        let coreItem = this.createCoreItem(currentItem, madeFromString, recipe, item, resultItemIndex)
+        const resultItemIndex = recipe.Results.findIndex(
+          (resultId) => resultId === currentItem.ID
+        );
+        let coreItem = this.createCoreItem(
+          currentItem,
+          madeFromString,
+          recipe,
+          item,
+          resultItemIndex
+        );
 
         item.childs.push(coreItem);
       }
     }
   }
 
-  createCoreItem(currentItem: Item, madeFromString: string, recipe: Recipe, parentItem: TransformedItems, resultItemIndex: number): TransformedItems {
-    let key = this.globalSettingsService.checkValidKey(madeFromString.split(' ')[0].toLowerCase() + 'Select')
+  createCoreItem(
+    currentItem: Item,
+    madeFromString: string,
+    recipe: Recipe,
+    parentItem: TransformedItems,
+    resultItemIndex: number
+  ): TransformedItems {
+    let key = this.globalSettingsService.checkValidKey(
+      madeFromString.split(' ')[0].toLowerCase() + 'Select'
+    );
     let energyPerMachine = 0;
     if (key !== null) {
       const property = this.globalSettingsService.getProperty(key);
-      if (typeof property === 'object' && property !== null && 'prefabDesc' in property) {
-        energyPerMachine = (property.prefabDesc.workEnergyPerTick * 60) / 1000
+      if (
+        typeof property === 'object' &&
+        property !== null &&
+        'prefabDesc' in property
+      ) {
+        energyPerMachine = (property.prefabDesc.workEnergyPerTick * 60) / 1000;
       }
     }
 
@@ -441,8 +574,10 @@ export class DataManagementService {
       parentItem.totalValue,
       recipe.ResultCounts[resultItemIndex],
       recipe.TimeSpend,
-      this.globalSettingsService.checkValidKey(madeFromString.split(' ')[0].toLowerCase() + 'Select')
-    )
+      this.globalSettingsService.checkValidKey(
+        madeFromString.split(' ')[0].toLowerCase() + 'Select'
+      )
+    );
     return {
       ID: currentItem.ID,
       name: currentItem.name,
@@ -459,24 +594,40 @@ export class DataManagementService {
       ItemCounts: [],
       Results: [],
       ResultCounts: [],
-      totalValue: (parentItem.totalValue * recipe.ItemCounts[recipe.Items.indexOf(currentItem.ID)]) || 0,
+      totalValue:
+        parentItem.totalValue *
+          recipe.ItemCounts[recipe.Items.indexOf(currentItem.ID)] || 0,
       totalMachine: this.calculateMachinesNeeded(
         parentItem.totalValue,
         recipe.ResultCounts[resultItemIndex],
         recipe.TimeSpend,
-        this.globalSettingsService.checkValidKey(madeFromString.split(' ')[0].toLowerCase() + 'Select')
+        this.globalSettingsService.checkValidKey(
+          madeFromString.split(' ')[0].toLowerCase() + 'Select'
+        )
       ),
       power: Number((energyPerMachine * totalMachine).toFixed(2)),
-    }
+    };
   }
 
-  createNewItem(currentItem: Item, madeFromString: string, childRecipeDetails: Recipe, totalValue: number, resultItemIndex: number): TransformedItems {
-    let key = this.globalSettingsService.checkValidKey(madeFromString.split(' ')[0].toLowerCase() + 'Select')
+  createNewItem(
+    currentItem: Item,
+    madeFromString: string,
+    childRecipeDetails: Recipe,
+    totalValue: number,
+    resultItemIndex: number
+  ): TransformedItems {
+    let key = this.globalSettingsService.checkValidKey(
+      madeFromString.split(' ')[0].toLowerCase() + 'Select'
+    );
     let energyPerMachine = 0;
     if (key !== null) {
       const property = this.globalSettingsService.getProperty(key);
-      if (typeof property === 'object' && property !== null && 'prefabDesc' in property) {
-        energyPerMachine = (property.prefabDesc.workEnergyPerTick * 60) / 1000
+      if (
+        typeof property === 'object' &&
+        property !== null &&
+        'prefabDesc' in property
+      ) {
+        energyPerMachine = (property.prefabDesc.workEnergyPerTick * 60) / 1000;
       }
     }
 
@@ -484,8 +635,10 @@ export class DataManagementService {
       totalValue,
       childRecipeDetails.ResultCounts[resultItemIndex],
       childRecipeDetails.TimeSpend,
-      this.globalSettingsService.checkValidKey(madeFromString.split(' ')[0].toLowerCase() + 'Select')
-    )
+      this.globalSettingsService.checkValidKey(
+        madeFromString.split(' ')[0].toLowerCase() + 'Select'
+      )
+    );
     return {
       ID: currentItem.ID,
       name: currentItem.name,
@@ -504,30 +657,42 @@ export class DataManagementService {
       ResultCounts: childRecipeDetails.ResultCounts,
       totalValue: totalValue,
       totalMachine: totalMachine,
-      power: Number((energyPerMachine * totalMachine).toFixed(2))
-    }
+      power: Number((energyPerMachine * totalMachine).toFixed(2)),
+    };
   }
 
-  calculateMachinesNeeded(desiredOutput: number, itemsPerRecipe: number, recipeTime: number, machineType: keyof GlobalSettingsFormValues | null) {
+  calculateMachinesNeeded(
+    desiredOutput: number,
+    itemsPerRecipe: number,
+    recipeTime: number,
+    machineType: keyof GlobalSettingsFormValues | null
+  ) {
     let machinesNeeded = 0;
     if (machineType !== null) {
       const property = this.globalSettingsService.getProperty(machineType);
-      if (typeof property === 'object' && property !== null && 'prefabDesc' in property) {
+      if (
+        typeof property === 'object' &&
+        property !== null &&
+        'prefabDesc' in property
+      ) {
         let assemblerSpeed = 0;
         if (machineType === 'miningSelect') {
           recipeTime = 120;
           assemblerSpeed = property?.prefabDesc?.minerPeriod;
-        } else if (machineType === "researchSelect") {
+        } else if (machineType === 'researchSelect') {
           assemblerSpeed = property.prefabDesc.labAssembleSpeed;
         } else {
           assemblerSpeed = property?.prefabDesc?.assemblerSpeed;
         }
-        const outputUnit = this.globalSettingsService.getProperty('unitSelected');
-        const desiredItemsPerMinute = outputUnit === 's' ? desiredOutput * 60 : desiredOutput;
-        const itemsPerMachinePerMinute = (itemsPerRecipe * 60) / (recipeTime / 60) * (assemblerSpeed / 10000);
+        const outputUnit =
+          this.globalSettingsService.getProperty('unitSelected');
+        const desiredItemsPerMinute =
+          outputUnit === 's' ? desiredOutput * 60 : desiredOutput;
+        const itemsPerMachinePerMinute =
+          ((itemsPerRecipe * 60) / (recipeTime / 60)) *
+          (assemblerSpeed / 10000);
         machinesNeeded = desiredItemsPerMinute / itemsPerMachinePerMinute;
       }
-
     }
     return Number(machinesNeeded.toFixed(2));
   }
@@ -536,41 +701,61 @@ export class DataManagementService {
     if (!item.recipes || item.recipes.length === 0) {
       return null;
     }
-    return item.recipes.find(r => r.name.includes('advanced')) || item.recipes[0];
+    return (
+      item.recipes.find((r) => r.name.includes('advanced')) || item.recipes[0]
+    );
   }
-
-
 
   getControlName(typeString: string): keyof GlobalSettingsFormValues | null {
     switch (typeString) {
-      case 'Assembler': return 'assemblerSelect';
-      case 'Mining Facility': return 'miningSelect';
-      case 'Smelting Facility': return 'smeltingSelect';
-      case 'Research Facility': return 'researchSelect';
-      case 'Chemical Facility': return 'chemicalSelect';
-      case 'Refining Facility': return 'refiningSelect';
-      case 'Oil Extraction Facility': return 'oilSelect';
+      case 'Assembler':
+        return 'assemblerSelect';
+      case 'Mining Facility':
+        return 'miningSelect';
+      case 'Smelting Facility':
+        return 'smeltingSelect';
+      case 'Research Facility':
+        return 'researchSelect';
+      case 'Chemical Facility':
+        return 'chemicalSelect';
+      case 'Refining Facility':
+        return 'refiningSelect';
+      case 'Oil Extraction Facility':
+        return 'oilSelect';
       default:
         console.warn(`Unrecognized typeString: ${typeString}`);
         return null;
     }
   }
 
-
   async processRecipes(item: TransformedItems) {
     // Verifica y procesa las recetas en el nivel actual
     if (item.recipes) {
-      let containsAdvancedRecipe = item.recipes.findIndex(recipe => recipe.name.includes('advanced'));
+      let containsAdvancedRecipe = item.recipes.findIndex((recipe) =>
+        recipe.name.includes('advanced')
+      );
       if (containsAdvancedRecipe !== -1) {
-        this.recipesForm.addControl(item.ID.toString(), new FormControl(item.recipes[containsAdvancedRecipe].ID));
+        this.recipesForm.addControl(
+          item.ID.toString(),
+          new FormControl(item.recipes[containsAdvancedRecipe].ID)
+        );
       } else {
-        this.recipesForm.addControl(item.ID.toString(), new FormControl(item.recipes[0].ID));
+        this.recipesForm.addControl(
+          item.ID.toString(),
+          new FormControl(item.recipes[0].ID)
+        );
       }
       for (const recipe of item.recipes) {
-        if (recipe.name.includes("advanced")) {
-          this.recipesForm.addControl(item.ID.toString(), new FormControl(recipe.ID));
+        if (recipe.name.includes('advanced')) {
+          this.recipesForm.addControl(
+            item.ID.toString(),
+            new FormControl(recipe.ID)
+          );
         }
-        let recipeFound = await this.db.recipesTable.where('ID').equals(recipe.ID).toArray();
+        let recipeFound = await this.db.recipesTable
+          .where('ID')
+          .equals(recipe.ID)
+          .toArray();
         this.recipesFromTreeStructure().push(recipeFound[0]);
       }
     }
@@ -588,58 +773,66 @@ export class DataManagementService {
     this.getChilds().forEach((child) => {
       if (child.recipes !== undefined) {
         // Verificamos que cumpla con las condiciones para agregar el FormControl
-        if (child.recipes.length > 1 || (child.recipes.length > 0 && child.typeString === "Natural Resource")) {
-          // 
+        if (
+          child.recipes.length > 1 ||
+          (child.recipes.length > 0 && child.typeString === 'Natural Resource')
+        ) {
+          //
           if (!this.recipesForm.contains(child.ID.toString())) {
             // Condiciones para seleccionar automáticamente un valor
             let defaultValue = null;
-            if (child.recipes.find(rec => rec.name.includes("advanced"))) {
-              defaultValue = child.recipes.find(rec => rec.name.includes("advanced"))!.ID
+            if (child.recipes.find((rec) => rec.name.includes('advanced'))) {
+              defaultValue = child.recipes.find((rec) =>
+                rec.name.includes('advanced')
+              )!.ID;
             } else {
               defaultValue = child.recipes[0].ID;
-
             }
             // Agregar el FormControl con el valor por defecto
-            this.recipesForm.addControl(child.ID.toString(), new FormControl(defaultValue));
+            this.recipesForm.addControl(
+              child.ID.toString(),
+              new FormControl(defaultValue)
+            );
           }
         }
       }
     });
 
     this.isRecipesFormInitialized.set(true);
-
   }
 
   async processRecipesImages() {
     this.imagesRecipes = [];
 
     for (const recipe of this.recipesImages()) {
-      const recipeEntry: { ID: number, items: string[], results: string[] } = {
+      const recipeEntry: { ID: number; items: string[]; results: string[] } = {
         ID: recipe.ID,
         items: [],
-        results: []
+        results: [],
       };
 
       for (const element of recipe.Items) {
         try {
-          const itemFound = await this.db.itemsTable.where('ID').equals(element).first();
+          const itemFound = await this.db.itemsTable
+            .where('ID')
+            .equals(element)
+            .first();
           if (itemFound) {
             recipeEntry.items.push(itemFound.IconPath);
           }
-        } catch (error) {
-
-        }
+        } catch (error) {}
       }
 
       for (const element of recipe.Results) {
         try {
-          const resultFound = await this.db.itemsTable.where('ID').equals(element).first();
+          const resultFound = await this.db.itemsTable
+            .where('ID')
+            .equals(element)
+            .first();
           if (resultFound) {
             recipeEntry.results.push(resultFound.IconPath);
           }
-        } catch (error) {
-
-        }
+        } catch (error) {}
       }
 
       // Push the fully populated recipe entry to imagesRecipes
@@ -652,28 +845,32 @@ export class DataManagementService {
       // this.recipesImages.set([])
       let recipesSelection: Recipe[] = [];
 
-
       if (item.recipes !== undefined) {
-        const promises = item.recipes.map(async rec => {
-          let recipeFound = await this.db.recipesTable.where('ID').equals(rec.ID).first();
+        const promises = item.recipes.map(async (rec) => {
+          let recipeFound = await this.db.recipesTable
+            .where('ID')
+            .equals(rec.ID)
+            .first();
           if (recipeFound) {
             recipesSelection.push(recipeFound);
-            this.recipesImages.set([...this.recipesImages(), recipeFound])
+            this.recipesImages.set([...this.recipesImages(), recipeFound]);
           }
         });
 
         await Promise.all(promises); // Ensure all recipe fetching is completed
       }
 
-
-      const advancedRecipeFound = recipesSelection.find(recipe => recipe.name.includes('advanced') && recipe.Explicit === true);
+      const advancedRecipeFound = recipesSelection.find(
+        (recipe) => recipe.name.includes('advanced') && recipe.Explicit === true
+      );
       if (this.recipesForm.value.hasOwnProperty(item.ID)) {
-
       }
       if (advancedRecipeFound) {
-
         for (let itemId of advancedRecipeFound.Items) {
-          const item = await this.db.itemsTable.where('ID').equals(itemId).toArray();
+          const item = await this.db.itemsTable
+            .where('ID')
+            .equals(itemId)
+            .toArray();
           if (item.length > 0) {
             const itemObject = item[0];
             this.setChilds([...this.getChilds(), itemObject]); // Update using signal
@@ -681,9 +878,11 @@ export class DataManagementService {
           }
         }
       } else {
-
         for (let itemId of recipesSelection[0].Items) {
-          const item = await this.db.itemsTable.where('ID').equals(itemId).toArray();
+          const item = await this.db.itemsTable
+            .where('ID')
+            .equals(itemId)
+            .toArray();
           if (item.length > 0) {
             const itemObject = item[0];
             this.setChilds([...this.getChilds(), itemObject]); // Update using signal
@@ -691,11 +890,7 @@ export class DataManagementService {
           }
         }
       }
-
-    } catch (error) {
-
-    }
-
+    } catch (error) {}
   }
 
   getChilds(): Item[] {
@@ -717,22 +912,29 @@ export class DataManagementService {
     const totals: Totals = {
       totalPower: 0,
       totalMachinesByType: [],
-      totalItems: []
+      totalItems: [],
     };
-  
+
     const accumulateValues = (item: TransformedItems) => {
       totals.totalPower += item.power || 0;
-  
+
       if (item.madeFromString) {
-        const machineEntry = totals.totalMachinesByType.find(entry => entry.name === item.madeFromString);
+        const machineEntry = totals.totalMachinesByType.find(
+          (entry) => entry.name === item.madeFromString
+        );
         if (machineEntry) {
           machineEntry.total += item.totalMachine || 0;
         } else {
-          totals.totalMachinesByType.push({ name: item.madeFromString, total: item.totalMachine || 0 });
+          totals.totalMachinesByType.push({
+            name: item.madeFromString,
+            total: item.totalMachine || 0,
+          });
         }
       }
-  
-      const itemEntry = totals.totalItems.find(entry => entry.name === item.name);
+
+      const itemEntry = totals.totalItems.find(
+        (entry) => entry.name === item.name
+      );
       if (itemEntry) {
         itemEntry.total += item.totalValue || 0;
       } else {
@@ -740,24 +942,23 @@ export class DataManagementService {
           itemId: item.ID,
           name: item.name,
           total: item.totalValue || 0,
-          IconPath: item.IconPath
+          IconPath: item.IconPath,
         });
       }
-  
+
       for (const child of item.childs) {
         accumulateValues(child);
       }
     };
-  
+
     for (const tree of selectedItems) {
       accumulateValues(tree);
     }
     this.totals.set(totals);
-    const sortedItems = [...this.totals().totalItems].sort((a, b) => a.itemId - b.itemId);
+    const sortedItems = [...this.totals().totalItems].sort(
+      (a, b) => a.itemId - b.itemId
+    );
 
-    this.totals.set({
-      ...this.totals(),
-      totalItems: sortedItems,
-    });
+    this.totals.set({ ...this.totals(), totalItems: sortedItems });
   }
 }

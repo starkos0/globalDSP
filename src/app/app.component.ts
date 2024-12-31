@@ -8,73 +8,65 @@ import { Tech } from './interfaces/mainData/Tech';
 import { Recipe } from './interfaces/mainData/Recipe';
 import { Item } from './interfaces/mainData/Item';
 
-
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink,RouterLinkActive],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'globalDSP';
   public dataTest: Item[] = [];
   public techs: Tech[] = [];
   public recipes: Recipe[] = [];
   public types: string[] = [];
   public typeStrings: { typeString: string; IconPath: string }[] = [];
-  constructor(private db: AppDB, private dataManagement: DataManagementService, private http: HttpClient){}
+  constructor(
+    private db: AppDB,
+    private dataManagement: DataManagementService,
+    private http: HttpClient
+  ) {}
 
   async ngOnInit() {
     await this.db.checkFirstTimeAndLoadData();
 
     const itemTypeStrings$ = this.dataManagement.getItemTypeString();
     itemTypeStrings$.subscribe({
-      next: (data) =>{
-        
+      next: (data) => {
         this.typeStrings = data;
-        
-       
-      }
-    })
+      },
+    });
     const madeFromStrings$ = this.dataManagement.getMadeFromString();
     madeFromStrings$.subscribe({
-      next: (data) =>{
-        
-        
-      }
-    })  
-
+      next: (data) => {},
+    });
   }
 
-  createRecipeTree(){
+  createRecipeTree() {
     //
   }
 
-  comprobarTechs(){
+  comprobarTechs() {
     this.dataManagement.getTechs().subscribe({
       next: (data) => {
-        
         this.techs = data;
-      }
-    })
+      },
+    });
   }
 
-  comprobarLista(){
+  comprobarLista() {
     this.dataManagement.getItems().subscribe({
-      next: (data) =>{
-        
+      next: (data) => {
         this.dataTest = data;
-      }
-    })
+      },
+    });
   }
-  comprobarRecipes(){
+  comprobarRecipes() {
     this.dataManagement.getRecipes().subscribe({
-      next: (data) =>{
-        
+      next: (data) => {
         this.recipes = data;
-      }
-    })
+      },
+    });
   }
-
 }

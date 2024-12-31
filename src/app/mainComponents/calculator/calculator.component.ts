@@ -1,22 +1,42 @@
-import { Component, effect, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  effect,
+  ElementRef,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from '../../utilComponents/navbar/navbar.component';
 import { AppDB } from '../../services/db';
 import { DataManagementService } from '../../services/data-management.service';
 import { Item } from '../../interfaces/mainData/Item';
 import { forkJoin, map, switchMap } from 'rxjs';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { Recipe } from '../../interfaces/mainData/Recipe';
 import { CommonModule } from '@angular/common';
-import { TableRatiosComponent } from "../../utilComponents/table-ratios/table-ratios.component";
+import { TableRatiosComponent } from '../../utilComponents/table-ratios/table-ratios.component';
 import { GlobalSettingsServiceService } from '../../services/global-settings-service.service';
 import { GlobalSettingsFormValues } from '../../interfaces/mainData/global-settings-form-values';
 @Component({
   selector: 'app-calculator',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, NavbarComponent, FormsModule, ReactiveFormsModule, CommonModule, TableRatiosComponent],
+  imports: [
+    RouterOutlet,
+    RouterLink,
+    RouterLinkActive,
+    NavbarComponent,
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
+    TableRatiosComponent,
+  ],
   templateUrl: './calculator.component.html',
-  styleUrl: './calculator.component.scss'
+  styleUrl: './calculator.component.scss',
 })
 export class CalculatorComponent implements OnInit {
   @ViewChild('myModal') myModal!: ElementRef;
@@ -37,11 +57,11 @@ export class CalculatorComponent implements OnInit {
     DescFields: [],
     handcraft: {
       ID: 0,
-      name: ''
+      name: '',
     },
     maincraft: {
       ID: 0,
-      name: ''
+      name: '',
     },
     handcraftProductCount: 0,
     maincraftProductCount: 0,
@@ -51,7 +71,7 @@ export class CalculatorComponent implements OnInit {
     rawMats: [],
     preTech: {
       ID: 0,
-      name: ''
+      name: '',
     },
     prefabDesc: {
       modelIndex: 0,
@@ -68,13 +88,13 @@ export class CalculatorComponent implements OnInit {
       buildCollider: {
         idType: 0,
         pos: {
-          y: 0
+          y: 0,
         },
         ext: {},
         q: {
-          w: 0
+          w: 0,
         },
-        shape: ''
+        shape: '',
       },
       buildColliders: [],
       roughRadius: 0,
@@ -87,11 +107,11 @@ export class CalculatorComponent implements OnInit {
       dragBuild: false,
       dragBuildDist: {
         x: 0,
-        y: 0
+        y: 0,
       },
       blueprintBoxSize: {
         x: 0,
-        y: 0
+        y: 0,
       },
       isAssembler: false,
       assemblerSpeed: 0,
@@ -103,7 +123,7 @@ export class CalculatorComponent implements OnInit {
       minimapType: 0,
       slotPoses: [],
       selectCenter: {
-        y: 0
+        y: 0,
       },
       selectSize: {},
       selectAlpha: 0,
@@ -118,7 +138,7 @@ export class CalculatorComponent implements OnInit {
       audioPitch: 0,
       audioDoppler: 0,
       minerPeriod: 0,
-      labAssembleSpeed: 0
+      labAssembleSpeed: 0,
     },
     ID: 0,
     description: '',
@@ -128,8 +148,8 @@ export class CalculatorComponent implements OnInit {
     typeString: '',
     fuelTypeString: '',
     name: '',
-    isRaw: false
-  }
+    isRaw: false,
+  };
   public userInitialAmount: number = 0;
   public typeStrings: string[] = [];
   public machines: Item[][] = [];
@@ -145,14 +165,15 @@ export class CalculatorComponent implements OnInit {
   public resourcesMaterialsProducts: Item[] = [];
   public buildings: Item[] = [];
 
-  
-  constructor(private db: AppDB, public dataManagement: DataManagementService, public globalSettingsService: GlobalSettingsServiceService) {
-  }
+  constructor(
+    private db: AppDB,
+    public dataManagement: DataManagementService,
+    public globalSettingsService: GlobalSettingsServiceService
+  ) {}
   optionsChanged(values: any) {
-
     const updatedMap: { [key: string]: string } = {};
 
-    Object.keys(values).forEach(controlName => {
+    Object.keys(values).forEach((controlName) => {
       const selectedFacility = values[controlName];
       if (selectedFacility?.typeString && selectedFacility.IconPath) {
         updatedMap[selectedFacility.typeString] = selectedFacility.IconPath;
@@ -163,57 +184,79 @@ export class CalculatorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataManagement.getItemTypeString().pipe(
-      switchMap(data => {
-        return forkJoin(
-          data.map((item: { typeString: string; IconPath: string }) =>
-            this.dataManagement.getAllMachinesByType(item.typeString).pipe(
-              map(res => {
-                console.log(item.typeString)
-                switch (item.typeString) {
-                  case 'Assembler':
-                    this.assemblerSelectOptions = res;
-                    this.globalSettingsService.setPropertyWithLocalStorage('assemblerSelect', this.assemblerSelectOptions, 'savedAssemblerID');
-                    break;
+    this.dataManagement
+      .getItemTypeString()
+      .pipe(
+        switchMap((data) => {
+          return forkJoin(
+            data.map((item: { typeString: string; IconPath: string }) =>
+              this.dataManagement.getAllMachinesByType(item.typeString).pipe(
+                map((res) => {
+                  console.log(item.typeString);
+                  switch (item.typeString) {
+                    case 'Assembler':
+                      this.assemblerSelectOptions = res;
+                      this.globalSettingsService.setPropertyWithLocalStorage(
+                        'assemblerSelect',
+                        this.assemblerSelectOptions,
+                        'savedAssemblerID'
+                      );
+                      break;
 
-                  case 'Mining Facility':
-                    this.miningSelectOptions = res;
-                    this.globalSettingsService.setPropertyWithLocalStorage('miningSelect', this.miningSelectOptions, 'savedMiningMachineID');
-                    break;
+                    case 'Mining Facility':
+                      this.miningSelectOptions = res;
+                      this.globalSettingsService.setPropertyWithLocalStorage(
+                        'miningSelect',
+                        this.miningSelectOptions,
+                        'savedMiningMachineID'
+                      );
+                      break;
 
-                  case 'Smelting Facility':
-                    this.smeltingSelectOptions = res;
-                    this.globalSettingsService.setPropertyWithLocalStorage('smeltingSelect', this.smeltingSelectOptions, 'savedSmelterID');
-                    break;
+                    case 'Smelting Facility':
+                      this.smeltingSelectOptions = res;
+                      this.globalSettingsService.setPropertyWithLocalStorage(
+                        'smeltingSelect',
+                        this.smeltingSelectOptions,
+                        'savedSmelterID'
+                      );
+                      break;
 
-                  case 'Research Facility':
-                    this.researchSelectOptions = res;
-                    this.globalSettingsService.setPropertyWithLocalStorage('researchSelect', this.researchSelectOptions, 'savedMatrixLabID');
-                    break;
+                    case 'Research Facility':
+                      this.researchSelectOptions = res;
+                      this.globalSettingsService.setPropertyWithLocalStorage(
+                        'researchSelect',
+                        this.researchSelectOptions,
+                        'savedMatrixLabID'
+                      );
+                      break;
 
-                  case 'Chemical Facility':
-                    this.chemicalSelectOptions = res;
-                    this.globalSettingsService.setPropertyWithLocalStorage('chemicalSelect', this.chemicalSelectOptions, 'savedChemicalPlantID');
-                    break;
+                    case 'Chemical Facility':
+                      this.chemicalSelectOptions = res;
+                      this.globalSettingsService.setPropertyWithLocalStorage(
+                        'chemicalSelect',
+                        this.chemicalSelectOptions,
+                        'savedChemicalPlantID'
+                      );
+                      break;
 
-                  default:
-                    break;
-                }
-                return { typeString: item.typeString, res };
-              })
+                    default:
+                      break;
+                  }
+                  return { typeString: item.typeString, res };
+                })
+              )
             )
-          )
-        );
-      })
-    ).subscribe({
-      next: data => {
-        // Manejo de los datos resultantes si es necesario
-      },
-      error: err => {
-        console.error('Error:', err);
-      }
-    });
-
+          );
+        })
+      )
+      .subscribe({
+        next: (data) => {
+          // Manejo de los datos resultantes si es necesario
+        },
+        error: (err) => {
+          console.error('Error:', err);
+        },
+      });
 
     const recipes$ = this.dataManagement.getRecipes();
     const items$ = this.dataManagement.getItems();
@@ -221,57 +264,81 @@ export class CalculatorComponent implements OnInit {
       next: (res) => {
         this.items = res[0];
         this.recipes = res[1];
-        this.resourcesMaterialsProducts = this.items.filter(item => item.Type === "Resource" || item.Type === "Material" || item.Type === "Product" || item.Type === "Component" || item.Type === "Matrix" || item.Type === "DarkFog");
-        this.buildings = this.items.filter(item => !(item.Type === "Resource" || item.Type === "Material" || item.Type === "Product" || item.Type === "Component" || item.Type === "Matrix" || item.Type === "DarkFog")).sort((a, b) => a.ID - b.ID);
-      }
-    })
-
+        this.resourcesMaterialsProducts = this.items.filter(
+          (item) =>
+            item.Type === 'Resource' ||
+            item.Type === 'Material' ||
+            item.Type === 'Product' ||
+            item.Type === 'Component' ||
+            item.Type === 'Matrix' ||
+            item.Type === 'DarkFog'
+        );
+        this.buildings = this.items
+          .filter(
+            (item) =>
+              !(
+                item.Type === 'Resource' ||
+                item.Type === 'Material' ||
+                item.Type === 'Product' ||
+                item.Type === 'Component' ||
+                item.Type === 'Matrix' ||
+                item.Type === 'DarkFog'
+              )
+          )
+          .sort((a, b) => a.ID - b.ID);
+      },
+    });
   }
 
   selectAssembler(item: Item) {
     this.globalSettingsService.updateProperty('assemblerSelect', item);
     localStorage.setItem('savedAssemblerID', item.ID.toString());
 
-    this.dataManagement.powerFacilitiesMap()['Assembler'] = item.IconPath
+    this.dataManagement.powerFacilitiesMap()['Assembler'] = item.IconPath;
   }
   selectSmelter(item: Item) {
     this.globalSettingsService.updateProperty('smeltingSelect', item);
     localStorage.setItem('savedSmelterID', item.ID.toString());
-  
-    this.dataManagement.powerFacilitiesMap()['Smelting Facility'] = item.IconPath
+
+    this.dataManagement.powerFacilitiesMap()['Smelting Facility'] =
+      item.IconPath;
   }
   selectMiningMachine(item: Item) {
     this.globalSettingsService.updateProperty('miningSelect', item);
     localStorage.setItem('savedMiningMachineID', item.ID.toString());
 
-    this.dataManagement.powerFacilitiesMap()['Mining Facility'] = item.IconPath
+    this.dataManagement.powerFacilitiesMap()['Mining Facility'] = item.IconPath;
   }
   selectMatrixLab(item: Item) {
     this.globalSettingsService.updateProperty('researchSelect', item);
     localStorage.setItem('savedMatrixLabID', item.ID.toString());
 
-    this.dataManagement.powerFacilitiesMap()['Research Facility'] = item.IconPath
+    this.dataManagement.powerFacilitiesMap()['Research Facility'] =
+      item.IconPath;
   }
   selectChemicalPlant(item: Item) {
     this.globalSettingsService.updateProperty('chemicalSelect', item);
     localStorage.setItem('savedChemicalPlantID', item.ID.toString());
 
-    this.dataManagement.powerFacilitiesMap()['Chemical Facility'] = item.IconPath
+    this.dataManagement.powerFacilitiesMap()['Chemical Facility'] =
+      item.IconPath;
   }
   getImageSrc(itemName: string): string {
-    let src: string = "";
+    let src: string = '';
     let item: Item | undefined;
 
-    if (itemName.includes("(advanced)")) {
-      item = this.items.find(item => item.name === itemName.split("(")[0].slice(0, -1));
+    if (itemName.includes('(advanced)')) {
+      item = this.items.find(
+        (item) => item.name === itemName.split('(')[0].slice(0, -1)
+      );
     } else {
-      item = this.items.find(item => item.name === itemName);
+      item = this.items.find((item) => item.name === itemName);
     }
 
     if (item !== undefined) {
       src = item.IconPath;
     } else {
-      src = "Icons/ItemRecipe/various/warning-signal-round";
+      src = 'Icons/ItemRecipe/various/warning-signal-round';
     }
 
     return src;
@@ -282,11 +349,9 @@ export class CalculatorComponent implements OnInit {
 
   //   this.dataManagement.getItemById(buildingId).subscribe(data =>{
   //     if(data){
-  //       src = `assets/${data[0].IconPath}.png` 
+  //       src = `assets/${data[0].IconPath}.png`
   //     }
   //   })
   //   return src;
   // }
-
-
 }

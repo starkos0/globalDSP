@@ -65,40 +65,18 @@
       "y": 1
     },
     "PreItem": [],
-    "PreTechs": [
-      1
-    ],
+    "PreTechs": [1],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      1202
-    ],
-    "ItemPoints": [
-      30
-    ],
-    "PropertyOverrideItems": [
-      6001
-    ],
-    "PropertyItemCounts": [
-      10
-    ],
-    "UnlockRecipes": [
-      7,
-      8,
-      48
-    ],
+    "Items": [1202],
+    "ItemPoints": [30],
+    "PropertyOverrideItems": [6001],
+    "PropertyItemCounts": [10],
+    "UnlockRecipes": [7, 8, 48],
     "UnlockFunctions": [],
     "UnlockValues": [],
-    "AddItems": [
-      2203,
-      2201,
-      2301
-    ],
-    "AddItemCounts": [
-      1,
-      1,
-      1
-    ],
+    "AddItems": [2203, 2201, 2301],
+    "AddItemCounts": [1, 1, 1],
     "preTechArray": [
       {
         "ID": 1
@@ -179,37 +157,18 @@
       "y": 1
     },
     "PreItem": [],
-    "PreTechs": [
-      1001
-    ],
+    "PreTechs": [1001],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      1202,
-      1301
-    ],
-    "ItemPoints": [
-      20,
-      20
-    ],
-    "PropertyOverrideItems": [
-      6001
-    ],
-    "PropertyItemCounts": [
-      40
-    ],
-    "UnlockRecipes": [
-      9,
-      10
-    ],
+    "Items": [1202, 1301],
+    "ItemPoints": [20, 20],
+    "PropertyOverrideItems": [6001],
+    "PropertyItemCounts": [40],
+    "UnlockRecipes": [9, 10],
     "UnlockFunctions": [],
     "UnlockValues": [],
-    "AddItems": [
-      2901
-    ],
-    "AddItemCounts": [
-      1
-    ],
+    "AddItems": [2901],
+    "AddItemCounts": [1],
     "preTechArray": [
       {
         "ID": 1001
@@ -266,32 +225,18 @@
       "y": -27
     },
     "PreItem": [],
-    "PreTechs": [
-      1001
-    ],
+    "PreTechs": [1001],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      20
-    ],
+    "Items": [6001],
+    "ItemPoints": [20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      11,
-      12,
-      13
-    ],
+    "UnlockRecipes": [11, 12, 13],
     "UnlockFunctions": [],
     "UnlockValues": [],
-    "AddItems": [
-      1401
-    ],
-    "AddItemCounts": [
-      10
-    ],
+    "AddItems": [1401],
+    "AddItemCounts": [10],
     "preTechArray": [
       {
         "ID": 1001
@@ -350,25 +295,14 @@
       "y": -27
     },
     "PreItem": [],
-    "PreTechs": [
-      1120,
-      1101
-    ],
+    "PreTechs": [1120, 1101],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      10
-    ],
+    "Items": [6001],
+    "ItemPoints": [10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      14,
-      15,
-      16
-    ],
+    "UnlockRecipes": [14, 15, 16],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -440,25 +374,14 @@
       "y": -27
     },
     "PreItem": [],
-    "PreTechs": [
-      1121,
-      1102
-    ],
+    "PreTechs": [1121, 1102],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      20
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      58
-    ],
+    "UnlockRecipes": [58],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -522,24 +445,14 @@
       "y": -27
     },
     "PreItem": [],
-    "PreTechs": [
-      1103
-    ],
+    "PreTechs": [1103],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      20
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      121
-    ],
+    "UnlockRecipes": [121],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -596,22 +509,14 @@
       "y": -31
     },
     "PreItem": [],
-    "PreTechs": [
-      1102
-    ],
+    "PreTechs": [1102],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      20
-    ],
+    "Items": [6001],
+    "ItemPoints": [20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      18
-    ],
+    "UnlockRecipes": [18],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -665,22 +570,14 @@
       "y": -31
     },
     "PreItem": [],
-    "PreTechs": [
-      1111
-    ],
+    "PreTechs": [1111],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6002
-    ],
-    "ItemPoints": [
-      20
-    ],
+    "Items": [6002],
+    "ItemPoints": [20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      19
-    ],
+    "UnlockRecipes": [19],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -738,22 +635,14 @@
       "y": -31
     },
     "PreItem": [],
-    "PreTechs": [
-      1112
-    ],
+    "PreTechs": [1112],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6002
-    ],
-    "ItemPoints": [
-      20
-    ],
+    "Items": [6002],
+    "ItemPoints": [20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      20
-    ],
+    "UnlockRecipes": [20],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -811,22 +700,14 @@
       "y": -31
     },
     "PreItem": [],
-    "PreTechs": [
-      1113
-    ],
+    "PreTechs": [1113],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6002
-    ],
-    "ItemPoints": [
-      20
-    ],
+    "Items": [6002],
+    "ItemPoints": [20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      21
-    ],
+    "UnlockRecipes": [21],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -880,31 +761,18 @@
       "y": -23
     },
     "PreItem": [],
-    "PreTechs": [
-      1001
-    ],
+    "PreTechs": [1001],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      20
-    ],
+    "Items": [6001],
+    "ItemPoints": [20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      114,
-      49
-    ],
+    "UnlockRecipes": [114, 49],
     "UnlockFunctions": [],
     "UnlockValues": [],
-    "AddItems": [
-      2106
-    ],
-    "AddItemCounts": [
-      1
-    ],
+    "AddItems": [2106],
+    "AddItemCounts": [1],
     "preTechArray": [
       {
         "ID": 1001
@@ -960,25 +828,14 @@
       "y": -23
     },
     "PreItem": [],
-    "PreTechs": [
-      1120,
-      1102
-    ],
+    "PreTechs": [1120, 1102],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      10
-    ],
+    "Items": [6001],
+    "ItemPoints": [10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      22,
-      23,
-      24
-    ],
+    "UnlockRecipes": [22, 23, 24],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -1047,25 +904,14 @@
       "y": -23
     },
     "PreItem": [],
-    "PreTechs": [
-      1121
-    ],
+    "PreTechs": [1121],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      20
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      25,
-      54
-    ],
+    "UnlockRecipes": [25, 54],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -1129,24 +975,14 @@
       "y": -23
     },
     "PreItem": [],
-    "PreTechs": [
-      1122
-    ],
+    "PreTechs": [1122],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      20
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      26
-    ],
+    "UnlockRecipes": [26],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -1210,24 +1046,14 @@
       "y": -23
     },
     "PreItem": [],
-    "PreTechs": [
-      1123
-    ],
+    "PreTechs": [1123],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      12,
-      12
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      27
-    ],
+    "UnlockRecipes": [27],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -1291,27 +1117,14 @@
       "y": -23
     },
     "PreItem": [],
-    "PreTechs": [
-      1124
-    ],
+    "PreTechs": [1124],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [12, 12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      28,
-      29
-    ],
+    "UnlockRecipes": [28, 29],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -1385,24 +1198,14 @@
       "y": -19
     },
     "PreItem": [],
-    "PreTechs": [
-      1132
-    ],
+    "PreTechs": [1132],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      12,
-      6
-    ],
+    "Items": [6002, 6003],
+    "ItemPoints": [12, 6],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      30
-    ],
+    "UnlockRecipes": [30],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -1467,23 +1270,14 @@
       "y": -19
     },
     "PreItem": [],
-    "PreTechs": [
-      1121
-    ],
+    "PreTechs": [1121],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      20
-    ],
+    "Items": [6001],
+    "ItemPoints": [20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      31,
-      32
-    ],
+    "UnlockRecipes": [31, 32],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -1540,25 +1334,14 @@
       "y": -19
     },
     "PreItem": [],
-    "PreTechs": [
-      1131
-    ],
+    "PreTechs": [1131],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      16,
-      4
-    ],
+    "Items": [6002, 6003],
+    "ItemPoints": [16, 4],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      33,
-      35
-    ],
+    "UnlockRecipes": [33, 35],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -1632,27 +1415,14 @@
       "y": -15
     },
     "PreItem": [],
-    "PreTechs": [
-      1132
-    ],
+    "PreTechs": [1132],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      16,
-      16,
-      4
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [16, 16, 4],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      36,
-      62
-    ],
+    "UnlockRecipes": [36, 62],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -1723,26 +1493,14 @@
       "y": -15
     },
     "PreItem": [],
-    "PreTechs": [
-      1412,
-      1102
-    ],
+    "PreTechs": [1412, 1102],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      30
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 30],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      110,
-      115
-    ],
+    "UnlockRecipes": [110, 115],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -1809,27 +1567,14 @@
       "y": -23
     },
     "PreItem": [],
-    "PreTechs": [
-      1126,
-      1125
-    ],
+    "PreTechs": [1126, 1125],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6004
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      2
-    ],
+    "Items": [6001, 6002, 6004],
+    "ItemPoints": [12, 12, 2],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      38
-    ],
+    "UnlockRecipes": [38],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -1907,27 +1652,14 @@
       "y": -31
     },
     "PreItem": [],
-    "PreTechs": [
-      1124
-    ],
+    "PreTechs": [1124],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [12, 12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      39,
-      40
-    ],
+    "UnlockRecipes": [39, 40],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -1998,26 +1730,14 @@
       "y": -31
     },
     "PreItem": [],
-    "PreTechs": [
-      1142
-    ],
+    "PreTechs": [1142],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [12, 12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      104
-    ],
+    "UnlockRecipes": [104],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -2088,30 +1808,14 @@
       "y": -3
     },
     "PreItem": [],
-    "PreTechs": [
-      1145
-    ],
+    "PreTechs": [1145],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      10,
-      10,
-      10,
-      10,
-      10
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [10, 10, 10, 10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      43
-    ],
+    "UnlockRecipes": [43],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -2189,25 +1893,14 @@
       "y": -3
     },
     "PreItem": [],
-    "PreTechs": [
-      1506
-    ],
+    "PreTechs": [1506],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6002,
-      6005
-    ],
-    "ItemPoints": [
-      24,
-      12
-    ],
+    "Items": [6002, 6005],
+    "ItemPoints": [24, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      42,
-      44
-    ],
+    "UnlockRecipes": [42, 44],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -2289,24 +1982,14 @@
       "y": -11
     },
     "PreItem": [],
-    "PreTechs": [
-      1311,
-      1101
-    ],
+    "PreTechs": [1311, 1101],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      20
-    ],
+    "Items": [6001],
+    "ItemPoints": [20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      106,
-      109
-    ],
+    "UnlockRecipes": [106, 109],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -2366,25 +2049,14 @@
       "y": -11
     },
     "PreItem": [],
-    "PreTechs": [
-      1302,
-      1151
-    ],
+    "PreTechs": [1302, 1151],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      16,
-      12
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [16, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      107
-    ],
+    "UnlockRecipes": [107],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -2448,27 +2120,14 @@
       "y": -11
     },
     "PreItem": [],
-    "PreTechs": [
-      1152,
-      1132
-    ],
+    "PreTechs": [1152, 1132],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      8,
-      6,
-      4
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [8, 6, 4],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      108
-    ],
+    "UnlockRecipes": [108],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -2535,36 +2194,18 @@
       "y": -3
     },
     "PreItem": [],
-    "PreTechs": [
-      1001
-    ],
+    "PreTechs": [1001],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      1301,
-      1201
-    ],
-    "ItemPoints": [
-      20,
-      20
-    ],
-    "PropertyOverrideItems": [
-      6001
-    ],
-    "PropertyItemCounts": [
-      40
-    ],
-    "UnlockRecipes": [
-      45
-    ],
+    "Items": [1301, 1201],
+    "ItemPoints": [20, 20],
+    "PropertyOverrideItems": [6001],
+    "PropertyItemCounts": [40],
+    "UnlockRecipes": [45],
     "UnlockFunctions": [],
     "UnlockValues": [],
-    "AddItems": [
-      2303
-    ],
-    "AddItemCounts": [
-      1
-    ],
+    "AddItems": [2303],
+    "AddItemCounts": [1],
     "preTechArray": [
       {
         "ID": 1001
@@ -2627,31 +2268,16 @@
       "y": -3
     },
     "PreItem": [],
-    "PreTechs": [
-      1201,
-      1302
-    ],
+    "PreTechs": [1201, 1302],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      10
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      46
-    ],
-    "UnlockFunctions": [
-      7
-    ],
-    "UnlockValues": [
-      0.5
-    ],
+    "UnlockRecipes": [46],
+    "UnlockFunctions": [7],
+    "UnlockValues": [0.5],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -2713,35 +2339,16 @@
       "y": -3
     },
     "PreItem": [],
-    "PreTechs": [
-      1202,
-      1303
-    ],
+    "PreTechs": [1202, 1303],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      10,
-      10,
-      10,
-      10
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [10, 10, 10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      47
-    ],
-    "UnlockFunctions": [
-      7
-    ],
-    "UnlockValues": [
-      0.5
-    ],
+    "UnlockRecipes": [47],
+    "UnlockFunctions": [7],
+    "UnlockValues": [0.5],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -2817,22 +2424,14 @@
       "y": -7
     },
     "PreItem": [],
-    "PreTechs": [
-      1311
-    ],
+    "PreTechs": [1311],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      20
-    ],
+    "Items": [6001],
+    "ItemPoints": [20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      51
-    ],
+    "UnlockRecipes": [51],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -2892,27 +2491,14 @@
       "y": -19
     },
     "PreItem": [],
-    "PreTechs": [
-      1312,
-      1141
-    ],
+    "PreTechs": [1312, 1141],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6004
-    ],
-    "ItemPoints": [
-      10,
-      10,
-      10
-    ],
+    "Items": [6001, 6002, 6004],
+    "ItemPoints": [10, 10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      52
-    ],
+    "UnlockRecipes": [52],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -2996,30 +2582,14 @@
       "y": -19
     },
     "PreItem": [],
-    "PreTechs": [
-      1303
-    ],
+    "PreTechs": [1303],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      10,
-      10,
-      10,
-      10,
-      6
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [10, 10, 10, 10, 6],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      119
-    ],
+    "UnlockRecipes": [119],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -3097,29 +2667,14 @@
       "y": -31
     },
     "PreItem": [],
-    "PreTechs": [
-      1303,
-      1143
-    ],
+    "PreTechs": [1303, 1143],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      10,
-      10,
-      10,
-      10
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [10, 10, 10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      124
-    ],
+    "UnlockRecipes": [124],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -3193,22 +2748,14 @@
       "y": -7
     },
     "PreItem": [],
-    "PreTechs": [
-      1201
-    ],
+    "PreTechs": [1201],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      40
-    ],
+    "Items": [6001],
+    "ItemPoints": [40],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      53
-    ],
+    "UnlockRecipes": [53],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -3265,25 +2812,14 @@
       "y": -7
     },
     "PreItem": [],
-    "PreTechs": [
-      1302,
-      1133
-    ],
+    "PreTechs": [1302, 1133],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      10,
-      10
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      55
-    ],
+    "UnlockRecipes": [55],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -3354,37 +2890,18 @@
       "y": 5
     },
     "PreItem": [],
-    "PreTechs": [
-      1001
-    ],
+    "PreTechs": [1001],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      1202,
-      1301
-    ],
-    "ItemPoints": [
-      20,
-      20
-    ],
-    "PropertyOverrideItems": [
-      6001
-    ],
-    "PropertyItemCounts": [
-      40
-    ],
-    "UnlockRecipes": [
-      56,
-      57
-    ],
+    "Items": [1202, 1301],
+    "ItemPoints": [20, 20],
+    "PropertyOverrideItems": [6001],
+    "PropertyItemCounts": [40],
+    "UnlockRecipes": [56, 57],
     "UnlockFunctions": [],
     "UnlockValues": [],
-    "AddItems": [
-      2302
-    ],
-    "AddItemCounts": [
-      3
-    ],
+    "AddItems": [2302],
+    "AddItemCounts": [3],
     "preTechArray": [
       {
         "ID": 1001
@@ -3447,24 +2964,14 @@
       "y": 5
     },
     "PreItem": [],
-    "PreTechs": [
-      1401
-    ],
+    "PreTechs": [1401],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      20
-    ],
+    "Items": [6001],
+    "ItemPoints": [20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      34,
-      17,
-      59
-    ],
+    "UnlockRecipes": [34, 17, 59],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -3527,26 +3034,14 @@
       "y": 5
     },
     "PreItem": [],
-    "PreTechs": [
-      1402
-    ],
+    "PreTechs": [1402],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      20
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      60,
-      61,
-      37
-    ],
+    "UnlockRecipes": [60, 61, 37],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -3613,28 +3108,16 @@
       "y": 13
     },
     "PreItem": [],
-    "PreTechs": [
-      1401
-    ],
+    "PreTechs": [1401],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      20
-    ],
+    "Items": [6001],
+    "ItemPoints": [20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      63
-    ],
-    "UnlockFunctions": [
-      37
-    ],
-    "UnlockValues": [
-      2203
-    ],
+    "UnlockRecipes": [63],
+    "UnlockFunctions": [37],
+    "UnlockValues": [2203],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -3689,30 +3172,18 @@
       "y": -15
     },
     "PreItem": [],
-    "PreTechs": [
-      1201
-    ],
+    "PreTechs": [1201],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      20
-    ],
+    "Items": [6001],
+    "ItemPoints": [20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      64
-    ],
+    "UnlockRecipes": [64],
     "UnlockFunctions": [],
     "UnlockValues": [],
-    "AddItems": [
-      2204
-    ],
-    "AddItemCounts": [
-      1
-    ],
+    "AddItems": [2204],
+    "AddItemCounts": [1],
     "preTechArray": [
       {
         "ID": 1201
@@ -3762,24 +3233,14 @@
       "y": 13
     },
     "PreItem": [],
-    "PreTechs": [
-      1411
-    ],
+    "PreTechs": [1411],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      20
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      65
-    ],
+    "UnlockRecipes": [65],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -3840,26 +3301,14 @@
       "y": 13
     },
     "PreItem": [],
-    "PreTechs": [
-      1413
-    ],
+    "PreTechs": [1413],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      2
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [20, 20, 2],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      66
-    ],
+    "UnlockRecipes": [66],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -3930,22 +3379,14 @@
       "y": 9
     },
     "PreItem": [],
-    "PreTechs": [
-      1411
-    ],
+    "PreTechs": [1411],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      20
-    ],
+    "Items": [6001],
+    "ItemPoints": [20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      112
-    ],
+    "UnlockRecipes": [112],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -3995,29 +3436,14 @@
       "y": -15
     },
     "PreItem": [],
-    "PreTechs": [
-      1134
-    ],
-    "PreTechsImplicit": [
-      1414
-    ],
+    "PreTechs": [1134],
+    "PreTechsImplicit": [1414],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      20,
-      10,
-      5
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [20, 10, 5],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      113,
-      41
-    ],
+    "UnlockRecipes": [113, 41],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -4084,30 +3510,14 @@
       "y": -23
     },
     "PreItem": [],
-    "PreTechs": [
-      1141
-    ],
-    "PreTechsImplicit": [
-      1403
-    ],
+    "PreTechs": [1141],
+    "PreTechsImplicit": [1403],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      10,
-      10,
-      10,
-      10
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [10, 10, 10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      116
-    ],
+    "UnlockRecipes": [116],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -4182,32 +3592,18 @@
       "y": 1
     },
     "PreItem": [],
-    "PreTechs": [
-      1402,
-      1002,
-      1201
-    ],
+    "PreTechs": [1402, 1002, 1201],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      40
-    ],
+    "Items": [6001],
+    "ItemPoints": [40],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      67
-    ],
+    "UnlockRecipes": [67],
     "UnlockFunctions": [],
     "UnlockValues": [],
-    "AddItems": [
-      2205
-    ],
-    "AddItemCounts": [
-      1
-    ],
+    "AddItems": [2205],
+    "AddItemCounts": [1],
     "preTechArray": [
       {
         "ID": 1402
@@ -4266,25 +3662,14 @@
       "y": 1
     },
     "PreItem": [],
-    "PreTechs": [
-      1501
-    ],
+    "PreTechs": [1501],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      20
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      68,
-      69
-    ],
+    "UnlockRecipes": [68, 69],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -4351,27 +3736,14 @@
       "y": 1
     },
     "PreItem": [],
-    "PreTechs": [
-      1502
-    ],
-    "PreTechsImplicit": [
-      1711
-    ],
+    "PreTechs": [1502],
+    "PreTechsImplicit": [1711],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      20
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      70,
-      71
-    ],
+    "UnlockRecipes": [70, 71],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -4438,24 +3810,14 @@
       "y": 1
     },
     "PreItem": [],
-    "PreTechs": [
-      1503
-    ],
+    "PreTechs": [1503],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      20
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      72
-    ],
+    "UnlockRecipes": [72],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -4516,34 +3878,16 @@
       "y": 1
     },
     "PreItem": [],
-    "PreTechs": [
-      1504
-    ],
-    "PreTechsImplicit": [
-      1704
-    ],
+    "PreTechs": [1504],
+    "PreTechsImplicit": [1704],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6005
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      20,
-      20
-    ],
+    "Items": [6001, 6002, 6003, 6005],
+    "ItemPoints": [20, 20, 20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      8
-    ],
-    "UnlockValues": [
-      1
-    ],
+    "UnlockFunctions": [8],
+    "UnlockValues": [1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -4612,30 +3956,14 @@
       "y": 1
     },
     "PreItem": [],
-    "PreTechs": [
-      1505
-    ],
+    "PreTechs": [1505],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      5,
-      5,
-      10
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [20, 20, 5, 5, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      74
-    ],
+    "UnlockRecipes": [74],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -4720,30 +4048,14 @@
       "y": 1
     },
     "PreItem": [],
-    "PreTechs": [
-      1506
-    ],
+    "PreTechs": [1506],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      10,
-      10,
-      10,
-      10,
-      10
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [10, 10, 10, 10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      75
-    ],
+    "UnlockRecipes": [75],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -4825,26 +4137,16 @@
       "y": 1
     },
     "PreItem": [],
-    "PreTechs": [
-      1507
-    ],
+    "PreTechs": [1507],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6006
-    ],
-    "ItemPoints": [
-      4
-    ],
+    "Items": [6006],
+    "ItemPoints": [4],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      99
-    ],
-    "UnlockValues": [
-      1
-    ],
+    "UnlockFunctions": [99],
+    "UnlockValues": [1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -4908,27 +4210,14 @@
       "y": 9
     },
     "PreItem": [],
-    "PreTechs": [
-      1403,
-      1501
-    ],
-    "PreTechsImplicit": [
-      1711
-    ],
+    "PreTechs": [1403, 1501],
+    "PreTechsImplicit": [1711],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      20
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      76
-    ],
+    "UnlockRecipes": [76],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -4992,27 +4281,14 @@
       "y": 9
     },
     "PreItem": [],
-    "PreTechs": [
-      1414,
-      1511
-    ],
+    "PreTechs": [1414, 1511],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      2
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [20, 20, 2],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      77
-    ],
+    "UnlockRecipes": [77],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -5083,26 +4359,14 @@
       "y": 5
     },
     "PreItem": [],
-    "PreTechs": [
-      1502
-    ],
-    "PreTechsImplicit": [
-      1711
-    ],
+    "PreTechs": [1502],
+    "PreTechsImplicit": [1711],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      20
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      118
-    ],
+    "UnlockRecipes": [118],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -5159,27 +4423,14 @@
       "y": 5
     },
     "PreItem": [],
-    "PreTechs": [
-      1503
-    ],
-    "PreTechsImplicit": [
-      1132
-    ],
+    "PreTechs": [1503],
+    "PreTechsImplicit": [1132],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6003
-    ],
-    "ItemPoints": [
-      12,
-      2
-    ],
+    "Items": [6001, 6003],
+    "ItemPoints": [12, 2],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      80,
-      81
-    ],
+    "UnlockRecipes": [80, 81],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -5247,31 +4498,14 @@
       "y": 5
     },
     "PreItem": [],
-    "PreTechs": [
-      1521
-    ],
-    "PreTechsImplicit": [
-      1303
-    ],
+    "PreTechs": [1521],
+    "PreTechsImplicit": [1303],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      10,
-      10,
-      10,
-      10
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [10, 10, 10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      82,
-      83
-    ],
+    "UnlockRecipes": [82, 83],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -5349,34 +4583,16 @@
       "y": 5
     },
     "PreItem": [],
-    "PreTechs": [
-      1522
-    ],
+    "PreTechs": [1522],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      20,
-      20,
-      20
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [20, 20, 20, 20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      26
-    ],
-    "UnlockValues": [
-      15
-    ],
+    "UnlockFunctions": [26],
+    "UnlockValues": [15],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -5448,40 +4664,18 @@
       "y": 21
     },
     "PreItem": [],
-    "PreTechs": [
-      1001
-    ],
+    "PreTechs": [1001],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      1301,
-      1201
-    ],
-    "ItemPoints": [
-      20,
-      20
-    ],
-    "PropertyOverrideItems": [
-      6001
-    ],
-    "PropertyItemCounts": [
-      40
-    ],
-    "UnlockRecipes": [
-      84,
-      85,
-      86
-    ],
+    "Items": [1301, 1201],
+    "ItemPoints": [20, 20],
+    "PropertyOverrideItems": [6001],
+    "PropertyItemCounts": [40],
+    "UnlockRecipes": [84, 85, 86],
     "UnlockFunctions": [],
     "UnlockValues": [],
-    "AddItems": [
-      2001,
-      2011
-    ],
-    "AddItemCounts": [
-      20,
-      5
-    ],
+    "AddItems": [2001, 2011],
+    "AddItemCounts": [20, 5],
     "preTechArray": [
       {
         "ID": 1001
@@ -5541,36 +4735,18 @@
       "y": 21
     },
     "PreItem": [],
-    "PreTechs": [
-      1601
-    ],
+    "PreTechs": [1601],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      20
-    ],
+    "Items": [6001],
+    "ItemPoints": [20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      87,
-      88,
-      117
-    ],
+    "UnlockRecipes": [87, 88, 117],
     "UnlockFunctions": [],
     "UnlockValues": [],
-    "AddItems": [
-      2020,
-      2012,
-      2030
-    ],
-    "AddItemCounts": [
-      1,
-      5,
-      5
-    ],
+    "AddItems": [2020, 2012, 2030],
+    "AddItemCounts": [1, 5, 5],
     "preTechArray": [
       {
         "ID": 1601
@@ -5629,28 +4805,14 @@
       "y": 21
     },
     "PreItem": [],
-    "PreTechs": [
-      1602
-    ],
-    "PreTechsImplicit": [
-      1702
-    ],
+    "PreTechs": [1602],
+    "PreTechsImplicit": [1702],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      5
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 5],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      89,
-      90,
-      91
-    ],
+    "UnlockRecipes": [89, 90, 91],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -5720,29 +4882,14 @@
       "y": 21
     },
     "PreItem": [],
-    "PreTechs": [
-      1603
-    ],
-    "PreTechsImplicit": [
-      1113,
-      3701
-    ],
+    "PreTechs": [1603],
+    "PreTechsImplicit": [1113, 3701],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      10
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      92,
-      93,
-      94
-    ],
+    "UnlockRecipes": [92, 93, 94],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -5809,30 +4956,14 @@
       "y": 21
     },
     "PreItem": [],
-    "PreTechs": [
-      1604,
-      1414
-    ],
-    "PreTechsImplicit": [
-      1114
-    ],
+    "PreTechs": [1604, 1414],
+    "PreTechsImplicit": [1114],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      2
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [20, 20, 2],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      95,
-      96
-    ],
+    "UnlockRecipes": [95, 96],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -5906,27 +5037,14 @@
       "y": 13
     },
     "PreItem": [],
-    "PreTechs": [
-      1605,
-      1512
-    ],
+    "PreTechs": [1605, 1512],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      10,
-      10,
-      10
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [10, 10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      111
-    ],
+    "UnlockRecipes": [111],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -5993,28 +5111,14 @@
       "y": 17
     },
     "PreItem": [],
-    "PreTechs": [
-      1603
-    ],
-    "PreTechsImplicit": [
-      1711
-    ],
+    "PreTechs": [1603],
+    "PreTechsImplicit": [1711],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      20,
-      10,
-      1
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [20, 10, 1],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      120
-    ],
+    "UnlockRecipes": [120],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -6078,33 +5182,16 @@
       "y": 17
     },
     "PreItem": [],
-    "PreTechs": [
-      1602
-    ],
-    "PreTechsImplicit": [
-      1702
-    ],
+    "PreTechs": [1602],
+    "PreTechsImplicit": [1702],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      10
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      122,
-      123
-    ],
-    "UnlockFunctions": [
-      32
-    ],
-    "UnlockValues": [
-      1
-    ],
+    "UnlockRecipes": [122, 123],
+    "UnlockFunctions": [32],
+    "UnlockValues": [1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -6162,22 +5249,14 @@
       "y": -35
     },
     "PreItem": [],
-    "PreTechs": [
-      1001
-    ],
+    "PreTechs": [1001],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      20
-    ],
+    "Items": [6001],
+    "ItemPoints": [20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      97
-    ],
+    "UnlockRecipes": [97],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -6231,24 +5310,14 @@
       "y": -35
     },
     "PreItem": [],
-    "PreTechs": [
-      1701
-    ],
+    "PreTechs": [1701],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      5
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 5],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      98
-    ],
+    "UnlockRecipes": [98],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -6312,25 +5381,14 @@
       "y": -35
     },
     "PreItem": [],
-    "PreTechs": [
-      1702
-    ],
+    "PreTechs": [1702],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      10
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      99,
-      100
-    ],
+    "UnlockRecipes": [99, 100],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -6394,28 +5452,14 @@
       "y": -35
     },
     "PreItem": [],
-    "PreTechs": [
-      1143,
-      1703
-    ],
+    "PreTechs": [1143, 1703],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [12, 12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      101,
-      78
-    ],
+    "UnlockRecipes": [101, 78],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -6489,28 +5533,14 @@
       "y": -35
     },
     "PreItem": [],
-    "PreTechs": [
-      1303,
-      1704
-    ],
+    "PreTechs": [1303, 1704],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      10,
-      10,
-      10
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [10, 10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      102,
-      79
-    ],
+    "UnlockRecipes": [102, 79],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -6584,24 +5614,14 @@
       "y": -39
     },
     "PreItem": [],
-    "PreTechs": [
-      1702
-    ],
+    "PreTechs": [1702],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      5
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 5],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      103
-    ],
+    "UnlockRecipes": [103],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -6662,28 +5682,14 @@
       "y": -39
     },
     "PreItem": [],
-    "PreTechs": [
-      1711
-    ],
-    "PreTechsImplicit": [
-      1521
-    ],
+    "PreTechs": [1711],
+    "PreTechsImplicit": [1521],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [12, 12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      73
-    ],
+    "UnlockRecipes": [73],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -6747,33 +5753,18 @@
       "y": -47
     },
     "PreItem": [],
-    "PreTechs": [
-      1001
-    ],
-    "PreTechsImplicit": [
-      1401
-    ],
+    "PreTechs": [1001],
+    "PreTechsImplicit": [1401],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      10
-    ],
+    "Items": [6001],
+    "ItemPoints": [10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      125,
-      136
-    ],
+    "UnlockRecipes": [125, 136],
     "UnlockFunctions": [],
     "UnlockValues": [],
-    "AddItems": [
-      1601
-    ],
-    "AddItemCounts": [
-      10
-    ],
+    "AddItems": [1601],
+    "AddItemCounts": [10],
     "preTechArray": [
       {
         "ID": 1001
@@ -6832,22 +5823,14 @@
       "y": 9
     },
     "PreItem": [],
-    "PreTechs": [
-      1401
-    ],
+    "PreTechs": [1401],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      20
-    ],
+    "Items": [6001],
+    "ItemPoints": [20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      133
-    ],
+    "UnlockRecipes": [133],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -6897,24 +5880,14 @@
       "y": -27
     },
     "PreItem": [],
-    "PreTechs": [
-      1123
-    ],
+    "PreTechs": [1123],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      10
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      134
-    ],
+    "UnlockRecipes": [134],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -6971,28 +5944,14 @@
       "y": -27
     },
     "PreItem": [],
-    "PreTechs": [
-      1125
-    ],
+    "PreTechs": [1125],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      10,
-      10,
-      10,
-      5
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [10, 10, 10, 5],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      135
-    ],
+    "UnlockRecipes": [135],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -7063,22 +6022,14 @@
       "y": -43
     },
     "PreItem": [],
-    "PreTechs": [
-      1001
-    ],
+    "PreTechs": [1001],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      10
-    ],
+    "Items": [6001],
+    "ItemPoints": [10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      105
-    ],
+    "UnlockRecipes": [105],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -7135,26 +6086,14 @@
       "y": -47
     },
     "PreItem": [],
-    "PreTechs": [
-      1805,
-      1801
-    ],
-    "PreTechsImplicit": [
-      1802
-    ],
+    "PreTechs": [1805, 1801],
+    "PreTechsImplicit": [1802],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      10
-    ],
+    "Items": [6001],
+    "ItemPoints": [10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      129,
-      144
-    ],
+    "UnlockRecipes": [129, 144],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -7217,27 +6156,14 @@
       "y": -47
     },
     "PreItem": [],
-    "PreTechs": [
-      1806
-    ],
-    "PreTechsImplicit": [
-      1702
-    ],
+    "PreTechs": [1806],
+    "PreTechsImplicit": [1702],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      10,
-      10
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      127,
-      139
-    ],
+    "UnlockRecipes": [127, 139],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -7304,26 +6230,14 @@
       "y": -43
     },
     "PreItem": [],
-    "PreTechs": [
-      1806
-    ],
-    "PreTechsImplicit": [
-      1101
-    ],
+    "PreTechs": [1806],
+    "PreTechsImplicit": [1101],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      20
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      131
-    ],
+    "UnlockRecipes": [131],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -7380,27 +6294,14 @@
       "y": -47
     },
     "PreItem": [],
-    "PreTechs": [
-      1807
-    ],
-    "PreTechsImplicit": [
-      1703
-    ],
+    "PreTechs": [1807],
+    "PreTechsImplicit": [1703],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      12,
-      12
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      126,
-      132
-    ],
+    "UnlockRecipes": [126, 132],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -7467,31 +6368,14 @@
       "y": -47
     },
     "PreItem": [],
-    "PreTechs": [
-      1809
-    ],
-    "PreTechsImplicit": [
-      1126
-    ],
+    "PreTechs": [1809],
+    "PreTechsImplicit": [1126],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12,
-      6
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [12, 12, 12, 6],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      128,
-      142
-    ],
+    "UnlockRecipes": [128, 142],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -7569,26 +6453,14 @@
       "y": -51
     },
     "PreItem": [],
-    "PreTechs": [
-      1801
-    ],
-    "PreTechsImplicit": [
-      1413
-    ],
+    "PreTechs": [1801],
+    "PreTechsImplicit": [1413],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      12,
-      12
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      137
-    ],
+    "UnlockRecipes": [137],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -7649,28 +6521,14 @@
       "y": -51
     },
     "PreItem": [],
-    "PreTechs": [
-      1812
-    ],
-    "PreTechsImplicit": [
-      1414
-    ],
+    "PreTechs": [1812],
+    "PreTechsImplicit": [1414],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      10,
-      10,
-      5
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [10, 10, 5],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      138
-    ],
+    "UnlockRecipes": [138],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -7734,26 +6592,14 @@
       "y": -43
     },
     "PreItem": [],
-    "PreTechs": [
-      1807
-    ],
-    "PreTechsImplicit": [
-      1413
-    ],
+    "PreTechs": [1807],
+    "PreTechsImplicit": [1413],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      10,
-      10
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      140
-    ],
+    "UnlockRecipes": [140],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -7814,28 +6660,14 @@
       "y": -43
     },
     "PreItem": [],
-    "PreTechs": [
-      1814
-    ],
-    "PreTechsImplicit": [
-      1113
-    ],
+    "PreTechs": [1814],
+    "PreTechsImplicit": [1113],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      3
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [12, 12, 3],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      145
-    ],
+    "UnlockRecipes": [145],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -7903,30 +6735,14 @@
       "y": -43
     },
     "PreItem": [],
-    "PreTechs": [
-      1815
-    ],
-    "PreTechsImplicit": [
-      1414
-    ],
+    "PreTechs": [1815],
+    "PreTechsImplicit": [1414],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      10,
-      10,
-      10,
-      10
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [10, 10, 10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      141
-    ],
+    "UnlockRecipes": [141],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -8001,32 +6817,14 @@
       "y": -43
     },
     "PreItem": [],
-    "PreTechs": [
-      1816
-    ],
-    "PreTechsImplicit": [
-      1143
-    ],
+    "PreTechs": [1816],
+    "PreTechsImplicit": [1143],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      10,
-      10,
-      10,
-      10,
-      10
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [10, 10, 10, 10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      146
-    ],
+    "UnlockRecipes": [146],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -8104,31 +6902,14 @@
       "y": -47
     },
     "PreItem": [],
-    "PreTechs": [
-      1145,
-      1811
-    ],
+    "PreTechs": [1145, 1811],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      20,
-      20,
-      20
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [20, 20, 20, 20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      143
-    ],
+    "UnlockRecipes": [143],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -8209,32 +6990,16 @@
       "y": -55
     },
     "PreItem": [],
-    "PreTechs": [
-      1826
-    ],
-    "PreTechsImplicit": [
-      1101
-    ],
+    "PreTechs": [1826],
+    "PreTechsImplicit": [1101],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      10
-    ],
+    "Items": [6001],
+    "ItemPoints": [10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      147
-    ],
-    "UnlockFunctions": [
-      77,
-      78
-    ],
-    "UnlockValues": [
-      1,
-      4
-    ],
+    "UnlockRecipes": [147],
+    "UnlockFunctions": [77, 78],
+    "UnlockValues": [1, 4],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -8289,26 +7054,14 @@
       "y": -55
     },
     "PreItem": [],
-    "PreTechs": [
-      1819
-    ],
-    "PreTechsImplicit": [
-      1502
-    ],
+    "PreTechs": [1819],
+    "PreTechsImplicit": [1502],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      10,
-      10
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      148
-    ],
+    "UnlockRecipes": [148],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -8369,28 +7122,14 @@
       "y": -59
     },
     "PreItem": [],
-    "PreTechs": [
-      1819
-    ],
-    "PreTechsImplicit": [
-      1703
-    ],
+    "PreTechs": [1819],
+    "PreTechsImplicit": [1703],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      10,
-      10,
-      10
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [10, 10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      149
-    ],
+    "UnlockRecipes": [149],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -8458,37 +7197,16 @@
       "y": -55
     },
     "PreItem": [],
-    "PreTechs": [
-      1809,
-      1820
-    ],
+    "PreTechs": [1809, 1820],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      10,
-      10,
-      10,
-      10
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [10, 10, 10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      150
-    ],
-    "UnlockFunctions": [
-      79,
-      80
-    ],
-    "UnlockValues": [
-      1,
-      4
-    ],
+    "UnlockRecipes": [150],
+    "UnlockFunctions": [79, 80],
+    "UnlockValues": [1, 4],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -8564,31 +7282,14 @@
       "y": -59
     },
     "PreItem": [],
-    "PreTechs": [
-      1822,
-      1821
-    ],
+    "PreTechs": [1822, 1821],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      10,
-      10,
-      10,
-      10,
-      10
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [10, 10, 10, 10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      151
-    ],
+    "UnlockRecipes": [151],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -8669,23 +7370,14 @@
       "y": -55
     },
     "PreItem": [],
-    "PreTechs": [
-      1801,
-      1805
-    ],
+    "PreTechs": [1801, 1805],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      10
-    ],
+    "Items": [6001],
+    "ItemPoints": [10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      152
-    ],
+    "UnlockRecipes": [152],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -8741,25 +7433,15 @@
       "x": 45,
       "y": -7
     },
-    "PreItem": [
-      5202
-    ],
-    "PreTechs": [
-      1312
-    ],
+    "PreItem": [5202],
+    "PreTechs": [1312],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      5201
-    ],
-    "ItemPoints": [
-      120
-    ],
+    "Items": [5201],
+    "ItemPoints": [120],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      153
-    ],
+    "UnlockRecipes": [153],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -8816,25 +7498,15 @@
       "x": 53,
       "y": -3
     },
-    "PreItem": [
-      5203
-    ],
-    "PreTechs": [
-      1203
-    ],
+    "PreItem": [5203],
+    "PreTechs": [1203],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      5201
-    ],
-    "ItemPoints": [
-      120
-    ],
+    "Items": [5201],
+    "ItemPoints": [120],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      154
-    ],
+    "UnlockRecipes": [154],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -8895,25 +7567,15 @@
       "x": 49,
       "y": -23
     },
-    "PreItem": [
-      5204
-    ],
-    "PreTechs": [
-      1417
-    ],
+    "PreItem": [5204],
+    "PreTechs": [1417],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      5201
-    ],
-    "ItemPoints": [
-      120
-    ],
+    "Items": [5201],
+    "ItemPoints": [120],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      155
-    ],
+    "UnlockRecipes": [155],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -8974,25 +7636,15 @@
       "x": 61,
       "y": -7
     },
-    "PreItem": [
-      5205
-    ],
-    "PreTechs": [
-      1145
-    ],
+    "PreItem": [5205],
+    "PreTechs": [1145],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      5201
-    ],
-    "ItemPoints": [
-      120
-    ],
+    "Items": [5201],
+    "ItemPoints": [120],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
-    "UnlockRecipes": [
-      156
-    ],
+    "UnlockRecipes": [156],
     "UnlockFunctions": [],
     "UnlockValues": [],
     "AddItems": [],
@@ -9061,31 +7713,13 @@
     "PreTechs": [],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      1101,
-      1104
-    ],
-    "ItemPoints": [
-      20,
-      20
-    ],
-    "PropertyOverrideItems": [
-      6001
-    ],
-    "PropertyItemCounts": [
-      20
-    ],
+    "Items": [1101, 1104],
+    "ItemPoints": [20, 20],
+    "PropertyOverrideItems": [6001],
+    "PropertyItemCounts": [20],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      6,
-      81,
-      82
-    ],
-    "UnlockValues": [
-      80000000,
-      30000,
-      1
-    ],
+    "UnlockFunctions": [6, 81, 82],
+    "UnlockValues": [80000000, 30000, 1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [],
@@ -9133,34 +7767,16 @@
       "y": 29
     },
     "PreItem": [],
-    "PreTechs": [
-      2101
-    ],
+    "PreTechs": [2101],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      10,
-      10
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      6,
-      81,
-      82,
-      83
-    ],
-    "UnlockValues": [
-      200000000,
-      30000,
-      1,
-      200
-    ],
+    "UnlockFunctions": [6, 81, 82, 83],
+    "UnlockValues": [200000000, 30000, 1, 200],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -9215,36 +7831,16 @@
       "y": 29
     },
     "PreItem": [],
-    "PreTechs": [
-      2102
-    ],
+    "PreTechs": [2102],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      10,
-      10,
-      10
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [10, 10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      6,
-      81,
-      82,
-      83
-    ],
-    "UnlockValues": [
-      400000000,
-      30000,
-      2,
-      200
-    ],
+    "UnlockFunctions": [6, 81, 82, 83],
+    "UnlockValues": [400000000, 30000, 2, 200],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -9306,38 +7902,16 @@
       "y": 29
     },
     "PreItem": [],
-    "PreTechs": [
-      2103
-    ],
+    "PreTechs": [2103],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      6,
-      6,
-      6,
-      6
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [6, 6, 6, 6],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      6,
-      81,
-      82,
-      83
-    ],
-    "UnlockValues": [
-      800000000,
-      30000,
-      2,
-      200
-    ],
+    "UnlockFunctions": [6, 81, 82, 83],
+    "UnlockValues": [800000000, 30000, 2, 200],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -9406,40 +7980,16 @@
       "y": 29
     },
     "PreItem": [],
-    "PreTechs": [
-      2104
-    ],
+    "PreTechs": [2104],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      2,
-      2,
-      2,
-      2,
-      2
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [2, 2, 2, 2, 2],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      6,
-      81,
-      82,
-      83
-    ],
-    "UnlockValues": [
-      1600000000,
-      30000,
-      2,
-      200
-    ],
+    "UnlockFunctions": [6, 81, 82, 83],
+    "UnlockValues": [1600000000, 30000, 2, 200],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -9515,30 +8065,16 @@
       "y": 29
     },
     "PreItem": [],
-    "PreTechs": [
-      2105
-    ],
+    "PreTechs": [2105],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6006
-    ],
-    "ItemPoints": [
-      2
-    ],
+    "Items": [6006],
+    "ItemPoints": [2],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      6,
-      81,
-      83
-    ],
-    "UnlockValues": [
-      2400000000,
-      20000,
-      200
-    ],
+    "UnlockFunctions": [6, 81, 83],
+    "UnlockValues": [2400000000, 20000, 200],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -9603,29 +8139,15 @@
     },
     "PreItem": [],
     "PreTechs": [],
-    "PreTechsImplicit": [
-      2101
-    ],
+    "PreTechsImplicit": [2101],
     "PreTechsMax": false,
-    "Items": [
-      1203
-    ],
-    "ItemPoints": [
-      30
-    ],
-    "PropertyOverrideItems": [
-      6001
-    ],
-    "PropertyItemCounts": [
-      100
-    ],
+    "Items": [1203],
+    "ItemPoints": [30],
+    "PropertyOverrideItems": [6001],
+    "PropertyItemCounts": [100],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      3
-    ],
-    "UnlockValues": [
-      1
-    ],
+    "UnlockFunctions": [3],
+    "UnlockValues": [1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [],
@@ -9670,30 +8192,16 @@
       "y": 25
     },
     "PreItem": [],
-    "PreTechs": [
-      2201
-    ],
-    "PreTechsImplicit": [
-      2101
-    ],
+    "PreTechs": [2201],
+    "PreTechsImplicit": [2101],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      20
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      3
-    ],
-    "UnlockValues": [
-      1
-    ],
+    "UnlockFunctions": [3],
+    "UnlockValues": [1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -9748,30 +8256,16 @@
       "y": 25
     },
     "PreItem": [],
-    "PreTechs": [
-      2202
-    ],
-    "PreTechsImplicit": [
-      2102
-    ],
+    "PreTechs": [2202],
+    "PreTechsImplicit": [2102],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      20
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      3
-    ],
-    "UnlockValues": [
-      1
-    ],
+    "UnlockFunctions": [3],
+    "UnlockValues": [1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -9826,32 +8320,16 @@
       "y": 25
     },
     "PreItem": [],
-    "PreTechs": [
-      2203
-    ],
-    "PreTechsImplicit": [
-      2102
-    ],
+    "PreTechs": [2203],
+    "PreTechsImplicit": [2102],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [12, 12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      3
-    ],
-    "UnlockValues": [
-      1
-    ],
+    "UnlockFunctions": [3],
+    "UnlockValues": [1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -9913,32 +8391,16 @@
       "y": 25
     },
     "PreItem": [],
-    "PreTechs": [
-      2204
-    ],
-    "PreTechsImplicit": [
-      2103
-    ],
+    "PreTechs": [2204],
+    "PreTechsImplicit": [2103],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [12, 12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      3
-    ],
-    "UnlockValues": [
-      1
-    ],
+    "UnlockFunctions": [3],
+    "UnlockValues": [1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -10000,34 +8462,16 @@
       "y": 25
     },
     "PreItem": [],
-    "PreTechs": [
-      2205
-    ],
-    "PreTechsImplicit": [
-      2104
-    ],
+    "PreTechs": [2205],
+    "PreTechsImplicit": [2104],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12,
-      12
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [12, 12, 12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      3
-    ],
-    "UnlockValues": [
-      1
-    ],
+    "UnlockFunctions": [3],
+    "UnlockValues": [1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -10096,34 +8540,16 @@
       "y": 25
     },
     "PreItem": [],
-    "PreTechs": [
-      2206
-    ],
-    "PreTechsImplicit": [
-      2104
-    ],
+    "PreTechs": [2206],
+    "PreTechsImplicit": [2104],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12,
-      12
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [12, 12, 12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      3
-    ],
-    "UnlockValues": [
-      2
-    ],
+    "UnlockFunctions": [3],
+    "UnlockValues": [2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -10192,36 +8618,16 @@
       "y": 25
     },
     "PreItem": [],
-    "PreTechs": [
-      2207
-    ],
-    "PreTechsImplicit": [
-      2105
-    ],
+    "PreTechs": [2207],
+    "PreTechsImplicit": [2105],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      6,
-      6,
-      6,
-      6,
-      6
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [6, 6, 6, 6, 6],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      3
-    ],
-    "UnlockValues": [
-      2
-    ],
+    "UnlockFunctions": [3],
+    "UnlockValues": [2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -10294,31 +8700,15 @@
     },
     "PreItem": [],
     "PreTechs": [],
-    "PreTechsImplicit": [
-      2101
-    ],
+    "PreTechsImplicit": [2101],
     "PreTechsMax": false,
-    "Items": [
-      1103,
-      1301
-    ],
-    "ItemPoints": [
-      60,
-      60
-    ],
-    "PropertyOverrideItems": [
-      6001
-    ],
-    "PropertyItemCounts": [
-      100
-    ],
+    "Items": [1103, 1301],
+    "ItemPoints": [60, 60],
+    "PropertyOverrideItems": [6001],
+    "PropertyItemCounts": [100],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      5
-    ],
-    "UnlockValues": [
-      1
-    ],
+    "UnlockFunctions": [5],
+    "UnlockValues": [1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [],
@@ -10366,30 +8756,16 @@
       "y": 21
     },
     "PreItem": [],
-    "PreTechs": [
-      2301
-    ],
-    "PreTechsImplicit": [
-      2101
-    ],
+    "PreTechs": [2301],
+    "PreTechsImplicit": [2101],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      20
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      5
-    ],
-    "UnlockValues": [
-      1
-    ],
+    "UnlockFunctions": [5],
+    "UnlockValues": [1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -10444,34 +8820,16 @@
       "y": 21
     },
     "PreItem": [],
-    "PreTechs": [
-      2302
-    ],
-    "PreTechsImplicit": [
-      2102
-    ],
+    "PreTechs": [2302],
+    "PreTechsImplicit": [2102],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      20
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [20, 20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      5,
-      33
-    ],
-    "UnlockValues": [
-      1,
-      2
-    ],
+    "UnlockFunctions": [5, 33],
+    "UnlockValues": [1, 2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -10533,36 +8891,16 @@
       "y": 21
     },
     "PreItem": [],
-    "PreTechs": [
-      2303
-    ],
-    "PreTechsImplicit": [
-      2102
-    ],
+    "PreTechs": [2303],
+    "PreTechsImplicit": [2102],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [12, 12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      5,
-      32,
-      33
-    ],
-    "UnlockValues": [
-      1,
-      1,
-      2
-    ],
+    "UnlockFunctions": [5, 32, 33],
+    "UnlockValues": [1, 1, 2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -10624,34 +8962,16 @@
       "y": 21
     },
     "PreItem": [],
-    "PreTechs": [
-      2304
-    ],
-    "PreTechsImplicit": [
-      2103
-    ],
+    "PreTechs": [2304],
+    "PreTechsImplicit": [2103],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [12, 12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      5,
-      33
-    ],
-    "UnlockValues": [
-      2,
-      2
-    ],
+    "UnlockFunctions": [5, 33],
+    "UnlockValues": [2, 2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -10713,38 +9033,16 @@
       "y": 21
     },
     "PreItem": [],
-    "PreTechs": [
-      2305
-    ],
-    "PreTechsImplicit": [
-      2105
-    ],
+    "PreTechs": [2305],
+    "PreTechsImplicit": [2105],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      6,
-      6,
-      6,
-      6,
-      6
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [6, 6, 6, 6, 6],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      5,
-      33
-    ],
-    "UnlockValues": [
-      2,
-      2
-    ],
+    "UnlockFunctions": [5, 33],
+    "UnlockValues": [2, 2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -10817,25 +9115,15 @@
     },
     "PreItem": [],
     "PreTechs": [],
-    "PreTechsImplicit": [
-      2101
-    ],
+    "PreTechsImplicit": [2101],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      40
-    ],
+    "Items": [6001],
+    "ItemPoints": [40],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      1
-    ],
-    "UnlockValues": [
-      1
-    ],
+    "UnlockFunctions": [1],
+    "UnlockValues": [1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [],
@@ -10879,30 +9167,16 @@
       "y": 17
     },
     "PreItem": [],
-    "PreTechs": [
-      2401
-    ],
-    "PreTechsImplicit": [
-      2101
-    ],
+    "PreTechs": [2401],
+    "PreTechsImplicit": [2101],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      20
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      1
-    ],
-    "UnlockValues": [
-      2
-    ],
+    "UnlockFunctions": [1],
+    "UnlockValues": [2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -10957,30 +9231,16 @@
       "y": 17
     },
     "PreItem": [],
-    "PreTechs": [
-      2402
-    ],
-    "PreTechsImplicit": [
-      2102
-    ],
+    "PreTechs": [2402],
+    "PreTechsImplicit": [2102],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      20
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      9
-    ],
-    "UnlockValues": [
-      1
-    ],
+    "UnlockFunctions": [9],
+    "UnlockValues": [1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -11035,32 +9295,16 @@
       "y": 17
     },
     "PreItem": [],
-    "PreTechs": [
-      2403
-    ],
-    "PreTechsImplicit": [
-      2103
-    ],
+    "PreTechs": [2403],
+    "PreTechsImplicit": [2103],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [12, 12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      1
-    ],
-    "UnlockValues": [
-      3
-    ],
+    "UnlockFunctions": [1],
+    "UnlockValues": [3],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -11122,34 +9366,16 @@
       "y": 17
     },
     "PreItem": [],
-    "PreTechs": [
-      2404
-    ],
-    "PreTechsImplicit": [
-      2104
-    ],
+    "PreTechs": [2404],
+    "PreTechsImplicit": [2104],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12,
-      12
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [12, 12, 12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      1
-    ],
-    "UnlockValues": [
-      3
-    ],
+    "UnlockFunctions": [1],
+    "UnlockValues": [3],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -11218,36 +9444,16 @@
       "y": 17
     },
     "PreItem": [],
-    "PreTechs": [
-      2405
-    ],
-    "PreTechsImplicit": [
-      2105
-    ],
+    "PreTechs": [2405],
+    "PreTechsImplicit": [2105],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      4,
-      4,
-      4,
-      4,
-      4
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [4, 4, 4, 4, 4],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      9
-    ],
-    "UnlockValues": [
-      2
-    ],
+    "UnlockFunctions": [9],
+    "UnlockValues": [2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -11323,28 +9529,16 @@
       "y": 17
     },
     "PreItem": [],
-    "PreTechs": [
-      2406
-    ],
-    "PreTechsImplicit": [
-      2105
-    ],
+    "PreTechs": [2406],
+    "PreTechsImplicit": [2105],
     "PreTechsMax": false,
-    "Items": [
-      6006
-    ],
-    "ItemPoints": [
-      4
-    ],
+    "Items": [6006],
+    "ItemPoints": [4],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      1
-    ],
-    "UnlockValues": [
-      3
-    ],
+    "UnlockFunctions": [1],
+    "UnlockValues": [3],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -11409,33 +9603,15 @@
     },
     "PreItem": [],
     "PreTechs": [],
-    "PreTechsImplicit": [
-      2101
-    ],
+    "PreTechsImplicit": [2101],
     "PreTechsMax": false,
-    "Items": [
-      1030,
-      1006,
-      1109
-    ],
-    "ItemPoints": [
-      30,
-      30,
-      30
-    ],
-    "PropertyOverrideItems": [
-      6001
-    ],
-    "PropertyItemCounts": [
-      200
-    ],
+    "Items": [1030, 1006, 1109],
+    "ItemPoints": [30, 30, 30],
+    "PropertyOverrideItems": [6001],
+    "PropertyItemCounts": [200],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      2
-    ],
-    "UnlockValues": [
-      200000
-    ],
+    "UnlockFunctions": [2],
+    "UnlockValues": [200000],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [],
@@ -11486,30 +9662,16 @@
       "y": 5
     },
     "PreItem": [],
-    "PreTechs": [
-      2501
-    ],
-    "PreTechsImplicit": [
-      2102
-    ],
+    "PreTechs": [2501],
+    "PreTechsImplicit": [2102],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      20
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      2
-    ],
-    "UnlockValues": [
-      200000
-    ],
+    "UnlockFunctions": [2],
+    "UnlockValues": [200000],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -11564,32 +9726,16 @@
       "y": 5
     },
     "PreItem": [],
-    "PreTechs": [
-      2502
-    ],
-    "PreTechsImplicit": [
-      2103
-    ],
+    "PreTechs": [2502],
+    "PreTechsImplicit": [2103],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      20
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [20, 20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      2
-    ],
-    "UnlockValues": [
-      200000
-    ],
+    "UnlockFunctions": [2],
+    "UnlockValues": [200000],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -11651,32 +9797,16 @@
       "y": 5
     },
     "PreItem": [],
-    "PreTechs": [
-      2503
-    ],
-    "PreTechsImplicit": [
-      2104
-    ],
+    "PreTechs": [2503],
+    "PreTechsImplicit": [2104],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [12, 12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      2
-    ],
-    "UnlockValues": [
-      200000
-    ],
+    "UnlockFunctions": [2],
+    "UnlockValues": [200000],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -11742,36 +9872,16 @@
       "y": 5
     },
     "PreItem": [],
-    "PreTechs": [
-      2504
-    ],
-    "PreTechsImplicit": [
-      2105
-    ],
+    "PreTechs": [2504],
+    "PreTechsImplicit": [2105],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      4,
-      4,
-      4,
-      4,
-      4
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [4, 4, 4, 4, 4],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      2
-    ],
-    "UnlockValues": [
-      800000
-    ],
+    "UnlockFunctions": [2],
+    "UnlockValues": [800000],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -11847,28 +9957,16 @@
       "y": 5
     },
     "PreItem": [],
-    "PreTechs": [
-      2505
-    ],
-    "PreTechsImplicit": [
-      2105
-    ],
+    "PreTechs": [2505],
+    "PreTechsImplicit": [2105],
     "PreTechsMax": false,
-    "Items": [
-      6006
-    ],
-    "ItemPoints": [
-      4
-    ],
+    "Items": [6006],
+    "ItemPoints": [4],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      2
-    ],
-    "UnlockValues": [
-      1000000
-    ],
+    "UnlockFunctions": [2],
+    "UnlockValues": [1000000],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -11933,25 +10031,15 @@
     },
     "PreItem": [],
     "PreTechs": [],
-    "PreTechsImplicit": [
-      2101
-    ],
+    "PreTechsImplicit": [2101],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      40
-    ],
+    "Items": [6001],
+    "ItemPoints": [40],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      10
-    ],
-    "UnlockValues": [
-      2
-    ],
+    "UnlockFunctions": [10],
+    "UnlockValues": [2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [],
@@ -11995,30 +10083,16 @@
       "y": 1
     },
     "PreItem": [],
-    "PreTechs": [
-      2601
-    ],
-    "PreTechsImplicit": [
-      2102
-    ],
+    "PreTechs": [2601],
+    "PreTechsImplicit": [2102],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      20
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      10
-    ],
-    "UnlockValues": [
-      2
-    ],
+    "UnlockFunctions": [10],
+    "UnlockValues": [2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -12073,32 +10147,16 @@
       "y": 1
     },
     "PreItem": [],
-    "PreTechs": [
-      2602
-    ],
-    "PreTechsImplicit": [
-      2103
-    ],
+    "PreTechs": [2602],
+    "PreTechsImplicit": [2103],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      20
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [20, 20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      10
-    ],
-    "UnlockValues": [
-      2
-    ],
+    "UnlockFunctions": [10],
+    "UnlockValues": [2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -12160,34 +10218,16 @@
       "y": 1
     },
     "PreItem": [],
-    "PreTechs": [
-      2603
-    ],
-    "PreTechsImplicit": [
-      2104
-    ],
+    "PreTechs": [2603],
+    "PreTechsImplicit": [2104],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12,
-      12
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [12, 12, 12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      10
-    ],
-    "UnlockValues": [
-      3
-    ],
+    "UnlockFunctions": [10],
+    "UnlockValues": [3],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -12256,36 +10296,16 @@
       "y": 1
     },
     "PreItem": [],
-    "PreTechs": [
-      2604
-    ],
-    "PreTechsImplicit": [
-      2105
-    ],
+    "PreTechs": [2604],
+    "PreTechsImplicit": [2105],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      4,
-      4,
-      4,
-      4,
-      4
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [4, 4, 4, 4, 4],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      10
-    ],
-    "UnlockValues": [
-      3
-    ],
+    "UnlockFunctions": [10],
+    "UnlockValues": [3],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -12361,28 +10381,16 @@
       "y": 1
     },
     "PreItem": [],
-    "PreTechs": [
-      2605
-    ],
-    "PreTechsImplicit": [
-      2105
-    ],
+    "PreTechs": [2605],
+    "PreTechsImplicit": [2105],
     "PreTechsMax": false,
-    "Items": [
-      6006
-    ],
-    "ItemPoints": [
-      4
-    ],
+    "Items": [6006],
+    "ItemPoints": [4],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      10
-    ],
-    "UnlockValues": [
-      3
-    ],
+    "UnlockFunctions": [10],
+    "UnlockValues": [3],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -12447,29 +10455,15 @@
     },
     "PreItem": [],
     "PreTechs": [],
-    "PreTechsImplicit": [
-      2101
-    ],
+    "PreTechsImplicit": [2101],
     "PreTechsMax": false,
-    "Items": [
-      1301
-    ],
-    "ItemPoints": [
-      30
-    ],
-    "PropertyOverrideItems": [
-      6001
-    ],
-    "PropertyItemCounts": [
-      100
-    ],
+    "Items": [1301],
+    "ItemPoints": [30],
+    "PropertyOverrideItems": [6001],
+    "PropertyItemCounts": [100],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      28
-    ],
-    "UnlockValues": [
-      150
-    ],
+    "UnlockFunctions": [28],
+    "UnlockValues": [150],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [],
@@ -12514,28 +10508,16 @@
       "y": 9
     },
     "PreItem": [],
-    "PreTechs": [
-      2701
-    ],
-    "PreTechsImplicit": [
-      2101
-    ],
+    "PreTechs": [2701],
+    "PreTechsImplicit": [2101],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      30
-    ],
+    "Items": [6001],
+    "ItemPoints": [30],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      28
-    ],
-    "UnlockValues": [
-      300
-    ],
+    "UnlockFunctions": [28],
+    "UnlockValues": [300],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -12583,30 +10565,16 @@
       "y": 9
     },
     "PreItem": [],
-    "PreTechs": [
-      2702
-    ],
-    "PreTechsImplicit": [
-      2102
-    ],
+    "PreTechs": [2702],
+    "PreTechsImplicit": [2102],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      30,
-      30
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [30, 30],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      28
-    ],
-    "UnlockValues": [
-      900
-    ],
+    "UnlockFunctions": [28],
+    "UnlockValues": [900],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -12661,32 +10629,16 @@
       "y": 9
     },
     "PreItem": [],
-    "PreTechs": [
-      2703
-    ],
-    "PreTechsImplicit": [
-      2103
-    ],
+    "PreTechs": [2703],
+    "PreTechsImplicit": [2103],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      15,
-      15,
-      15
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [15, 15, 15],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      28
-    ],
-    "UnlockValues": [
-      3600
-    ],
+    "UnlockFunctions": [28],
+    "UnlockValues": [3600],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -12748,34 +10700,16 @@
       "y": 9
     },
     "PreItem": [],
-    "PreTechs": [
-      2704
-    ],
-    "PreTechsImplicit": [
-      2104
-    ],
+    "PreTechs": [2704],
+    "PreTechsImplicit": [2104],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      15,
-      15,
-      15,
-      15
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [15, 15, 15, 15],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      28
-    ],
-    "UnlockValues": [
-      1048576
-    ],
+    "UnlockFunctions": [28],
+    "UnlockValues": [1048576],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -12841,29 +10775,15 @@
     },
     "PreItem": [],
     "PreTechs": [],
-    "PreTechsImplicit": [
-      1001
-    ],
+    "PreTechsImplicit": [1001],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      40
-    ],
+    "Items": [6001],
+    "ItemPoints": [40],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      75,
-      65,
-      66
-    ],
-    "UnlockValues": [
-      1,
-      2,
-      100000000
-    ],
+    "UnlockFunctions": [75, 65, 66],
+    "UnlockValues": [1, 2, 100000000],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [],
@@ -12907,32 +10827,16 @@
       "y": -7
     },
     "PreItem": [],
-    "PreTechs": [
-      2801
-    ],
-    "PreTechsImplicit": [
-      2102
-    ],
+    "PreTechs": [2801],
+    "PreTechsImplicit": [2102],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      10,
-      10
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      65,
-      66
-    ],
-    "UnlockValues": [
-      0.5,
-      200000000
-    ],
+    "UnlockFunctions": [65, 66],
+    "UnlockValues": [0.5, 200000000],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -12987,34 +10891,16 @@
       "y": -7
     },
     "PreItem": [],
-    "PreTechs": [
-      2802
-    ],
-    "PreTechsImplicit": [
-      2103
-    ],
+    "PreTechs": [2802],
+    "PreTechsImplicit": [2103],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      5,
-      5,
-      5
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [5, 5, 5],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      65,
-      66
-    ],
-    "UnlockValues": [
-      0.5,
-      200000000
-    ],
+    "UnlockFunctions": [65, 66],
+    "UnlockValues": [0.5, 200000000],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -13076,34 +10962,16 @@
       "y": -7
     },
     "PreItem": [],
-    "PreTechs": [
-      2803
-    ],
+    "PreTechs": [2803],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      6,
-      6,
-      6,
-      6
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [6, 6, 6, 6],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      65,
-      66
-    ],
-    "UnlockValues": [
-      1,
-      200000000
-    ],
+    "UnlockFunctions": [65, 66],
+    "UnlockValues": [1, 200000000],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -13172,38 +11040,16 @@
       "y": -7
     },
     "PreItem": [],
-    "PreTechs": [
-      2804
-    ],
-    "PreTechsImplicit": [
-      2104
-    ],
+    "PreTechs": [2804],
+    "PreTechsImplicit": [2104],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      5,
-      5,
-      5,
-      5,
-      5
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [5, 5, 5, 5, 5],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      65,
-      66
-    ],
-    "UnlockValues": [
-      1,
-      300000000
-    ],
+    "UnlockFunctions": [65, 66],
+    "UnlockValues": [1, 300000000],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -13279,30 +11125,16 @@
       "y": -7
     },
     "PreItem": [],
-    "PreTechs": [
-      2805
-    ],
-    "PreTechsImplicit": [
-      2105
-    ],
+    "PreTechs": [2805],
+    "PreTechsImplicit": [2105],
     "PreTechsMax": false,
-    "Items": [
-      6006
-    ],
-    "ItemPoints": [
-      4
-    ],
+    "Items": [6006],
+    "ItemPoints": [4],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      65,
-      66
-    ],
-    "UnlockValues": [
-      1,
-      500000000
-    ],
+    "UnlockFunctions": [65, 66],
+    "UnlockValues": [1, 500000000],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -13370,26 +11202,16 @@
       "y": -7
     },
     "PreItem": [],
-    "PreTechs": [
-      2806
-    ],
+    "PreTechs": [2806],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6006
-    ],
-    "ItemPoints": [
-      4
-    ],
+    "Items": [6006],
+    "ItemPoints": [4],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      66
-    ],
-    "UnlockValues": [
-      500000000
-    ],
+    "UnlockFunctions": [66],
+    "UnlockValues": [500000000],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -13454,31 +11276,15 @@
     },
     "PreItem": [],
     "PreTechs": [],
-    "PreTechsImplicit": [
-      2101
-    ],
+    "PreTechsImplicit": [2101],
     "PreTechsMax": false,
-    "Items": [
-      1006,
-      1407
-    ],
-    "ItemPoints": [
-      30,
-      10
-    ],
-    "PropertyOverrideItems": [
-      6001
-    ],
-    "PropertyItemCounts": [
-      200
-    ],
+    "Items": [1006, 1407],
+    "ItemPoints": [30, 10],
+    "PropertyOverrideItems": [6001],
+    "PropertyItemCounts": [200],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      4
-    ],
-    "UnlockValues": [
-      1
-    ],
+    "UnlockFunctions": [4],
+    "UnlockValues": [1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [],
@@ -13526,30 +11332,16 @@
       "y": -3
     },
     "PreItem": [],
-    "PreTechs": [
-      2901
-    ],
-    "PreTechsImplicit": [
-      2102
-    ],
+    "PreTechs": [2901],
+    "PreTechsImplicit": [2102],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      20
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      4
-    ],
-    "UnlockValues": [
-      2
-    ],
+    "UnlockFunctions": [4],
+    "UnlockValues": [2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -13604,32 +11396,16 @@
       "y": -3
     },
     "PreItem": [],
-    "PreTechs": [
-      2902
-    ],
-    "PreTechsImplicit": [
-      2103
-    ],
+    "PreTechs": [2902],
+    "PreTechsImplicit": [2103],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      20
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [20, 20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      11
-    ],
-    "UnlockValues": [
-      1000
-    ],
+    "UnlockFunctions": [11],
+    "UnlockValues": [1000],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -13691,33 +11467,16 @@
       "y": -3
     },
     "PreItem": [],
-    "PreTechs": [
-      2903
-    ],
-    "PreTechsImplicit": [
-      2104,
-      1704
-    ],
+    "PreTechs": [2903],
+    "PreTechsImplicit": [2104, 1704],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      10,
-      10,
-      10
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [10, 10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      4
-    ],
-    "UnlockValues": [
-      3
-    ],
+    "UnlockFunctions": [4],
+    "UnlockValues": [3],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -13783,32 +11542,16 @@
       "y": -3
     },
     "PreItem": [],
-    "PreTechs": [
-      2904
-    ],
+    "PreTechs": [2904],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6005
-    ],
-    "ItemPoints": [
-      10,
-      10,
-      10,
-      10
-    ],
+    "Items": [6001, 6002, 6003, 6005],
+    "ItemPoints": [10, 10, 10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      27
-    ],
-    "UnlockValues": [
-      3
-    ],
+    "UnlockFunctions": [27],
+    "UnlockValues": [3],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -13881,26 +11624,16 @@
       "y": -3
     },
     "PreItem": [],
-    "PreTechs": [
-      2905
-    ],
+    "PreTechs": [2905],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6006
-    ],
-    "ItemPoints": [
-      10
-    ],
+    "Items": [6006],
+    "ItemPoints": [10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      27
-    ],
-    "UnlockValues": [
-      3
-    ],
+    "UnlockFunctions": [27],
+    "UnlockValues": [3],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -13965,25 +11698,15 @@
     },
     "PreItem": [],
     "PreTechs": [],
-    "PreTechsImplicit": [
-      2101
-    ],
+    "PreTechsImplicit": [2101],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      40
-    ],
+    "Items": [6001],
+    "ItemPoints": [40],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      76
-    ],
-    "UnlockValues": [
-      1
-    ],
+    "UnlockFunctions": [76],
+    "UnlockValues": [1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [],
@@ -14027,28 +11750,16 @@
       "y": 13
     },
     "PreItem": [],
-    "PreTechs": [
-      2951
-    ],
+    "PreTechs": [2951],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      20
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      76
-    ],
-    "UnlockValues": [
-      3
-    ],
+    "UnlockFunctions": [76],
+    "UnlockValues": [3],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -14103,30 +11814,16 @@
       "y": 13
     },
     "PreItem": [],
-    "PreTechs": [
-      2952
-    ],
+    "PreTechs": [2952],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      20
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [20, 20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      76
-    ],
-    "UnlockValues": [
-      6
-    ],
+    "UnlockFunctions": [76],
+    "UnlockValues": [6],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -14188,32 +11885,16 @@
       "y": 13
     },
     "PreItem": [],
-    "PreTechs": [
-      2953
-    ],
+    "PreTechs": [2953],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12,
-      12
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [12, 12, 12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      76
-    ],
-    "UnlockValues": [
-      15
-    ],
+    "UnlockFunctions": [76],
+    "UnlockValues": [15],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -14282,34 +11963,16 @@
       "y": 13
     },
     "PreItem": [],
-    "PreTechs": [
-      2954
-    ],
+    "PreTechs": [2954],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      8,
-      8,
-      8,
-      8,
-      8
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [8, 8, 8, 8, 8],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      76
-    ],
-    "UnlockValues": [
-      30
-    ],
+    "UnlockFunctions": [76],
+    "UnlockValues": [30],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -14385,26 +12048,16 @@
       "y": 13
     },
     "PreItem": [],
-    "PreTechs": [
-      2955
-    ],
+    "PreTechs": [2955],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6006
-    ],
-    "ItemPoints": [
-      8
-    ],
+    "Items": [6006],
+    "ItemPoints": [8],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      76
-    ],
-    "UnlockValues": [
-      9999
-    ],
+    "UnlockFunctions": [76],
+    "UnlockValues": [9999],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -14469,29 +12122,15 @@
     },
     "PreItem": [],
     "PreTechs": [],
-    "PreTechsImplicit": [
-      1503
-    ],
+    "PreTechsImplicit": [1503],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      40,
-      40,
-      40
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [40, 40, 40],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      12
-    ],
-    "UnlockValues": [
-      300
-    ],
+    "UnlockFunctions": [12],
+    "UnlockValues": [300],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [],
@@ -14549,30 +12188,16 @@
       "y": -15
     },
     "PreItem": [],
-    "PreTechs": [
-      3101
-    ],
+    "PreTechs": [3101],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      20
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [20, 20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      12
-    ],
-    "UnlockValues": [
-      300
-    ],
+    "UnlockFunctions": [12],
+    "UnlockValues": [300],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -14634,30 +12259,16 @@
       "y": -15
     },
     "PreItem": [],
-    "PreTechs": [
-      3102
-    ],
+    "PreTechs": [3102],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      20
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [20, 20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      12
-    ],
-    "UnlockValues": [
-      600
-    ],
+    "UnlockFunctions": [12],
+    "UnlockValues": [600],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -14719,32 +12330,16 @@
       "y": -15
     },
     "PreItem": [],
-    "PreTechs": [
-      3103
-    ],
+    "PreTechs": [3103],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12,
-      12
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [12, 12, 12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      12
-    ],
-    "UnlockValues": [
-      600
-    ],
+    "UnlockFunctions": [12],
+    "UnlockValues": [600],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -14813,32 +12408,16 @@
       "y": -15
     },
     "PreItem": [],
-    "PreTechs": [
-      3104
-    ],
+    "PreTechs": [3104],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12,
-      12
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [12, 12, 12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      12
-    ],
-    "UnlockValues": [
-      900
-    ],
+    "UnlockFunctions": [12],
+    "UnlockValues": [900],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -14907,32 +12486,16 @@
       "y": -15
     },
     "PreItem": [],
-    "PreTechs": [
-      3105
-    ],
+    "PreTechs": [3105],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      6,
-      6,
-      6,
-      6
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [6, 6, 6, 6],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      12
-    ],
-    "UnlockValues": [
-      900
-    ],
+    "UnlockFunctions": [12],
+    "UnlockValues": [900],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -14998,29 +12561,15 @@
     },
     "PreItem": [],
     "PreTechs": [],
-    "PreTechsImplicit": [
-      1504
-    ],
+    "PreTechsImplicit": [1504],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      40,
-      40,
-      40
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [40, 40, 40],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      13
-    ],
-    "UnlockValues": [
-      0.9
-    ],
+    "UnlockFunctions": [13],
+    "UnlockValues": [0.9],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [],
@@ -15078,30 +12627,16 @@
       "y": -19
     },
     "PreItem": [],
-    "PreTechs": [
-      3201
-    ],
+    "PreTechs": [3201],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      20
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [20, 20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      13
-    ],
-    "UnlockValues": [
-      0.9
-    ],
+    "UnlockFunctions": [13],
+    "UnlockValues": [0.9],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -15163,30 +12698,16 @@
       "y": -19
     },
     "PreItem": [],
-    "PreTechs": [
-      3202
-    ],
+    "PreTechs": [3202],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      20
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [20, 20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      13
-    ],
-    "UnlockValues": [
-      0.9
-    ],
+    "UnlockFunctions": [13],
+    "UnlockValues": [0.9],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -15248,32 +12769,16 @@
       "y": -19
     },
     "PreItem": [],
-    "PreTechs": [
-      3203
-    ],
+    "PreTechs": [3203],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12,
-      12
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [12, 12, 12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      13
-    ],
-    "UnlockValues": [
-      0.9
-    ],
+    "UnlockFunctions": [13],
+    "UnlockValues": [0.9],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -15342,32 +12847,16 @@
       "y": -19
     },
     "PreItem": [],
-    "PreTechs": [
-      3204
-    ],
+    "PreTechs": [3204],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12,
-      12
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [12, 12, 12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      13
-    ],
-    "UnlockValues": [
-      0.9
-    ],
+    "UnlockFunctions": [13],
+    "UnlockValues": [0.9],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -15436,34 +12925,16 @@
       "y": -19
     },
     "PreItem": [],
-    "PreTechs": [
-      3205
-    ],
+    "PreTechs": [3205],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12,
-      12,
-      12
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [12, 12, 12, 12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      13
-    ],
-    "UnlockValues": [
-      0.9
-    ],
+    "UnlockFunctions": [13],
+    "UnlockValues": [0.9],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -15539,34 +13010,16 @@
       "y": -19
     },
     "PreItem": [],
-    "PreTechs": [
-      3206
-    ],
+    "PreTechs": [3206],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      4,
-      4,
-      4,
-      4,
-      4
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [4, 4, 4, 4, 4],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      13
-    ],
-    "UnlockValues": [
-      0.85
-    ],
+    "UnlockFunctions": [13],
+    "UnlockValues": [0.85],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -15642,26 +13095,16 @@
       "y": -19
     },
     "PreItem": [],
-    "PreTechs": [
-      3207
-    ],
+    "PreTechs": [3207],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6006
-    ],
-    "ItemPoints": [
-      4
-    ],
+    "Items": [6006],
+    "ItemPoints": [4],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      13
-    ],
-    "UnlockValues": [
-      0.85
-    ],
+    "UnlockFunctions": [13],
+    "UnlockValues": [0.85],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -15726,29 +13169,15 @@
     },
     "PreItem": [],
     "PreTechs": [],
-    "PreTechsImplicit": [
-      1603
-    ],
+    "PreTechsImplicit": [1603],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      40,
-      40,
-      40
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [40, 40, 40],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      14
-    ],
-    "UnlockValues": [
-      2
-    ],
+    "UnlockFunctions": [14],
+    "UnlockValues": [2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [],
@@ -15806,30 +13235,16 @@
       "y": -27
     },
     "PreItem": [],
-    "PreTechs": [
-      3301
-    ],
+    "PreTechs": [3301],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      20
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [20, 20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      14
-    ],
-    "UnlockValues": [
-      3
-    ],
+    "UnlockFunctions": [14],
+    "UnlockValues": [3],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -15891,30 +13306,16 @@
       "y": -27
     },
     "PreItem": [],
-    "PreTechs": [
-      3302
-    ],
+    "PreTechs": [3302],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      20
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [20, 20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      14
-    ],
-    "UnlockValues": [
-      4
-    ],
+    "UnlockFunctions": [14],
+    "UnlockValues": [4],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -15976,30 +13377,16 @@
       "y": -27
     },
     "PreItem": [],
-    "PreTechs": [
-      3303
-    ],
+    "PreTechs": [3303],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [12, 12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      14
-    ],
-    "UnlockValues": [
-      5
-    ],
+    "UnlockFunctions": [14],
+    "UnlockValues": [5],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -16061,30 +13448,16 @@
       "y": -27
     },
     "PreItem": [],
-    "PreTechs": [
-      3304
-    ],
+    "PreTechs": [3304],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      6,
-      6,
-      6
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [6, 6, 6],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      14
-    ],
-    "UnlockValues": [
-      6
-    ],
+    "UnlockFunctions": [14],
+    "UnlockValues": [6],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -16143,27 +13516,15 @@
     },
     "PreItem": [],
     "PreTechs": [],
-    "PreTechsImplicit": [
-      1608
-    ],
+    "PreTechsImplicit": [1608],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      40,
-      40
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [40, 40],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      36
-    ],
-    "UnlockValues": [
-      20
-    ],
+    "UnlockFunctions": [36],
+    "UnlockValues": [20],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [],
@@ -16214,30 +13575,16 @@
       "y": -31
     },
     "PreItem": [],
-    "PreTechs": [
-      4001
-    ],
+    "PreTechs": [4001],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      20
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [20, 20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      36
-    ],
-    "UnlockValues": [
-      20
-    ],
+    "UnlockFunctions": [36],
+    "UnlockValues": [20],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -16299,30 +13646,16 @@
       "y": -31
     },
     "PreItem": [],
-    "PreTechs": [
-      4002
-    ],
+    "PreTechs": [4002],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      20
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [20, 20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      36
-    ],
-    "UnlockValues": [
-      30
-    ],
+    "UnlockFunctions": [36],
+    "UnlockValues": [30],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -16384,32 +13717,16 @@
       "y": -31
     },
     "PreItem": [],
-    "PreTechs": [
-      4003
-    ],
+    "PreTechs": [4003],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      20,
-      20
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [20, 20, 20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      36
-    ],
-    "UnlockValues": [
-      30
-    ],
+    "UnlockFunctions": [36],
+    "UnlockValues": [30],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -16478,34 +13795,16 @@
       "y": -31
     },
     "PreItem": [],
-    "PreTechs": [
-      4004
-    ],
+    "PreTechs": [4004],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12,
-      12,
-      12
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [12, 12, 12, 12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      36
-    ],
-    "UnlockValues": [
-      40
-    ],
+    "UnlockFunctions": [36],
+    "UnlockValues": [40],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -16578,31 +13877,15 @@
     },
     "PreItem": [],
     "PreTechs": [],
-    "PreTechsImplicit": [
-      1604
-    ],
+    "PreTechsImplicit": [1604],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      40,
-      40,
-      40
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [40, 40, 40],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      15,
-      34
-    ],
-    "UnlockValues": [
-      0.2,
-      0.1
-    ],
+    "UnlockFunctions": [15, 34],
+    "UnlockValues": [0.2, 0.1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [],
@@ -16660,32 +13943,16 @@
       "y": -35
     },
     "PreItem": [],
-    "PreTechs": [
-      3401
-    ],
+    "PreTechs": [3401],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      20
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [20, 20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      15,
-      34
-    ],
-    "UnlockValues": [
-      0.2,
-      0.1
-    ],
+    "UnlockFunctions": [15, 34],
+    "UnlockValues": [0.2, 0.1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -16747,36 +14014,16 @@
       "y": -35
     },
     "PreItem": [],
-    "PreTechs": [
-      3402
-    ],
-    "PreTechsImplicit": [
-      1605
-    ],
+    "PreTechs": [3402],
+    "PreTechsImplicit": [1605],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      20
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [20, 20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      15,
-      34,
-      16
-    ],
-    "UnlockValues": [
-      0.3,
-      0.15,
-      0.5
-    ],
+    "UnlockFunctions": [15, 34, 16],
+    "UnlockValues": [0.3, 0.15, 0.5],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -16838,40 +14085,16 @@
       "y": -35
     },
     "PreItem": [],
-    "PreTechs": [
-      3403
-    ],
-    "PreTechsImplicit": [
-      2904
-    ],
+    "PreTechs": [3403],
+    "PreTechsImplicit": [2904],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12,
-      12
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [12, 12, 12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      15,
-      34,
-      16,
-      17
-    ],
-    "UnlockValues": [
-      0.3,
-      0.15,
-      0.5,
-      1
-    ],
+    "UnlockFunctions": [15, 34, 16, 17],
+    "UnlockValues": [0.3, 0.15, 0.5, 1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -16940,38 +14163,16 @@
       "y": -35
     },
     "PreItem": [],
-    "PreTechs": [
-      3404
-    ],
+    "PreTechs": [3404],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12,
-      12,
-      12
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [12, 12, 12, 12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      15,
-      34,
-      16
-    ],
-    "UnlockValues": [
-      0.4,
-      0.15,
-      0.5
-    ],
+    "UnlockFunctions": [15, 34, 16],
+    "UnlockValues": [0.4, 0.15, 0.5],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -17047,38 +14248,16 @@
       "y": -35
     },
     "PreItem": [],
-    "PreTechs": [
-      3405
-    ],
+    "PreTechs": [3405],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      4,
-      4,
-      4,
-      4,
-      4
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [4, 4, 4, 4, 4],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      15,
-      34,
-      16
-    ],
-    "UnlockValues": [
-      0.4,
-      0.15,
-      0.5
-    ],
+    "UnlockFunctions": [15, 34, 16],
+    "UnlockValues": [0.4, 0.15, 0.5],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -17154,30 +14333,16 @@
       "y": -35
     },
     "PreItem": [],
-    "PreTechs": [
-      3406
-    ],
+    "PreTechs": [3406],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6006
-    ],
-    "ItemPoints": [
-      4
-    ],
+    "Items": [6006],
+    "ItemPoints": [4],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      15,
-      34,
-      16
-    ],
-    "UnlockValues": [
-      0.5,
-      0.2,
-      0.5
-    ],
+    "UnlockFunctions": [15, 34, 16],
+    "UnlockValues": [0.5, 0.2, 0.5],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -17242,31 +14407,15 @@
     },
     "PreItem": [],
     "PreTechs": [],
-    "PreTechsImplicit": [
-      1604
-    ],
+    "PreTechsImplicit": [1604],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      40,
-      40,
-      40
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [40, 40, 40],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      35,
-      18
-    ],
-    "UnlockValues": [
-      1,
-      5
-    ],
+    "UnlockFunctions": [35, 18],
+    "UnlockValues": [1, 5],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [],
@@ -17324,32 +14473,16 @@
       "y": -39
     },
     "PreItem": [],
-    "PreTechs": [
-      3501
-    ],
+    "PreTechs": [3501],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      20
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [20, 20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      35,
-      18
-    ],
-    "UnlockValues": [
-      1,
-      5
-    ],
+    "UnlockFunctions": [35, 18],
+    "UnlockValues": [1, 5],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -17411,36 +14544,16 @@
       "y": -39
     },
     "PreItem": [],
-    "PreTechs": [
-      3502
-    ],
-    "PreTechsImplicit": [
-      1605
-    ],
+    "PreTechs": [3502],
+    "PreTechsImplicit": [1605],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      20
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [20, 20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      35,
-      18,
-      19
-    ],
-    "UnlockValues": [
-      2,
-      5,
-      100
-    ],
+    "UnlockFunctions": [35, 18, 19],
+    "UnlockValues": [2, 5, 100],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -17502,34 +14615,16 @@
       "y": -39
     },
     "PreItem": [],
-    "PreTechs": [
-      3503
-    ],
+    "PreTechs": [3503],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [12, 12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      35,
-      18,
-      19
-    ],
-    "UnlockValues": [
-      2,
-      10,
-      100
-    ],
+    "UnlockFunctions": [35, 18, 19],
+    "UnlockValues": [2, 10, 100],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -17591,36 +14686,16 @@
       "y": -39
     },
     "PreItem": [],
-    "PreTechs": [
-      3504
-    ],
+    "PreTechs": [3504],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      6,
-      6,
-      6,
-      6
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [6, 6, 6, 6],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      35,
-      18,
-      19
-    ],
-    "UnlockValues": [
-      2,
-      10,
-      100
-    ],
+    "UnlockFunctions": [35, 18, 19],
+    "UnlockValues": [2, 10, 100],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -17689,36 +14764,16 @@
       "y": -39
     },
     "PreItem": [],
-    "PreTechs": [
-      3505
-    ],
+    "PreTechs": [3505],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      6,
-      6,
-      6,
-      6
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [6, 6, 6, 6],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      35,
-      18,
-      19
-    ],
-    "UnlockValues": [
-      2,
-      10,
-      100
-    ],
+    "UnlockFunctions": [35, 18, 19],
+    "UnlockValues": [2, 10, 100],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -17787,38 +14842,16 @@
       "y": -39
     },
     "PreItem": [],
-    "PreTechs": [
-      3506
-    ],
+    "PreTechs": [3506],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      3,
-      3,
-      3,
-      3,
-      3
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [3, 3, 3, 3, 3],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      35,
-      18,
-      19
-    ],
-    "UnlockValues": [
-      2,
-      10,
-      200
-    ],
+    "UnlockFunctions": [35, 18, 19],
+    "UnlockValues": [2, 10, 200],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -17894,36 +14927,16 @@
       "y": -39
     },
     "PreItem": [],
-    "PreTechs": [
-      3507
-    ],
+    "PreTechs": [3507],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      3,
-      3,
-      3,
-      3,
-      3
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [3, 3, 3, 3, 3],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      18,
-      19
-    ],
-    "UnlockValues": [
-      20,
-      200
-    ],
+    "UnlockFunctions": [18, 19],
+    "UnlockValues": [20, 200],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -17999,32 +15012,16 @@
       "y": -39
     },
     "PreItem": [],
-    "PreTechs": [
-      3508
-    ],
+    "PreTechs": [3508],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6006
-    ],
-    "ItemPoints": [
-      3
-    ],
+    "Items": [6006],
+    "ItemPoints": [3],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      18,
-      19,
-      30,
-      31
-    ],
-    "UnlockValues": [
-      20,
-      200,
-      1000,
-      2000
-    ],
+    "UnlockFunctions": [18, 19, 30, 31],
+    "UnlockValues": [20, 200, 1000, 2000],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -18092,32 +15089,16 @@
       "y": -39
     },
     "PreItem": [],
-    "PreTechs": [
-      3509
-    ],
+    "PreTechs": [3509],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6006
-    ],
-    "ItemPoints": [
-      3
-    ],
+    "Items": [6006],
+    "ItemPoints": [3],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      18,
-      19,
-      30,
-      31
-    ],
-    "UnlockValues": [
-      20,
-      200,
-      1000,
-      2000
-    ],
+    "UnlockFunctions": [18, 19, 30, 31],
+    "UnlockValues": [20, 200, 1000, 2000],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -18182,25 +15163,15 @@
     },
     "PreItem": [],
     "PreTechs": [],
-    "PreTechsImplicit": [
-      3508
-    ],
+    "PreTechsImplicit": [3508],
     "PreTechsMax": false,
-    "Items": [
-      6006
-    ],
-    "ItemPoints": [
-      3
-    ],
+    "Items": [6006],
+    "ItemPoints": [3],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      29
-    ],
-    "UnlockValues": [
-      1
-    ],
+    "UnlockFunctions": [29],
+    "UnlockValues": [1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [],
@@ -18264,28 +15235,16 @@
       "y": -35
     },
     "PreItem": [],
-    "PreTechs": [
-      3801
-    ],
-    "PreTechsImplicit": [
-      3509
-    ],
+    "PreTechs": [3801],
+    "PreTechsImplicit": [3509],
     "PreTechsMax": true,
-    "Items": [
-      6006
-    ],
-    "ItemPoints": [
-      2
-    ],
+    "Items": [6006],
+    "ItemPoints": [2],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      29
-    ],
-    "UnlockValues": [
-      1
-    ],
+    "UnlockFunctions": [29],
+    "UnlockValues": [1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -18353,28 +15312,16 @@
       "y": -35
     },
     "PreItem": [],
-    "PreTechs": [
-      3802
-    ],
-    "PreTechsImplicit": [
-      3510
-    ],
+    "PreTechs": [3802],
+    "PreTechsImplicit": [3510],
     "PreTechsMax": true,
-    "Items": [
-      6006
-    ],
-    "ItemPoints": [
-      2
-    ],
+    "Items": [6006],
+    "ItemPoints": [2],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      29
-    ],
-    "UnlockValues": [
-      1
-    ],
+    "UnlockFunctions": [29],
+    "UnlockValues": [1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -18439,29 +15386,15 @@
     },
     "PreItem": [],
     "PreTechs": [],
-    "PreTechsImplicit": [
-      1001
-    ],
+    "PreTechsImplicit": [1001],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      40,
-      40
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [40, 40],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      20,
-      21
-    ],
-    "UnlockValues": [
-      0.94,
-      0.1
-    ],
+    "UnlockFunctions": [20, 21],
+    "UnlockValues": [0.94, 0.1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [],
@@ -18512,32 +15445,16 @@
       "y": -43
     },
     "PreItem": [],
-    "PreTechs": [
-      3601
-    ],
+    "PreTechs": [3601],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      20
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [20, 20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      20,
-      21
-    ],
-    "UnlockValues": [
-      0.94,
-      0.1
-    ],
+    "UnlockFunctions": [20, 21],
+    "UnlockValues": [0.94, 0.1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -18599,34 +15516,16 @@
       "y": -43
     },
     "PreItem": [],
-    "PreTechs": [
-      3602
-    ],
+    "PreTechs": [3602],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      20,
-      20
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [20, 20, 20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      20,
-      21
-    ],
-    "UnlockValues": [
-      0.94,
-      0.1
-    ],
+    "UnlockFunctions": [20, 21],
+    "UnlockValues": [0.94, 0.1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -18695,34 +15594,16 @@
       "y": -43
     },
     "PreItem": [],
-    "PreTechs": [
-      3603
-    ],
+    "PreTechs": [3603],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12,
-      12
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [12, 12, 12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      20,
-      21
-    ],
-    "UnlockValues": [
-      0.94,
-      0.1
-    ],
+    "UnlockFunctions": [20, 21],
+    "UnlockValues": [0.94, 0.1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -18791,36 +15672,16 @@
       "y": -43
     },
     "PreItem": [],
-    "PreTechs": [
-      3604
-    ],
+    "PreTechs": [3604],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      4,
-      4,
-      4,
-      4,
-      4
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [4, 4, 4, 4, 4],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      20,
-      21
-    ],
-    "UnlockValues": [
-      0.94,
-      0.1
-    ],
+    "UnlockFunctions": [20, 21],
+    "UnlockValues": [0.94, 0.1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -18896,28 +15757,16 @@
       "y": -43
     },
     "PreItem": [],
-    "PreTechs": [
-      3605
-    ],
+    "PreTechs": [3605],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6006
-    ],
-    "ItemPoints": [
-      4
-    ],
+    "Items": [6006],
+    "ItemPoints": [4],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      20,
-      21
-    ],
-    "UnlockValues": [
-      0.94,
-      0.1
-    ],
+    "UnlockFunctions": [20, 21],
+    "UnlockValues": [0.94, 0.1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -18982,27 +15831,15 @@
     },
     "PreItem": [],
     "PreTechs": [],
-    "PreTechsImplicit": [
-      1601
-    ],
+    "PreTechsImplicit": [1601],
     "PreTechsMax": false,
-    "Items": [
-      6002
-    ],
-    "ItemPoints": [
-      40
-    ],
+    "Items": [6002],
+    "ItemPoints": [40],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      24,
-      25
-    ],
-    "UnlockValues": [
-      1,
-      2
-    ],
+    "UnlockFunctions": [24, 25],
+    "UnlockValues": [1, 2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [],
@@ -19046,28 +15883,16 @@
       "y": -23
     },
     "PreItem": [],
-    "PreTechs": [
-      3701
-    ],
+    "PreTechs": [3701],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6002
-    ],
-    "ItemPoints": [
-      20
-    ],
+    "Items": [6002],
+    "ItemPoints": [20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      24,
-      25
-    ],
-    "UnlockValues": [
-      1,
-      2
-    ],
+    "UnlockFunctions": [24, 25],
+    "UnlockValues": [1, 2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -19115,30 +15940,16 @@
       "y": -23
     },
     "PreItem": [],
-    "PreTechs": [
-      3702
-    ],
+    "PreTechs": [3702],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      20,
-      20
-    ],
+    "Items": [6002, 6003],
+    "ItemPoints": [20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      24,
-      25
-    ],
-    "UnlockValues": [
-      1,
-      2
-    ],
+    "UnlockFunctions": [24, 25],
+    "UnlockValues": [1, 2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -19193,32 +16004,16 @@
       "y": -23
     },
     "PreItem": [],
-    "PreTechs": [
-      3703
-    ],
+    "PreTechs": [3703],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [12, 12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      24,
-      25
-    ],
-    "UnlockValues": [
-      1,
-      2
-    ],
+    "UnlockFunctions": [24, 25],
+    "UnlockValues": [1, 2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -19280,32 +16075,16 @@
       "y": -23
     },
     "PreItem": [],
-    "PreTechs": [
-      3704
-    ],
+    "PreTechs": [3704],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [12, 12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      24,
-      25
-    ],
-    "UnlockValues": [
-      1,
-      2
-    ],
+    "UnlockFunctions": [24, 25],
+    "UnlockValues": [1, 2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -19367,34 +16146,16 @@
       "y": -23
     },
     "PreItem": [],
-    "PreTechs": [
-      3705
-    ],
+    "PreTechs": [3705],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6005
-    ],
-    "ItemPoints": [
-      6,
-      6,
-      6,
-      6
-    ],
+    "Items": [6001, 6002, 6003, 6005],
+    "ItemPoints": [6, 6, 6, 6],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      24,
-      25
-    ],
-    "UnlockValues": [
-      1,
-      2
-    ],
+    "UnlockFunctions": [24, 25],
+    "UnlockValues": [1, 2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -19460,25 +16221,15 @@
     },
     "PreItem": [],
     "PreTechs": [],
-    "PreTechsImplicit": [
-      1312
-    ],
+    "PreTechsImplicit": [1312],
     "PreTechsMax": false,
-    "Items": [
-      6004
-    ],
-    "ItemPoints": [
-      6
-    ],
+    "Items": [6004],
+    "ItemPoints": [6],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      22
-    ],
-    "UnlockValues": [
-      1
-    ],
+    "UnlockFunctions": [22],
+    "UnlockValues": [1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [],
@@ -19534,26 +16285,16 @@
       "y": -47
     },
     "PreItem": [],
-    "PreTechs": [
-      3901
-    ],
+    "PreTechs": [3901],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6004
-    ],
-    "ItemPoints": [
-      6
-    ],
+    "Items": [6004],
+    "ItemPoints": [6],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      22
-    ],
-    "UnlockValues": [
-      1
-    ],
+    "UnlockFunctions": [22],
+    "UnlockValues": [1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -19613,26 +16354,16 @@
       "y": -47
     },
     "PreItem": [],
-    "PreTechs": [
-      3902
-    ],
+    "PreTechs": [3902],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6004
-    ],
-    "ItemPoints": [
-      6
-    ],
+    "Items": [6004],
+    "ItemPoints": [6],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      22
-    ],
-    "UnlockValues": [
-      1
-    ],
+    "UnlockFunctions": [22],
+    "UnlockValues": [1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -19692,26 +16423,16 @@
       "y": -47
     },
     "PreItem": [],
-    "PreTechs": [
-      3903
-    ],
+    "PreTechs": [3903],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6006
-    ],
-    "ItemPoints": [
-      2
-    ],
+    "Items": [6006],
+    "ItemPoints": [2],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      22
-    ],
-    "UnlockValues": [
-      1
-    ],
+    "UnlockFunctions": [22],
+    "UnlockValues": [1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -19774,21 +16495,13 @@
     "PreTechs": [],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      20
-    ],
+    "Items": [6001],
+    "ItemPoints": [20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      23
-    ],
-    "UnlockValues": [
-      1
-    ],
+    "UnlockFunctions": [23],
+    "UnlockValues": [1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [],
@@ -19832,26 +16545,16 @@
       "y": 37
     },
     "PreItem": [],
-    "PreTechs": [
-      4101
-    ],
+    "PreTechs": [4101],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      20
-    ],
+    "Items": [6001],
+    "ItemPoints": [20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      23
-    ],
-    "UnlockValues": [
-      2
-    ],
+    "UnlockFunctions": [23],
+    "UnlockValues": [2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -19899,32 +16602,16 @@
       "y": 37
     },
     "PreItem": [],
-    "PreTechs": [
-      4102
-    ],
-    "PreTechsImplicit": [
-      2902
-    ],
+    "PreTechs": [4102],
+    "PreTechsImplicit": [2902],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6004
-    ],
-    "ItemPoints": [
-      12,
-      12,
-      12
-    ],
+    "Items": [6001, 6002, 6004],
+    "ItemPoints": [12, 12, 12],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      23
-    ],
-    "UnlockValues": [
-      3
-    ],
+    "UnlockFunctions": [23],
+    "UnlockValues": [3],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -19986,32 +16673,16 @@
       "y": 37
     },
     "PreItem": [],
-    "PreTechs": [
-      4103
-    ],
+    "PreTechs": [4103],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      6,
-      6,
-      6,
-      6
-    ],
+    "Items": [6001, 6002, 6004, 6005],
+    "ItemPoints": [6, 6, 6, 6],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      23
-    ],
-    "UnlockValues": [
-      4
-    ],
+    "UnlockFunctions": [23],
+    "UnlockValues": [4],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -20077,25 +16748,15 @@
     },
     "PreItem": [],
     "PreTechs": [],
-    "PreTechsImplicit": [
-      1801
-    ],
+    "PreTechsImplicit": [1801],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      40
-    ],
+    "Items": [6001],
+    "ItemPoints": [40],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      61
-    ],
-    "UnlockValues": [
-      0.1
-    ],
+    "UnlockFunctions": [61],
+    "UnlockValues": [0.1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [],
@@ -20139,28 +16800,16 @@
       "y": -55
     },
     "PreItem": [],
-    "PreTechs": [
-      5001
-    ],
+    "PreTechs": [5001],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      10,
-      10
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      61
-    ],
-    "UnlockValues": [
-      0.1
-    ],
+    "UnlockFunctions": [61],
+    "UnlockValues": [0.1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -20215,30 +16864,16 @@
       "y": -55
     },
     "PreItem": [],
-    "PreTechs": [
-      5002
-    ],
+    "PreTechs": [5002],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      5,
-      5,
-      5
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [5, 5, 5],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      61
-    ],
-    "UnlockValues": [
-      0.2
-    ],
+    "UnlockFunctions": [61],
+    "UnlockValues": [0.2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -20300,32 +16935,16 @@
       "y": -55
     },
     "PreItem": [],
-    "PreTechs": [
-      5003
-    ],
+    "PreTechs": [5003],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      6,
-      6,
-      6,
-      6
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [6, 6, 6, 6],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      61
-    ],
-    "UnlockValues": [
-      0.3
-    ],
+    "UnlockFunctions": [61],
+    "UnlockValues": [0.3],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -20394,34 +17013,16 @@
       "y": -55
     },
     "PreItem": [],
-    "PreTechs": [
-      5004
-    ],
+    "PreTechs": [5004],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      5,
-      5,
-      5,
-      5,
-      5
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [5, 5, 5, 5, 5],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      61
-    ],
-    "UnlockValues": [
-      0.3
-    ],
+    "UnlockFunctions": [61],
+    "UnlockValues": [0.3],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -20497,26 +17098,16 @@
       "y": -55
     },
     "PreItem": [],
-    "PreTechs": [
-      5005
-    ],
+    "PreTechs": [5005],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6006
-    ],
-    "ItemPoints": [
-      8
-    ],
+    "Items": [6006],
+    "ItemPoints": [8],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      61
-    ],
-    "UnlockValues": [
-      0.3
-    ],
+    "UnlockFunctions": [61],
+    "UnlockValues": [0.3],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -20581,25 +17172,15 @@
     },
     "PreItem": [],
     "PreTechs": [],
-    "PreTechsImplicit": [
-      1801
-    ],
+    "PreTechsImplicit": [1801],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      10
-    ],
+    "Items": [6001],
+    "ItemPoints": [10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      62
-    ],
-    "UnlockValues": [
-      0.1
-    ],
+    "UnlockFunctions": [62],
+    "UnlockValues": [0.1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [],
@@ -20643,28 +17224,16 @@
       "y": -59
     },
     "PreItem": [],
-    "PreTechs": [
-      5101
-    ],
+    "PreTechs": [5101],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      10,
-      10
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      62
-    ],
-    "UnlockValues": [
-      0.1
-    ],
+    "UnlockFunctions": [62],
+    "UnlockValues": [0.1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -20719,30 +17288,16 @@
       "y": -59
     },
     "PreItem": [],
-    "PreTechs": [
-      5102
-    ],
+    "PreTechs": [5102],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      5,
-      5,
-      5
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [5, 5, 5],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      62
-    ],
-    "UnlockValues": [
-      0.2
-    ],
+    "UnlockFunctions": [62],
+    "UnlockValues": [0.2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -20804,32 +17359,16 @@
       "y": -59
     },
     "PreItem": [],
-    "PreTechs": [
-      5103
-    ],
+    "PreTechs": [5103],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      6,
-      6,
-      6,
-      6
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [6, 6, 6, 6],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      62
-    ],
-    "UnlockValues": [
-      0.3
-    ],
+    "UnlockFunctions": [62],
+    "UnlockValues": [0.3],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -20898,34 +17437,16 @@
       "y": -59
     },
     "PreItem": [],
-    "PreTechs": [
-      5104
-    ],
+    "PreTechs": [5104],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      5,
-      5,
-      5,
-      5,
-      5
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [5, 5, 5, 5, 5],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      62
-    ],
-    "UnlockValues": [
-      0.3
-    ],
+    "UnlockFunctions": [62],
+    "UnlockValues": [0.3],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -21001,26 +17522,16 @@
       "y": -59
     },
     "PreItem": [],
-    "PreTechs": [
-      5105
-    ],
+    "PreTechs": [5105],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6006
-    ],
-    "ItemPoints": [
-      8
-    ],
+    "Items": [6006],
+    "ItemPoints": [8],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      62
-    ],
-    "UnlockValues": [
-      0.3
-    ],
+    "UnlockFunctions": [62],
+    "UnlockValues": [0.3],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -21085,25 +17596,15 @@
     },
     "PreItem": [],
     "PreTechs": [],
-    "PreTechsImplicit": [
-      1802
-    ],
+    "PreTechsImplicit": [1802],
     "PreTechsMax": false,
-    "Items": [
-      6001
-    ],
-    "ItemPoints": [
-      10
-    ],
+    "Items": [6001],
+    "ItemPoints": [10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      63
-    ],
-    "UnlockValues": [
-      0.1
-    ],
+    "UnlockFunctions": [63],
+    "UnlockValues": [0.1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [],
@@ -21147,28 +17648,16 @@
       "y": -63
     },
     "PreItem": [],
-    "PreTechs": [
-      5201
-    ],
+    "PreTechs": [5201],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      10,
-      10
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      63
-    ],
-    "UnlockValues": [
-      0.1
-    ],
+    "UnlockFunctions": [63],
+    "UnlockValues": [0.1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -21223,30 +17712,16 @@
       "y": -63
     },
     "PreItem": [],
-    "PreTechs": [
-      5202
-    ],
+    "PreTechs": [5202],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      5,
-      5,
-      5
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [5, 5, 5],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      63
-    ],
-    "UnlockValues": [
-      0.2
-    ],
+    "UnlockFunctions": [63],
+    "UnlockValues": [0.2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -21308,32 +17783,16 @@
       "y": -63
     },
     "PreItem": [],
-    "PreTechs": [
-      5203
-    ],
+    "PreTechs": [5203],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      6,
-      6,
-      6,
-      6
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [6, 6, 6, 6],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      63
-    ],
-    "UnlockValues": [
-      0.3
-    ],
+    "UnlockFunctions": [63],
+    "UnlockValues": [0.3],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -21402,34 +17861,16 @@
       "y": -63
     },
     "PreItem": [],
-    "PreTechs": [
-      5204
-    ],
+    "PreTechs": [5204],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      5,
-      5,
-      5,
-      5,
-      5
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [5, 5, 5, 5, 5],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      63
-    ],
-    "UnlockValues": [
-      0.3
-    ],
+    "UnlockFunctions": [63],
+    "UnlockValues": [0.3],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -21505,26 +17946,16 @@
       "y": -63
     },
     "PreItem": [],
-    "PreTechs": [
-      5205
-    ],
+    "PreTechs": [5205],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6006
-    ],
-    "ItemPoints": [
-      8
-    ],
+    "Items": [6006],
+    "ItemPoints": [8],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      63
-    ],
-    "UnlockValues": [
-      0.3
-    ],
+    "UnlockFunctions": [63],
+    "UnlockValues": [0.3],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -21589,27 +18020,15 @@
     },
     "PreItem": [],
     "PreTechs": [],
-    "PreTechsImplicit": [
-      1819
-    ],
+    "PreTechsImplicit": [1819],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      10,
-      10
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      67
-    ],
-    "UnlockValues": [
-      0.1
-    ],
+    "UnlockFunctions": [67],
+    "UnlockValues": [0.1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [],
@@ -21660,30 +18079,16 @@
       "y": -67
     },
     "PreItem": [],
-    "PreTechs": [
-      5301
-    ],
+    "PreTechs": [5301],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      5,
-      5,
-      5
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [5, 5, 5],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      67
-    ],
-    "UnlockValues": [
-      0.1
-    ],
+    "UnlockFunctions": [67],
+    "UnlockValues": [0.1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -21745,34 +18150,16 @@
       "y": -67
     },
     "PreItem": [],
-    "PreTechs": [
-      5302
-    ],
+    "PreTechs": [5302],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      6,
-      6,
-      6,
-      6
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [6, 6, 6, 6],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      67,
-      71
-    ],
-    "UnlockValues": [
-      0.3,
-      0.5
-    ],
+    "UnlockFunctions": [67, 71],
+    "UnlockValues": [0.3, 0.5],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -21841,36 +18228,16 @@
       "y": -67
     },
     "PreItem": [],
-    "PreTechs": [
-      5303
-    ],
+    "PreTechs": [5303],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      5,
-      5,
-      5,
-      5,
-      5
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [5, 5, 5, 5, 5],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      67,
-      71
-    ],
-    "UnlockValues": [
-      0.5,
-      0.5
-    ],
+    "UnlockFunctions": [67, 71],
+    "UnlockValues": [0.5, 0.5],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -21946,28 +18313,16 @@
       "y": -67
     },
     "PreItem": [],
-    "PreTechs": [
-      5304
-    ],
+    "PreTechs": [5304],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6006
-    ],
-    "ItemPoints": [
-      8
-    ],
+    "Items": [6006],
+    "ItemPoints": [8],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      67,
-      71
-    ],
-    "UnlockValues": [
-      0.5,
-      0.5
-    ],
+    "UnlockFunctions": [67, 71],
+    "UnlockValues": [0.5, 0.5],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -22032,27 +18387,15 @@
     },
     "PreItem": [],
     "PreTechs": [],
-    "PreTechsImplicit": [
-      1819
-    ],
+    "PreTechsImplicit": [1819],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      10,
-      10
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      68
-    ],
-    "UnlockValues": [
-      0.1
-    ],
+    "UnlockFunctions": [68],
+    "UnlockValues": [0.1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [],
@@ -22103,30 +18446,16 @@
       "y": -71
     },
     "PreItem": [],
-    "PreTechs": [
-      5401
-    ],
+    "PreTechs": [5401],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      5,
-      5,
-      5
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [5, 5, 5],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      68
-    ],
-    "UnlockValues": [
-      0.1
-    ],
+    "UnlockFunctions": [68],
+    "UnlockValues": [0.1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -22188,34 +18517,16 @@
       "y": -71
     },
     "PreItem": [],
-    "PreTechs": [
-      5402
-    ],
+    "PreTechs": [5402],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      6,
-      6,
-      6,
-      6
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [6, 6, 6, 6],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      68,
-      72
-    ],
-    "UnlockValues": [
-      0.2,
-      0.3
-    ],
+    "UnlockFunctions": [68, 72],
+    "UnlockValues": [0.2, 0.3],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -22284,36 +18595,16 @@
       "y": -71
     },
     "PreItem": [],
-    "PreTechs": [
-      5403
-    ],
+    "PreTechs": [5403],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      10,
-      10,
-      10,
-      10,
-      10
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [10, 10, 10, 10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      68,
-      72
-    ],
-    "UnlockValues": [
-      0.2,
-      0.3
-    ],
+    "UnlockFunctions": [68, 72],
+    "UnlockValues": [0.2, 0.3],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -22389,28 +18680,16 @@
       "y": -71
     },
     "PreItem": [],
-    "PreTechs": [
-      5404
-    ],
+    "PreTechs": [5404],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6006
-    ],
-    "ItemPoints": [
-      4
-    ],
+    "Items": [6006],
+    "ItemPoints": [4],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      68,
-      72
-    ],
-    "UnlockValues": [
-      0.4,
-      0.4
-    ],
+    "UnlockFunctions": [68, 72],
+    "UnlockValues": [0.4, 0.4],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -22475,27 +18754,15 @@
     },
     "PreItem": [],
     "PreTechs": [],
-    "PreTechsImplicit": [
-      1819
-    ],
+    "PreTechsImplicit": [1819],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      10,
-      10
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      69
-    ],
-    "UnlockValues": [
-      0.1
-    ],
+    "UnlockFunctions": [69],
+    "UnlockValues": [0.1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [],
@@ -22546,30 +18813,16 @@
       "y": -75
     },
     "PreItem": [],
-    "PreTechs": [
-      5601
-    ],
+    "PreTechs": [5601],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      5,
-      5,
-      5
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [5, 5, 5],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      69
-    ],
-    "UnlockValues": [
-      0.1
-    ],
+    "UnlockFunctions": [69],
+    "UnlockValues": [0.1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -22631,34 +18884,16 @@
       "y": -75
     },
     "PreItem": [],
-    "PreTechs": [
-      5602
-    ],
+    "PreTechs": [5602],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      6,
-      6,
-      6,
-      6
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [6, 6, 6, 6],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      69,
-      73
-    ],
-    "UnlockValues": [
-      0.2,
-      0.3
-    ],
+    "UnlockFunctions": [69, 73],
+    "UnlockValues": [0.2, 0.3],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -22727,36 +18962,16 @@
       "y": -75
     },
     "PreItem": [],
-    "PreTechs": [
-      5603
-    ],
+    "PreTechs": [5603],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      10,
-      10,
-      10,
-      10,
-      10
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [10, 10, 10, 10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      69,
-      73
-    ],
-    "UnlockValues": [
-      0.2,
-      0.3
-    ],
+    "UnlockFunctions": [69, 73],
+    "UnlockValues": [0.2, 0.3],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -22832,28 +19047,16 @@
       "y": -75
     },
     "PreItem": [],
-    "PreTechs": [
-      5604
-    ],
+    "PreTechs": [5604],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6006
-    ],
-    "ItemPoints": [
-      4
-    ],
+    "Items": [6006],
+    "ItemPoints": [4],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      69,
-      73
-    ],
-    "UnlockValues": [
-      0.4,
-      0.4
-    ],
+    "UnlockFunctions": [69, 73],
+    "UnlockValues": [0.4, 0.4],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -22918,29 +19121,15 @@
     },
     "PreItem": [],
     "PreTechs": [],
-    "PreTechsImplicit": [
-      1809
-    ],
+    "PreTechsImplicit": [1809],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      5,
-      5,
-      5
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [5, 5, 5],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      74
-    ],
-    "UnlockValues": [
-      0.1
-    ],
+    "UnlockFunctions": [74],
+    "UnlockValues": [0.1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [],
@@ -22998,30 +19187,16 @@
       "y": -87
     },
     "PreItem": [],
-    "PreTechs": [
-      5701
-    ],
+    "PreTechs": [5701],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      5,
-      5,
-      5
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [5, 5, 5],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      74
-    ],
-    "UnlockValues": [
-      0.15
-    ],
+    "UnlockFunctions": [74],
+    "UnlockValues": [0.15],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -23083,32 +19258,16 @@
       "y": -87
     },
     "PreItem": [],
-    "PreTechs": [
-      5702
-    ],
+    "PreTechs": [5702],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      6,
-      6,
-      6,
-      6
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [6, 6, 6, 6],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      74
-    ],
-    "UnlockValues": [
-      0.2
-    ],
+    "UnlockFunctions": [74],
+    "UnlockValues": [0.2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -23177,34 +19336,16 @@
       "y": -87
     },
     "PreItem": [],
-    "PreTechs": [
-      5703
-    ],
+    "PreTechs": [5703],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      10,
-      10,
-      10,
-      10,
-      10
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [10, 10, 10, 10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      74
-    ],
-    "UnlockValues": [
-      0.25
-    ],
+    "UnlockFunctions": [74],
+    "UnlockValues": [0.25],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -23280,26 +19421,16 @@
       "y": -87
     },
     "PreItem": [],
-    "PreTechs": [
-      5704
-    ],
+    "PreTechs": [5704],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6006
-    ],
-    "ItemPoints": [
-      4
-    ],
+    "Items": [6006],
+    "ItemPoints": [4],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      74
-    ],
-    "UnlockValues": [
-      0.3
-    ],
+    "UnlockFunctions": [74],
+    "UnlockValues": [0.3],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -23364,27 +19495,15 @@
     },
     "PreItem": [],
     "PreTechs": [],
-    "PreTechsImplicit": [
-      1819
-    ],
+    "PreTechsImplicit": [1819],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002
-    ],
-    "ItemPoints": [
-      20,
-      20
-    ],
+    "Items": [6001, 6002],
+    "ItemPoints": [20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      78
-    ],
-    "UnlockValues": [
-      2
-    ],
+    "UnlockFunctions": [78],
+    "UnlockValues": [2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [],
@@ -23435,30 +19554,16 @@
       "y": -79
     },
     "PreItem": [],
-    "PreTechs": [
-      5801
-    ],
+    "PreTechs": [5801],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      20
-    ],
+    "Items": [6001, 6002, 6003],
+    "ItemPoints": [20, 20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      78
-    ],
-    "UnlockValues": [
-      2
-    ],
+    "UnlockFunctions": [78],
+    "UnlockValues": [2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -23520,32 +19625,16 @@
       "y": -79
     },
     "PreItem": [],
-    "PreTechs": [
-      5802
-    ],
+    "PreTechs": [5802],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      20,
-      20
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [20, 20, 20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      77
-    ],
-    "UnlockValues": [
-      1
-    ],
+    "UnlockFunctions": [77],
+    "UnlockValues": [1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -23614,32 +19703,16 @@
       "y": -79
     },
     "PreItem": [],
-    "PreTechs": [
-      5803
-    ],
+    "PreTechs": [5803],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      20,
-      20
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [20, 20, 20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      78
-    ],
-    "UnlockValues": [
-      4
-    ],
+    "UnlockFunctions": [78],
+    "UnlockValues": [4],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -23708,34 +19781,16 @@
       "y": -79
     },
     "PreItem": [],
-    "PreTechs": [
-      5804
-    ],
+    "PreTechs": [5804],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      20,
-      20,
-      20
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [20, 20, 20, 20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      77
-    ],
-    "UnlockValues": [
-      2
-    ],
+    "UnlockFunctions": [77],
+    "UnlockValues": [2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -23811,26 +19866,16 @@
       "y": -79
     },
     "PreItem": [],
-    "PreTechs": [
-      5805
-    ],
+    "PreTechs": [5805],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6006
-    ],
-    "ItemPoints": [
-      20
-    ],
+    "Items": [6006],
+    "ItemPoints": [20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      77
-    ],
-    "UnlockValues": [
-      2
-    ],
+    "UnlockFunctions": [77],
+    "UnlockValues": [2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -23898,26 +19943,16 @@
       "y": -79
     },
     "PreItem": [],
-    "PreTechs": [
-      5806
-    ],
+    "PreTechs": [5806],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6006
-    ],
-    "ItemPoints": [
-      20
-    ],
+    "Items": [6006],
+    "ItemPoints": [20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      77
-    ],
-    "UnlockValues": [
-      2
-    ],
+    "UnlockFunctions": [77],
+    "UnlockValues": [2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -23982,31 +20017,15 @@
     },
     "PreItem": [],
     "PreTechs": [],
-    "PreTechsImplicit": [
-      1822
-    ],
+    "PreTechsImplicit": [1822],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      5,
-      5,
-      5,
-      5
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [5, 5, 5, 5],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      80
-    ],
-    "UnlockValues": [
-      4
-    ],
+    "UnlockFunctions": [80],
+    "UnlockValues": [4],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [],
@@ -24071,32 +20090,16 @@
       "y": -83
     },
     "PreItem": [],
-    "PreTechs": [
-      5901
-    ],
+    "PreTechs": [5901],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      10,
-      10,
-      10,
-      10
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [10, 10, 10, 10],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      80
-    ],
-    "UnlockValues": [
-      4
-    ],
+    "UnlockFunctions": [80],
+    "UnlockValues": [4],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -24165,32 +20168,16 @@
       "y": -83
     },
     "PreItem": [],
-    "PreTechs": [
-      5902
-    ],
+    "PreTechs": [5902],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004
-    ],
-    "ItemPoints": [
-      15,
-      15,
-      15,
-      15
-    ],
+    "Items": [6001, 6002, 6003, 6004],
+    "ItemPoints": [15, 15, 15, 15],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      79
-    ],
-    "UnlockValues": [
-      1
-    ],
+    "UnlockFunctions": [79],
+    "UnlockValues": [1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -24259,34 +20246,16 @@
       "y": -83
     },
     "PreItem": [],
-    "PreTechs": [
-      5903
-    ],
+    "PreTechs": [5903],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      20,
-      20,
-      20
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [20, 20, 20, 20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      79
-    ],
-    "UnlockValues": [
-      1
-    ],
+    "UnlockFunctions": [79],
+    "UnlockValues": [1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -24362,34 +20331,16 @@
       "y": -83
     },
     "PreItem": [],
-    "PreTechs": [
-      5904
-    ],
+    "PreTechs": [5904],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6001,
-      6002,
-      6003,
-      6004,
-      6005
-    ],
-    "ItemPoints": [
-      20,
-      20,
-      20,
-      20,
-      20
-    ],
+    "Items": [6001, 6002, 6003, 6004, 6005],
+    "ItemPoints": [20, 20, 20, 20, 20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      79
-    ],
-    "UnlockValues": [
-      1
-    ],
+    "UnlockFunctions": [79],
+    "UnlockValues": [1],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -24465,26 +20416,16 @@
       "y": -83
     },
     "PreItem": [],
-    "PreTechs": [
-      5905
-    ],
+    "PreTechs": [5905],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6006
-    ],
-    "ItemPoints": [
-      20
-    ],
+    "Items": [6006],
+    "ItemPoints": [20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      79
-    ],
-    "UnlockValues": [
-      2
-    ],
+    "UnlockFunctions": [79],
+    "UnlockValues": [2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [
@@ -24552,26 +20493,16 @@
       "y": -83
     },
     "PreItem": [],
-    "PreTechs": [
-      5906
-    ],
+    "PreTechs": [5906],
     "PreTechsImplicit": [],
     "PreTechsMax": false,
-    "Items": [
-      6006
-    ],
-    "ItemPoints": [
-      20
-    ],
+    "Items": [6006],
+    "ItemPoints": [20],
     "PropertyOverrideItems": [],
     "PropertyItemCounts": [],
     "UnlockRecipes": [],
-    "UnlockFunctions": [
-      79
-    ],
-    "UnlockValues": [
-      2
-    ],
+    "UnlockFunctions": [79],
+    "UnlockValues": [2],
     "AddItems": [],
     "AddItemCounts": [],
     "preTechArray": [

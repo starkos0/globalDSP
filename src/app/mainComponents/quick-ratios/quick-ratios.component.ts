@@ -5,10 +5,8 @@ import { NavbarComponent } from '../../utilComponents/navbar/navbar.component';
 @Component({
   selector: 'app-quick-ratios',
   standalone: true,
-  imports: [RouterOutlet, RouterLink,RouterLinkActive,NavbarComponent],
-    templateUrl: './quick-ratios.component.html',
-  styleUrl: './quick-ratios.component.scss'
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, NavbarComponent],
+  templateUrl: './quick-ratios.component.html',
+  styleUrl: './quick-ratios.component.scss',
 })
-export class QuickRatiosComponent {
-
-}
+export class QuickRatiosComponent {}

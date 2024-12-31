@@ -1,201 +1,201 @@
 [
-    {
-        "name": "Super-magnetic Ring",
-        "recipeId": 103,
+  {
+    "name": "Super-magnetic Ring",
+    "recipeId": 103,
+    "madeFromString": "Assembler",
+    "TimeSpend": 180,
+    "Items": [1204, 1102, 1109],
+    "ItemCounts": [2, 3, 1],
+    "Results": [1205],
+    "ResultCounts": [1],
+    "Proliferated": "none",
+    "childs": [
+      {
+        "name": "Electromagnetic Turbine",
+        "recipeId": 98,
         "madeFromString": "Assembler",
         "TimeSpend": 180,
-        "Items": [1204,1102,1109],
-        "ItemCounts": [2,3,1],
+        "Items": [1204, 1102, 1109],
+        "ItemCounts": [2, 3, 1],
         "Results": [1205],
         "ResultCounts": [1],
         "Proliferated": "none",
         "childs": [
-            {
-                "name": "Electromagnetic Turbine",
+          {
+            "name": "Electric motor",
+            "recipeId": 98,
+            "madeFromString": "Assembler",
+            "TimeSpend": 180,
+            "Items": [1204, 1102, 1109],
+            "ItemCounts": [2, 3, 1],
+            "Results": [1205],
+            "ResultCounts": [1],
+            "Proliferated": "none",
+            "childs": [
+              {
+                "name": "Gear",
                 "recipeId": 98,
                 "madeFromString": "Assembler",
                 "TimeSpend": 180,
-                "Items": [1204,1102,1109],
-                "ItemCounts": [2,3,1],
+                "Items": [1204, 1102, 1109],
+                "ItemCounts": [2, 3, 1],
                 "Results": [1205],
                 "ResultCounts": [1],
                 "Proliferated": "none",
                 "childs": [
-                    {
-                        "name": "Electric motor",
-                        "recipeId": 98,
-                        "madeFromString": "Assembler",
-                        "TimeSpend": 180,
-                        "Items": [1204,1102,1109],
-                        "ItemCounts": [2,3,1],
-                        "Results": [1205],
-                        "ResultCounts": [1],
-                        "Proliferated": "none",
-                        "childs": [
-                            {
-                                "name": "Gear",
-                                "recipeId": 98,
-                                "madeFromString": "Assembler",
-                                "TimeSpend": 180,
-                                "Items": [1204,1102,1109],
-                                "ItemCounts": [2,3,1],
-                                "Results": [1205],
-                                "ResultCounts": [1],
-                                "Proliferated": "none",
-                                "childs": [
-                                    {
-                                        "name": "Iron Ingot",
-                                        "recipeId": 98,
-                                        "madeFromString": "Assembler",
-                                        "TimeSpend": 180,
-                                        "Items": [1204,1102,1109],
-                                        "ItemCounts": [2,3,1],
-                                        "Results": [1205],
-                                        "ResultCounts": [1],
-                                        "Proliferated": "none",
-                                        "childs": []
-                                    }
-                                ]
-                            },
-                            {
-                                "name": "Magnetic coil",
-                                "recipeId": 98,
-                                "madeFromString": "Assembler",
-                                "TimeSpend": 180,
-                                "Items": [1204,1102,1109],
-                                "ItemCounts": [2,3,1],
-                                "Results": [1205],
-                                "ResultCounts": [1],
-                                "Proliferated": "none",
-                                "childs": [
-                                    {
-                                        "name": "Copper Ingot",
-                                        "recipeId": 98,
-                                        "madeFromString": "Assembler",
-                                        "TimeSpend": 180,
-                                        "Items": [1204,1102,1109],
-                                        "ItemCounts": [2,3,1],
-                                        "Results": [1205],
-                                        "ResultCounts": [1],
-                                        "Proliferated": "none",
-                                        "childs": []
-                                    },
-                                    {
-                                        "name": "Magnet",
-                                        "recipeId": 98,
-                                        "madeFromString": "Assembler",
-                                        "TimeSpend": 180,
-                                        "Items": [1204,1102,1109],
-                                        "ItemCounts": [2,3,1],
-                                        "Results": [1205],
-                                        "ResultCounts": [1],
-                                        "Proliferated": "none",
-                                        "childs": []
-                                    }
-                                ]
-                            },
-                            {
-                                "name": "Iron Ingot",
-                                "recipeId": 98,
-                                "madeFromString": "Assembler",
-                                "TimeSpend": 180,
-                                "Items": [1204,1102,1109],
-                                "ItemCounts": [2,3,1],
-                                "Results": [1205],
-                                "ResultCounts": [1],
-                                "Proliferated": "none",
-                                "childs": []
-                            }
-                        ]
-                    },
-                    {
-                        "name": "Magnetic coil",
-                        "recipeId": 98,
-                        "madeFromString": "Assembler",
-                        "TimeSpend": 180,
-                        "Items": [1204,1102,1109],
-                        "ItemCounts": [2,3,1],
-                        "Results": [1205],
-                        "ResultCounts": [1],
-                        "Proliferated": "none",
-                        "childs": [
-                            {
-                                "name": "Copper Ingot",
-                                "recipeId": 98,
-                                "madeFromString": "Assembler",
-                                "TimeSpend": 180,
-                                "Items": [1204,1102,1109],
-                                "ItemCounts": [2,3,1],
-                                "Results": [1205],
-                                "ResultCounts": [1],
-                                "Proliferated": "none",
-                                "childs": []
-                            },
-                            {
-                                "name": "Magnet",
-                                "recipeId": 98,
-                                "madeFromString": "Assembler",
-                                "TimeSpend": 180,
-                                "Items": [1204,1102,1109],
-                                "ItemCounts": [2,3,1],
-                                "Results": [1205],
-                                "ResultCounts": [1],
-                                "Proliferated": "none",
-                                "childs": []
-                            }
-                        ]
-                    }
+                  {
+                    "name": "Iron Ingot",
+                    "recipeId": 98,
+                    "madeFromString": "Assembler",
+                    "TimeSpend": 180,
+                    "Items": [1204, 1102, 1109],
+                    "ItemCounts": [2, 3, 1],
+                    "Results": [1205],
+                    "ResultCounts": [1],
+                    "Proliferated": "none",
+                    "childs": []
+                  }
                 ]
-            },
-            {
-                "name": "Energetic Graphite",
-                "recipeId": 98,
-                "madeFromString": "Assembler",
-                "TimeSpend": 180,
-                "Items": [1204,1102,1109],
-                "ItemCounts": [2,3,1],
-                "Results": [1205],
-                "ResultCounts": [1],
-                "Proliferated": "none",
-                "childs": []
-            },
-            {
+              },
+              {
                 "name": "Magnetic coil",
                 "recipeId": 98,
                 "madeFromString": "Assembler",
                 "TimeSpend": 180,
-                "Items": [1204,1102,1109],
-                "ItemCounts": [2,3,1],
+                "Items": [1204, 1102, 1109],
+                "ItemCounts": [2, 3, 1],
                 "Results": [1205],
                 "ResultCounts": [1],
                 "Proliferated": "none",
                 "childs": [
-                    {
-                        "name": "Copper Ingot",
-                        "recipeId": 98,
-                        "madeFromString": "Assembler",
-                        "TimeSpend": 180,
-                        "Items": [1204,1102,1109],
-                        "ItemCounts": [2,3,1],
-                        "Results": [1205],
-                        "ResultCounts": [1],
-                        "Proliferated": "none",
-                        "childs": []
-                    },
-                    {
-                        "name": "Magnet",
-                        "recipeId": 98,
-                        "madeFromString": "Assembler",
-                        "TimeSpend": 180,
-                        "Items": [1204,1102,1109],
-                        "ItemCounts": [2,3,1],
-                        "Results": [1205],
-                        "ResultCounts": [1],
-                        "Proliferated": "none",
-                        "childs": []
-                    }
+                  {
+                    "name": "Copper Ingot",
+                    "recipeId": 98,
+                    "madeFromString": "Assembler",
+                    "TimeSpend": 180,
+                    "Items": [1204, 1102, 1109],
+                    "ItemCounts": [2, 3, 1],
+                    "Results": [1205],
+                    "ResultCounts": [1],
+                    "Proliferated": "none",
+                    "childs": []
+                  },
+                  {
+                    "name": "Magnet",
+                    "recipeId": 98,
+                    "madeFromString": "Assembler",
+                    "TimeSpend": 180,
+                    "Items": [1204, 1102, 1109],
+                    "ItemCounts": [2, 3, 1],
+                    "Results": [1205],
+                    "ResultCounts": [1],
+                    "Proliferated": "none",
+                    "childs": []
+                  }
                 ]
-            }
+              },
+              {
+                "name": "Iron Ingot",
+                "recipeId": 98,
+                "madeFromString": "Assembler",
+                "TimeSpend": 180,
+                "Items": [1204, 1102, 1109],
+                "ItemCounts": [2, 3, 1],
+                "Results": [1205],
+                "ResultCounts": [1],
+                "Proliferated": "none",
+                "childs": []
+              }
+            ]
+          },
+          {
+            "name": "Magnetic coil",
+            "recipeId": 98,
+            "madeFromString": "Assembler",
+            "TimeSpend": 180,
+            "Items": [1204, 1102, 1109],
+            "ItemCounts": [2, 3, 1],
+            "Results": [1205],
+            "ResultCounts": [1],
+            "Proliferated": "none",
+            "childs": [
+              {
+                "name": "Copper Ingot",
+                "recipeId": 98,
+                "madeFromString": "Assembler",
+                "TimeSpend": 180,
+                "Items": [1204, 1102, 1109],
+                "ItemCounts": [2, 3, 1],
+                "Results": [1205],
+                "ResultCounts": [1],
+                "Proliferated": "none",
+                "childs": []
+              },
+              {
+                "name": "Magnet",
+                "recipeId": 98,
+                "madeFromString": "Assembler",
+                "TimeSpend": 180,
+                "Items": [1204, 1102, 1109],
+                "ItemCounts": [2, 3, 1],
+                "Results": [1205],
+                "ResultCounts": [1],
+                "Proliferated": "none",
+                "childs": []
+              }
+            ]
+          }
         ]
-    }
+      },
+      {
+        "name": "Energetic Graphite",
+        "recipeId": 98,
+        "madeFromString": "Assembler",
+        "TimeSpend": 180,
+        "Items": [1204, 1102, 1109],
+        "ItemCounts": [2, 3, 1],
+        "Results": [1205],
+        "ResultCounts": [1],
+        "Proliferated": "none",
+        "childs": []
+      },
+      {
+        "name": "Magnetic coil",
+        "recipeId": 98,
+        "madeFromString": "Assembler",
+        "TimeSpend": 180,
+        "Items": [1204, 1102, 1109],
+        "ItemCounts": [2, 3, 1],
+        "Results": [1205],
+        "ResultCounts": [1],
+        "Proliferated": "none",
+        "childs": [
+          {
+            "name": "Copper Ingot",
+            "recipeId": 98,
+            "madeFromString": "Assembler",
+            "TimeSpend": 180,
+            "Items": [1204, 1102, 1109],
+            "ItemCounts": [2, 3, 1],
+            "Results": [1205],
+            "ResultCounts": [1],
+            "Proliferated": "none",
+            "childs": []
+          },
+          {
+            "name": "Magnet",
+            "recipeId": 98,
+            "madeFromString": "Assembler",
+            "TimeSpend": 180,
+            "Items": [1204, 1102, 1109],
+            "ItemCounts": [2, 3, 1],
+            "Results": [1205],
+            "ResultCounts": [1],
+            "Proliferated": "none",
+            "childs": []
+          }
+        ]
+      }
+    ]
+  }
 ]
