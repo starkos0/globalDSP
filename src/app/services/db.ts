@@ -20,7 +20,7 @@ export class AppDB extends Dexie{
         super('dspData');
 
         this.version(5).stores({
-            itemsTable: 'ID,typeString,name',
+            itemsTable: 'ID,typeString,name,Type',
             recipesTable: 'ID,name,Results',
             techsTable: 'ID',
         });

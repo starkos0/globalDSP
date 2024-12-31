@@ -88,6 +88,7 @@ export interface PrefabDesc {
     audioPitch: number;
     audioDoppler: number;
     minerPeriod: number;
+    labAssembleSpeed: number;
 }
 
 export interface BlueprintBoxSize {

@@ -117,7 +117,8 @@ export class CalculatorComponent implements OnInit {
       audioVolume: 0,
       audioPitch: 0,
       audioDoppler: 0,
-      minerPeriod: 0
+      minerPeriod: 0,
+      labAssembleSpeed: 0
     },
     ID: 0,
     description: '',
@@ -168,6 +169,7 @@ export class CalculatorComponent implements OnInit {
           data.map((item: { typeString: string; IconPath: string }) =>
             this.dataManagement.getAllMachinesByType(item.typeString).pipe(
               map(res => {
+                console.log(item.typeString)
                 switch (item.typeString) {
                   case 'Assembler':
                     this.assemblerSelectOptions = res;
