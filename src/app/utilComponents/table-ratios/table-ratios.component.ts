@@ -1,11 +1,5 @@
 import { Component, OnInit, WritableSignal, effect } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DataManagementService } from '../../services/data-management.service';
 import { Item } from '../../interfaces/mainData/Item';
 import { AppDB } from '../../services/db';
@@ -17,12 +11,7 @@ import { PowerConversionPipe } from '../../pipes/power-conversion.pipe';
 @Component({
   selector: 'app-table-ratios',
   standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    CommonModule,
-    FormsModule,
-    PowerConversionPipe,
-  ],
+  imports: [ReactiveFormsModule, CommonModule, FormsModule, PowerConversionPipe],
   templateUrl: './table-ratios.component.html',
   styleUrl: './table-ratios.component.scss',
 })
@@ -44,8 +33,7 @@ export class TableRatiosComponent implements OnInit {
       this.childs = this.dataManagement.childs();
       this.recipesForm = this.dataManagement.recipesForm;
       this.recipesImages = this.dataManagement.recipesImages();
-      this.isRecipesFormInitialized =
-        this.dataManagement.isRecipesFormInitialized();
+      this.isRecipesFormInitialized = this.dataManagement.isRecipesFormInitialized();
     });
   }
   storePreviousValues() {
@@ -57,17 +45,11 @@ export class TableRatiosComponent implements OnInit {
 
   async getRecipesImages(recipeId: number): Promise<string[]> {
     let srcImages: string[] = [];
-    let recipe = await this.db.recipesTable
-      .where('ID')
-      .equals(recipeId)
-      .toArray();
+    let recipe = await this.db.recipesTable.where('ID').equals(recipeId).toArray();
 
     if (recipe.length > 0) {
       for (const element of recipe[0].Items) {
-        let item = await this.db.itemsTable
-          .where('ID')
-          .equals(element)
-          .toArray();
+        let item = await this.db.itemsTable.where('ID').equals(element).toArray();
         if (item.length > 0) {
           srcImages.push(item[0].IconPath);
         }
@@ -76,10 +58,7 @@ export class TableRatiosComponent implements OnInit {
 
     return srcImages;
   }
-  async changeRecipeSelection(
-    item: TransformedItems,
-    index: string
-  ): Promise<void> {
+  async changeRecipeSelection(item: TransformedItems, index: string): Promise<void> {
     const changedRecipe: { [key: string]: number } = {};
     const oldRecipe: { [key: string]: number } = {};
 
@@ -90,29 +69,19 @@ export class TableRatiosComponent implements OnInit {
       }
     }
 
-    if (
-      Object.keys(oldRecipe).length > 0 &&
-      Object.keys(changedRecipe).length > 0
-    ) {
+    if (Object.keys(oldRecipe).length > 0 && Object.keys(changedRecipe).length > 0) {
       await this.removeSubtreeByIndex(index);
     }
 
     if (Object.keys(changedRecipe).length > 0) {
       const newRecipeId = changedRecipe[Object.keys(changedRecipe)[0]];
       try {
-        const newSubtree = await this.buildNewSubtree(
-          item,
-          newRecipeId,
-          item.totalValue
-        );
+        const newSubtree = await this.buildNewSubtree(item, newRecipeId, item.totalValue);
         this.replaceSubtreeByIndex(index, newSubtree);
 
         await this.processSingleRecipeImage(newRecipeId);
       } catch (error) {
-        console.error(
-          `Error building new subtree for recipe ${newRecipeId}:`,
-          error
-        );
+        console.error(`Error building new subtree for recipe ${newRecipeId}:`, error);
       }
     }
   }
@@ -170,12 +139,9 @@ export class TableRatiosComponent implements OnInit {
 
   removeRecipeImages(item: TransformedItems) {
     this.dataManagement.recipesImages.set(
-      this.dataManagement
-        .recipesImages()
-        .filter((recipe) => recipe.ID !== item.ID)
+      this.dataManagement.recipesImages().filter((recipe) => recipe.ID !== item.ID)
     );
-    this.dataManagement.imagesRecipes =
-      this.dataManagement.imagesRecipes.filter((rec) => rec.ID !== item.ID);
+    this.dataManagement.imagesRecipes = this.dataManagement.imagesRecipes.filter((rec) => rec.ID !== item.ID);
 
     if (item.childs.length > 0) {
       for (const child of item.childs) {
@@ -194,10 +160,7 @@ export class TableRatiosComponent implements OnInit {
       // Procesar el array de items
       for (const element of recipe.Items) {
         try {
-          const itemFound = await this.db.itemsTable
-            .where('ID')
-            .equals(element)
-            .first();
+          const itemFound = await this.db.itemsTable.where('ID').equals(element).first();
           if (itemFound) {
             recipeEntry.items.push(itemFound.IconPath);
           }
@@ -209,19 +172,12 @@ export class TableRatiosComponent implements OnInit {
       // Procesar el array de results
       for (const element of recipe.Results) {
         try {
-          const resultFound = await this.db.itemsTable
-            .where('ID')
-            .equals(element)
-            .first();
+          const resultFound = await this.db.itemsTable.where('ID').equals(element).first();
           if (resultFound) {
             recipeEntry.results.push(resultFound.IconPath);
           }
         } catch (error) {
-          console.error(
-            'Error processing results for recipe:',
-            recipe.ID,
-            error
-          );
+          console.error('Error processing results for recipe:', recipe.ID, error);
         }
       }
 
@@ -252,21 +208,12 @@ export class TableRatiosComponent implements OnInit {
     parentTotalValue: number = 1
   ): Promise<TransformedItems> {
     for (const recipe of item.recipes) {
-      let recipeDetails = await this.db.recipesTable
-        .where('ID')
-        .equals(recipe.ID)
-        .toArray();
-      this.dataManagement.recipesImages.set([
-        ...this.dataManagement.recipesImages(),
-        recipeDetails[0],
-      ]);
+      let recipeDetails = await this.db.recipesTable.where('ID').equals(recipe.ID).toArray();
+      this.dataManagement.recipesImages.set([...this.dataManagement.recipesImages(), recipeDetails[0]]);
       await this.ProcessrecipeImage(recipeDetails[0]);
     }
 
-    let recipe = await this.db.recipesTable
-      .where('ID')
-      .equals(recipeId)
-      .toArray();
+    let recipe = await this.db.recipesTable.where('ID').equals(recipeId).toArray();
     if (!recipe[0]) {
       console.error('No recipe found for ID:', recipeId);
       return item;
@@ -280,33 +227,21 @@ export class TableRatiosComponent implements OnInit {
       totalValue: parentTotalValue, // Inherit from parent
     };
 
-    this.recipesForm.addControl(
-      item.ID.toString(),
-      new FormControl(recipe[0].ID)
-    );
+    this.recipesForm.addControl(item.ID.toString(), new FormControl(recipe[0].ID));
 
     for (let i = 0; i < recipe[0].Items.length; i++) {
       const itemId = recipe[0].Items[i];
-      let itemFound = await this.db.itemsTable
-        .where('ID')
-        .equals(itemId)
-        .toArray();
+      let itemFound = await this.db.itemsTable.where('ID').equals(itemId).toArray();
 
       let madeFromString = '';
       if (itemFound[0].recipes && itemFound[0].recipes.length > 0) {
-        let childRecipe = await this.db.recipesTable
-          .where('ID')
-          .equals(itemFound[0].recipes[0].ID)
-          .toArray();
+        let childRecipe = await this.db.recipesTable.where('ID').equals(itemFound[0].recipes[0].ID).toArray();
         madeFromString = childRecipe[0]?.madeFromString || '';
       } else {
-        madeFromString = itemFound[0].IsFluid
-          ? 'Oil Extraction Facility'
-          : 'Mining Facility';
+        madeFromString = itemFound[0].IsFluid ? 'Oil Extraction Facility' : 'Mining Facility';
       }
 
-      const childTotalValue =
-        (newItem.totalValue * recipe[0].ItemCounts[i]) / resultCount;
+      const childTotalValue = (newItem.totalValue * recipe[0].ItemCounts[i]) / resultCount;
 
       const childItem: TransformedItems = {
         ID: itemFound[0].ID,
@@ -329,15 +264,8 @@ export class TableRatiosComponent implements OnInit {
         power: 0,
       };
 
-      if (
-        itemFound[0].recipes !== undefined &&
-        itemFound[0].recipes.length > 0
-      ) {
-        const recursiveChildItem = await this.buildNewSubtree(
-          childItem,
-          itemFound[0].recipes[0]?.ID,
-          childTotalValue
-        );
+      if (itemFound[0].recipes !== undefined && itemFound[0].recipes.length > 0) {
+        const recursiveChildItem = await this.buildNewSubtree(childItem, itemFound[0].recipes[0]?.ID, childTotalValue);
         newItem.childs.push(recursiveChildItem);
       } else {
         newItem.childs.push(childItem);
@@ -357,10 +285,7 @@ export class TableRatiosComponent implements OnInit {
     // Procesar los items de la receta
     for (const element of recipeDetails.Items) {
       try {
-        const itemFound = await this.db.itemsTable
-          .where('ID')
-          .equals(element)
-          .first();
+        const itemFound = await this.db.itemsTable.where('ID').equals(element).first();
         if (itemFound) {
           recipeEntry.items.push(itemFound.IconPath);
         }
@@ -372,10 +297,7 @@ export class TableRatiosComponent implements OnInit {
     // Procesar los resultados de la receta
     for (const element of recipeDetails.Results) {
       try {
-        const resultFound = await this.db.itemsTable
-          .where('ID')
-          .equals(element)
-          .first();
+        const resultFound = await this.db.itemsTable.where('ID').equals(element).first();
         if (resultFound) {
           recipeEntry.results.push(resultFound.IconPath);
         }
@@ -396,34 +318,25 @@ export class TableRatiosComponent implements OnInit {
     return src;
   }
   getRecipesItemsSrc(recipeID: number): string[] {
-    let recipe = this.dataManagement.imagesRecipes.find(
-      (el) => el.ID === recipeID
-    );
+    let recipe = this.dataManagement.imagesRecipes.find((el) => el.ID === recipeID);
 
     if (recipe && recipe.items !== undefined) {
-      return this.dataManagement.imagesRecipes.find((el) => el.ID === recipeID)!
-        .items;
+      return this.dataManagement.imagesRecipes.find((el) => el.ID === recipeID)!.items;
     } else {
       return [];
     }
   }
   getRecipesResultsSrc(recipeID: number): string[] {
-    let recipe = this.dataManagement.imagesRecipes.find(
-      (el) => el.ID === recipeID
-    );
+    let recipe = this.dataManagement.imagesRecipes.find((el) => el.ID === recipeID);
 
     if (recipe && recipe.results !== undefined) {
-      return this.dataManagement.imagesRecipes.find((el) => el.ID === recipeID)!
-        .results;
+      return this.dataManagement.imagesRecipes.find((el) => el.ID === recipeID)!.results;
     } else {
       return [];
     }
   }
   async makeItOre(item: Item) {
-    let recipe = await this.db.itemsTable
-      .where('name')
-      .equals(item.name)
-      .toArray();
+    let recipe = await this.db.itemsTable.where('name').equals(item.name).toArray();
   }
   previousValue(recipeId: number) {}
 
@@ -438,17 +351,11 @@ export class TableRatiosComponent implements OnInit {
     let resultIndex = item.Results.findIndex((id) => id === item.ID);
     let resultQuantity = item.ResultCounts[resultIndex];
     let timeConstant: number = 0;
-    let key = this.globalSettingsService.checkValidKey(
-      item.madeFromString.split(' ')[0].toLowerCase() + 'Select'
-    );
+    let key = this.globalSettingsService.checkValidKey(item.madeFromString.split(' ')[0].toLowerCase() + 'Select');
 
     if (key) {
       const property = this.globalSettingsService.getProperty(key);
-      if (
-        typeof property === 'object' &&
-        property !== null &&
-        'prefabDesc' in property
-      ) {
+      if (typeof property === 'object' && property !== null && 'prefabDesc' in property) {
         const assemblerSpeed = property?.prefabDesc?.assemblerSpeed;
       }
     }

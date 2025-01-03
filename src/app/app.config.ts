@@ -13,8 +13,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     {
       provide: APP_BASE_HREF,
-      useValue:
-        document.getElementsByTagName('base')[0]?.getAttribute('href') || '/',
+      useValue: document.getElementsByTagName('base')[0]?.getAttribute('href') || '/',
     },
   ],
 };

@@ -1,22 +1,11 @@
-import {
-  Component,
-  effect,
-  ElementRef,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { Component, effect, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from '../../utilComponents/navbar/navbar.component';
 import { AppDB } from '../../services/db';
 import { DataManagementService } from '../../services/data-management.service';
 import { Item } from '../../interfaces/mainData/Item';
-import { forkJoin, map, switchMap } from 'rxjs';
-import {
-  FormControl,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { forkJoin, map, switchMap, tap } from 'rxjs';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Recipe } from '../../interfaces/mainData/Recipe';
 import { CommonModule } from '@angular/common';
 import { TableRatiosComponent } from '../../utilComponents/table-ratios/table-ratios.component';
@@ -159,6 +148,7 @@ export class CalculatorComponent implements OnInit {
   public miningSelectOptions: Item[] = [];
   public chemicalSelectOptions: Item[] = [];
   public researchSelectOptions: Item[] = [];
+  public proliferationSelectOptions: Item[] = [];
   public selectedRecipes: Item[][] = [];
   public recipes: Recipe[] = [];
   public items: Item[] = [];
@@ -184,86 +174,90 @@ export class CalculatorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataManagement
-      .getItemTypeString()
-      .pipe(
-        switchMap((data) => {
-          return forkJoin(
-            data.map((item: { typeString: string; IconPath: string }) =>
-              this.dataManagement.getAllMachinesByType(item.typeString).pipe(
-                map((res) => {
-                  console.log(item.typeString);
-                  switch (item.typeString) {
-                    case 'Assembler':
-                      this.assemblerSelectOptions = res;
-                      this.globalSettingsService.setPropertyWithLocalStorage(
-                        'assemblerSelect',
-                        this.assemblerSelectOptions,
-                        'savedAssemblerID'
-                      );
-                      break;
+    const machineOptions$ = this.dataManagement.getItemTypeString().pipe(
+      switchMap((data) => {
+        return forkJoin(
+          data.map((item: { typeString: string; IconPath: string }) =>
+            this.dataManagement.getAllMachinesByType(item.typeString).pipe(
+              map((res) => {
+                console.log(item.typeString);
+                switch (item.typeString) {
+                  case 'Assembler':
+                    this.assemblerSelectOptions = res;
+                    this.globalSettingsService.setPropertyWithLocalStorage(
+                      'assemblerSelect',
+                      this.assemblerSelectOptions,
+                      'savedAssemblerID'
+                    );
+                    break;
 
-                    case 'Mining Facility':
-                      this.miningSelectOptions = res;
-                      this.globalSettingsService.setPropertyWithLocalStorage(
-                        'miningSelect',
-                        this.miningSelectOptions,
-                        'savedMiningMachineID'
-                      );
-                      break;
+                  case 'Mining Facility':
+                    this.miningSelectOptions = res;
+                    this.globalSettingsService.setPropertyWithLocalStorage(
+                      'miningSelect',
+                      this.miningSelectOptions,
+                      'savedMiningMachineID'
+                    );
+                    break;
 
-                    case 'Smelting Facility':
-                      this.smeltingSelectOptions = res;
-                      this.globalSettingsService.setPropertyWithLocalStorage(
-                        'smeltingSelect',
-                        this.smeltingSelectOptions,
-                        'savedSmelterID'
-                      );
-                      break;
+                  case 'Smelting Facility':
+                    this.smeltingSelectOptions = res;
+                    this.globalSettingsService.setPropertyWithLocalStorage(
+                      'smeltingSelect',
+                      this.smeltingSelectOptions,
+                      'savedSmelterID'
+                    );
+                    break;
 
-                    case 'Research Facility':
-                      this.researchSelectOptions = res;
-                      this.globalSettingsService.setPropertyWithLocalStorage(
-                        'researchSelect',
-                        this.researchSelectOptions,
-                        'savedMatrixLabID'
-                      );
-                      break;
+                  case 'Research Facility':
+                    this.researchSelectOptions = res;
+                    this.globalSettingsService.setPropertyWithLocalStorage(
+                      'researchSelect',
+                      this.researchSelectOptions,
+                      'savedMatrixLabID'
+                    );
+                    break;
 
-                    case 'Chemical Facility':
-                      this.chemicalSelectOptions = res;
-                      this.globalSettingsService.setPropertyWithLocalStorage(
-                        'chemicalSelect',
-                        this.chemicalSelectOptions,
-                        'savedChemicalPlantID'
-                      );
-                      break;
+                  case 'Chemical Facility':
+                    this.chemicalSelectOptions = res;
+                    this.globalSettingsService.setPropertyWithLocalStorage(
+                      'chemicalSelect',
+                      this.chemicalSelectOptions,
+                      'savedChemicalPlantID'
+                    );
+                    break;
 
-                    default:
-                      break;
-                  }
-                  return { typeString: item.typeString, res };
-                })
-              )
+                  default:
+                    break;
+                }
+                return { typeString: item.typeString, res };
+              })
             )
-          );
-        })
-      )
-      .subscribe({
-        next: (data) => {
-          // Manejo de los datos resultantes si es necesario
-        },
-        error: (err) => {
-          console.error('Error:', err);
-        },
-      });
+          )
+        );
+      })
+    );
+
+    const proliferatorOptions$ = this.dataManagement.getProliferatorItems().pipe(
+      tap((proliferatorData) => {
+        this.proliferationSelectOptions = proliferatorData;
+        this.globalSettingsService.setPropertyWithLocalStorage(
+          'proliferationSelect',
+          this.proliferationSelectOptions,
+          'savedProliferatorID'
+        );
+      })
+    );
 
     const recipes$ = this.dataManagement.getRecipes();
     const items$ = this.dataManagement.getItems();
-    forkJoin([items$, recipes$]).subscribe({
-      next: (res) => {
-        this.items = res[0];
-        this.recipes = res[1];
+
+    // Combinar todas las llamadas con `forkJoin`
+    forkJoin([machineOptions$, proliferatorOptions$, items$, recipes$]).subscribe({
+      next: ([machineData, proliferatorData, items, recipes]) => {
+        this.items = items;
+        this.recipes = recipes;
+
         this.resourcesMaterialsProducts = this.items.filter(
           (item) =>
             item.Type === 'Resource' ||
@@ -273,6 +267,7 @@ export class CalculatorComponent implements OnInit {
             item.Type === 'Matrix' ||
             item.Type === 'DarkFog'
         );
+
         this.buildings = this.items
           .filter(
             (item) =>
@@ -287,6 +282,9 @@ export class CalculatorComponent implements OnInit {
           )
           .sort((a, b) => a.ID - b.ID);
       },
+      error: (err) => {
+        console.error('Error:', err);
+      },
     });
   }
 
@@ -300,8 +298,7 @@ export class CalculatorComponent implements OnInit {
     this.globalSettingsService.updateProperty('smeltingSelect', item);
     localStorage.setItem('savedSmelterID', item.ID.toString());
 
-    this.dataManagement.powerFacilitiesMap()['Smelting Facility'] =
-      item.IconPath;
+    this.dataManagement.powerFacilitiesMap()['Smelting Facility'] = item.IconPath;
   }
   selectMiningMachine(item: Item) {
     this.globalSettingsService.updateProperty('miningSelect', item);
@@ -313,24 +310,27 @@ export class CalculatorComponent implements OnInit {
     this.globalSettingsService.updateProperty('researchSelect', item);
     localStorage.setItem('savedMatrixLabID', item.ID.toString());
 
-    this.dataManagement.powerFacilitiesMap()['Research Facility'] =
-      item.IconPath;
+    this.dataManagement.powerFacilitiesMap()['Research Facility'] = item.IconPath;
   }
   selectChemicalPlant(item: Item) {
     this.globalSettingsService.updateProperty('chemicalSelect', item);
     localStorage.setItem('savedChemicalPlantID', item.ID.toString());
 
-    this.dataManagement.powerFacilitiesMap()['Chemical Facility'] =
-      item.IconPath;
+    this.dataManagement.powerFacilitiesMap()['Chemical Facility'] = item.IconPath;
+  }
+
+  selectProliferator(item: Item) {
+    this.globalSettingsService.updateProperty('proliferationSelect', item);
+    localStorage.setItem('savedProliferatorID', item.ID.toString());
+
+    this.dataManagement.powerFacilitiesMap()['proliferator'] = item.IconPath;
   }
   getImageSrc(itemName: string): string {
     let src: string = '';
     let item: Item | undefined;
 
     if (itemName.includes('(advanced)')) {
-      item = this.items.find(
-        (item) => item.name === itemName.split('(')[0].slice(0, -1)
-      );
+      item = this.items.find((item) => item.name === itemName.split('(')[0].slice(0, -1));
     } else {
       item = this.items.find((item) => item.name === itemName);
     }

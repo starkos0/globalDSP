@@ -7,23 +7,20 @@ import { Item } from '../interfaces/mainData/Item';
   providedIn: 'root',
 })
 export class GlobalSettingsServiceService {
-  public globalSettingsSignal: WritableSignal<GlobalSettingsFormValues> =
-    signal({
-      initialAmountValue: 60,
-      unitSelected: 'm',
-      assemblerSelect: {} as Item,
-      smeltingSelect: {} as Item,
-      miningSelect: {} as Item,
-      researchSelect: {} as Item,
-      chemicalSelect: {} as Item,
-      refiningSelect: {} as Item,
-      oilSelect: {} as Item,
-    });
+  public globalSettingsSignal: WritableSignal<GlobalSettingsFormValues> = signal({
+    initialAmountValue: 60,
+    unitSelected: 'm',
+    assemblerSelect: {} as Item,
+    smeltingSelect: {} as Item,
+    miningSelect: {} as Item,
+    researchSelect: {} as Item,
+    chemicalSelect: {} as Item,
+    refiningSelect: {} as Item,
+    oilSelect: {} as Item,
+    proliferationSelect: {} as Item,
+  });
 
-  updateProperty<T extends keyof GlobalSettingsFormValues>(
-    key: T,
-    value: GlobalSettingsFormValues[T]
-  ): void {
+  updateProperty<T extends keyof GlobalSettingsFormValues>(key: T, value: GlobalSettingsFormValues[T]): void {
     const currentValues = this.globalSettingsSignal();
     this.globalSettingsSignal.set({ ...currentValues, [key]: value });
   }
@@ -32,9 +29,9 @@ export class GlobalSettingsServiceService {
     return this.globalSettingsSignal();
   }
 
-  getProperty<T extends keyof GlobalSettingsFormValues>(
-    key: T
-  ): GlobalSettingsFormValues[T] {
+  getProperty<T extends keyof GlobalSettingsFormValues>(key: T): GlobalSettingsFormValues[T] {
+    console.log(key);
+    console.log(this.globalSettingsSignal()[key]);
     return this.globalSettingsSignal()[key];
   }
 
@@ -48,12 +45,11 @@ export class GlobalSettingsServiceService {
     let selectedItem: Item;
 
     if (savedID) {
-      selectedItem =
-        options.find((item) => item.ID === parseInt(savedID, 10)) || options[0];
+      selectedItem = options.find((item) => item.ID === parseInt(savedID, 10)) || options[0];
     } else {
       selectedItem = options[0];
     }
-
+    console.log(selectedItem);
     this.updateProperty(propertyName, selectedItem);
   }
   checkValidKey(key: string): keyof GlobalSettingsFormValues | null {
@@ -65,10 +61,9 @@ export class GlobalSettingsServiceService {
       'chemicalSelect',
       'refiningSelect',
       'oilSelect',
+      'proliferationSelect',
     ];
 
-    return validKeys.includes(key as keyof GlobalSettingsFormValues)
-      ? (key as keyof GlobalSettingsFormValues)
-      : null;
+    return validKeys.includes(key as keyof GlobalSettingsFormValues) ? (key as keyof GlobalSettingsFormValues) : null;
   }
 }

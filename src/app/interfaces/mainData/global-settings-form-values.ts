@@ -10,4 +10,5 @@ export interface GlobalSettingsFormValues {
   chemicalSelect: Item;
   refiningSelect: Item;
   oilSelect: Item;
+  proliferationSelect: Item;
 }

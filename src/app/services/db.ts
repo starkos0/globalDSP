@@ -35,30 +35,18 @@ export class AppDB extends Dexie {
   private async populate() {
     try {
       const [items, recipes, techs] = await Promise.all([
-        this.loadDataFromJSON<Item[]>(
-          `${this.baseHref}assets/dspDataJson/ItemProtoSet.json`
-        ),
-        this.loadDataFromJSON<Recipe[]>(
-          `${this.baseHref}assets/dspDataJson/RecipeProtoSet.json`
-        ),
-        this.loadDataFromJSON<Tech[]>(
-          `${this.baseHref}assets/dspDataJson/TechProtoSet.json`
-        ),
+        this.loadDataFromJSON<Item[]>(`${this.baseHref}assets/dspDataJson/ItemProtoSet.json`),
+        this.loadDataFromJSON<Recipe[]>(`${this.baseHref}assets/dspDataJson/RecipeProtoSet.json`),
+        this.loadDataFromJSON<Tech[]>(`${this.baseHref}assets/dspDataJson/TechProtoSet.json`),
       ]);
 
-      await this.transaction(
-        'rw',
-        this.itemsTable,
-        this.recipesTable,
-        this.techsTable,
-        async () => {
-          await Promise.all([
-            this.itemsTable.bulkAdd(items),
-            this.recipesTable.bulkAdd(recipes),
-            this.techsTable.bulkAdd(techs),
-          ]);
-        }
-      );
+      await this.transaction('rw', this.itemsTable, this.recipesTable, this.techsTable, async () => {
+        await Promise.all([
+          this.itemsTable.bulkAdd(items),
+          this.recipesTable.bulkAdd(recipes),
+          this.techsTable.bulkAdd(techs),
+        ]);
+      });
     } catch (err) {
       console.error('Error populating data:', err);
     } finally {
