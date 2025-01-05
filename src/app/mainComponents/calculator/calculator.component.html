@@ -20,6 +20,12 @@
           <option value="s">items/s</option>
         </select>
 
+        <select  class="select select-bordered rounded-sm select-xs max-w-xs">
+          <option value="">None</option>
+          <option value="">Accelerate all</option>
+          <option value="">Increase all production</option>
+        </select>
+
         <button class="btn btn-sm w-40 rounded-sm" onclick="my_modal_2.showModal()">
           <img class="w-5 h-5" src="assets/Icons/ItemRecipe/various/select-recipe.png" alt="" />
           Add Recipe +
@@ -170,6 +176,22 @@
           <ul class="menu dropdown-content bg-base-100 z-[1] w-52 p-2 shadow rounded-sm">
             @for (machine of proliferationSelectOptions; track $index) {
               <li (click)="selectProliferator(machine)">
+                <a><img class="w-8 h-8" [src]="'assets/' + machine.IconPath + '.png'" alt="" /></a>
+              </li>
+            }
+          </ul>
+        </details>
+        <details class="dropdown">
+          <summary class="btn m-1 rounded-sm">
+            <img
+              class="w-8 h-8"
+              [src]="'assets/' + (globalSettingsService.getProperty('beltSelect').IconPath || '') + '.png'"
+              alt=""
+            />
+          </summary>
+          <ul class="menu dropdown-content bg-base-100 z-[1] w-52 p-2 shadow rounded-sm">
+            @for (machine of beltSelectOptions; track $index) {
+              <li (click)="selectBelt(machine)">
                 <a><img class="w-8 h-8" [src]="'assets/' + machine.IconPath + '.png'" alt="" /></a>
               </li>
             }

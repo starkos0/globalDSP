@@ -11,4 +11,5 @@ export interface GlobalSettingsFormValues {
   refiningSelect: Item;
   oilSelect: Item;
   proliferationSelect: Item;
+  beltSelect: Item;
 }

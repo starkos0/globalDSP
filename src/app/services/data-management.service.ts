@@ -125,6 +125,7 @@ export class DataManagementService {
       audioDoppler: 0,
       minerPeriod: 0,
       labAssembleSpeed: 0,
+      beltSpeed: 0
     },
     ID: 0,
     description: '',
@@ -150,6 +151,9 @@ export class DataManagementService {
     totalMachinesByType: [],
     totalItems: [],
   });
+
+  public beltStackSize = signal(1);
+  public beltTransportFactor = 6;
 
   constructor(
     private db: AppDB,
@@ -300,6 +304,8 @@ export class DataManagementService {
       totalValue: this.globalSettingsService.getProperty('initialAmountValue'),
       totalMachine: totalMachine,
       power: Number((energyPerMachine * totalMachine).toFixed(2)),
+      beltsNeeded: this.globalSettingsService.getProperty('initialAmountValue') / (this.globalSettingsService.getProperty('beltSelect').prefabDesc.beltSpeed * this.beltTransportFactor * this.beltStackSize())  / 
+      (this.globalSettingsService.getProperty('unitSelected') === 'm' ? 60 : 1)
     };
     if (this.isSelectedItem(newItem)) {
       this.selectedItemsSet.delete(newItem.ID);
@@ -356,6 +362,12 @@ export class DataManagementService {
           if (proliferatorItem) {
             updatedMap['proliferator'] = proliferatorItem.IconPath;
           }
+
+          const beltItem = this.globalSettingsService.getProperty('beltSelect') as Item | undefined;
+          if (beltItem) {
+            updatedMap['belt'] = beltItem.IconPath;
+          }
+
 
           this.powerFacilitiesMap.set(updatedMap);
           console.log('powerFacilities', this.powerFacilitiesMap());
@@ -485,6 +497,8 @@ export class DataManagementService {
         this.globalSettingsService.checkValidKey(madeFromString.split(' ')[0].toLowerCase() + 'Select')
       ),
       power: Number((energyPerMachine * totalMachine).toFixed(2)),
+      beltsNeeded: (parentItem.totalValue * recipe.ItemCounts[recipe.Items.indexOf(currentItem.ID)] || 0) / (this.globalSettingsService.getProperty('beltSelect').prefabDesc.beltSpeed * this.beltTransportFactor * this.beltStackSize()) / 
+      (this.globalSettingsService.getProperty('unitSelected') === 'm' ? 60 : 1)
     };
   }
 
@@ -529,6 +543,11 @@ export class DataManagementService {
       totalValue: totalValue,
       totalMachine: totalMachine,
       power: Number((energyPerMachine * totalMachine).toFixed(2)),
+      beltsNeeded: totalValue / 
+      (this.globalSettingsService.getProperty('beltSelect').prefabDesc.beltSpeed * 
+       this.beltTransportFactor * 
+       this.beltStackSize()) / 
+      (this.globalSettingsService.getProperty('unitSelected') === 'm' ? 60 : 1)
     };
   }
 
@@ -784,4 +803,9 @@ export class DataManagementService {
   getProliferatorItems() {
     return from(this.db.itemsTable.where('name').startsWith('Proliferator').toArray());
   }
+
+  getBeltItems(){
+    return from(this.db.itemsTable.where('name').startsWith('Conveyor Belt').toArray());
+  }
+
 }

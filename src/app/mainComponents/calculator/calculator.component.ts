@@ -128,6 +128,7 @@ export class CalculatorComponent implements OnInit {
       audioDoppler: 0,
       minerPeriod: 0,
       labAssembleSpeed: 0,
+      beltSpeed: 0
     },
     ID: 0,
     description: '',
@@ -149,6 +150,7 @@ export class CalculatorComponent implements OnInit {
   public chemicalSelectOptions: Item[] = [];
   public researchSelectOptions: Item[] = [];
   public proliferationSelectOptions: Item[] = [];
+  public beltSelectOptions: Item[] = [];
   public selectedRecipes: Item[][] = [];
   public recipes: Recipe[] = [];
   public items: Item[] = [];
@@ -249,11 +251,23 @@ export class CalculatorComponent implements OnInit {
       })
     );
 
+    const beltOptions$ = this.dataManagement.getBeltItems().pipe(
+      tap((beltData) => {
+        this.beltSelectOptions = beltData;
+        console.log(this.beltSelectOptions)
+        this.globalSettingsService.setPropertyWithLocalStorage(
+          'beltSelect',
+          this.beltSelectOptions,
+          'savedBeltID'
+        );
+      })
+    );
+
     const recipes$ = this.dataManagement.getRecipes();
     const items$ = this.dataManagement.getItems();
 
     // Combinar todas las llamadas con `forkJoin`
-    forkJoin([machineOptions$, proliferatorOptions$, items$, recipes$]).subscribe({
+    forkJoin([machineOptions$, proliferatorOptions$, items$, recipes$,beltOptions$]).subscribe({
       next: ([machineData, proliferatorData, items, recipes]) => {
         this.items = items;
         this.recipes = recipes;
@@ -324,6 +338,13 @@ export class CalculatorComponent implements OnInit {
     localStorage.setItem('savedProliferatorID', item.ID.toString());
 
     this.dataManagement.powerFacilitiesMap()['proliferator'] = item.IconPath;
+  }
+
+  selectBelt(item: Item) {
+    this.globalSettingsService.updateProperty('beltSelect', item);
+    localStorage.setItem('savedBeltID', item.ID.toString());
+
+    this.dataManagement.powerFacilitiesMap()['belt'] = item.IconPath;
   }
   getImageSrc(itemName: string): string {
     let src: string = '';

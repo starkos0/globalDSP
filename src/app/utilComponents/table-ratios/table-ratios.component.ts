@@ -262,6 +262,7 @@ export class TableRatiosComponent implements OnInit {
         totalValue: childTotalValue,
         totalMachine: 0,
         power: 0,
+        beltsNeeded: childTotalValue / (this.globalSettingsService.getProperty('beltSelect').prefabDesc.beltSpeed * this.dataManagement.beltTransportFactor * this.dataManagement.beltStackSize())
       };
 
       if (itemFound[0].recipes !== undefined && itemFound[0].recipes.length > 0) {

@@ -18,6 +18,7 @@ export class GlobalSettingsServiceService {
     refiningSelect: {} as Item,
     oilSelect: {} as Item,
     proliferationSelect: {} as Item,
+    beltSelect: {} as Item
   });
 
   updateProperty<T extends keyof GlobalSettingsFormValues>(key: T, value: GlobalSettingsFormValues[T]): void {
@@ -30,8 +31,6 @@ export class GlobalSettingsServiceService {
   }
 
   getProperty<T extends keyof GlobalSettingsFormValues>(key: T): GlobalSettingsFormValues[T] {
-    console.log(key);
-    console.log(this.globalSettingsSignal()[key]);
     return this.globalSettingsSignal()[key];
   }
 
@@ -62,6 +61,7 @@ export class GlobalSettingsServiceService {
       'refiningSelect',
       'oilSelect',
       'proliferationSelect',
+      'beltSelect'
     ];
 
     return validKeys.includes(key as keyof GlobalSettingsFormValues) ? (key as keyof GlobalSettingsFormValues) : null;
