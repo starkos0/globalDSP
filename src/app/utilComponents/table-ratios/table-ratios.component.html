@@ -1,4 +1,11 @@
 @if (this.dataManagement.selectedItems().length > 0 && this.isRecipesFormInitialized) {
+  
+} @else {
+  <div class="h-full flex justify-center items-center">
+    <h1 class="text-3xl font-bold">Select a recipe to see the results.</h1>
+  </div>
+}
+@defer(when isRecipesFormInitialized){
   <div class="overflow-x-auto">
     <table class="table">
       <thead>
@@ -80,11 +87,11 @@
                         }"
                       >
                         @for (recSrc of getRecipesItemsSrc(recipe.ID); track $index) {
-                          <img [src]="'assets/' + recSrc + '.png'" class="w-8 h-8 m-2" alt="" />
+                          <img loading="lazy" [src]="'assets/' + recSrc + '.png'" class="w-8 h-8 m-2" alt="" />
                         }
                         <span class="material-symbols-outlined">arrow_forward</span>
                         @for (recSrc of getRecipesResultsSrc(recipe.ID); track $index) {
-                          <img [src]="'assets/' + recSrc + '.png'" class="w-8 h-8 m-2" alt="" />
+                          <img loading="lazy" [src]="'assets/' + recSrc + '.png'" class="w-8 h-8 m-2" alt="" />
                         }
                       </span>
                     </label>
@@ -177,11 +184,13 @@
       </tbody>
     </table>
   </div>
-} @else {
-  <div class="h-full flex justify-center items-center">
-    <h1 class="text-3xl font-bold">Select a recipe to see the results.</h1>
-  </div>
+} @loading {
+  <div class="skeleton h-20 w-full"></div>
+  <div class="skeleton h-20 w-full mt-2"></div>
+} @error {
+  <h1 class="text-red-500">Error loading data</h1>
+
 }
-<div>
+<!-- <div>
   <pre>{{ this.dataManagement.selectedItems() | json }}</pre>
-</div>
+</div> -->

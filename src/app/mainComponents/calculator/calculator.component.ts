@@ -158,24 +158,13 @@ export class CalculatorComponent implements OnInit {
   public buildings: Item[] = [];
 
   constructor(
-    private db: AppDB,
     public dataManagement: DataManagementService,
     public globalSettingsService: GlobalSettingsServiceService
   ) {}
-  optionsChanged(values: any) {
-    const updatedMap: { [key: string]: string } = {};
 
-    Object.keys(values).forEach((controlName) => {
-      const selectedFacility = values[controlName];
-      if (selectedFacility?.typeString && selectedFacility.IconPath) {
-        updatedMap[selectedFacility.typeString] = selectedFacility.IconPath;
-      }
-    });
+  async ngOnInit(): Promise<void> {
+    await this.dataManagement.preloadData();
 
-    this.dataManagement.powerFacilitiesMap.set(updatedMap);
-  }
-
-  ngOnInit(): void {
     const machineOptions$ = this.dataManagement.getItemTypeString().pipe(
       switchMap((data) => {
         return forkJoin(
