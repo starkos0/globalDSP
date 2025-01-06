@@ -63,7 +63,7 @@
               </td>
               <td>
                 <form [formGroup]="recipesForm">
-                  @for (recipe of item.recipes; track $index) {
+                  @for (recipe of this.dataManagement.getPreprocessedRecipes(item.ID); track $index) {
                     <label class="label cursor-pointer flex">
                       <input
                         type="radio"
@@ -86,16 +86,17 @@
                           'bg-base-200': recipesForm.get(item.ID.toString())?.value === recipe.ID,
                         }"
                       >
-                        @for (recSrc of getRecipesItemsSrc(recipe.ID); track $index) {
+                        @for (recSrc of recipe.itemsSrc; track $index) {
                           <img loading="lazy" [src]="'assets/' + recSrc + '.png'" class="w-8 h-8 m-2" alt="" />
                         }
                         <span class="material-symbols-outlined">arrow_forward</span>
-                        @for (recSrc of getRecipesResultsSrc(recipe.ID); track $index) {
+                        @for (recSrc of recipe.resultsSrc; track $index) {
                           <img loading="lazy" [src]="'assets/' + recSrc + '.png'" class="w-8 h-8 m-2" alt="" />
                         }
                       </span>
                     </label>
                   }
+
                 </form>
               </td>
               <td>

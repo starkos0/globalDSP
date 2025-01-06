@@ -10,8 +10,10 @@ import { recipes, TransformedItems } from '../interfaces/transformed-items';
 import { GlobalSettingsFormValues } from '../interfaces/mainData/global-settings-form-values';
 import { GlobalSettingsServiceService } from './global-settings-service.service';
 import { Item } from '../interfaces/mainData/Item';
+import { PreprocessedRecipe } from '../interfaces/mainData/preprocessed-item';
 import { Totals } from '../interfaces/miscTypes/totals';
 import { TotalItems } from '../interfaces/miscTypes/TotalItems';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -397,6 +399,8 @@ export class DataManagementService {
       });
 
     console.log(this.selectedItems());
+    this.preprocessAllRecipes(this.selectedItems());
+
     this.isRecipesFormInitialized.set(true);
     const end = performance.now();
 
@@ -407,7 +411,39 @@ export class DataManagementService {
     this.calculateTotales(this.selectedItems());
     console.log(this.totals());
   }
+  public preprocessedRecipesMap: Map<number,PreprocessedRecipe[]> = new Map<number, PreprocessedRecipe[]>();
 
+  preprocessAllRecipes(selectedItems: TransformedItems[]): void {
+    this.preprocessedRecipesMap.clear();
+  
+    const processItem = (item: TransformedItems) => {
+      const preprocessedRecipes = item.recipes.map((recipe) => ({
+        ...recipe,
+        itemsSrc: this.getRecipesItemsSrc(recipe.ID),
+        resultsSrc: this.getRecipesResultsSrc(recipe.ID),
+      }));
+  
+      this.preprocessedRecipesMap.set(item.ID, preprocessedRecipes);
+  
+      item.childs.forEach((child) => processItem(child));
+    };
+    selectedItems.forEach((item) => processItem(item));
+  }
+  
+  
+  getPreprocessedRecipes(itemId: number): PreprocessedRecipe[] {
+    return this.preprocessedRecipesMap.get(itemId) || [];
+  }
+
+  getRecipesItemsSrc(recipeID: number): string[] {
+    const recipe = this.recipesMap.get(recipeID);
+    return recipe?.Items?.map((itemID) => this.itemsMap.get(itemID)?.IconPath || '') || [];
+  }
+
+  getRecipesResultsSrc(recipeID: number): string[] {
+    const recipe = this.recipesMap.get(recipeID);
+    return recipe?.Results?.map((resultID) => this.itemsMap.get(resultID)?.IconPath || '') || [];
+  }
   async createTreeStructure(item: TransformedItems): Promise<void> {
     if (!item.recipes || item.recipes.length === 0) return;
 
