@@ -1,22 +1,11 @@
-import {
-  Component,
-  effect,
-  ElementRef,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { Component, effect, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from '../../utilComponents/navbar/navbar.component';
 import { AppDB } from '../../services/db';
 import { DataManagementService } from '../../services/data-management.service';
 import { Item } from '../../interfaces/mainData/Item';
-import { forkJoin, map, switchMap } from 'rxjs';
-import {
-  FormControl,
-  FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { forkJoin, map, switchMap, tap } from 'rxjs';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Recipe } from '../../interfaces/mainData/Recipe';
 import { CommonModule } from '@angular/common';
 import { TableRatiosComponent } from '../../utilComponents/table-ratios/table-ratios.component';
@@ -25,21 +14,13 @@ import { GlobalSettingsFormValues } from '../../interfaces/mainData/global-setti
 @Component({
   selector: 'app-calculator',
   standalone: true,
-  imports: [
-    RouterOutlet,
-    RouterLink,
-    RouterLinkActive,
-    NavbarComponent,
-    FormsModule,
-    ReactiveFormsModule,
-    CommonModule,
-    TableRatiosComponent,
-  ],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, NavbarComponent, FormsModule, ReactiveFormsModule, CommonModule, TableRatiosComponent],
   templateUrl: './calculator.component.html',
   styleUrl: './calculator.component.scss',
 })
 export class CalculatorComponent implements OnInit {
   @ViewChild('myModal') myModal!: ElementRef;
+
   public defaultItem: Item = {
     Type: '',
     StackSize: 0,
@@ -139,6 +120,7 @@ export class CalculatorComponent implements OnInit {
       audioDoppler: 0,
       minerPeriod: 0,
       labAssembleSpeed: 0,
+      beltSpeed: 0,
     },
     ID: 0,
     description: '',
@@ -159,6 +141,8 @@ export class CalculatorComponent implements OnInit {
   public miningSelectOptions: Item[] = [];
   public chemicalSelectOptions: Item[] = [];
   public researchSelectOptions: Item[] = [];
+  public proliferationSelectOptions: Item[] = [];
+  public beltSelectOptions: Item[] = [];
   public selectedRecipes: Item[][] = [];
   public recipes: Recipe[] = [];
   public items: Item[] = [];
@@ -166,104 +150,81 @@ export class CalculatorComponent implements OnInit {
   public buildings: Item[] = [];
 
   constructor(
-    private db: AppDB,
     public dataManagement: DataManagementService,
     public globalSettingsService: GlobalSettingsServiceService
   ) {}
-  optionsChanged(values: any) {
-    const updatedMap: { [key: string]: string } = {};
 
-    Object.keys(values).forEach((controlName) => {
-      const selectedFacility = values[controlName];
-      if (selectedFacility?.typeString && selectedFacility.IconPath) {
-        updatedMap[selectedFacility.typeString] = selectedFacility.IconPath;
-      }
-    });
+  async ngOnInit(): Promise<void> {
+    await this.dataManagement.preloadData();
 
-    this.dataManagement.powerFacilitiesMap.set(updatedMap);
-  }
+    const machineOptions$ = this.dataManagement.getItemTypeString().pipe(
+      switchMap((data) => {
+        return forkJoin(
+          data.map((item: { typeString: string; IconPath: string }) =>
+            this.dataManagement.getAllMachinesByType(item.typeString).pipe(
+              map((res) => {
+                console.log(item.typeString);
+                switch (item.typeString) {
+                  case 'Assembler':
+                    this.assemblerSelectOptions = res;
+                    this.globalSettingsService.setPropertyWithLocalStorage('assemblerSelect', this.assemblerSelectOptions, 'savedAssemblerID');
+                    break;
 
-  ngOnInit(): void {
-    this.dataManagement
-      .getItemTypeString()
-      .pipe(
-        switchMap((data) => {
-          return forkJoin(
-            data.map((item: { typeString: string; IconPath: string }) =>
-              this.dataManagement.getAllMachinesByType(item.typeString).pipe(
-                map((res) => {
-                  console.log(item.typeString);
-                  switch (item.typeString) {
-                    case 'Assembler':
-                      this.assemblerSelectOptions = res;
-                      this.globalSettingsService.setPropertyWithLocalStorage(
-                        'assemblerSelect',
-                        this.assemblerSelectOptions,
-                        'savedAssemblerID'
-                      );
-                      break;
+                  case 'Mining Facility':
+                    this.miningSelectOptions = res;
+                    this.globalSettingsService.setPropertyWithLocalStorage('miningSelect', this.miningSelectOptions, 'savedMiningMachineID');
+                    break;
 
-                    case 'Mining Facility':
-                      this.miningSelectOptions = res;
-                      this.globalSettingsService.setPropertyWithLocalStorage(
-                        'miningSelect',
-                        this.miningSelectOptions,
-                        'savedMiningMachineID'
-                      );
-                      break;
+                  case 'Smelting Facility':
+                    this.smeltingSelectOptions = res;
+                    this.globalSettingsService.setPropertyWithLocalStorage('smeltingSelect', this.smeltingSelectOptions, 'savedSmelterID');
+                    break;
 
-                    case 'Smelting Facility':
-                      this.smeltingSelectOptions = res;
-                      this.globalSettingsService.setPropertyWithLocalStorage(
-                        'smeltingSelect',
-                        this.smeltingSelectOptions,
-                        'savedSmelterID'
-                      );
-                      break;
+                  case 'Research Facility':
+                    this.researchSelectOptions = res;
+                    this.globalSettingsService.setPropertyWithLocalStorage('researchSelect', this.researchSelectOptions, 'savedMatrixLabID');
+                    break;
 
-                    case 'Research Facility':
-                      this.researchSelectOptions = res;
-                      this.globalSettingsService.setPropertyWithLocalStorage(
-                        'researchSelect',
-                        this.researchSelectOptions,
-                        'savedMatrixLabID'
-                      );
-                      break;
+                  case 'Chemical Facility':
+                    this.chemicalSelectOptions = res;
+                    this.globalSettingsService.setPropertyWithLocalStorage('chemicalSelect', this.chemicalSelectOptions, 'savedChemicalPlantID');
+                    break;
 
-                    case 'Chemical Facility':
-                      this.chemicalSelectOptions = res;
-                      this.globalSettingsService.setPropertyWithLocalStorage(
-                        'chemicalSelect',
-                        this.chemicalSelectOptions,
-                        'savedChemicalPlantID'
-                      );
-                      break;
-
-                    default:
-                      break;
-                  }
-                  return { typeString: item.typeString, res };
-                })
-              )
+                  default:
+                    break;
+                }
+                return { typeString: item.typeString, res };
+              })
             )
-          );
-        })
-      )
-      .subscribe({
-        next: (data) => {
-          // Manejo de los datos resultantes si es necesario
-        },
-        error: (err) => {
-          console.error('Error:', err);
-        },
-      });
+          )
+        );
+      })
+    );
+
+    const proliferatorOptions$ = this.dataManagement.getProliferatorItems().pipe(
+      tap((proliferatorData) => {
+        this.proliferationSelectOptions = proliferatorData;
+        this.globalSettingsService.setPropertyWithLocalStorage('proliferationSelect', this.proliferationSelectOptions, 'savedProliferatorID');
+      })
+    );
+
+    const beltOptions$ = this.dataManagement.getBeltItems().pipe(
+      tap((beltData) => {
+        this.beltSelectOptions = beltData;
+        console.log(this.beltSelectOptions);
+        this.globalSettingsService.setPropertyWithLocalStorage('beltSelect', this.beltSelectOptions, 'savedBeltID');
+      })
+    );
 
     const recipes$ = this.dataManagement.getRecipes();
     const items$ = this.dataManagement.getItems();
-    forkJoin([items$, recipes$]).subscribe({
-      next: (res) => {
-        this.items = res[0];
-        this.recipes = res[1];
+
+    // Combinar todas las llamadas con `forkJoin`
+    forkJoin([machineOptions$, proliferatorOptions$, items$, recipes$, beltOptions$]).subscribe({
+      next: ([machineData, proliferatorData, items, recipes]) => {
+        this.items = items;
+        this.recipes = recipes;
+
         this.resourcesMaterialsProducts = this.items.filter(
           (item) =>
             item.Type === 'Resource' ||
@@ -273,6 +234,7 @@ export class CalculatorComponent implements OnInit {
             item.Type === 'Matrix' ||
             item.Type === 'DarkFog'
         );
+
         this.buildings = this.items
           .filter(
             (item) =>
@@ -287,6 +249,9 @@ export class CalculatorComponent implements OnInit {
           )
           .sort((a, b) => a.ID - b.ID);
       },
+      error: (err) => {
+        console.error('Error:', err);
+      },
     });
   }
 
@@ -296,41 +261,55 @@ export class CalculatorComponent implements OnInit {
 
     this.dataManagement.powerFacilitiesMap()['Assembler'] = item.IconPath;
   }
+
   selectSmelter(item: Item) {
     this.globalSettingsService.updateProperty('smeltingSelect', item);
     localStorage.setItem('savedSmelterID', item.ID.toString());
 
-    this.dataManagement.powerFacilitiesMap()['Smelting Facility'] =
-      item.IconPath;
+    this.dataManagement.powerFacilitiesMap()['Smelting Facility'] = item.IconPath;
   }
+
   selectMiningMachine(item: Item) {
     this.globalSettingsService.updateProperty('miningSelect', item);
     localStorage.setItem('savedMiningMachineID', item.ID.toString());
 
     this.dataManagement.powerFacilitiesMap()['Mining Facility'] = item.IconPath;
   }
+
   selectMatrixLab(item: Item) {
     this.globalSettingsService.updateProperty('researchSelect', item);
     localStorage.setItem('savedMatrixLabID', item.ID.toString());
 
-    this.dataManagement.powerFacilitiesMap()['Research Facility'] =
-      item.IconPath;
+    this.dataManagement.powerFacilitiesMap()['Research Facility'] = item.IconPath;
   }
+
   selectChemicalPlant(item: Item) {
     this.globalSettingsService.updateProperty('chemicalSelect', item);
     localStorage.setItem('savedChemicalPlantID', item.ID.toString());
 
-    this.dataManagement.powerFacilitiesMap()['Chemical Facility'] =
-      item.IconPath;
+    this.dataManagement.powerFacilitiesMap()['Chemical Facility'] = item.IconPath;
   }
+
+  selectProliferator(item: Item) {
+    this.globalSettingsService.updateProperty('proliferationSelect', item);
+    localStorage.setItem('savedProliferatorID', item.ID.toString());
+
+    this.dataManagement.powerFacilitiesMap()['proliferator'] = item.IconPath;
+  }
+
+  selectBelt(item: Item) {
+    this.globalSettingsService.updateProperty('beltSelect', item);
+    localStorage.setItem('savedBeltID', item.ID.toString());
+
+    this.dataManagement.powerFacilitiesMap()['belt'] = item.IconPath;
+  }
+
   getImageSrc(itemName: string): string {
     let src: string = '';
     let item: Item | undefined;
 
     if (itemName.includes('(advanced)')) {
-      item = this.items.find(
-        (item) => item.name === itemName.split('(')[0].slice(0, -1)
-      );
+      item = this.items.find((item) => item.name === itemName.split('(')[0].slice(0, -1));
     } else {
       item = this.items.find((item) => item.name === itemName);
     }
@@ -343,15 +322,4 @@ export class CalculatorComponent implements OnInit {
 
     return src;
   }
-
-  // getBuildingSrcById(): string{
-  //   let src = "";
-
-  //   this.dataManagement.getItemById(buildingId).subscribe(data =>{
-  //     if(data){
-  //       src = `assets/${data[0].IconPath}.png`
-  //     }
-  //   })
-  //   return src;
-  // }
 }

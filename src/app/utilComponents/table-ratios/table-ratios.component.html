@@ -1,7 +1,10 @@
-@if (
-  this.dataManagement.selectedItems().length > 0 &&
-  this.isRecipesFormInitialized
-) {
+@if (this.dataManagement.selectedItems().length > 0 && this.isRecipesFormInitialized) {
+} @else {
+  <div class="h-full flex justify-center items-center">
+    <h1 class="text-3xl font-bold">Select a recipe to see the results.</h1>
+  </div>
+}
+@defer (when isRecipesFormInitialized) {
   <div class="overflow-x-auto">
     <table class="table">
       <thead>
@@ -19,63 +22,34 @@
       <tbody>
         @for (item of this.dataManagement.selectedItems(); track $index) {
           <ng-container>
-            <ng-container
-              *ngTemplateOutlet="
-                recursiveTemplate;
-                context: { $implicit: item, index: $index }
-              "
-            ></ng-container>
+            <ng-container *ngTemplateOutlet="recursiveTemplate; context: { $implicit: item, index: $index }"></ng-container>
           </ng-container>
 
           <ng-template #recursiveTemplate let-item let-index="index">
             <tr class="hover">
               <td>
-                <button class="btn rounded-sm btn-sm" (click)="makeItOre(item)">
-                  make it ore
-                </button>
+                <button class="btn rounded-sm btn-sm" (click)="makeItOre(item)">make it ore</button>
               </td>
               <div class="tooltip" [attr.data-tip]="item.name">
                 <td>
                   <div class="flex items-center justify-center">
-                    <img
-                      class="w-10 h-10 m-2"
-                      [src]="'assets/' + item.IconPath + '.png'"
-                      alt=""
-                    />
-                    <input
-                      [(ngModel)]="item.totalValue"
-                      type="number"
-                      class="input input-bordered input-xs w-20 max-w-xs rounded-sm"
-                    />
+                    <img class="w-10 h-10 m-2" [src]="'assets/' + item.IconPath + '.png'" alt="" />
+                    <input [(ngModel)]="item.totalValue" type="number" class="input input-bordered input-xs w-20 max-w-xs rounded-sm" />
                   </div>
                 </td>
               </div>
               <td>
                 <div class="tooltip" [attr.data-tip]="item.madeFromString">
                   <div class="flex justify-center items-center">
-                    <img
-                      class="w-10 h-10 m-2"
-                      [src]="
-                        'assets/' +
-                        this.dataManagement.powerFacilitiesMap()[
-                          item.madeFromString
-                        ] +
-                        '.png'
-                      "
-                      alt=""
-                    />
-                    <input
-                      [value]="item.totalMachine"
-                      type="number"
-                      class="input input-bordered input-xs w-20 max-w-xs rounded-sm"
-                    />
+                    <img class="w-10 h-10 m-2" [src]="'assets/' + this.dataManagement.powerFacilitiesMap()[item.madeFromString] + '.png'" alt="" />
+                    <input [value]="item.totalMachine" type="number" class="input input-bordered input-xs w-20 max-w-xs rounded-sm" />
                   </div>
                 </div>
               </td>
               <td>
-                <form [formGroup]="recipesForm" class="w-full">
-                  @for (recipe of item.recipes; track $index) {
-                    <label class="label cursor-pointer flex w-full">
+                <form [formGroup]="recipesForm">
+                  @for (recipe of this.dataManagement.getPreprocessedRecipes(item.ID); track $index) {
+                    <label class="label cursor-pointer flex">
                       <input
                         type="radio"
                         [name]="item.ID.toString()"
@@ -85,43 +59,20 @@
                         class="radio hidden"
                         (click)="storePreviousValues()"
                         (change)="changeRecipeSelection(item, index)"
-                        [checked]="
-                          item.name.includes('advanced')
-                            ? recipe.ID ===
-                              recipesForm.get(item.ID.toString())?.value
-                            : $index === 0
-                        "
+                        [checked]="item.name.includes('advanced') ? recipe.ID === recipesForm.get(item.ID.toString())?.value : $index === 0"
                       />
                       <span
-                        class="label-text flex items-center justify-center border border-primary rounded-sm hover:bg-primary duration-200 w-full"
+                        class="label-text flex items-center justify-center border border-primary rounded-sm hover:bg-primary duration-200"
                         [ngClass]="{
-                          'bg-base-200':
-                            recipesForm.get(item.ID.toString())?.value ===
-                            recipe.ID,
+                          'bg-base-200': recipesForm.get(item.ID.toString())?.value === recipe.ID,
                         }"
                       >
-                        @for (
-                          recSrc of getRecipesItemsSrc(recipe.ID);
-                          track $index
-                        ) {
-                          <img
-                            [src]="'assets/' + recSrc + '.png'"
-                            class="w-8 h-8 m-2"
-                            alt=""
-                          />
+                        @for (recSrc of recipe.itemsSrc; track $index) {
+                          <img loading="lazy" [src]="'assets/' + recSrc + '.png'" class="w-8 h-8 m-2" alt="" />
                         }
-                        <span class="material-symbols-outlined"
-                          >arrow_forward</span
-                        >
-                        @for (
-                          recSrc of getRecipesResultsSrc(recipe.ID);
-                          track $index
-                        ) {
-                          <img
-                            [src]="'assets/' + recSrc + '.png'"
-                            class="w-8 h-8 m-2"
-                            alt=""
-                          />
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                        @for (recSrc of recipe.resultsSrc; track $index) {
+                          <img loading="lazy" [src]="'assets/' + recSrc + '.png'" class="w-8 h-8 m-2" alt="" />
                         }
                       </span>
                     </label>
@@ -131,14 +82,8 @@
               <td>
                 <!-- this should not be a static image, depends on what type of proliferator user chooses -->
                 <div class="flex items-center justify-center">
-                  <img
-                    src="assets/Icons/ItemRecipe/accelerator-3.png"
-                    class="w-10 h-10 m-2"
-                    alt=""
-                  />
-                  <select
-                    class="select select-bordered rounded-sm select-xs max-w-xs"
-                  >
+                  <img [src]="'assets/' + this.dataManagement.powerFacilitiesMap()['proliferator'] + '.png'" class="w-10 h-10 m-2" alt="" />
+                  <select class="select select-bordered rounded-sm select-xs max-w-xs glowProduction">
                     <option value="">none</option>
                     <option value="">accelerate</option>
                     <option value="">Increase production</option>
@@ -147,15 +92,8 @@
               </td>
               <td>
                 <div class="flex justify-center items-center">
-                  <img
-                    class="w-10 h-10 m-2"
-                    [src]="'assets/Icons/ItemRecipe/belt-3.png'"
-                    alt=""
-                  />
-                  <input
-                    type="number"
-                    class="input input-bordered input-xs w-20 max-w-xs rounded-sm"
-                  />
+                  <img [src]="'assets/' + this.dataManagement.powerFacilitiesMap()['belt'] + '.png'" class="w-10 h-10 m-2" alt="" />
+                  <input [value]="item.beltsNeeded | number: '1.0-2'" type="number" class="input input-bordered input-xs w-20 max-w-xs rounded-sm" />
                 </div>
               </td>
               <td>
@@ -163,55 +101,36 @@
               </td>
             </tr>
             @for (child of item.childs; track $index) {
-              <ng-container
-                *ngTemplateOutlet="
-                  recursiveTemplate;
-                  context: { $implicit: child, index: index + '-' + $index }
-                "
-              ></ng-container>
+              <ng-container *ngTemplateOutlet="recursiveTemplate; context: { $implicit: child, index: index + '-' + $index }"></ng-container>
             }
           </ng-template>
         }
+      </tbody>
+    </table>
+    <table class="table">
+      <thead>
         <tr>
-          <td colspan="4">
+          <th>Total items</th>
+          <th>Total Machines</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
             <div>
-              @for (
-                item of this.dataManagement.totals().totalItems;
-                track $index
-              ) {
-                <div
-                  class="tooltip border border-primary aspect-video m-1 rounded-sm bg-base-300"
-                  [attr.data-tip]="item.name"
-                >
-                  <img
-                    class="w-8 h-8 m-2"
-                    [src]="'assets/' + item.IconPath + '.png'"
-                    alt=""
-                  />
+              @for (item of this.dataManagement.totals().totalItems; track $index) {
+                <div class="tooltip border border-primary aspect-video m-1 rounded-sm bg-base-300" [attr.data-tip]="item.name">
+                  <img class="w-8 h-8 m-2" [src]="'assets/' + item.IconPath + '.png'" alt="" />
                   <p>{{ item.total | number: '1.0-2' }}</p>
                 </div>
               }
             </div>
           </td>
-          <td colspan="3">
+          <td>
             <div>
-              @for (
-                item of this.dataManagement.totals().totalMachinesByType;
-                track $index
-              ) {
-                <div
-                  class="tooltip border border-primary aspect-video m-1 rounded-sm bg-base-300"
-                  [attr.data-tip]="item.name"
-                >
-                  <img
-                    class="w-8 h-8 m-2"
-                    [src]="
-                      'assets/' +
-                      this.dataManagement.powerFacilitiesMap()[item.name] +
-                      '.png'
-                    "
-                    alt=""
-                  />
+              @for (item of this.dataManagement.totals().totalMachinesByType; track $index) {
+                <div class="tooltip border border-primary aspect-video m-1 rounded-sm bg-base-300" [attr.data-tip]="item.name">
+                  <img class="w-8 h-8 m-2" [src]="'assets/' + this.dataManagement.powerFacilitiesMap()[item.name] + '.png'" alt="" />
                   <p>{{ item.total | number: '1.0-2' }}</p>
                 </div>
               }
@@ -219,18 +138,19 @@
           </td>
         </tr>
         <tr>
-          <td colspan="7">
+          <td>
             <h1>Power: {{ this.dataManagement.totals().totalPower }}</h1>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
-} @else {
-  <div class="h-full flex justify-center items-center">
-    <h1 class="text-3xl font-bold">Select a recipe to see the results.</h1>
-  </div>
+} @loading {
+  <div class="skeleton h-20 w-full"></div>
+  <div class="skeleton h-20 w-full mt-2"></div>
+} @error {
+  <h1 class="text-red-500">Error loading data</h1>
 }
-<div>
+<!-- <div>
   <pre>{{ this.dataManagement.selectedItems() | json }}</pre>
-</div>
+</div> -->

@@ -17,6 +17,7 @@ export interface TransformedItems {
   totalValue: number;
   totalMachine: number;
   power: number;
+  beltsNeeded: number;
 }
 
 export interface recipes {
