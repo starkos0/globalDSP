@@ -20,7 +20,7 @@
           <option value="s">items/s</option>
         </select>
 
-        <select  class="select select-bordered rounded-sm select-xs max-w-xs">
+        <select class="select select-bordered rounded-sm select-xs max-w-xs">
           <option value="">None</option>
           <option value="">Accelerate all</option>
           <option value="">Increase all production</option>
@@ -87,11 +87,7 @@
       <div>
         <details class="dropdown">
           <summary class="btn rounded-sm">
-            <img
-              class="w-8 h-8"
-              [src]="'assets/' + (globalSettingsService.getProperty('assemblerSelect').IconPath || '') + '.png'"
-              alt=""
-            />
+            <img class="w-8 h-8" [src]="'assets/' + (globalSettingsService.getProperty('assemblerSelect').IconPath || '') + '.png'" alt="" />
           </summary>
           <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
             @for (machine of assemblerSelectOptions; track $index) {
@@ -103,11 +99,7 @@
         </details>
         <details class="dropdown">
           <summary class="btn m-1 rounded-sm">
-            <img
-              class="w-8 h-8"
-              [src]="'assets/' + (globalSettingsService.getProperty('smeltingSelect').IconPath || '') + '.png'"
-              alt=""
-            />
+            <img class="w-8 h-8" [src]="'assets/' + (globalSettingsService.getProperty('smeltingSelect').IconPath || '') + '.png'" alt="" />
           </summary>
           <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
             @for (machine of smeltingSelectOptions; track $index) {
@@ -119,11 +111,7 @@
         </details>
         <details class="dropdown">
           <summary class="btn m-1 rounded-sm">
-            <img
-              class="w-8 h-8"
-              [src]="'assets/' + (globalSettingsService.getProperty('miningSelect').IconPath || '') + '.png'"
-              alt=""
-            />
+            <img class="w-8 h-8" [src]="'assets/' + (globalSettingsService.getProperty('miningSelect').IconPath || '') + '.png'" alt="" />
           </summary>
           <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
             @for (machine of miningSelectOptions; track $index) {
@@ -135,11 +123,7 @@
         </details>
         <details class="dropdown">
           <summary class="btn m-1 rounded-sm">
-            <img
-              class="w-8 h-8"
-              [src]="'assets/' + (globalSettingsService.getProperty('researchSelect').IconPath || '') + '.png'"
-              alt=""
-            />
+            <img class="w-8 h-8" [src]="'assets/' + (globalSettingsService.getProperty('researchSelect').IconPath || '') + '.png'" alt="" />
           </summary>
           <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
             @for (machine of researchSelectOptions; track $index) {
@@ -151,11 +135,7 @@
         </details>
         <details class="dropdown">
           <summary class="btn m-1 rounded-sm">
-            <img
-              class="w-8 h-8"
-              [src]="'assets/' + (globalSettingsService.getProperty('chemicalSelect').IconPath || '') + '.png'"
-              alt=""
-            />
+            <img class="w-8 h-8" [src]="'assets/' + (globalSettingsService.getProperty('chemicalSelect').IconPath || '') + '.png'" alt="" />
           </summary>
           <ul class="menu dropdown-content bg-base-100 z-[1] w-52 p-2 shadow rounded-sm">
             @for (machine of chemicalSelectOptions; track $index) {
@@ -167,11 +147,7 @@
         </details>
         <details class="dropdown">
           <summary class="btn m-1 rounded-sm">
-            <img
-              class="w-8 h-8"
-              [src]="'assets/' + (globalSettingsService.getProperty('proliferationSelect').IconPath || '') + '.png'"
-              alt=""
-            />
+            <img class="w-8 h-8" [src]="'assets/' + (globalSettingsService.getProperty('proliferationSelect').IconPath || '') + '.png'" alt="" />
           </summary>
           <ul class="menu dropdown-content bg-base-100 z-[1] w-52 p-2 shadow rounded-sm">
             @for (machine of proliferationSelectOptions; track $index) {
@@ -183,11 +159,7 @@
         </details>
         <details class="dropdown">
           <summary class="btn m-1 rounded-sm">
-            <img
-              class="w-8 h-8"
-              [src]="'assets/' + (globalSettingsService.getProperty('beltSelect').IconPath || '') + '.png'"
-              alt=""
-            />
+            <img class="w-8 h-8" [src]="'assets/' + (globalSettingsService.getProperty('beltSelect').IconPath || '') + '.png'" alt="" />
           </summary>
           <ul class="menu dropdown-content bg-base-100 z-[1] w-52 p-2 shadow rounded-sm">
             @for (machine of beltSelectOptions; track $index) {

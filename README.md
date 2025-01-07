@@ -53,4 +53,5 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 - `src/app/mainComponents/calculator/`: Includes all components and logic for filtering and generating crafting trees.
 
 ## Execute prettier
+
 Run `npx prettier . --write`

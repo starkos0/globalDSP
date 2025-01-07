@@ -18,7 +18,7 @@ export class GlobalSettingsServiceService {
     refiningSelect: {} as Item,
     oilSelect: {} as Item,
     proliferationSelect: {} as Item,
-    beltSelect: {} as Item
+    beltSelect: {} as Item,
   });
 
   updateProperty<T extends keyof GlobalSettingsFormValues>(key: T, value: GlobalSettingsFormValues[T]): void {
@@ -34,11 +34,7 @@ export class GlobalSettingsServiceService {
     return this.globalSettingsSignal()[key];
   }
 
-  setPropertyWithLocalStorage(
-    propertyName: keyof GlobalSettingsFormValues,
-    options: Item[],
-    localStorageKey: string
-  ): void {
+  setPropertyWithLocalStorage(propertyName: keyof GlobalSettingsFormValues, options: Item[], localStorageKey: string): void {
     const savedID = localStorage.getItem(localStorageKey);
 
     let selectedItem: Item;
@@ -61,7 +57,7 @@ export class GlobalSettingsServiceService {
       'refiningSelect',
       'oilSelect',
       'proliferationSelect',
-      'beltSelect'
+      'beltSelect',
     ];
 
     return validKeys.includes(key as keyof GlobalSettingsFormValues) ? (key as keyof GlobalSettingsFormValues) : null;

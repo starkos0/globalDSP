@@ -14,16 +14,7 @@ import { GlobalSettingsFormValues } from '../../interfaces/mainData/global-setti
 @Component({
   selector: 'app-calculator',
   standalone: true,
-  imports: [
-    RouterOutlet,
-    RouterLink,
-    RouterLinkActive,
-    NavbarComponent,
-    FormsModule,
-    ReactiveFormsModule,
-    CommonModule,
-    TableRatiosComponent,
-  ],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, NavbarComponent, FormsModule, ReactiveFormsModule, CommonModule, TableRatiosComponent],
   templateUrl: './calculator.component.html',
   styleUrl: './calculator.component.scss',
 })
@@ -128,7 +119,7 @@ export class CalculatorComponent implements OnInit {
       audioDoppler: 0,
       minerPeriod: 0,
       labAssembleSpeed: 0,
-      beltSpeed: 0
+      beltSpeed: 0,
     },
     ID: 0,
     description: '',
@@ -175,47 +166,27 @@ export class CalculatorComponent implements OnInit {
                 switch (item.typeString) {
                   case 'Assembler':
                     this.assemblerSelectOptions = res;
-                    this.globalSettingsService.setPropertyWithLocalStorage(
-                      'assemblerSelect',
-                      this.assemblerSelectOptions,
-                      'savedAssemblerID'
-                    );
+                    this.globalSettingsService.setPropertyWithLocalStorage('assemblerSelect', this.assemblerSelectOptions, 'savedAssemblerID');
                     break;
 
                   case 'Mining Facility':
                     this.miningSelectOptions = res;
-                    this.globalSettingsService.setPropertyWithLocalStorage(
-                      'miningSelect',
-                      this.miningSelectOptions,
-                      'savedMiningMachineID'
-                    );
+                    this.globalSettingsService.setPropertyWithLocalStorage('miningSelect', this.miningSelectOptions, 'savedMiningMachineID');
                     break;
 
                   case 'Smelting Facility':
                     this.smeltingSelectOptions = res;
-                    this.globalSettingsService.setPropertyWithLocalStorage(
-                      'smeltingSelect',
-                      this.smeltingSelectOptions,
-                      'savedSmelterID'
-                    );
+                    this.globalSettingsService.setPropertyWithLocalStorage('smeltingSelect', this.smeltingSelectOptions, 'savedSmelterID');
                     break;
 
                   case 'Research Facility':
                     this.researchSelectOptions = res;
-                    this.globalSettingsService.setPropertyWithLocalStorage(
-                      'researchSelect',
-                      this.researchSelectOptions,
-                      'savedMatrixLabID'
-                    );
+                    this.globalSettingsService.setPropertyWithLocalStorage('researchSelect', this.researchSelectOptions, 'savedMatrixLabID');
                     break;
 
                   case 'Chemical Facility':
                     this.chemicalSelectOptions = res;
-                    this.globalSettingsService.setPropertyWithLocalStorage(
-                      'chemicalSelect',
-                      this.chemicalSelectOptions,
-                      'savedChemicalPlantID'
-                    );
+                    this.globalSettingsService.setPropertyWithLocalStorage('chemicalSelect', this.chemicalSelectOptions, 'savedChemicalPlantID');
                     break;
 
                   default:
@@ -232,23 +203,15 @@ export class CalculatorComponent implements OnInit {
     const proliferatorOptions$ = this.dataManagement.getProliferatorItems().pipe(
       tap((proliferatorData) => {
         this.proliferationSelectOptions = proliferatorData;
-        this.globalSettingsService.setPropertyWithLocalStorage(
-          'proliferationSelect',
-          this.proliferationSelectOptions,
-          'savedProliferatorID'
-        );
+        this.globalSettingsService.setPropertyWithLocalStorage('proliferationSelect', this.proliferationSelectOptions, 'savedProliferatorID');
       })
     );
 
     const beltOptions$ = this.dataManagement.getBeltItems().pipe(
       tap((beltData) => {
         this.beltSelectOptions = beltData;
-        console.log(this.beltSelectOptions)
-        this.globalSettingsService.setPropertyWithLocalStorage(
-          'beltSelect',
-          this.beltSelectOptions,
-          'savedBeltID'
-        );
+        console.log(this.beltSelectOptions);
+        this.globalSettingsService.setPropertyWithLocalStorage('beltSelect', this.beltSelectOptions, 'savedBeltID');
       })
     );
 
@@ -256,7 +219,7 @@ export class CalculatorComponent implements OnInit {
     const items$ = this.dataManagement.getItems();
 
     // Combinar todas las llamadas con `forkJoin`
-    forkJoin([machineOptions$, proliferatorOptions$, items$, recipes$,beltOptions$]).subscribe({
+    forkJoin([machineOptions$, proliferatorOptions$, items$, recipes$, beltOptions$]).subscribe({
       next: ([machineData, proliferatorData, items, recipes]) => {
         this.items = items;
         this.recipes = recipes;

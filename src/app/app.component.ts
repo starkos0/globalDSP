@@ -37,36 +37,6 @@ export class AppComponent implements OnInit {
         this.typeStrings = data;
       },
     });
-    const madeFromStrings$ = this.dataManagement.getMadeFromString();
-    madeFromStrings$.subscribe({
-      next: (data) => {},
-    });
-  }
-
-  createRecipeTree() {
-    //
-  }
-
-  comprobarTechs() {
-    this.dataManagement.getTechs().subscribe({
-      next: (data) => {
-        this.techs = data;
-      },
-    });
-  }
-
-  comprobarLista() {
-    this.dataManagement.getItems().subscribe({
-      next: (data) => {
-        this.dataTest = data;
-      },
-    });
-  }
-  comprobarRecipes() {
-    this.dataManagement.getRecipes().subscribe({
-      next: (data) => {
-        this.recipes = data;
-      },
-    });
+   
   }
 }

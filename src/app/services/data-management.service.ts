@@ -127,7 +127,7 @@ export class DataManagementService {
       audioDoppler: 0,
       minerPeriod: 0,
       labAssembleSpeed: 0,
-      beltSpeed: 0
+      beltSpeed: 0,
     },
     ID: 0,
     description: '',
@@ -169,105 +169,20 @@ export class DataManagementService {
     });
   }
 
-  getItems(): Observable<Item[]> {
-    return from(this.db.itemsTable.toArray());
-  }
-
-  getTechs(): Observable<Tech[]> {
-    return from(this.db.techsTable.toArray());
-  }
-
-  getRecipes(): Observable<Recipe[]> {
-    return from(this.db.recipesTable.toArray());
-  }
-
-  setTypes(types: string[]) {
-    this.typesSubject.next(types);
-  }
-
-  setFacilityTypes(facilityTypes: string[]) {
-    this.facilityTypes.next(facilityTypes);
-  }
-
-  isUserFirstTime(): boolean {
-    return localStorage.getItem('isFirstTime') === null ? true : false;
-  }
-
-  getItemTypes(): Observable<string[]> {
-    return from(this.db.itemsTable.toArray()).pipe(
-      map((records) => {
-        const typesValues = new Set(records.map((record) => record.Type));
-        if (typesValues) {
-          return Array.from(typesValues);
-        } else {
-          return [];
-        }
-      })
-    );
-  }
-
-  getAllMachinesByType(typeStringValue: string): Observable<Item[]> {
-    return from(this.db.itemsTable.where('typeString').equals(typeStringValue).toArray());
-  }
-
-  getAllMadeFromStringRecipes(): Observable<string[]> {
-    return from(this.db.recipesTable.toArray()).pipe(
-      map((records) => {
-        const madeFromStrings = new Set(records.map((record) => record.madeFromString));
-        return Array.from(madeFromStrings);
-      })
-    );
-  }
-
-  getItemTypeString(): Observable<{ typeString: string; IconPath: string }[]> {
-    return from(this.db.itemsTable.where('Type').equals('Production').toArray()).pipe(
-      map((records) =>
-        records
-          .filter((record) => record.typeString && record.IconPath)
-          .map((record) => ({
-            typeString: record.typeString,
-            IconPath: record.IconPath,
-          }))
-      )
-    );
-  }
-
-  getMadeFromString(): Observable<string[]> {
-    return from(this.db.recipesTable.toArray()).pipe(
-      map((records) => {
-        const madeFromStrings = new Set(records.map((record) => record.madeFromString));
-        return Array.from(madeFromStrings);
-      })
-    );
-  }
-
-  isSelectedItem(selectedItem: TransformedItems): boolean {
-    return this.selectedItemsSet.has(selectedItem.ID);
-  }
-
   public allItems: Item[] = [];
   public allRecipes: Recipe[] = [];
 
-  public itemsMap: Map<number, Item> = new Map<number, Item>()
+  public itemsMap: Map<number, Item> = new Map<number, Item>();
   public recipesMap: Map<number, Recipe> = new Map<number, Recipe>();
+  public preprocessedRecipesMap: Map<number, PreprocessedRecipe[]> = new Map<number, PreprocessedRecipe[]>();
 
-  async preloadData(): Promise<void> {
-    const start = performance.now();
 
-    this.allItems = await this.db.itemsTable.toArray();
-    this.allRecipes = await this.db.recipesTable.toArray();
 
-    this.itemsMap = new Map(this.allItems.map(item => [item.ID, item]));
-    this.recipesMap = new Map(this.allRecipes.map(recipe => [recipe.ID, recipe]));
-    const end = performance.now();
-    console.warn(`Preloading Time: ${(end - start) / 1000} seconds`);
-  }
   async toggleSelection(selectedItem: Item, modal?: HTMLDialogElement) {
-
     const start = performance.now();
 
     if (this.itemsMap.size === 0 || this.recipesMap.size === 0) {
-      console.log('Data still preloading...')
+      console.log('Data still preloading...');
       await this.preloadData();
     }
 
@@ -324,8 +239,10 @@ export class DataManagementService {
       totalValue: this.globalSettingsService.getProperty('initialAmountValue'),
       totalMachine: totalMachine,
       power: Number((energyPerMachine * totalMachine).toFixed(2)),
-      beltsNeeded: this.globalSettingsService.getProperty('initialAmountValue') / (this.globalSettingsService.getProperty('beltSelect').prefabDesc.beltSpeed * this.beltTransportFactor * this.beltStackSize()) /
-        (this.globalSettingsService.getProperty('unitSelected') === 'm' ? 60 : 1)
+      beltsNeeded:
+        this.globalSettingsService.getProperty('initialAmountValue') /
+        (this.globalSettingsService.getProperty('beltSelect').prefabDesc.beltSpeed * this.beltTransportFactor * this.beltStackSize()) /
+        (this.globalSettingsService.getProperty('unitSelected') === 'm' ? 60 : 1),
     };
 
     if (this.isSelectedItem(newItem)) {
@@ -389,7 +306,6 @@ export class DataManagementService {
             updatedMap['belt'] = beltItem.IconPath;
           }
 
-
           this.powerFacilitiesMap.set(updatedMap);
           console.log('powerFacilities', this.powerFacilitiesMap());
         },
@@ -411,46 +327,29 @@ export class DataManagementService {
     this.calculateTotales(this.selectedItems());
     console.log(this.totals());
   }
-  public preprocessedRecipesMap: Map<number,PreprocessedRecipe[]> = new Map<number, PreprocessedRecipe[]>();
 
   preprocessAllRecipes(selectedItems: TransformedItems[]): void {
     this.preprocessedRecipesMap.clear();
-  
+
     const processItem = (item: TransformedItems) => {
       const preprocessedRecipes = item.recipes.map((recipe) => ({
         ...recipe,
         itemsSrc: this.getRecipesItemsSrc(recipe.ID),
         resultsSrc: this.getRecipesResultsSrc(recipe.ID),
       }));
-  
+
       this.preprocessedRecipesMap.set(item.ID, preprocessedRecipes);
-  
+
       item.childs.forEach((child) => processItem(child));
     };
     selectedItems.forEach((item) => processItem(item));
   }
-  
-  
-  getPreprocessedRecipes(itemId: number): PreprocessedRecipe[] {
-    return this.preprocessedRecipesMap.get(itemId) || [];
-  }
 
-  getRecipesItemsSrc(recipeID: number): string[] {
-    const recipe = this.recipesMap.get(recipeID);
-    return recipe?.Items?.map((itemID) => this.itemsMap.get(itemID)?.IconPath || '') || [];
-  }
-
-  getRecipesResultsSrc(recipeID: number): string[] {
-    const recipe = this.recipesMap.get(recipeID);
-    return recipe?.Results?.map((resultID) => this.itemsMap.get(resultID)?.IconPath || '') || [];
-  }
   async createTreeStructure(item: TransformedItems): Promise<void> {
     if (!item.recipes || item.recipes.length === 0) return;
 
     const recipeIds = item.recipes.map((recipe) => recipe.ID);
-    const recipeDetails = recipeIds
-      .map((id) => this.recipesMap.get(id))
-      .filter((recipe): recipe is Recipe => recipe !== undefined);
+    const recipeDetails = recipeIds.map((id) => this.recipesMap.get(id)).filter((recipe): recipe is Recipe => recipe !== undefined);
 
     this.recipesImages.set([...this.recipesImages(), ...recipeDetails]);
 
@@ -485,13 +384,7 @@ export class DataManagementService {
           const totalValue = (item.totalValue * itemCount) / resultCount;
           const resultItemIndex = childRecipeDetails.Results.indexOf(currentItem.ID);
 
-          const newItem = this.createNewItem(
-            currentItem,
-            madeFromString,
-            childRecipeDetails,
-            totalValue,
-            resultItemIndex
-          );
+          const newItem = this.createNewItem(currentItem, madeFromString, childRecipeDetails, totalValue, resultItemIndex);
 
           this.recipesForm.addControl(newItem.ID.toString(), new FormControl(childRecipeDetails.ID));
           item.childs.push(newItem);
@@ -503,18 +396,24 @@ export class DataManagementService {
         const coreItem = this.createCoreItem(currentItem, madeFromString, recipe, item, resultItemIndex);
         item.childs.push(coreItem);
       }
-    })
+    });
 
     await Promise.all(childPromises);
   }
 
-  createCoreItem(
-    currentItem: Item,
-    madeFromString: string,
-    recipe: Recipe,
-    parentItem: TransformedItems,
-    resultItemIndex: number
-  ): TransformedItems {
+  async preloadData(): Promise<void> {
+    const start = performance.now();
+
+    this.allItems = await this.db.itemsTable.toArray();
+    this.allRecipes = await this.db.recipesTable.toArray();
+
+    this.itemsMap = new Map(this.allItems.map((item) => [item.ID, item]));
+    this.recipesMap = new Map(this.allRecipes.map((recipe) => [recipe.ID, recipe]));
+    const end = performance.now();
+    console.warn(`Preloading Time: ${(end - start) / 1000} seconds`);
+  }
+
+  createCoreItem(currentItem: Item, madeFromString: string, recipe: Recipe, parentItem: TransformedItems, resultItemIndex: number): TransformedItems {
     let key = this.globalSettingsService.checkValidKey(madeFromString.split(' ')[0].toLowerCase() + 'Select');
     let energyPerMachine = 0;
     if (key !== null) {
@@ -554,8 +453,10 @@ export class DataManagementService {
         this.globalSettingsService.checkValidKey(madeFromString.split(' ')[0].toLowerCase() + 'Select')
       ),
       power: Number((energyPerMachine * totalMachine).toFixed(2)),
-      beltsNeeded: (parentItem.totalValue * recipe.ItemCounts[recipe.Items.indexOf(currentItem.ID)] || 0) / (this.globalSettingsService.getProperty('beltSelect').prefabDesc.beltSpeed * this.beltTransportFactor * this.beltStackSize()) /
-        (this.globalSettingsService.getProperty('unitSelected') === 'm' ? 60 : 1)
+      beltsNeeded:
+        (parentItem.totalValue * recipe.ItemCounts[recipe.Items.indexOf(currentItem.ID)] || 0) /
+        (this.globalSettingsService.getProperty('beltSelect').prefabDesc.beltSpeed * this.beltTransportFactor * this.beltStackSize()) /
+        (this.globalSettingsService.getProperty('unitSelected') === 'm' ? 60 : 1),
     };
   }
 
@@ -600,20 +501,14 @@ export class DataManagementService {
       totalValue: totalValue,
       totalMachine: totalMachine,
       power: Number((energyPerMachine * totalMachine).toFixed(2)),
-      beltsNeeded: totalValue /
-        (this.globalSettingsService.getProperty('beltSelect').prefabDesc.beltSpeed *
-          this.beltTransportFactor *
-          this.beltStackSize()) /
-        (this.globalSettingsService.getProperty('unitSelected') === 'm' ? 60 : 1)
+      beltsNeeded:
+        totalValue /
+        (this.globalSettingsService.getProperty('beltSelect').prefabDesc.beltSpeed * this.beltTransportFactor * this.beltStackSize()) /
+        (this.globalSettingsService.getProperty('unitSelected') === 'm' ? 60 : 1),
     };
   }
 
-  calculateMachinesNeeded(
-    desiredOutput: number,
-    itemsPerRecipe: number,
-    recipeTime: number,
-    machineType: keyof GlobalSettingsFormValues | null
-  ) {
+  calculateMachinesNeeded(desiredOutput: number, itemsPerRecipe: number, recipeTime: number, machineType: keyof GlobalSettingsFormValues | null) {
     let machinesNeeded = 0;
     if (machineType !== null) {
       const property = this.globalSettingsService.getProperty(machineType);
@@ -636,87 +531,6 @@ export class DataManagementService {
     return Number(machinesNeeded.toFixed(2));
   }
 
-  async getRecipeToUse(item: Item): Promise<recipes | null> {
-    if (!item.recipes || item.recipes.length === 0) {
-      return null;
-    }
-    return item.recipes.find((r) => r.name.includes('advanced')) || item.recipes[0];
-  }
-
-  getControlName(typeString: string): keyof GlobalSettingsFormValues | null {
-    switch (typeString) {
-      case 'Assembler':
-        return 'assemblerSelect';
-      case 'Mining Facility':
-        return 'miningSelect';
-      case 'Smelting Facility':
-        return 'smeltingSelect';
-      case 'Research Facility':
-        return 'researchSelect';
-      case 'Chemical Facility':
-        return 'chemicalSelect';
-      case 'Refining Facility':
-        return 'refiningSelect';
-      case 'Oil Extraction Facility':
-        return 'oilSelect';
-
-      default:
-        console.warn(`Unrecognized typeString: ${typeString}`);
-        return null;
-    }
-  }
-
-  async processRecipes(item: TransformedItems) {
-    // Verifica y procesa las recetas en el nivel actual
-    if (item.recipes) {
-      let containsAdvancedRecipe = item.recipes.findIndex((recipe) => recipe.name.includes('advanced'));
-      if (containsAdvancedRecipe !== -1) {
-        this.recipesForm.addControl(item.ID.toString(), new FormControl(item.recipes[containsAdvancedRecipe].ID));
-      } else {
-        this.recipesForm.addControl(item.ID.toString(), new FormControl(item.recipes[0].ID));
-      }
-      for (const recipe of item.recipes) {
-        if (recipe.name.includes('advanced')) {
-          this.recipesForm.addControl(item.ID.toString(), new FormControl(recipe.ID));
-        }
-        let recipeFound = await this.db.recipesTable.where('ID').equals(recipe.ID).toArray();
-        this.recipesFromTreeStructure().push(recipeFound[0]);
-      }
-    }
-
-    // Recorre recursivamente los childs si existen
-    if (item.childs) {
-      for (const child of item.childs) {
-        await this.processRecipes(child); // Llama recursivamente a la función para cada hijo
-      }
-    }
-  }
-
-  updateForm(): void {
-    this.recipesForm = new FormGroup({});
-    this.getChilds().forEach((child) => {
-      if (child.recipes !== undefined) {
-        // Verificamos que cumpla con las condiciones para agregar el FormControl
-        if (child.recipes.length > 1 || (child.recipes.length > 0 && child.typeString === 'Natural Resource')) {
-          //
-          if (!this.recipesForm.contains(child.ID.toString())) {
-            // Condiciones para seleccionar automáticamente un valor
-            let defaultValue = null;
-            if (child.recipes.find((rec) => rec.name.includes('advanced'))) {
-              defaultValue = child.recipes.find((rec) => rec.name.includes('advanced'))!.ID;
-            } else {
-              defaultValue = child.recipes[0].ID;
-            }
-            // Agregar el FormControl con el valor por defecto
-            this.recipesForm.addControl(child.ID.toString(), new FormControl(defaultValue));
-          }
-        }
-      }
-    });
-
-    this.isRecipesFormInitialized.set(true);
-  }
-
   async processRecipesImages() {
     this.imagesRecipes = [];
 
@@ -733,7 +547,7 @@ export class DataManagementService {
           if (itemFound) {
             recipeEntry.items.push(itemFound.IconPath);
           }
-        } catch (error) { }
+        } catch (error) {}
       }
 
       for (const element of recipe.Results) {
@@ -742,71 +556,12 @@ export class DataManagementService {
           if (resultFound) {
             recipeEntry.results.push(resultFound.IconPath);
           }
-        } catch (error) { }
+        } catch (error) {}
       }
 
       // Push the fully populated recipe entry to imagesRecipes
       this.imagesRecipes.push(recipeEntry);
     }
-  }
-
-  async processRecipe(item: Item) {
-    try {
-      // this.recipesImages.set([])
-      let recipesSelection: Recipe[] = [];
-
-      if (item.recipes !== undefined) {
-        const promises = item.recipes.map(async (rec) => {
-          let recipeFound = await this.db.recipesTable.where('ID').equals(rec.ID).first();
-          if (recipeFound) {
-            recipesSelection.push(recipeFound);
-            this.recipesImages.set([...this.recipesImages(), recipeFound]);
-          }
-        });
-
-        await Promise.all(promises); // Ensure all recipe fetching is completed
-      }
-
-      const advancedRecipeFound = recipesSelection.find(
-        (recipe) => recipe.name.includes('advanced') && recipe.Explicit === true
-      );
-      if (this.recipesForm.value.hasOwnProperty(item.ID)) {
-      }
-      if (advancedRecipeFound) {
-        for (let itemId of advancedRecipeFound.Items) {
-          const item = await this.db.itemsTable.where('ID').equals(itemId).toArray();
-          if (item.length > 0) {
-            const itemObject = item[0];
-            this.setChilds([...this.getChilds(), itemObject]); // Update using signal
-            await this.processRecipe(itemObject);
-          }
-        }
-      } else {
-        for (let itemId of recipesSelection[0].Items) {
-          const item = await this.db.itemsTable.where('ID').equals(itemId).toArray();
-          if (item.length > 0) {
-            const itemObject = item[0];
-            this.setChilds([...this.getChilds(), itemObject]); // Update using signal
-            await this.processRecipe(itemObject); // Recursive call
-          }
-        }
-      }
-    } catch (error) { }
-  }
-
-  getChilds(): Item[] {
-    return this.childs();
-  }
-
-  setChilds(newChilds: Item[]): void {
-    this.childs.set(newChilds); // Use signal's set method to update state
-  }
-
-  getItemById(itemId: number) {
-    return from(this.db.itemsTable.where('ID').equals(itemId).toArray());
-  }
-  getRecipeById(recipeId: number) {
-    return from(this.db.recipesTable.where('ID').equals(recipeId).toArray());
   }
 
   calculateTotales(selectedItems: TransformedItems[]): void {
@@ -857,6 +612,39 @@ export class DataManagementService {
     this.totals.set({ ...this.totals(), totalItems: sortedItems });
   }
 
+  isSelectedItem(selectedItem: TransformedItems): boolean {
+    return this.selectedItemsSet.has(selectedItem.ID);
+  }
+
+  getItems(): Observable<Item[]> {
+    return from(this.db.itemsTable.toArray());
+  }
+
+  getTechs(): Observable<Tech[]> {
+    return from(this.db.techsTable.toArray());
+  }
+
+  getRecipes(): Observable<Recipe[]> {
+    return from(this.db.recipesTable.toArray());
+  }
+  
+  getAllMachinesByType(typeStringValue: string): Observable<Item[]> {
+    return from(this.db.itemsTable.where('typeString').equals(typeStringValue).toArray());
+  }
+
+  getItemTypeString(): Observable<{ typeString: string; IconPath: string }[]> {
+    return from(this.db.itemsTable.where('Type').equals('Production').toArray()).pipe(
+      map((records) =>
+        records
+          .filter((record) => record.typeString && record.IconPath)
+          .map((record) => ({
+            typeString: record.typeString,
+            IconPath: record.IconPath,
+          }))
+      )
+    );
+  }
+
   getProliferatorItems() {
     return from(this.db.itemsTable.where('name').startsWith('Proliferator').toArray());
   }
@@ -865,4 +653,47 @@ export class DataManagementService {
     return from(this.db.itemsTable.where('name').startsWith('Conveyor Belt').toArray());
   }
 
+  async getRecipeToUse(item: Item): Promise<recipes | null> {
+    if (!item.recipes || item.recipes.length === 0) {
+      return null;
+    }
+    return item.recipes.find((r) => r.name.includes('advanced')) || item.recipes[0];
+  }
+
+  getControlName(typeString: string): keyof GlobalSettingsFormValues | null {
+    switch (typeString) {
+      case 'Assembler':
+        return 'assemblerSelect';
+      case 'Mining Facility':
+        return 'miningSelect';
+      case 'Smelting Facility':
+        return 'smeltingSelect';
+      case 'Research Facility':
+        return 'researchSelect';
+      case 'Chemical Facility':
+        return 'chemicalSelect';
+      case 'Refining Facility':
+        return 'refiningSelect';
+      case 'Oil Extraction Facility':
+        return 'oilSelect';
+
+      default:
+        console.warn(`Unrecognized typeString: ${typeString}`);
+        return null;
+    }
+  }
+
+  getPreprocessedRecipes(itemId: number): PreprocessedRecipe[] {
+    return this.preprocessedRecipesMap.get(itemId) || [];
+  }
+
+  getRecipesItemsSrc(recipeID: number): string[] {
+    const recipe = this.recipesMap.get(recipeID);
+    return recipe?.Items?.map((itemID) => this.itemsMap.get(itemID)?.IconPath || '') || [];
+  }
+
+  getRecipesResultsSrc(recipeID: number): string[] {
+    const recipe = this.recipesMap.get(recipeID);
+    return recipe?.Results?.map((resultID) => this.itemsMap.get(resultID)?.IconPath || '') || [];
+  }
 }

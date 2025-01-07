@@ -41,11 +41,7 @@ export class AppDB extends Dexie {
       ]);
 
       await this.transaction('rw', this.itemsTable, this.recipesTable, this.techsTable, async () => {
-        await Promise.all([
-          this.itemsTable.bulkAdd(items),
-          this.recipesTable.bulkAdd(recipes),
-          this.techsTable.bulkAdd(techs),
-        ]);
+        await Promise.all([this.itemsTable.bulkAdd(items), this.recipesTable.bulkAdd(recipes), this.techsTable.bulkAdd(techs)]);
       });
     } catch (err) {
       console.error('Error populating data:', err);

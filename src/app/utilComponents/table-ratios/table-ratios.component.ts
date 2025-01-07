@@ -138,9 +138,7 @@ export class TableRatiosComponent implements OnInit {
   }
 
   removeRecipeImages(item: TransformedItems) {
-    this.dataManagement.recipesImages.set(
-      this.dataManagement.recipesImages().filter((recipe) => recipe.ID !== item.ID)
-    );
+    this.dataManagement.recipesImages.set(this.dataManagement.recipesImages().filter((recipe) => recipe.ID !== item.ID));
     this.dataManagement.imagesRecipes = this.dataManagement.imagesRecipes.filter((rec) => rec.ID !== item.ID);
 
     if (item.childs.length > 0) {
@@ -202,11 +200,7 @@ export class TableRatiosComponent implements OnInit {
     return false;
   }
 
-  async buildNewSubtree(
-    item: TransformedItems,
-    recipeId: number,
-    parentTotalValue: number = 1
-  ): Promise<TransformedItems> {
+  async buildNewSubtree(item: TransformedItems, recipeId: number, parentTotalValue: number = 1): Promise<TransformedItems> {
     for (const recipe of item.recipes) {
       let recipeDetails = await this.db.recipesTable.where('ID').equals(recipe.ID).toArray();
       this.dataManagement.recipesImages.set([...this.dataManagement.recipesImages(), recipeDetails[0]]);
@@ -262,7 +256,11 @@ export class TableRatiosComponent implements OnInit {
         totalValue: childTotalValue,
         totalMachine: 0,
         power: 0,
-        beltsNeeded: childTotalValue / (this.globalSettingsService.getProperty('beltSelect').prefabDesc.beltSpeed * this.dataManagement.beltTransportFactor * this.dataManagement.beltStackSize())
+        beltsNeeded:
+          childTotalValue /
+          (this.globalSettingsService.getProperty('beltSelect').prefabDesc.beltSpeed *
+            this.dataManagement.beltTransportFactor *
+            this.dataManagement.beltStackSize()),
       };
 
       if (itemFound[0].recipes !== undefined && itemFound[0].recipes.length > 0) {
