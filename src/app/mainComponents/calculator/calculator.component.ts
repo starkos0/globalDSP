@@ -20,6 +20,7 @@ import { GlobalSettingsFormValues } from '../../interfaces/mainData/global-setti
 })
 export class CalculatorComponent implements OnInit {
   @ViewChild('myModal') myModal!: ElementRef;
+
   public defaultItem: Item = {
     Type: '',
     StackSize: 0,
@@ -260,24 +261,28 @@ export class CalculatorComponent implements OnInit {
 
     this.dataManagement.powerFacilitiesMap()['Assembler'] = item.IconPath;
   }
+
   selectSmelter(item: Item) {
     this.globalSettingsService.updateProperty('smeltingSelect', item);
     localStorage.setItem('savedSmelterID', item.ID.toString());
 
     this.dataManagement.powerFacilitiesMap()['Smelting Facility'] = item.IconPath;
   }
+
   selectMiningMachine(item: Item) {
     this.globalSettingsService.updateProperty('miningSelect', item);
     localStorage.setItem('savedMiningMachineID', item.ID.toString());
 
     this.dataManagement.powerFacilitiesMap()['Mining Facility'] = item.IconPath;
   }
+
   selectMatrixLab(item: Item) {
     this.globalSettingsService.updateProperty('researchSelect', item);
     localStorage.setItem('savedMatrixLabID', item.ID.toString());
 
     this.dataManagement.powerFacilitiesMap()['Research Facility'] = item.IconPath;
   }
+
   selectChemicalPlant(item: Item) {
     this.globalSettingsService.updateProperty('chemicalSelect', item);
     localStorage.setItem('savedChemicalPlantID', item.ID.toString());
@@ -298,6 +303,7 @@ export class CalculatorComponent implements OnInit {
 
     this.dataManagement.powerFacilitiesMap()['belt'] = item.IconPath;
   }
+
   getImageSrc(itemName: string): string {
     let src: string = '';
     let item: Item | undefined;
@@ -316,15 +322,4 @@ export class CalculatorComponent implements OnInit {
 
     return src;
   }
-
-  // getBuildingSrcById(): string{
-  //   let src = "";
-
-  //   this.dataManagement.getItemById(buildingId).subscribe(data =>{
-  //     if(data){
-  //       src = `assets/${data[0].IconPath}.png`
-  //     }
-  //   })
-  //   return src;
-  // }
 }

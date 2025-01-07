@@ -21,12 +21,12 @@ export class DataManagementService {
   public recipesForm: FormGroup = new FormGroup({});
   public isRecipesFormInitialized = signal(false); // Flag to track form initialization
 
-  private typesSubject: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
+  public typesSubject: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
   public types$: Observable<string[]> = this.typesSubject.asObservable();
 
-  private facilityTypes: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
+  public facilityTypes: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
   public facilityTypes$: Observable<string[]> = this.facilityTypes.asObservable();
-  powerFacilitiesMap: WritableSignal<{ [key: string]: string }> = signal({});
+  public powerFacilitiesMap: WritableSignal<{ [key: string]: string }> = signal({});
   public machinesSpeedRatio: number = 10000;
   public defaultItem: Item = {
     Type: '',
@@ -156,6 +156,12 @@ export class DataManagementService {
 
   public beltStackSize = signal(1);
   public beltTransportFactor = 6;
+  public allItems: Item[] = [];
+  public allRecipes: Recipe[] = [];
+
+  public itemsMap: Map<number, Item> = new Map<number, Item>();
+  public recipesMap: Map<number, Recipe> = new Map<number, Recipe>();
+  public preprocessedRecipesMap: Map<number, PreprocessedRecipe[]> = new Map<number, PreprocessedRecipe[]>();
 
   constructor(
     private db: AppDB,
@@ -168,15 +174,6 @@ export class DataManagementService {
       console.log(globalSetting);
     });
   }
-
-  public allItems: Item[] = [];
-  public allRecipes: Recipe[] = [];
-
-  public itemsMap: Map<number, Item> = new Map<number, Item>();
-  public recipesMap: Map<number, Recipe> = new Map<number, Recipe>();
-  public preprocessedRecipesMap: Map<number, PreprocessedRecipe[]> = new Map<number, PreprocessedRecipe[]>();
-
-
 
   async toggleSelection(selectedItem: Item, modal?: HTMLDialogElement) {
     const start = performance.now();
@@ -627,7 +624,7 @@ export class DataManagementService {
   getRecipes(): Observable<Recipe[]> {
     return from(this.db.recipesTable.toArray());
   }
-  
+
   getAllMachinesByType(typeStringValue: string): Observable<Item[]> {
     return from(this.db.itemsTable.where('typeString').equals(typeStringValue).toArray());
   }

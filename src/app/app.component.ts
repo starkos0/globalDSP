@@ -37,6 +37,5 @@ export class AppComponent implements OnInit {
         this.typeStrings = data;
       },
     });
-   
   }
 }
