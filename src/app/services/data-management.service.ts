@@ -18,7 +18,6 @@ import { TotalItems } from '../interfaces/miscTypes/TotalItems';
   providedIn: 'root',
 })
 export class DataManagementService {
-  public recipesForm: FormGroup = new FormGroup({});
   public isRecipesFormInitialized = signal(false); // Flag to track form initialization
 
   public typesSubject: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
@@ -145,7 +144,6 @@ export class DataManagementService {
 
   public childs: WritableSignal<Item[]> = signal([]);
   public recipesImages: WritableSignal<Recipe[]> = signal([]);
-  public imagesRecipes: { ID: number; items: string[]; results: string[] }[] = [];
   public recipesFromTreeStructure: WritableSignal<Recipe[]> = signal([]);
   public powerFacilities: { typeString: string; IconPath: string }[] = [];
   public totals: WritableSignal<Totals> = signal({
@@ -184,12 +182,10 @@ export class DataManagementService {
     }
 
     this.isRecipesFormInitialized.set(false);
-    this.recipesForm = new FormGroup({});
     this.recipesFromTreeStructure.set([]);
 
     const recipeToUse = selectedItem.recipes.find((recipe) => recipe.name.toLowerCase().includes('advanced')) || selectedItem.recipes[0];
 
-    this.recipesForm.addControl(selectedItem.ID.toString(), new FormControl(recipeToUse.ID));
 
     const recipe = this.recipesMap.get(recipeToUse.ID);
 
@@ -240,15 +236,16 @@ export class DataManagementService {
         this.globalSettingsService.getProperty('initialAmountValue') /
         (this.globalSettingsService.getProperty('beltSelect').prefabDesc.beltSpeed * this.beltTransportFactor * this.beltStackSize()) /
         (this.globalSettingsService.getProperty('unitSelected') === 'm' ? 60 : 1),
+      selectedRecipe: {
+        ID: recipe.ID,
+        name: recipe.name
+      },
+      nodeUUID: crypto.randomUUID()
     };
 
-    if (this.isSelectedItem(newItem)) {
-      this.selectedItemsSet.delete(newItem.ID);
-      this.selectedItems.set(this.selectedItems().filter((item) => item.ID !== newItem.ID));
-    } else {
-      this.selectedItemsSet.add(newItem.ID);
-      this.selectedItems.set([...this.selectedItems(), newItem]);
-    }
+    this.selectedItemsSet.clear();
+    this.selectedItemsSet.add(newItem.ID);
+    this.selectedItems.set([newItem]);
 
     const beforeTreeStructure = performance.now();
 
@@ -257,7 +254,6 @@ export class DataManagementService {
     }
 
     const afterTreeStructure = performance.now();
-    this.processRecipesImages();
     this.getItemTypeString()
       .pipe(
         switchMap((data) => {
@@ -354,7 +350,6 @@ export class DataManagementService {
 
     if (!recipeToUse) return;
 
-    this.recipesForm.addControl(item.ID.toString(), new FormControl(recipeToUse.ID));
 
     const recipe = this.recipesMap.get(recipeToUse.ID);
     if (!recipe) return;
@@ -383,7 +378,6 @@ export class DataManagementService {
 
           const newItem = this.createNewItem(currentItem, madeFromString, childRecipeDetails, totalValue, resultItemIndex);
 
-          this.recipesForm.addControl(newItem.ID.toString(), new FormControl(childRecipeDetails.ID));
           item.childs.push(newItem);
 
           await this.createTreeStructure(newItem);
@@ -454,6 +448,11 @@ export class DataManagementService {
         (parentItem.totalValue * recipe.ItemCounts[recipe.Items.indexOf(currentItem.ID)] || 0) /
         (this.globalSettingsService.getProperty('beltSelect').prefabDesc.beltSpeed * this.beltTransportFactor * this.beltStackSize()) /
         (this.globalSettingsService.getProperty('unitSelected') === 'm' ? 60 : 1),
+      selectedRecipe: {
+        ID: recipe.ID,
+        name: recipe.name
+      },
+      nodeUUID: crypto.randomUUID()
     };
   }
 
@@ -502,6 +501,11 @@ export class DataManagementService {
         totalValue /
         (this.globalSettingsService.getProperty('beltSelect').prefabDesc.beltSpeed * this.beltTransportFactor * this.beltStackSize()) /
         (this.globalSettingsService.getProperty('unitSelected') === 'm' ? 60 : 1),
+      selectedRecipe:{
+        ID: childRecipeDetails.ID,
+        name: childRecipeDetails.name
+      },
+      nodeUUID: crypto.randomUUID()
     };
   }
 
@@ -528,38 +532,7 @@ export class DataManagementService {
     return Number(machinesNeeded.toFixed(2));
   }
 
-  async processRecipesImages() {
-    this.imagesRecipes = [];
 
-    for (const recipe of this.recipesImages()) {
-      const recipeEntry: { ID: number; items: string[]; results: string[] } = {
-        ID: recipe.ID,
-        items: [],
-        results: [],
-      };
-
-      for (const element of recipe.Items) {
-        try {
-          const itemFound = await this.db.itemsTable.where('ID').equals(element).first();
-          if (itemFound) {
-            recipeEntry.items.push(itemFound.IconPath);
-          }
-        } catch (error) {}
-      }
-
-      for (const element of recipe.Results) {
-        try {
-          const resultFound = await this.db.itemsTable.where('ID').equals(element).first();
-          if (resultFound) {
-            recipeEntry.results.push(resultFound.IconPath);
-          }
-        } catch (error) {}
-      }
-
-      // Push the fully populated recipe entry to imagesRecipes
-      this.imagesRecipes.push(recipeEntry);
-    }
-  }
 
   calculateTotales(selectedItems: TransformedItems[]): void {
     const totals: Totals = {
