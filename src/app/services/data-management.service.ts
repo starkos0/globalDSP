@@ -1,7 +1,7 @@
 import { effect, Injectable, output, signal, WritableSignal } from '@angular/core';
 import Dexie, { liveQuery, Table } from 'dexie';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, forkJoin, from, map, Observable, of, switchMap } from 'rxjs';
+import { BehaviorSubject, first, forkJoin, from, map, Observable, of, switchMap } from 'rxjs';
 import { AppDB } from './db';
 import { Tech } from '../interfaces/mainData/Tech';
 import { Recipe } from '../interfaces/mainData/Recipe';
@@ -18,7 +18,6 @@ import { TotalItems } from '../interfaces/miscTypes/TotalItems';
   providedIn: 'root',
 })
 export class DataManagementService {
-  public recipesForm: FormGroup = new FormGroup({});
   public isRecipesFormInitialized = signal(false); // Flag to track form initialization
 
   public typesSubject: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
@@ -145,7 +144,6 @@ export class DataManagementService {
 
   public childs: WritableSignal<Item[]> = signal([]);
   public recipesImages: WritableSignal<Recipe[]> = signal([]);
-  public imagesRecipes: { ID: number; items: string[]; results: string[] }[] = [];
   public recipesFromTreeStructure: WritableSignal<Recipe[]> = signal([]);
   public powerFacilities: { typeString: string; IconPath: string }[] = [];
   public totals: WritableSignal<Totals> = signal({
@@ -161,7 +159,7 @@ export class DataManagementService {
 
   public itemsMap: Map<number, Item> = new Map<number, Item>();
   public recipesMap: Map<number, Recipe> = new Map<number, Recipe>();
-  public preprocessedRecipesMap: Map<number, PreprocessedRecipe[]> = new Map<number, PreprocessedRecipe[]>();
+  public preprocessedRecipesMap: Map<string, PreprocessedRecipe[]> = new Map<string, PreprocessedRecipe[]>();
 
   constructor(
     private db: AppDB,
@@ -184,12 +182,10 @@ export class DataManagementService {
     }
 
     this.isRecipesFormInitialized.set(false);
-    this.recipesForm = new FormGroup({});
     this.recipesFromTreeStructure.set([]);
 
     const recipeToUse = selectedItem.recipes.find((recipe) => recipe.name.toLowerCase().includes('advanced')) || selectedItem.recipes[0];
 
-    this.recipesForm.addControl(selectedItem.ID.toString(), new FormControl(recipeToUse.ID));
 
     const recipe = this.recipesMap.get(recipeToUse.ID);
 
@@ -240,15 +236,16 @@ export class DataManagementService {
         this.globalSettingsService.getProperty('initialAmountValue') /
         (this.globalSettingsService.getProperty('beltSelect').prefabDesc.beltSpeed * this.beltTransportFactor * this.beltStackSize()) /
         (this.globalSettingsService.getProperty('unitSelected') === 'm' ? 60 : 1),
+      selectedRecipe: {
+        ID: recipe.ID,
+        name: recipe.name
+      },
+      nodeUUID: crypto.randomUUID()
     };
 
-    if (this.isSelectedItem(newItem)) {
-      this.selectedItemsSet.delete(newItem.ID);
-      this.selectedItems.set(this.selectedItems().filter((item) => item.ID !== newItem.ID));
-    } else {
-      this.selectedItemsSet.add(newItem.ID);
-      this.selectedItems.set([...this.selectedItems(), newItem]);
-    }
+    this.selectedItemsSet.clear();
+    this.selectedItemsSet.add(newItem.ID);
+    this.selectedItems.set([newItem]);
 
     const beforeTreeStructure = performance.now();
 
@@ -257,7 +254,6 @@ export class DataManagementService {
     }
 
     const afterTreeStructure = performance.now();
-    this.processRecipesImages();
     this.getItemTypeString()
       .pipe(
         switchMap((data) => {
@@ -312,7 +308,7 @@ export class DataManagementService {
       });
 
     console.log(this.selectedItems());
-    this.preprocessAllRecipes(this.selectedItems());
+    this.preprocessAllRecipes(this.selectedItems(), true);
 
     this.isRecipesFormInitialized.set(true);
     const end = performance.now();
@@ -325,17 +321,22 @@ export class DataManagementService {
     console.log(this.totals());
   }
 
-  preprocessAllRecipes(selectedItems: TransformedItems[]): void {
-    this.preprocessedRecipesMap.clear();
+  preprocessAllRecipes(selectedItems: TransformedItems[], firstTime?: boolean): void {
+    if(firstTime){
+      this.preprocessedRecipesMap.clear();
+    }
+      
 
     const processItem = (item: TransformedItems) => {
+      this.preprocessedRecipesMap.delete(item.nodeUUID);
+
       const preprocessedRecipes = item.recipes.map((recipe) => ({
         ...recipe,
         itemsSrc: this.getRecipesItemsSrc(recipe.ID),
         resultsSrc: this.getRecipesResultsSrc(recipe.ID),
       }));
 
-      this.preprocessedRecipesMap.set(item.ID, preprocessedRecipes);
+      this.preprocessedRecipesMap.set(item.nodeUUID, preprocessedRecipes);
 
       item.childs.forEach((child) => processItem(child));
     };
@@ -354,7 +355,6 @@ export class DataManagementService {
 
     if (!recipeToUse) return;
 
-    this.recipesForm.addControl(item.ID.toString(), new FormControl(recipeToUse.ID));
 
     const recipe = this.recipesMap.get(recipeToUse.ID);
     if (!recipe) return;
@@ -383,7 +383,6 @@ export class DataManagementService {
 
           const newItem = this.createNewItem(currentItem, madeFromString, childRecipeDetails, totalValue, resultItemIndex);
 
-          this.recipesForm.addControl(newItem.ID.toString(), new FormControl(childRecipeDetails.ID));
           item.childs.push(newItem);
 
           await this.createTreeStructure(newItem);
@@ -454,6 +453,11 @@ export class DataManagementService {
         (parentItem.totalValue * recipe.ItemCounts[recipe.Items.indexOf(currentItem.ID)] || 0) /
         (this.globalSettingsService.getProperty('beltSelect').prefabDesc.beltSpeed * this.beltTransportFactor * this.beltStackSize()) /
         (this.globalSettingsService.getProperty('unitSelected') === 'm' ? 60 : 1),
+      selectedRecipe: {
+        ID: recipe.ID,
+        name: recipe.name
+      },
+      nodeUUID: crypto.randomUUID()
     };
   }
 
@@ -502,6 +506,11 @@ export class DataManagementService {
         totalValue /
         (this.globalSettingsService.getProperty('beltSelect').prefabDesc.beltSpeed * this.beltTransportFactor * this.beltStackSize()) /
         (this.globalSettingsService.getProperty('unitSelected') === 'm' ? 60 : 1),
+      selectedRecipe:{
+        ID: childRecipeDetails.ID,
+        name: childRecipeDetails.name
+      },
+      nodeUUID: crypto.randomUUID()
     };
   }
 
@@ -528,38 +537,7 @@ export class DataManagementService {
     return Number(machinesNeeded.toFixed(2));
   }
 
-  async processRecipesImages() {
-    this.imagesRecipes = [];
 
-    for (const recipe of this.recipesImages()) {
-      const recipeEntry: { ID: number; items: string[]; results: string[] } = {
-        ID: recipe.ID,
-        items: [],
-        results: [],
-      };
-
-      for (const element of recipe.Items) {
-        try {
-          const itemFound = await this.db.itemsTable.where('ID').equals(element).first();
-          if (itemFound) {
-            recipeEntry.items.push(itemFound.IconPath);
-          }
-        } catch (error) {}
-      }
-
-      for (const element of recipe.Results) {
-        try {
-          const resultFound = await this.db.itemsTable.where('ID').equals(element).first();
-          if (resultFound) {
-            recipeEntry.results.push(resultFound.IconPath);
-          }
-        } catch (error) {}
-      }
-
-      // Push the fully populated recipe entry to imagesRecipes
-      this.imagesRecipes.push(recipeEntry);
-    }
-  }
 
   calculateTotales(selectedItems: TransformedItems[]): void {
     const totals: Totals = {
@@ -608,6 +586,63 @@ export class DataManagementService {
 
     this.totals.set({ ...this.totals(), totalItems: sortedItems });
   }
+
+  async updateChildNodesAfterRecipeChange(item: TransformedItems, newRecipeID: number): Promise<void> {
+    if (!item.recipes || item.recipes.length === 0) return;
+
+    const newRecipe = this.recipesMap.get(newRecipeID);
+    if (!newRecipe) {
+      console.warn(`Recipe ID ${newRecipeID} not found.`);
+      return;
+    }
+  
+    item.childs = [];
+    item.selectedRecipe = { ID: newRecipe.ID, name: newRecipe.name };
+  
+    const itemsForNewRecipe = newRecipe.Items.map(id => this.itemsMap.get(id)).filter((i): i is Item => i !== undefined);
+    console.log("itemsForNewRecipe: ", itemsForNewRecipe)
+
+    const childPromises = itemsForNewRecipe.map(async (currentItem) => {
+      let madeFromString = '';
+      if (currentItem.recipes && currentItem.recipes.length > 0) {
+        const childRecipe = this.recipesMap.get(currentItem.recipes[0].ID);
+        madeFromString = childRecipe?.madeFromString || '';
+      } else {
+        madeFromString = currentItem.IsFluid ? 'Oil Extraction Facility' : 'Mining Facility';
+      }
+  
+      const resultIndex = newRecipe.Results.indexOf(item.ID);
+      const resultCount = resultIndex >= 0 ? newRecipe.ResultCounts[resultIndex] : 1;
+  
+      const itemIndex = newRecipe.Items.indexOf(currentItem.ID);
+      const itemCount = itemIndex >= 0 ? newRecipe.ItemCounts[itemIndex] : 1;
+  
+      const newTotalValue = (item.totalValue * itemCount) / resultCount;
+  
+      const childRecipeToUse = await this.getRecipeToUse(currentItem);
+      console.log("childRecipeToUse ", childRecipeToUse)
+      if (childRecipeToUse) {
+        const childRecipeDetails = this.recipesMap.get(childRecipeToUse.ID);
+        if (childRecipeDetails) {
+
+          console.log("childRecipeDetails: ", childRecipeDetails)
+          const resultItemIndex = childRecipeDetails.Results.indexOf(currentItem.ID);
+  
+          const newChild = this.createNewItem(currentItem, madeFromString, childRecipeDetails, newTotalValue, resultItemIndex);
+          item.childs.push(newChild);
+  
+          await this.createTreeStructure(newChild);
+        }
+      } else {
+        const resultItemIndex = newRecipe.Results.indexOf(currentItem.ID);
+        const coreItem = this.createCoreItem(currentItem, madeFromString, newRecipe, item, resultItemIndex);
+        item.childs.push(coreItem);
+      }
+    });
+  
+    await Promise.all(childPromises);
+  }
+  
 
   isSelectedItem(selectedItem: TransformedItems): boolean {
     return this.selectedItemsSet.has(selectedItem.ID);
@@ -680,8 +715,8 @@ export class DataManagementService {
     }
   }
 
-  getPreprocessedRecipes(itemId: number): PreprocessedRecipe[] {
-    return this.preprocessedRecipesMap.get(itemId) || [];
+  getPreprocessedRecipes(nodeUUID: string): PreprocessedRecipe[] {
+    return this.preprocessedRecipesMap.get(nodeUUID) || [];
   }
 
   getRecipesItemsSrc(recipeID: number): string[] {

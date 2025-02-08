@@ -18,6 +18,8 @@ export interface TransformedItems {
   totalMachine: number;
   power: number;
   beltsNeeded: number;
+  selectedRecipe: recipes;
+  nodeUUID: string;
 }
 
 export interface recipes {
