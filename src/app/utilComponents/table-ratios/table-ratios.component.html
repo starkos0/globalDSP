@@ -9,7 +9,7 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Transform to ore</th>
+          <th>Base item</th>
           <th>Item</th>
           <th>Buildings</th>
           <th>Recipe</th>
@@ -26,9 +26,9 @@
           </ng-container>
 
           <ng-template #recursiveTemplate let-item let-index="index">
-            <tr class="hover">
+            <tr class="hover:bg-secondary transition-all duration-200">
               <td>
-                <button class="btn rounded-sm btn-sm" (click)="makeItOre(item)">make it ore</button>
+                <button class="btn rounded-sm btn-sm" (click)="makeItOre(item)">Base item</button>
               </td>
               <div class="tooltip" [attr.data-tip]="item.name">
                 <td>
@@ -47,7 +47,7 @@
                 </div>
               </td>
               <td>
-                  @for (recipe of this.dataManagement.getPreprocessedRecipes(item.ID); track $index) {
+                  @for (recipe of this.dataManagement.getPreprocessedRecipes(item.nodeUUID); track $index) {
                     <label class="label cursor-pointer flex">
                       <input
                         type="radio"

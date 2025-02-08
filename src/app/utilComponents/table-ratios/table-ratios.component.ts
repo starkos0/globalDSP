@@ -271,11 +271,17 @@ export class TableRatiosComponent implements OnInit {
     // return Number(value.toFixed(2));
   }
 
-  updateSelectedRecipe(item: TransformedItems, recipe: PreprocessedRecipe): void {
+  async updateSelectedRecipe(item: TransformedItems, recipe: PreprocessedRecipe) {
     item.selectedRecipe = { ID: recipe.ID, name: recipe.name };
-    console.log(item,recipe);
+    console.log(item.nodeUUID);
+    if(item.childs.length > 0){
+      await this.dataManagement.updateChildNodesAfterRecipeChange(item, recipe.ID);
+      this.dataManagement.preprocessAllRecipes([item]);
+
+    }
     console.log(this.dataManagement.preprocessedRecipesMap)
   }
+  
   
 
 }

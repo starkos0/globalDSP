@@ -1,7 +1,7 @@
 import { effect, Injectable, output, signal, WritableSignal } from '@angular/core';
 import Dexie, { liveQuery, Table } from 'dexie';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, forkJoin, from, map, Observable, of, switchMap } from 'rxjs';
+import { BehaviorSubject, first, forkJoin, from, map, Observable, of, switchMap } from 'rxjs';
 import { AppDB } from './db';
 import { Tech } from '../interfaces/mainData/Tech';
 import { Recipe } from '../interfaces/mainData/Recipe';
@@ -159,7 +159,7 @@ export class DataManagementService {
 
   public itemsMap: Map<number, Item> = new Map<number, Item>();
   public recipesMap: Map<number, Recipe> = new Map<number, Recipe>();
-  public preprocessedRecipesMap: Map<number, PreprocessedRecipe[]> = new Map<number, PreprocessedRecipe[]>();
+  public preprocessedRecipesMap: Map<string, PreprocessedRecipe[]> = new Map<string, PreprocessedRecipe[]>();
 
   constructor(
     private db: AppDB,
@@ -308,7 +308,7 @@ export class DataManagementService {
       });
 
     console.log(this.selectedItems());
-    this.preprocessAllRecipes(this.selectedItems());
+    this.preprocessAllRecipes(this.selectedItems(), true);
 
     this.isRecipesFormInitialized.set(true);
     const end = performance.now();
@@ -321,17 +321,22 @@ export class DataManagementService {
     console.log(this.totals());
   }
 
-  preprocessAllRecipes(selectedItems: TransformedItems[]): void {
-    this.preprocessedRecipesMap.clear();
+  preprocessAllRecipes(selectedItems: TransformedItems[], firstTime?: boolean): void {
+    if(firstTime){
+      this.preprocessedRecipesMap.clear();
+    }
+      
 
     const processItem = (item: TransformedItems) => {
+      this.preprocessedRecipesMap.delete(item.nodeUUID);
+
       const preprocessedRecipes = item.recipes.map((recipe) => ({
         ...recipe,
         itemsSrc: this.getRecipesItemsSrc(recipe.ID),
         resultsSrc: this.getRecipesResultsSrc(recipe.ID),
       }));
 
-      this.preprocessedRecipesMap.set(item.ID, preprocessedRecipes);
+      this.preprocessedRecipesMap.set(item.nodeUUID, preprocessedRecipes);
 
       item.childs.forEach((child) => processItem(child));
     };
@@ -582,6 +587,63 @@ export class DataManagementService {
     this.totals.set({ ...this.totals(), totalItems: sortedItems });
   }
 
+  async updateChildNodesAfterRecipeChange(item: TransformedItems, newRecipeID: number): Promise<void> {
+    if (!item.recipes || item.recipes.length === 0) return;
+
+    const newRecipe = this.recipesMap.get(newRecipeID);
+    if (!newRecipe) {
+      console.warn(`Recipe ID ${newRecipeID} not found.`);
+      return;
+    }
+  
+    item.childs = [];
+    item.selectedRecipe = { ID: newRecipe.ID, name: newRecipe.name };
+  
+    const itemsForNewRecipe = newRecipe.Items.map(id => this.itemsMap.get(id)).filter((i): i is Item => i !== undefined);
+    console.log("itemsForNewRecipe: ", itemsForNewRecipe)
+
+    const childPromises = itemsForNewRecipe.map(async (currentItem) => {
+      let madeFromString = '';
+      if (currentItem.recipes && currentItem.recipes.length > 0) {
+        const childRecipe = this.recipesMap.get(currentItem.recipes[0].ID);
+        madeFromString = childRecipe?.madeFromString || '';
+      } else {
+        madeFromString = currentItem.IsFluid ? 'Oil Extraction Facility' : 'Mining Facility';
+      }
+  
+      const resultIndex = newRecipe.Results.indexOf(item.ID);
+      const resultCount = resultIndex >= 0 ? newRecipe.ResultCounts[resultIndex] : 1;
+  
+      const itemIndex = newRecipe.Items.indexOf(currentItem.ID);
+      const itemCount = itemIndex >= 0 ? newRecipe.ItemCounts[itemIndex] : 1;
+  
+      const newTotalValue = (item.totalValue * itemCount) / resultCount;
+  
+      const childRecipeToUse = await this.getRecipeToUse(currentItem);
+      console.log("childRecipeToUse ", childRecipeToUse)
+      if (childRecipeToUse) {
+        const childRecipeDetails = this.recipesMap.get(childRecipeToUse.ID);
+        if (childRecipeDetails) {
+
+          console.log("childRecipeDetails: ", childRecipeDetails)
+          const resultItemIndex = childRecipeDetails.Results.indexOf(currentItem.ID);
+  
+          const newChild = this.createNewItem(currentItem, madeFromString, childRecipeDetails, newTotalValue, resultItemIndex);
+          item.childs.push(newChild);
+  
+          await this.createTreeStructure(newChild);
+        }
+      } else {
+        const resultItemIndex = newRecipe.Results.indexOf(currentItem.ID);
+        const coreItem = this.createCoreItem(currentItem, madeFromString, newRecipe, item, resultItemIndex);
+        item.childs.push(coreItem);
+      }
+    });
+  
+    await Promise.all(childPromises);
+  }
+  
+
   isSelectedItem(selectedItem: TransformedItems): boolean {
     return this.selectedItemsSet.has(selectedItem.ID);
   }
@@ -653,8 +715,8 @@ export class DataManagementService {
     }
   }
 
-  getPreprocessedRecipes(itemId: number): PreprocessedRecipe[] {
-    return this.preprocessedRecipesMap.get(itemId) || [];
+  getPreprocessedRecipes(nodeUUID: string): PreprocessedRecipe[] {
+    return this.preprocessedRecipesMap.get(nodeUUID) || [];
   }
 
   getRecipesItemsSrc(recipeID: number): string[] {
