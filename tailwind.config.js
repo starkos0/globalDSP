@@ -18,10 +18,10 @@ module.exports = {
     themes: [
       {
         dark: {
-          primary: '#989898',
+          primary: '#505050',
           'primary-focus': '#4506cb',
           'primary-content': '#ffffff',
-          secondary: '#505050',
+          secondary: '#202020',
           'secondary-focus': '#bd0091',
           'secondary-content': '#ffffff',
           accent: '#37cdbe',
@@ -30,7 +30,7 @@ module.exports = {
           neutral: '#3d4451',
           'neutral-focus': '#2a2e37',
           'neutral-content': '#ffffff',
-          'base-100': '#0e1015',
+          'base-100': '#131313',
           'base-200': '#272a30',
           'base-300': '#080807',
           'base-content': '#E1D5CD',

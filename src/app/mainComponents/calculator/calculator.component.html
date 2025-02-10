@@ -26,7 +26,7 @@
           <option value="">Increase all production</option>
         </select>
 
-        <button class="btn btn-sm w-40 rounded-sm" onclick="my_modal_2.showModal()">
+        <button class="btn btn-sm w-40 rounded-sm bg-secondary" onclick="my_modal_2.showModal()">
           <img class="w-5 h-5" src="assets/Icons/ItemRecipe/various/select-recipe.png" alt="" />
           Add Recipe +
         </button>
@@ -43,13 +43,15 @@
                       <div class="tooltip" [attr.data-tip]="recipe.name">
                         <button
                           [ngClass]="{
-                            'bg-base-content': dataManagement.selectedItemsSet.has(recipe.ID),
+                            'bg-base-200': dataManagement.selectedItemsSet.has(recipe.ID),
+                            'border-primary': dataManagement.selectedItemsSet.has(recipe.ID),
+                            'bg-secondary': !dataManagement.selectedItemsSet.has(recipe.ID),
                             'scale-90': dataManagement.selectedItemsSet.has(recipe.ID),
                             'transition-all': true,
                             'duration-200': true,
                           }"
                           (click)="dataManagement.toggleSelection(recipe, myModal)"
-                          class="btn btn-sm rounded-sm w-14 h-14 m-2 p-2 hover:bg-base-content border-1 transition-all hover:scale-90 duration-200 no-animation"
+                          class="btn btn-sm rounded-sm w-14 h-14 m-2 p-2 hover:bg-base-200 border-1  transition-all hover:scale-90 duration-200 no-animation"
                         >
                           <img class="w-full h-auto" [src]="'assets/' + getImageSrc(recipe.name) + '.png'" alt="" />
                         </button>
@@ -86,7 +88,7 @@
 
       <div>
         <details class="dropdown">
-          <summary class="btn rounded-sm">
+          <summary class="btn rounded-sm bg-secondary">
             <img class="w-8 h-8" [src]="'assets/' + (globalSettingsService.getProperty('assemblerSelect').IconPath || '') + '.png'" alt="" />
           </summary>
           <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
@@ -98,7 +100,7 @@
           </ul>
         </details>
         <details class="dropdown">
-          <summary class="btn m-1 rounded-sm">
+          <summary class="btn m-1 rounded-sm bg-secondary">
             <img class="w-8 h-8" [src]="'assets/' + (globalSettingsService.getProperty('smeltingSelect').IconPath || '') + '.png'" alt="" />
           </summary>
           <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
@@ -110,7 +112,7 @@
           </ul>
         </details>
         <details class="dropdown">
-          <summary class="btn m-1 rounded-sm">
+          <summary class="btn m-1 rounded-sm bg-secondary">
             <img class="w-8 h-8" [src]="'assets/' + (globalSettingsService.getProperty('miningSelect').IconPath || '') + '.png'" alt="" />
           </summary>
           <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
@@ -122,7 +124,7 @@
           </ul>
         </details>
         <details class="dropdown">
-          <summary class="btn m-1 rounded-sm">
+          <summary class="btn m-1 rounded-sm bg-secondary">
             <img class="w-8 h-8" [src]="'assets/' + (globalSettingsService.getProperty('researchSelect').IconPath || '') + '.png'" alt="" />
           </summary>
           <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
@@ -134,7 +136,7 @@
           </ul>
         </details>
         <details class="dropdown">
-          <summary class="btn m-1 rounded-sm">
+          <summary class="btn m-1 rounded-sm bg-secondary">
             <img class="w-8 h-8" [src]="'assets/' + (globalSettingsService.getProperty('chemicalSelect').IconPath || '') + '.png'" alt="" />
           </summary>
           <ul class="menu dropdown-content bg-base-100 z-[1] w-52 p-2 shadow rounded-sm">
@@ -146,7 +148,7 @@
           </ul>
         </details>
         <details class="dropdown">
-          <summary class="btn m-1 rounded-sm">
+          <summary class="btn m-1 rounded-sm bg-secondary">
             <img class="w-8 h-8" [src]="'assets/' + (globalSettingsService.getProperty('proliferationSelect').IconPath || '') + '.png'" alt="" />
           </summary>
           <ul class="menu dropdown-content bg-base-100 z-[1] w-52 p-2 shadow rounded-sm">
@@ -158,7 +160,7 @@
           </ul>
         </details>
         <details class="dropdown">
-          <summary class="btn m-1 rounded-sm">
+          <summary class="btn m-1 rounded-sm bg-secondary">
             <img class="w-8 h-8" [src]="'assets/' + (globalSettingsService.getProperty('beltSelect').IconPath || '') + '.png'" alt="" />
           </summary>
           <ul class="menu dropdown-content bg-base-100 z-[1] w-52 p-2 shadow rounded-sm">

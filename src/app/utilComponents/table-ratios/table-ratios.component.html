@@ -26,26 +26,29 @@
           </ng-container>
 
           <ng-template #recursiveTemplate let-item let-index="index">
-            <tr class="hover:bg-secondary transition-all duration-200">
+            <tr class="hover:bg-base-200 transition-all duration-200">
               <td>
-                <button class="btn rounded-sm btn-sm" (click)="makeItOre(item)">Base item</button>
+                <button class="btn rounded-sm btn-sm bg-secondary" (click)="makeItOre(item)">Base item</button>
               </td>
+              <!-- ITEM COL -->
               <div class="tooltip" [attr.data-tip]="item.name">
                 <td>
                   <div class="flex items-center justify-center">
                     <img class="w-10 h-10 m-2" [src]="'assets/' + item.IconPath + '.png'" alt="" />
-                    <input [(ngModel)]="item.totalValue" type="number" class="input input-bordered input-xs w-20 max-w-xs rounded-sm" />
+                    <input (blur)="changeItemTotalValue(item)" [(ngModel)]="item.totalValue" type="number" class="input input-bordered input-xs w-20 max-w-xs rounded-sm" />
                   </div>
                 </td>
               </div>
+              <!-- BUILDING COL -->
               <td>
                 <div class="tooltip" [attr.data-tip]="item.madeFromString">
                   <div class="flex justify-center items-center">
                     <img class="w-10 h-10 m-2" [src]="'assets/' + this.dataManagement.powerFacilitiesMap()[item.madeFromString] + '.png'" alt="" />
-                    <input [value]="item.totalMachine" type="number" class="input input-bordered input-xs w-20 max-w-xs rounded-sm" />
+                    <input min="0" [value]="item.totalMachine" type="number" class="input input-bordered input-xs w-20 max-w-xs rounded-sm" />
                   </div>
                 </div>
               </td>
+              <!-- RECIPES COL -->
               <td>
                   @for (recipe of this.dataManagement.getPreprocessedRecipes(item.nodeUUID); track $index) {
                     <label class="label cursor-pointer flex">
@@ -60,9 +63,9 @@
                         (change)="updateSelectedRecipe(item, recipe)"
                         />
                       <span
-                        class="label-text flex items-center justify-center border border-primary rounded-sm hover:bg-slate-950 duration-200"
+                        class="label-text flex items-center justify-center border border-primary rounded-sm hover:bg-secondary duration-200"
                         [ngClass]="{
-                          'bg-slate-950': recipe.ID === item.selectedRecipe?.ID,
+                          'bg-secondary': recipe.ID === item.selectedRecipe?.ID,
                         }"
                       >
                         @for (recSrc of recipe.itemsSrc; track $index) {
@@ -76,8 +79,8 @@
                     </label>
                   }
               </td>
+              <!-- PROLIFERATION COL -->
               <td>
-                <!-- this should not be a static image, depends on what type of proliferator user chooses -->
                 <div class="flex items-center justify-center">
                   <img [src]="'assets/' + this.dataManagement.powerFacilitiesMap()['proliferator'] + '.png'" class="w-10 h-10 m-2" alt="" />
                   <select class="select select-bordered rounded-sm select-xs max-w-xs glowProduction">
@@ -87,12 +90,14 @@
                   </select>
                 </div>
               </td>
+              <!-- BELTS COL -->
               <td>
                 <div class="flex justify-center items-center">
                   <img [src]="'assets/' + this.dataManagement.powerFacilitiesMap()['belt'] + '.png'" class="w-10 h-10 m-2" alt="" />
                   <input [value]="item.beltsNeeded | number: '1.0-2'" type="number" class="input input-bordered input-xs w-20 max-w-xs rounded-sm" />
                 </div>
               </td>
+              <!-- POWER COL -->
               <td>
                 <span>{{ item.power | powerConversion }}</span>
               </td>
@@ -116,7 +121,7 @@
           <td>
             <div>
               @for (item of this.dataManagement.totals().totalItems; track $index) {
-                <div class="tooltip border border-primary aspect-video m-1 rounded-sm bg-base-300" [attr.data-tip]="item.name">
+                <div class="tooltip border border-primary aspect-video m-1 rounded-sm bg-secondary" [attr.data-tip]="item.name">
                   <img class="w-8 h-8 m-2" [src]="'assets/' + item.IconPath + '.png'" alt="" />
                   <p>{{ item.total | number: '1.0-2' }}</p>
                 </div>
@@ -126,7 +131,7 @@
           <td>
             <div>
               @for (item of this.dataManagement.totals().totalMachinesByType; track $index) {
-                <div class="tooltip border border-primary aspect-video m-1 rounded-sm bg-base-300" [attr.data-tip]="item.name">
+                <div class="tooltip border border-primary aspect-video m-1 rounded-sm bg-secondary" [attr.data-tip]="item.name">
                   <img class="w-8 h-8 m-2" [src]="'assets/' + this.dataManagement.powerFacilitiesMap()[item.name] + '.png'" alt="" />
                   <p>{{ item.total | number: '1.0-2' }}</p>
                 </div>
@@ -141,6 +146,7 @@
         </tr>
       </tbody>
     </table>
+    
   </div>
 } @loading {
   <div class="skeleton h-20 w-full"></div>
@@ -148,6 +154,6 @@
 } @error {
   <h1 class="text-red-500">Error loading data</h1>
 }
-<div>
+<!-- <div>
   <pre>{{ this.dataManagement.selectedItems() | json }}</pre>
-</div>
+</div> -->
