@@ -2,178 +2,198 @@
   <div class="flex flex-col h-screen">
     <app-navbar class="sticky top-0 z-50 bg-base-100"></app-navbar>
 
-    <div class="sticky top-[4rem] z-40 bg-base-100 pb-4 shadow-md">
-      <div class="flex-grow flex flex-col">
-        <input
-          [(ngModel)]="this.globalSettingsService.globalSettingsSignal().initialAmountValue"
-          (ngModelChange)="this.globalSettingsService.updateProperty('initialAmountValue', $event)"
-          type="number"
-          class="input input-bordered input-xs w-24 max-w-xs rounded-sm"
-        />
+    <div class="w-full sticky top-[4rem] z-40 bg-base-100 shadow-md p-2 pb-0 flex flex-col" #resizableDiv>
+      <div class="flex w-full flex-grow ">
+        <div class="w-1/2">
+          <div class="flex-grow flex flex-col">
+            <input [(ngModel)]="this.globalSettingsService.globalSettingsSignal().initialAmountValue"
+              (ngModelChange)="this.globalSettingsService.updateProperty('initialAmountValue', $event)" type="number"
+              class="input input-bordered input-xs w-24 max-w-xs rounded-sm" />
 
-        <select
-          [(ngModel)]="this.globalSettingsService.globalSettingsSignal().unitSelected"
-          (ngModelChange)="this.globalSettingsService.updateProperty('unitSelected', $event)"
-          class="select select-bordered rounded-sm select-xs max-w-xs"
-        >
-          <option value="m">items/m</option>
-          <option value="s">items/s</option>
-        </select>
+            <select [(ngModel)]="this.globalSettingsService.globalSettingsSignal().unitSelected"
+              (ngModelChange)="this.globalSettingsService.updateProperty('unitSelected', $event)"
+              class="select select-bordered rounded-sm select-xs max-w-xs">
+              <option value="m">items/m</option>
+              <option value="s">items/s</option>
+            </select>
 
-        <select class="select select-bordered rounded-sm select-xs max-w-xs">
-          <option value="">None</option>
-          <option value="">Accelerate all</option>
-          <option value="">Increase all production</option>
-        </select>
+            <select class="select select-bordered rounded-sm select-xs max-w-xs">
+              <option value="">None</option>
+              <option value="">Accelerate all</option>
+              <option value="">Increase all production</option>
+            </select>
 
-        <button class="btn btn-sm w-40 rounded-sm bg-secondary" onclick="my_modal_2.showModal()">
-          <img class="w-5 h-5" src="assets/Icons/ItemRecipe/various/select-recipe.png" alt="" />
-          Add Recipe +
-        </button>
+            <button class="btn btn-sm w-40 rounded-sm bg-secondary" onclick="my_modal_2.showModal()">
+              <img class="w-5 h-5" src="assets/Icons/ItemRecipe/various/select-recipe.png" alt="" />
+              Add Recipe +
+            </button>
 
-        <dialog id="my_modal_2" #myModal class="modal">
-          <div class="modal-box w-11/12 max-w-5xl">
-            <div class="flex flex-col">
-              <h1>Tip: You can choose more than one at once.</h1>
-              <div role="tablist" class="tabs tabs-bordered w-full">
-                <input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="Components" checked="checked" />
-                <div role="tabpanel" class="tab-content p-10">
-                  <div class="flex flex-wrap">
-                    @for (recipe of resourcesMaterialsProducts; track $index) {
-                      <div class="tooltip" [attr.data-tip]="recipe.name">
-                        <button
-                          [ngClass]="{
-                            'bg-base-200': dataManagement.selectedItemsSet.has(recipe.ID),
-                            'border-primary': dataManagement.selectedItemsSet.has(recipe.ID),
-                            'bg-secondary': !dataManagement.selectedItemsSet.has(recipe.ID),
-                            'scale-90': dataManagement.selectedItemsSet.has(recipe.ID),
-                            'transition-all': true,
-                            'duration-200': true,
-                          }"
-                          (click)="dataManagement.toggleSelection(recipe, myModal)"
-                          class="btn btn-sm rounded-sm w-14 h-14 m-2 p-2 hover:bg-base-200 border-1  transition-all hover:scale-90 duration-200 no-animation"
-                        >
+            <dialog id="my_modal_2" #myModal class="modal">
+              <div class="modal-box w-11/12 max-w-5xl">
+                <div class="flex flex-col">
+                  <h1>Tip: You can choose more than one at once.</h1>
+                  <div role="tablist" class="tabs tabs-bordered w-full">
+                    <input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="Components"
+                      checked="checked" />
+                    <div role="tabpanel" class="tab-content p-10">
+                      <div class="flex flex-wrap">
+                        @for (recipe of resourcesMaterialsProducts; track $index) {
+                        <div class="tooltip" [attr.data-tip]="recipe.name">
+                          <button [ngClass]="{
+                              'bg-base-200': dataManagement.selectedItemsSet.has(recipe.ID),
+                              'border-primary': dataManagement.selectedItemsSet.has(recipe.ID),
+                              'bg-secondary': !dataManagement.selectedItemsSet.has(recipe.ID),
+                              'scale-90': dataManagement.selectedItemsSet.has(recipe.ID),
+                              'transition-all': true,
+                              'duration-200': true,
+                            }" (click)="dataManagement.toggleSelection(recipe, myModal)"
+                            class="btn btn-sm rounded-sm w-14 h-14 m-2 p-2 hover:bg-base-200 border-1  transition-all hover:scale-90 duration-200 no-animation">
+                            <img class="w-full h-auto" [src]="'assets/' + getImageSrc(recipe.name) + '.png'" alt="" />
+                          </button>
+                        </div>
+                        }
+                      </div>
+                    </div>
+                    <input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="Buildings" />
+
+                    <div role="tabpanel" class="tab-content p-10">
+                      <div class="flex flex-wrap">
+                        @for (recipe of buildings; track $index) {
+                        <button (click)="dataManagement.toggleSelection(recipe, myModal)"
+                          class="btn btn-sm rounded-sm w-14 h-14 m-2 p-2 hover:bg-base-content border-1 transition-all hover:scale-90 duration-200">
                           <img class="w-full h-auto" [src]="'assets/' + getImageSrc(recipe.name) + '.png'" alt="" />
                         </button>
+                        }
                       </div>
-                    }
+                    </div>
                   </div>
-                </div>
-                <input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="Buildings" />
-
-                <div role="tabpanel" class="tab-content p-10">
-                  <div class="flex flex-wrap">
-                    @for (recipe of buildings; track $index) {
-                      <button
-                        (click)="dataManagement.toggleSelection(recipe, myModal)"
-                        class="btn btn-sm rounded-sm w-14 h-14 m-2 p-2 hover:bg-base-content border-1 transition-all hover:scale-90 duration-200"
-                      >
-                        <img class="w-full h-auto" [src]="'assets/' + getImageSrc(recipe.name) + '.png'" alt="" />
-                      </button>
-                    }
-                  </div>
+                  <form method="dialog" class="modal-backdrop">
+                    <button>close</button>
+                  </form>
                 </div>
               </div>
               <form method="dialog" class="modal-backdrop">
                 <button>close</button>
               </form>
-            </div>
+            </dialog>
+            <div class="flex-grow"></div>
           </div>
-          <form method="dialog" class="modal-backdrop">
-            <button>close</button>
-          </form>
-        </dialog>
-        <div class="flex-grow"></div>
-      </div>
 
-      <div>
-        <details class="dropdown">
-          <summary class="btn rounded-sm bg-secondary">
-            <img class="w-8 h-8" [src]="'assets/' + (globalSettingsService.getProperty('assemblerSelect').IconPath || '') + '.png'" alt="" />
-          </summary>
-          <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-            @for (machine of assemblerSelectOptions; track $index) {
-              <li (click)="selectAssembler(machine)">
-                <a><img class="w-8 h-8" [src]="'assets/' + machine.IconPath + '.png'" alt="" /></a>
-              </li>
-            }
-          </ul>
-        </details>
-        <details class="dropdown">
-          <summary class="btn m-1 rounded-sm bg-secondary">
-            <img class="w-8 h-8" [src]="'assets/' + (globalSettingsService.getProperty('smeltingSelect').IconPath || '') + '.png'" alt="" />
-          </summary>
-          <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-            @for (machine of smeltingSelectOptions; track $index) {
-              <li (click)="selectSmelter(machine)">
-                <a><img class="w-8 h-8" [src]="'assets/' + machine.IconPath + '.png'" alt="" /></a>
-              </li>
-            }
-          </ul>
-        </details>
-        <details class="dropdown">
-          <summary class="btn m-1 rounded-sm bg-secondary">
-            <img class="w-8 h-8" [src]="'assets/' + (globalSettingsService.getProperty('miningSelect').IconPath || '') + '.png'" alt="" />
-          </summary>
-          <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-            @for (machine of miningSelectOptions; track $index) {
-              <li (click)="selectMiningMachine(machine)">
-                <a><img class="w-8 h-8" [src]="'assets/' + machine.IconPath + '.png'" alt="" /></a>
-              </li>
-            }
-          </ul>
-        </details>
-        <details class="dropdown">
-          <summary class="btn m-1 rounded-sm bg-secondary">
-            <img class="w-8 h-8" [src]="'assets/' + (globalSettingsService.getProperty('researchSelect').IconPath || '') + '.png'" alt="" />
-          </summary>
-          <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-            @for (machine of researchSelectOptions; track $index) {
-              <li (click)="selectMatrixLab(machine)">
-                <a><img class="w-8 h-8" [src]="'assets/' + machine.IconPath + '.png'" alt="" /></a>
-              </li>
-            }
-          </ul>
-        </details>
-        <details class="dropdown">
-          <summary class="btn m-1 rounded-sm bg-secondary">
-            <img class="w-8 h-8" [src]="'assets/' + (globalSettingsService.getProperty('chemicalSelect').IconPath || '') + '.png'" alt="" />
-          </summary>
-          <ul class="menu dropdown-content bg-base-100 z-[1] w-52 p-2 shadow rounded-sm">
-            @for (machine of chemicalSelectOptions; track $index) {
-              <li (click)="selectChemicalPlant(machine)">
-                <a><img class="w-8 h-8" [src]="'assets/' + machine.IconPath + '.png'" alt="" /></a>
-              </li>
-            }
-          </ul>
-        </details>
-        <details class="dropdown">
-          <summary class="btn m-1 rounded-sm bg-secondary">
-            <img class="w-8 h-8" [src]="'assets/' + (globalSettingsService.getProperty('proliferationSelect').IconPath || '') + '.png'" alt="" />
-          </summary>
-          <ul class="menu dropdown-content bg-base-100 z-[1] w-52 p-2 shadow rounded-sm">
-            @for (machine of proliferationSelectOptions; track $index) {
-              <li (click)="selectProliferator(machine)">
-                <a><img class="w-8 h-8" [src]="'assets/' + machine.IconPath + '.png'" alt="" /></a>
-              </li>
-            }
-          </ul>
-        </details>
-        <details class="dropdown">
-          <summary class="btn m-1 rounded-sm bg-secondary">
-            <img class="w-8 h-8" [src]="'assets/' + (globalSettingsService.getProperty('beltSelect').IconPath || '') + '.png'" alt="" />
-          </summary>
-          <ul class="menu dropdown-content bg-base-100 z-[1] w-52 p-2 shadow rounded-sm">
-            @for (machine of beltSelectOptions; track $index) {
-              <li (click)="selectBelt(machine)">
-                <a><img class="w-8 h-8" [src]="'assets/' + machine.IconPath + '.png'" alt="" /></a>
-              </li>
-            }
-          </ul>
-        </details>
+          <div>
+            <details class="dropdown">
+              <summary class="btn rounded-sm bg-secondary">
+                <img class="w-8 h-8"
+                  [src]="'assets/' + (globalSettingsService.getProperty('assemblerSelect').IconPath || '') + '.png'"
+                  alt="" />
+              </summary>
+              <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                @for (machine of assemblerSelectOptions; track $index) {
+                <li (click)="selectAssembler(machine)">
+                  <a><img class="w-8 h-8" [src]="'assets/' + machine.IconPath + '.png'" alt="" /></a>
+                </li>
+                }
+              </ul>
+            </details>
+            <details class="dropdown">
+              <summary class="btn m-1 rounded-sm bg-secondary">
+                <img class="w-8 h-8"
+                  [src]="'assets/' + (globalSettingsService.getProperty('smeltingSelect').IconPath || '') + '.png'"
+                  alt="" />
+              </summary>
+              <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                @for (machine of smeltingSelectOptions; track $index) {
+                <li (click)="selectSmelter(machine)">
+                  <a><img class="w-8 h-8" [src]="'assets/' + machine.IconPath + '.png'" alt="" /></a>
+                </li>
+                }
+              </ul>
+            </details>
+            <details class="dropdown">
+              <summary class="btn m-1 rounded-sm bg-secondary">
+                <img class="w-8 h-8"
+                  [src]="'assets/' + (globalSettingsService.getProperty('miningSelect').IconPath || '') + '.png'"
+                  alt="" />
+              </summary>
+              <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                @for (machine of miningSelectOptions; track $index) {
+                <li (click)="selectMiningMachine(machine)">
+                  <a><img class="w-8 h-8" [src]="'assets/' + machine.IconPath + '.png'" alt="" /></a>
+                </li>
+                }
+              </ul>
+            </details>
+            <details class="dropdown">
+              <summary class="btn m-1 rounded-sm bg-secondary">
+                <img class="w-8 h-8"
+                  [src]="'assets/' + (globalSettingsService.getProperty('researchSelect').IconPath || '') + '.png'"
+                  alt="" />
+              </summary>
+              <ul class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                @for (machine of researchSelectOptions; track $index) {
+                <li (click)="selectMatrixLab(machine)">
+                  <a><img class="w-8 h-8" [src]="'assets/' + machine.IconPath + '.png'" alt="" /></a>
+                </li>
+                }
+              </ul>
+            </details>
+            <details class="dropdown">
+              <summary class="btn m-1 rounded-sm bg-secondary">
+                <img class="w-8 h-8"
+                  [src]="'assets/' + (globalSettingsService.getProperty('chemicalSelect').IconPath || '') + '.png'"
+                  alt="" />
+              </summary>
+              <ul class="menu dropdown-content bg-base-100 z-[1] w-52 p-2 shadow rounded-sm">
+                @for (machine of chemicalSelectOptions; track $index) {
+                <li (click)="selectChemicalPlant(machine)">
+                  <a><img class="w-8 h-8" [src]="'assets/' + machine.IconPath + '.png'" alt="" /></a>
+                </li>
+                }
+              </ul>
+            </details>
+            <details class="dropdown">
+              <summary class="btn m-1 rounded-sm bg-secondary">
+                <img class="w-8 h-8"
+                  [src]="'assets/' + (globalSettingsService.getProperty('proliferationSelect').IconPath || '') + '.png'"
+                  alt="" />
+              </summary>
+              <ul class="menu dropdown-content bg-base-100 z-[1] w-52 p-2 shadow rounded-sm">
+                @for (machine of proliferationSelectOptions; track $index) {
+                <li (click)="selectProliferator(machine)">
+                  <a><img class="w-8 h-8" [src]="'assets/' + machine.IconPath + '.png'" alt="" /></a>
+                </li>
+                }
+              </ul>
+            </details>
+            <details class="dropdown">
+              <summary class="btn m-1 rounded-sm bg-secondary">
+                <img class="w-8 h-8"
+                  [src]="'assets/' + (globalSettingsService.getProperty('beltSelect').IconPath || '') + '.png'"
+                  alt="" />
+              </summary>
+              <ul class="menu dropdown-content bg-base-100 z-[1] w-52 p-2 shadow rounded-sm">
+                @for (machine of beltSelectOptions; track $index) {
+                <li (click)="selectBelt(machine)">
+                  <a><img class="w-8 h-8" [src]="'assets/' + machine.IconPath + '.png'" alt="" /></a>
+                </li>
+                }
+              </ul>
+            </details>
+          </div>
+        </div>
+        <div class="relative w-1/2 border border-primary border-1 p-4">
+          <span class="material-symbols-outlined absolute top-0 right-0 m-2 z-50 select-none hover:cursor-pointer">
+            zoom_out_map
+          </span>
+          <app-network-graph></app-network-graph>
+
+        </div>
+
+      </div>
+      <div class="flex w-full items-center justify-center select-none cursor-ns-resize py-2" #resizeHandle>
+        <span class="material-symbols-outlined">keyboard_double_arrow_down</span>
+
       </div>
     </div>
-
     <div class="flex-grow overflow-y-auto">
       <app-table-ratios></app-table-ratios>
     </div>
