@@ -21,7 +21,7 @@ export class NetworkGraphComponent implements OnInit, AfterViewInit, OnDestroy {
   private unsubscribeEffect!: () => void;
   private effectRef!: EffectRef;
 
-  constructor(public dataManagement: DataManagementService) { 
+  constructor(public dataManagement: DataManagementService) {
     this.effectRef = effect(() => {
       console.log("AAAAAAAAAAAAAAAAAAAAA")
       const data = this.dataManagement.selectedItems();
@@ -36,7 +36,7 @@ export class NetworkGraphComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    
+
 
   }
 
@@ -44,15 +44,15 @@ export class NetworkGraphComponent implements OnInit, AfterViewInit, OnDestroy {
     const element = this.treeContainer.nativeElement;
 
     this.svg = d3.select<SVGSVGElement, unknown>(element) // <--- Asegurar que es un SVG
-    .append('svg')
-    .attr('width', this.width)
-    .attr('height', this.height)
-    .call(
-      d3.zoom<SVGSVGElement, unknown>() // <--- Especificar que es un zoom para SVG
-        .on('zoom', (event) => this.g.attr('transform', event.transform))
-    )
-    .append('g');
-  
+      .append('svg')
+      .attr('width', this.width)
+      .attr('height', this.height)
+      .call(
+        d3.zoom<SVGSVGElement, unknown>() // <--- Especificar que es un zoom para SVG
+          .on('zoom', (event) => this.g.attr('transform', event.transform))
+      )
+      .append('g');
+
 
     this.treeLayout = d3.tree().size([this.width, this.height]);
   }
@@ -78,31 +78,59 @@ export class NetworkGraphComponent implements OnInit, AfterViewInit, OnDestroy {
       .attr('y2', (d: d3.HierarchyPointLink<TransformedItems>) => d.target.y)
       .style('stroke', '#aaa');
 
+    const ROOT_SIZE = 40; // 🔹 Tamaño inicial del nodo raíz
+    const SCALE_FACTOR = 0.8; // 🔹 Factor de reducción para cada nivel
+
+    // Seleccionar el tooltip que está en el HTML
+    const tooltip = d3.select("#tooltip");
+
     // Draw nodes with images
-      this.g.selectAll('.node')
+    // 🔹 Selección de los nodos (imágenes)
+    this.g.selectAll('.node')
       .data(nodes)
       .enter().append('image')
       .attr('class', 'node')
-      .attr('x', (d: d3.HierarchyPointNode<TransformedItems>) => d.x - 15) // Ajusta la posición
-      .attr('y', (d: d3.HierarchyPointNode<TransformedItems>) => d.y - 15)
-      .attr('width', 30) // Tamaño de la imagen
-      .attr('height', 30)
-      .attr('href', (d: d3.HierarchyPointNode<TransformedItems>) => 'assets/' + d.data.IconPath + '.png') // Accede a la imagen
-      .style('pointer-events', 'all'); // Habilitar interacción si es necesario
+      .attr('x', (d: d3.HierarchyPointNode<TransformedItems>) => d.x - (ROOT_SIZE * Math.pow(SCALE_FACTOR, d.depth)) / 2)
+      .attr('y', (d: d3.HierarchyPointNode<TransformedItems>) => d.y - (ROOT_SIZE * Math.pow(SCALE_FACTOR, d.depth)) / 2)
+      .attr('width', (d: d3.HierarchyPointNode<TransformedItems>) => Math.max(10, ROOT_SIZE * Math.pow(SCALE_FACTOR, d.depth)))
+      .attr('height', (d: d3.HierarchyPointNode<TransformedItems>) => Math.max(10, ROOT_SIZE * Math.pow(SCALE_FACTOR, d.depth)))
+      .attr('href', (d: d3.HierarchyPointNode<TransformedItems>) => 'assets/' + d.data.IconPath + '.png')
+      .on("mouseover", (event: MouseEvent, d: d3.HierarchyPointNode<TransformedItems>) => {
+        const [x, y] = d3.pointer(event, this.svg.node());
 
+        tooltip
+          .style("opacity", "1")
+          .style("visibility", "visible")
+          .html(d.data.name)
+          .style("left", `${x + 60}px`)
+          .style("top", `${y + 10}px`);
+      })
+      .on("mousemove", (event: MouseEvent) => {
+        const [x, y] = d3.pointer(event, this.svg.node());
 
-    // Add labels
-    this.g.selectAll('.label')
+        tooltip
+          .style("left", `${x + 30}px`)
+          .style("top", `${y + 10}px`);
+      })
+      .on("mouseout", () => {
+        tooltip.style("opacity", "0").style("visibility", "hidden");
+      });
+
+    // 🔹 Selección de etiquetas para `totalValue`
+    this.g.selectAll('.value-label')
       .data(nodes)
       .enter().append('text')
-      .attr('class', 'label')
-      .attr('x', (d: d3.HierarchyPointNode<TransformedItems>) => d.x + 15)
-      .attr('y', (d: d3.HierarchyPointNode<TransformedItems>) => d.y)
-      .text((d: d3.HierarchyPointNode<TransformedItems>) => d.data.name)
-      .style('font-size', '12px')
-      .style('fill', '#ccc');
+      .attr('class', 'value-label')
+      .attr('x', (d: d3.HierarchyPointNode<TransformedItems>) => d.x)
+      .attr('y', (d: d3.HierarchyPointNode<TransformedItems>) => d.y + 22) // Ubicar debajo del nodo
+      .attr('text-anchor', 'middle') // Centrar el texto
+      .text((d: d3.HierarchyPointNode<TransformedItems>) => `${d.data.totalValue}`)
+      .style('font-size', '10px')
+      .style('fill', '#fff'); // Color blanco para que resalte
+
 
   }
+
 
   ngOnDestroy(): void {
     this.unsubscribeEffect();

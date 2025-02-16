@@ -615,7 +615,7 @@ export class DataManagementService {
   
       const itemIndex = newRecipe.Items.indexOf(currentItem.ID);
       const itemCount = itemIndex >= 0 ? newRecipe.ItemCounts[itemIndex] : 1;
-  
+      console.log("total value ", item.totalValue)
       const newTotalValue = (item.totalValue * itemCount) / resultCount;
   
       const childRecipeToUse = await this.getRecipeToUse(currentItem);
