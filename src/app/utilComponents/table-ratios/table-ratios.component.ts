@@ -124,7 +124,7 @@ export class TableRatiosComponent implements OnInit {
             recipeEntry.items.push(itemFound.IconPath);
           }
         } catch (error) {
-          console.error('Error processing items for recipe:', recipe.ID, error);
+
         }
       }
 
@@ -136,7 +136,7 @@ export class TableRatiosComponent implements OnInit {
             recipeEntry.results.push(resultFound.IconPath);
           }
         } catch (error) {
-          console.error('Error processing results for recipe:', recipe.ID, error);
+
         }
       }
 
@@ -167,7 +167,7 @@ export class TableRatiosComponent implements OnInit {
 
     let recipe = await this.db.recipesTable.where('ID').equals(recipeSelected.ID).toArray();
     if (!recipe[0]) {
-      console.error('No recipe found for ID:', recipeSelected.ID);
+
       return item;
     }
 
@@ -273,13 +273,13 @@ export class TableRatiosComponent implements OnInit {
 
   async updateSelectedRecipe(item: TransformedItems, recipe: PreprocessedRecipe) {
     item.selectedRecipe = { ID: recipe.ID, name: recipe.name };
-    console.log(item.nodeUUID);
+
     if (item.childs.length > 0) {
       await this.dataManagement.updateChildNodesAfterRecipeChange(item, recipe.ID);
       this.dataManagement.preprocessAllRecipes([item]);
 
     }
-    console.log(this.dataManagement.preprocessedRecipesMap)
+
   }
 
   changeItemTotalValue(item: TransformedItems) {
@@ -294,123 +294,67 @@ export class TableRatiosComponent implements OnInit {
       );
     }
     this.visitedNodes = new Set();
-    this.propagateDownwards(item);
-    this.propagateUpwards(item.nodeUUID);
+    console.log(item)
+    let selectedItems = this.dataManagement.selectedItems();
+    this.dataManagement.selectedItems.set([...selectedItems]);
+    let parent = this.findParentNode(this.dataManagement.selectedItems(), item.nodeUUID);
+    console.log("parent: ", parent);
+    const originalNode = item;
+
+    this.updateSubtree(originalNode);
+    this.updateUpwards(originalNode);
   }
+
   public visitedNodes = new Set<string>();
 
-  propagateDownwards(item: TransformedItems): void {
-    for (const child of item.childs) {
-      const recipeDetails = this.dataManagement.recipesMap.get(item.selectedRecipe.ID);
-      if (!recipeDetails) {
-        console.warn(`⚠ No recipe details found for: ${item.selectedRecipe.ID}`);
-        continue;
-      }
+  updateSubtree(node: TransformedItems) {
+    console.log(`🔽 Updating subtree of: ${node.name}`);
 
-      const resultIndex = recipeDetails.Results.indexOf(item.ID);
-      const resultCount = resultIndex >= 0 ? recipeDetails.ResultCounts[resultIndex] : 1;
-
-      const itemIndex = recipeDetails.Items.indexOf(child.ID);
-      const itemCount = itemIndex >= 0 ? recipeDetails.ItemCounts[itemIndex] : 1;
-
-      if (itemIndex === -1 || resultIndex === -1) {
-        console.warn(`⚠ Invalid indices for child-parent relation: ${child.name}`);
-        continue;
-      }
-
-      const childRecipe = this.dataManagement.recipesMap.get(child.selectedRecipe.ID);
-      if (!childRecipe) {
-        console.warn(`⚠ No recipe found for child: ${child.name}`);
-        continue;
-      }
-
-      const childResultIndex = childRecipe.Results.indexOf(child.ID);
-      const childResultCount = childResultIndex >= 0 ? childRecipe.ResultCounts[childResultIndex] : 1;
-
-      const newTotalValue = (item.totalValue * itemCount) / resultCount;
-      child.totalValue = newTotalValue;
-
-      child.totalMachine = this.dataManagement.calculateMachinesNeeded(
-        newTotalValue,
-        childResultCount,
-        childRecipe.TimeSpend,
-        this.globalSettingsService.checkValidKey(child.madeFromString.split(' ')[0].toLowerCase() + 'Select')
-      );
-
-      child.power = newTotalValue * 10;
-
-      this.propagateDownwards(child);
+    for (const child of node.childs) {
+      console.log(`  ↳ Updating child: ${child.name}`);
+      child.IconPath = ""
+      this.updateSubtree(child);
     }
   }
 
-  propagateUpwards(nodeUUID: string): void {
-    // Obtener nodo padre
-    let parentNode = this.findParentNode(this.dataManagement.selectedItems(), nodeUUID);
-    let selectedItems = this.dataManagement.selectedItems();
-    if (!parentNode) return;
-    this.dataManagement.selectedItems.set([...selectedItems]);
+  updateUpwards(originalNode: TransformedItems) {
+    let current = originalNode;
 
-    // Verificar si todos sus hijos han sido actualizados antes de modificar el padre
-    let allChildrenUpdated = parentNode.childs.every(child => child.totalValue !== null && child.totalValue !== undefined);
+    while (true) {
+      const parent = this.findParentNode(this.dataManagement.selectedItems(), current.nodeUUID);
+      if (!parent) {
+        console.warn("🔝 No more parents to update.");
+        break;
+      }
 
-    if (!allChildrenUpdated) {
-      // Si hay hijos sin actualizar, primero propagar en esos subárboles
-      for (const child of parentNode.childs) {
-        if (child.totalValue === null || child.totalValue === undefined) {
-          this.propagateDownwards(child);
+      console.log(`🔼 Moving up to parent: ${parent.name}`);
+      parent.IconPath = ""
+      for (const sibling of parent.childs) {
+        if (sibling.nodeUUID !== current.nodeUUID) {
+          console.log(`🔄 Updating sibling subtree: ${sibling.name}`);
+          sibling.IconPath = ""
+          this.updateSubtree(sibling);
         }
       }
+
+      current = parent;
     }
-
-    // Una vez que todos los hijos están actualizados, recalcular el padre
-    this.updateParentValues(parentNode, nodeUUID);
-  }
-  
-  updateParentValues(node: TransformedItems, childUUID: string): void {
-    // Obtener la receta del padre
-    const recipeDetails = this.dataManagement.recipesMap.get(node.selectedRecipe.ID);
-    if (!recipeDetails) return;
-
-    // Calcular el nuevo totalValue basado en TODOS los hijos
-    let newTotalValue = 0;
-    for (const child of node.childs) {
-      const itemIndex = recipeDetails.Items.indexOf(child.ID);
-      if (itemIndex === -1) continue;
-
-      const itemCount = recipeDetails.ItemCounts[itemIndex];
-      const resultIndex = recipeDetails.Results.indexOf(node.ID);
-      const resultCount = resultIndex >= 0 ? recipeDetails.ResultCounts[resultIndex] : 1;
-
-      newTotalValue += (child.totalValue * resultCount) / itemCount;
-    }
-
-    // Actualizar el nodo padre con los nuevos valores
-    node.totalValue = newTotalValue;
-    node.totalMachine = this.dataManagement.calculateMachinesNeeded(
-      newTotalValue,
-      node.ResultCounts[0],
-      node.TimeSpend,
-      this.globalSettingsService.checkValidKey(node.madeFromString.split(' ')[0].toLowerCase() + 'Select')
-    );
-    node.power = newTotalValue * 10;
-
-    // Propagar el cambio al siguiente nivel
-    this.propagateUpwards(node.nodeUUID);
   }
 
   findParentNode(tree: TransformedItems[], childUUID: string): TransformedItems | null {
     for (const node of tree) {
       if (node.childs.some(child => child.nodeUUID === childUUID)) {
-        return node; // Este nodo es el padre del childUUID
+        return node;
       }
 
-      // Buscar recursivamente en los hijos
       const parent = this.findParentNode(node.childs, childUUID);
       if (parent) {
         return parent;
       }
     }
-    return null; // No se encontró el nodo padre
+    return null;
   }
+
+
 
 }

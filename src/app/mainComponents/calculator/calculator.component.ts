@@ -185,7 +185,7 @@ export class CalculatorComponent implements OnInit, AfterViewInit {
           data.map((item: { typeString: string; IconPath: string }) =>
             this.dataManagement.getAllMachinesByType(item.typeString).pipe(
               map((res) => {
-                console.log(item.typeString);
+                
                 switch (item.typeString) {
                   case 'Assembler':
                     this.assemblerSelectOptions = res;
@@ -233,7 +233,7 @@ export class CalculatorComponent implements OnInit, AfterViewInit {
     const beltOptions$ = this.dataManagement.getBeltItems().pipe(
       tap((beltData) => {
         this.beltSelectOptions = beltData;
-        console.log(this.beltSelectOptions);
+        
         this.globalSettingsService.setPropertyWithLocalStorage('beltSelect', this.beltSelectOptions, 'savedBeltID');
       })
     );
@@ -272,7 +272,7 @@ export class CalculatorComponent implements OnInit, AfterViewInit {
           .sort((a, b) => a.ID - b.ID);
       },
       error: (err) => {
-        console.error('Error:', err);
+        
       },
     });
   }

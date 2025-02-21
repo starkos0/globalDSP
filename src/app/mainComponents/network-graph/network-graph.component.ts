@@ -23,7 +23,7 @@ export class NetworkGraphComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(public dataManagement: DataManagementService) {
     this.effectRef = effect(() => {
-      console.log("AAAAAAAAAAAAAAAAAAAAA")
+      
       const data = this.dataManagement.selectedItems();
       if (this.dataManagement.selectedItems().length > 0 && this.dataManagement.isRecipesFormInitialized()) {
         this.updateTree(data);
