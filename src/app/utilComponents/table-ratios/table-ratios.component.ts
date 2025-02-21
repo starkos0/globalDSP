@@ -56,7 +56,7 @@ export class TableRatiosComponent implements OnInit {
 
     return srcImages;
   }
-  
+
   replaceSubtreeByIndex(index: string, newItem: TransformedItems) {
     // Convertir el índice de cadena a un array de números
     const indexArray = index
@@ -107,7 +107,7 @@ export class TableRatiosComponent implements OnInit {
     this.dataManagement.selectedItems.set(items);
   }
 
-  
+
 
   async processSingleRecipeImage(recipe: any) {
     const recipeEntry: { ID: number; items: string[]; results: string[] } = {
@@ -124,7 +124,7 @@ export class TableRatiosComponent implements OnInit {
             recipeEntry.items.push(itemFound.IconPath);
           }
         } catch (error) {
-          console.error('Error processing items for recipe:', recipe.ID, error);
+
         }
       }
 
@@ -136,7 +136,7 @@ export class TableRatiosComponent implements OnInit {
             recipeEntry.results.push(resultFound.IconPath);
           }
         } catch (error) {
-          console.error('Error processing results for recipe:', recipe.ID, error);
+
         }
       }
 
@@ -167,7 +167,7 @@ export class TableRatiosComponent implements OnInit {
 
     let recipe = await this.db.recipesTable.where('ID').equals(recipeSelected.ID).toArray();
     if (!recipe[0]) {
-      console.error('No recipe found for ID:', recipeSelected.ID);
+
       return item;
     }
 
@@ -236,15 +236,15 @@ export class TableRatiosComponent implements OnInit {
     return newItem;
   }
 
-  
+
   async makeItOre(item: Item) {
     let recipe = await this.db.itemsTable.where('name').equals(item.name).toArray();
   }
-  previousValue(recipeId: number) {}
+  previousValue(recipeId: number) { }
 
-  getMachineFromRecipe(itemId: number) {}
+  getMachineFromRecipe(itemId: number) { }
 
-  getRecipeSelection(recipeId: number) {}
+  getRecipeSelection(recipeId: number) { }
 
   roundNumber(item: TransformedItems): number {
     // const globalValues = this.dataManagement.globalSettingsFormSignal();
@@ -273,16 +273,88 @@ export class TableRatiosComponent implements OnInit {
 
   async updateSelectedRecipe(item: TransformedItems, recipe: PreprocessedRecipe) {
     item.selectedRecipe = { ID: recipe.ID, name: recipe.name };
-    console.log(item.nodeUUID);
-    if(item.childs.length > 0){
+
+    if (item.childs.length > 0) {
       await this.dataManagement.updateChildNodesAfterRecipeChange(item, recipe.ID);
       this.dataManagement.preprocessAllRecipes([item]);
 
     }
-    console.log(this.dataManagement.preprocessedRecipesMap)
+
   }
-  
-  
+
+  changeItemTotalValue(item: TransformedItems) {
+    const recipe = this.dataManagement.recipesMap.get(item.selectedRecipe.ID);
+    if (recipe) {
+      const resultitemindex = recipe.Results.indexOf(item.ID);
+      item.totalMachine = this.dataManagement.calculateMachinesNeeded(
+        item.totalValue,
+        item.ResultCounts[resultitemindex],
+        item.TimeSpend,
+        this.globalSettingsService.checkValidKey(item.madeFromString.split(' ')[0].toLowerCase() + 'Select')
+      );
+    }
+    this.visitedNodes = new Set();
+    console.log(item)
+    let selectedItems = this.dataManagement.selectedItems();
+    this.dataManagement.selectedItems.set([...selectedItems]);
+    let parent = this.findParentNode(this.dataManagement.selectedItems(), item.nodeUUID);
+    console.log("parent: ", parent);
+    const originalNode = item;
+
+    this.updateSubtree(originalNode);
+    this.updateUpwards(originalNode);
+  }
+
+  public visitedNodes = new Set<string>();
+
+  updateSubtree(node: TransformedItems) {
+    console.log(`🔽 Updating subtree of: ${node.name}`);
+
+    for (const child of node.childs) {
+      console.log(`  ↳ Updating child: ${child.name}`);
+      child.IconPath = ""
+      this.updateSubtree(child);
+    }
+  }
+
+  updateUpwards(originalNode: TransformedItems) {
+    let current = originalNode;
+
+    while (true) {
+      const parent = this.findParentNode(this.dataManagement.selectedItems(), current.nodeUUID);
+      if (!parent) {
+        console.warn("🔝 No more parents to update.");
+        break;
+      }
+
+      console.log(`🔼 Moving up to parent: ${parent.name}`);
+      parent.IconPath = ""
+      for (const sibling of parent.childs) {
+        if (sibling.nodeUUID !== current.nodeUUID) {
+          console.log(`🔄 Updating sibling subtree: ${sibling.name}`);
+          sibling.IconPath = ""
+          this.updateSubtree(sibling);
+        }
+      }
+
+      current = parent;
+    }
+  }
+
+  findParentNode(tree: TransformedItems[], childUUID: string): TransformedItems | null {
+    for (const node of tree) {
+      if (node.childs.some(child => child.nodeUUID === childUUID)) {
+        return node;
+      }
+
+      const parent = this.findParentNode(node.childs, childUUID);
+      if (parent) {
+        return parent;
+      }
+    }
+    return null;
+  }
+
+
 
 }
-// [1203,1204,1205]

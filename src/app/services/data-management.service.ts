@@ -169,7 +169,7 @@ export class DataManagementService {
   ) {
     effect(() => {
       const globalSetting = this.globalSettingsService.globalSettingsSignal();
-      console.log(globalSetting);
+      
     });
   }
 
@@ -177,7 +177,7 @@ export class DataManagementService {
     const start = performance.now();
 
     if (this.itemsMap.size === 0 || this.recipesMap.size === 0) {
-      console.log('Data still preloading...');
+      
       await this.preloadData();
     }
 
@@ -300,25 +300,25 @@ export class DataManagementService {
           }
 
           this.powerFacilitiesMap.set(updatedMap);
-          console.log('powerFacilities', this.powerFacilitiesMap());
+          
         },
         error: (err) => {
-          console.error('Error:', err);
+          
         },
       });
 
-    console.log(this.selectedItems());
+    
     this.preprocessAllRecipes(this.selectedItems(), true);
 
     this.isRecipesFormInitialized.set(true);
     const end = performance.now();
 
-    console.log(`Setup Time: ${(setupTime - start) / 1000} seconds`);
-    console.log(`Tree Structure Time: ${(afterTreeStructure - beforeTreeStructure) / 1000} seconds`);
-    console.log(`Remaining Function Time: ${(end - afterTreeStructure) / 1000} seconds`);
+    
+    
+    
 
     this.calculateTotales(this.selectedItems());
-    console.log(this.totals());
+    
   }
 
   preprocessAllRecipes(selectedItems: TransformedItems[], firstTime?: boolean): void {
@@ -406,7 +406,7 @@ export class DataManagementService {
     this.itemsMap = new Map(this.allItems.map((item) => [item.ID, item]));
     this.recipesMap = new Map(this.allRecipes.map((recipe) => [recipe.ID, recipe]));
     const end = performance.now();
-    console.warn(`Preloading Time: ${(end - start) / 1000} seconds`);
+    
   }
 
   createCoreItem(currentItem: Item, madeFromString: string, recipe: Recipe, parentItem: TransformedItems, resultItemIndex: number): TransformedItems {
@@ -592,7 +592,6 @@ export class DataManagementService {
 
     const newRecipe = this.recipesMap.get(newRecipeID);
     if (!newRecipe) {
-      console.warn(`Recipe ID ${newRecipeID} not found.`);
       return;
     }
   
@@ -600,7 +599,7 @@ export class DataManagementService {
     item.selectedRecipe = { ID: newRecipe.ID, name: newRecipe.name };
   
     const itemsForNewRecipe = newRecipe.Items.map(id => this.itemsMap.get(id)).filter((i): i is Item => i !== undefined);
-    console.log("itemsForNewRecipe: ", itemsForNewRecipe)
+    
 
     const childPromises = itemsForNewRecipe.map(async (currentItem) => {
       let madeFromString = '';
@@ -616,16 +615,16 @@ export class DataManagementService {
   
       const itemIndex = newRecipe.Items.indexOf(currentItem.ID);
       const itemCount = itemIndex >= 0 ? newRecipe.ItemCounts[itemIndex] : 1;
-  
+      
       const newTotalValue = (item.totalValue * itemCount) / resultCount;
   
       const childRecipeToUse = await this.getRecipeToUse(currentItem);
-      console.log("childRecipeToUse ", childRecipeToUse)
+      
       if (childRecipeToUse) {
         const childRecipeDetails = this.recipesMap.get(childRecipeToUse.ID);
         if (childRecipeDetails) {
 
-          console.log("childRecipeDetails: ", childRecipeDetails)
+          
           const resultItemIndex = childRecipeDetails.Results.indexOf(currentItem.ID);
   
           const newChild = this.createNewItem(currentItem, madeFromString, childRecipeDetails, newTotalValue, resultItemIndex);
@@ -642,6 +641,7 @@ export class DataManagementService {
   
     await Promise.all(childPromises);
   }
+  
   
 
   isSelectedItem(selectedItem: TransformedItems): boolean {
@@ -710,7 +710,7 @@ export class DataManagementService {
         return 'oilSelect';
 
       default:
-        console.warn(`Unrecognized typeString: ${typeString}`);
+        
         return null;
     }
   }

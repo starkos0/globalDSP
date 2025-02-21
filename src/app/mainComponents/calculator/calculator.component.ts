@@ -1,4 +1,4 @@
-import { Component, effect, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, effect, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from '../../utilComponents/navbar/navbar.component';
 import { AppDB } from '../../services/db';
@@ -11,15 +11,20 @@ import { CommonModule } from '@angular/common';
 import { TableRatiosComponent } from '../../utilComponents/table-ratios/table-ratios.component';
 import { GlobalSettingsServiceService } from '../../services/global-settings-service.service';
 import { GlobalSettingsFormValues } from '../../interfaces/mainData/global-settings-form-values';
+import interact from 'interactjs';
+import { NetworkGraphComponent } from '../network-graph/network-graph.component';
 @Component({
   selector: 'app-calculator',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, NavbarComponent, FormsModule, ReactiveFormsModule, CommonModule, TableRatiosComponent],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, NavbarComponent, FormsModule, ReactiveFormsModule, CommonModule, TableRatiosComponent,NetworkGraphComponent],
   templateUrl: './calculator.component.html',
   styleUrl: './calculator.component.scss',
 })
-export class CalculatorComponent implements OnInit {
+export class CalculatorComponent implements OnInit, AfterViewInit {
   @ViewChild('myModal') myModal!: ElementRef;
+  @ViewChild('resizableDiv', { static: false }) resizableDiv!: ElementRef;
+  @ViewChild('resizeHandle', { static: false }) resizeHandle!: ElementRef;
+
 
   public defaultItem: Item = {
     Type: '',
@@ -154,6 +159,23 @@ export class CalculatorComponent implements OnInit {
     public globalSettingsService: GlobalSettingsServiceService
   ) {}
 
+  ngAfterViewInit() {
+    interact(this.resizeHandle.nativeElement)
+    .draggable({
+      listeners: {
+        move: (event) => {
+          const container = this.resizableDiv.nativeElement;
+          let newHeight = container.offsetHeight + event.dy;
+
+          // Evitar que se reduzca demasiado
+          if (newHeight > 150) {
+            container.style.height = `${newHeight}px`;
+          }
+        }
+      }
+    });
+  }
+
   async ngOnInit(): Promise<void> {
     await this.dataManagement.preloadData();
 
@@ -163,7 +185,7 @@ export class CalculatorComponent implements OnInit {
           data.map((item: { typeString: string; IconPath: string }) =>
             this.dataManagement.getAllMachinesByType(item.typeString).pipe(
               map((res) => {
-                console.log(item.typeString);
+                
                 switch (item.typeString) {
                   case 'Assembler':
                     this.assemblerSelectOptions = res;
@@ -211,7 +233,7 @@ export class CalculatorComponent implements OnInit {
     const beltOptions$ = this.dataManagement.getBeltItems().pipe(
       tap((beltData) => {
         this.beltSelectOptions = beltData;
-        console.log(this.beltSelectOptions);
+        
         this.globalSettingsService.setPropertyWithLocalStorage('beltSelect', this.beltSelectOptions, 'savedBeltID');
       })
     );
@@ -250,7 +272,7 @@ export class CalculatorComponent implements OnInit {
           .sort((a, b) => a.ID - b.ID);
       },
       error: (err) => {
-        console.error('Error:', err);
+        
       },
     });
   }

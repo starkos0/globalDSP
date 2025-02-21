@@ -44,7 +44,7 @@ export class GlobalSettingsServiceService {
     } else {
       selectedItem = options[0];
     }
-    console.log(selectedItem);
+    
     this.updateProperty(propertyName, selectedItem);
   }
   checkValidKey(key: string): keyof GlobalSettingsFormValues | null {
