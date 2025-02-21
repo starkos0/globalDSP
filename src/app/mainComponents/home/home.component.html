@@ -2,7 +2,30 @@
   <h1 class="font-title text-4xl font-bold z-10 text-shadow">DYSON SPHERE PROGRAM CALCULATOR</h1>
   <div class="flex gap-4 z-10">
     <button class="btn no-animation rounded-sm" routerLink="/calculator">CALCULATOR</button>
-    <button class="btn no-animation rounded-sm" routerLink="/quickRatios">QUICK RATIOS</button>
+    <!-- routerLink="/quickRatios" -->
+     @if (showAlert) {
+
+      <div role="alert" class="alert absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/4 w-4/12">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          class="stroke-info h-6 w-6 shrink-0">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <span>WORK IN PROGRESS.</span>
+      </div>
+     }
+    
+    <button class="btn no-animation rounded-sm" (click)="showTemporaryAlert()">
+      QUICK RATIOS
+    </button>
+    
+    
   </div>
   <div
     class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-25"
