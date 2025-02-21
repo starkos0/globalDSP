@@ -24,10 +24,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      0,
-      40
-    ],
+    "DescFields": [0, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -391,10 +388,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      0,
-      40
-    ],
+    "DescFields": [0, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -755,11 +749,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      0,
-      1,
-      40
-    ],
+    "DescFields": [0, 1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -1136,10 +1126,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      0,
-      40
-    ],
+    "DescFields": [0, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -1500,10 +1487,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      0,
-      40
-    ],
+    "DescFields": [0, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -1873,13 +1857,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      2,
-      3,
-      31,
-      0,
-      40
-    ],
+    "DescFields": [2, 3, 31, 0, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -2249,13 +2227,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      2,
-      3,
-      31,
-      0,
-      40
-    ],
+    "DescFields": [2, 3, 31, 0, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -2616,13 +2588,7 @@
     "StackSize": 500,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      2,
-      3,
-      31,
-      0,
-      40
-    ],
+    "DescFields": [2, 3, 31, 0, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -2983,13 +2949,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      2,
-      3,
-      31,
-      0,
-      40
-    ],
+    "DescFields": [2, 3, 31, 0, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -3350,10 +3310,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      0,
-      40
-    ],
+    "DescFields": [0, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -3714,10 +3671,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      0,
-      40
-    ],
+    "DescFields": [0, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -4078,10 +4032,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      0,
-      40
-    ],
+    "DescFields": [0, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -4112,7 +4063,7 @@
     "EnemyDropCount": 4,
     "EnemyDropMask": 2147483647,
     "EnemyDropRange": {
-      "x": 0.010,
+      "x": 0.01,
       "y": 0.008
     },
     "handcraftProductCount": 0,
@@ -4448,10 +4399,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      0,
-      40
-    ],
+    "DescFields": [0, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -4812,10 +4760,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      0,
-      40
-    ],
+    "DescFields": [0, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -5179,10 +5124,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -5214,7 +5156,7 @@
     "EnemyDropMask": 2147483647,
     "EnemyDropRange": {
       "x": 0.023,
-      "y": 0.010
+      "y": 0.01
     },
     "handcraft": {
       "ID": 1
@@ -5635,10 +5577,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -5670,7 +5609,7 @@
     "EnemyDropMask": 2147483647,
     "EnemyDropRange": {
       "x": 0.033,
-      "y": 0.010
+      "y": 0.01
     },
     "handcraft": {
       "ID": 3
@@ -6055,10 +5994,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -6454,10 +6390,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -6862,10 +6795,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -6897,7 +6827,7 @@
     "EnemyDropMask": 2147483647,
     "EnemyDropRange": {
       "x": 0.059,
-      "y": 0.010
+      "y": 0.01
     },
     "handcraft": {
       "ID": 4
@@ -7276,13 +7206,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      2,
-      3,
-      31,
-      1,
-      40
-    ],
+    "DescFields": [2, 3, 31, 1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -7314,7 +7238,7 @@
     "EnemyDropMask": 2147483647,
     "EnemyDropRange": {
       "x": 0.069,
-      "y": 0.010
+      "y": 0.01
     },
     "handcraft": {
       "ID": 17
@@ -7681,10 +7605,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -7716,7 +7637,7 @@
     "EnemyDropMask": 2147483647,
     "EnemyDropRange": {
       "x": 0.079,
-      "y": 0.010
+      "y": 0.01
     },
     "maincraft": {
       "ID": 63
@@ -8121,10 +8042,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -8556,10 +8474,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -8591,7 +8506,7 @@
     "EnemyDropMask": 2147483647,
     "EnemyDropRange": {
       "x": 0.097,
-      "y": 0.010
+      "y": 0.01
     },
     "handcraft": {
       "ID": 57
@@ -8961,10 +8876,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -9364,10 +9276,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -9399,7 +9308,7 @@
     "EnemyDropMask": 2147483647,
     "EnemyDropRange": {
       "x": 0.115,
-      "y": 0.010
+      "y": 0.01
     },
     "handcraft": {
       "ID": 11
@@ -9754,13 +9663,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      2,
-      3,
-      31,
-      1,
-      40
-    ],
+    "DescFields": [2, 3, 31, 1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -10149,10 +10052,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -10541,10 +10441,7 @@
     "StackSize": 200,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -10576,7 +10473,7 @@
     "EnemyDropMask": 2147483647,
     "EnemyDropRange": {
       "x": 0.141,
-      "y": 0.010
+      "y": 0.01
     },
     "handcraft": {
       "ID": 5
@@ -10955,10 +10852,7 @@
     "StackSize": 200,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -10990,7 +10884,7 @@
     "EnemyDropMask": 2147483647,
     "EnemyDropRange": {
       "x": 0.151,
-      "y": 0.010
+      "y": 0.01
     },
     "handcraft": {
       "ID": 2
@@ -11345,10 +11239,7 @@
     "StackSize": 200,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -11380,7 +11271,7 @@
     "EnemyDropMask": 2147483647,
     "EnemyDropRange": {
       "x": 0.161,
-      "y": 0.010
+      "y": 0.01
     },
     "handcraft": {
       "ID": 6
@@ -11767,10 +11658,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -12171,10 +12059,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -12584,10 +12469,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -13023,10 +12905,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -13447,10 +13326,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -13854,10 +13730,7 @@
     "StackSize": 200,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -13889,7 +13762,7 @@
     "EnemyDropMask": 2147483647,
     "EnemyDropRange": {
       "x": 0.211,
-      "y": 0.010
+      "y": 0.01
     },
     "handcraft": {
       "ID": 50
@@ -14315,10 +14188,7 @@
     "StackSize": 200,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -14778,10 +14648,7 @@
     "StackSize": 200,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -15237,10 +15104,7 @@
     "StackSize": 200,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -15635,10 +15499,7 @@
     "StackSize": 200,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -16055,10 +15916,7 @@
     "StackSize": 200,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -16455,10 +16313,7 @@
     "StackSize": 200,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -16876,10 +16731,7 @@
     "StackSize": 200,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -17288,11 +17140,7 @@
     "StackSize": 200,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      36,
-      1,
-      40
-    ],
+    "DescFields": [36, 1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -17691,10 +17539,7 @@
     "StackSize": 20,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      0,
-      40
-    ],
+    "DescFields": [0, 40],
     "IsFluid": true,
     "IsEntity": false,
     "CanBuild": false,
@@ -18064,13 +17909,7 @@
     "StackSize": 20,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      2,
-      3,
-      31,
-      0,
-      40
-    ],
+    "DescFields": [2, 3, 31, 0, 40],
     "IsFluid": true,
     "IsEntity": false,
     "CanBuild": false,
@@ -18431,13 +18270,7 @@
     "StackSize": 20,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      2,
-      3,
-      31,
-      1,
-      40
-    ],
+    "DescFields": [2, 3, 31, 1, 40],
     "IsFluid": true,
     "IsEntity": false,
     "CanBuild": false,
@@ -18839,11 +18672,7 @@
     "StackSize": 20,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      0,
-      40
-    ],
+    "DescFields": [1, 0, 40],
     "IsFluid": true,
     "IsEntity": false,
     "CanBuild": false,
@@ -19236,14 +19065,7 @@
     "StackSize": 20,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      2,
-      3,
-      31,
-      1,
-      0,
-      40
-    ],
+    "DescFields": [2, 3, 31, 1, 0, 40],
     "IsFluid": true,
     "IsEntity": false,
     "CanBuild": false,
@@ -19656,14 +19478,7 @@
     "StackSize": 20,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      2,
-      3,
-      31,
-      1,
-      0,
-      40
-    ],
+    "DescFields": [2, 3, 31, 1, 0, 40],
     "IsFluid": true,
     "IsEntity": false,
     "CanBuild": false,
@@ -20049,11 +19864,7 @@
     "StackSize": 20,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      37,
-      1,
-      40
-    ],
+    "DescFields": [37, 1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -20436,11 +20247,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      37,
-      1,
-      40
-    ],
+    "DescFields": [37, 1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -20804,13 +20611,7 @@
     "StackSize": 30,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      2,
-      3,
-      31,
-      1,
-      40
-    ],
+    "DescFields": [2, 3, 31, 1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -21195,13 +20996,7 @@
     "StackSize": 30,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      2,
-      3,
-      31,
-      1,
-      40
-    ],
+    "DescFields": [2, 3, 31, 1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -21605,13 +21400,7 @@
     "StackSize": 30,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      2,
-      3,
-      31,
-      1,
-      40
-    ],
+    "DescFields": [2, 3, 31, 1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -22018,13 +21807,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      2,
-      3,
-      31,
-      1,
-      40
-    ],
+    "DescFields": [2, 3, 31, 1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -22422,10 +22205,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -22813,13 +22593,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      2,
-      3,
-      31,
-      1,
-      40
-    ],
+    "DescFields": [2, 3, 31, 1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -23228,13 +23002,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      2,
-      3,
-      31,
-      1,
-      40
-    ],
+    "DescFields": [2, 3, 31, 1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -23628,14 +23396,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      2,
-      3,
-      31,
-      1,
-      0,
-      40
-    ],
+    "DescFields": [2, 3, 31, 1, 0, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -24032,10 +23793,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -24437,10 +24195,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -24855,13 +24610,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      2,
-      3,
-      31,
-      1,
-      40
-    ],
+    "DescFields": [2, 3, 31, 1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -25251,13 +25000,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      2,
-      3,
-      31,
-      1,
-      40
-    ],
+    "DescFields": [2, 3, 31, 1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -25650,13 +25393,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      2,
-      3,
-      31,
-      1,
-      40
-    ],
+    "DescFields": [2, 3, 31, 1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -26071,10 +25808,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -26469,10 +26203,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -26863,10 +26594,7 @@
     "StackSize": 20,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -27268,10 +26996,7 @@
     "StackSize": 200,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -27303,7 +27028,7 @@
     "EnemyDropMask": 2147483647,
     "EnemyDropRange": {
       "x": 0.383,
-      "y": 0.010
+      "y": 0.01
     },
     "handcraft": {
       "ID": 105
@@ -27672,10 +27397,7 @@
     "StackSize": 200,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -28067,10 +27789,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -28473,12 +28192,7 @@
     "StackSize": 200,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      45,
-      46,
-      1,
-      40
-    ],
+    "DescFields": [45, 46, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": false,
@@ -28869,12 +28583,7 @@
     "StackSize": 200,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      25,
-      27,
-      1,
-      40
-    ],
+    "DescFields": [25, 27, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": false,
@@ -29270,11 +28979,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      26,
-      1,
-      40
-    ],
+    "DescFields": [26, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": false,
@@ -29670,10 +29375,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -30091,10 +29793,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -30508,10 +30207,7 @@
     "StackSize": 20,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": false,
@@ -30957,10 +30653,7 @@
     "StackSize": 1000,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": true,
@@ -31345,17 +31038,7 @@
     "StackSize": 200,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      29,
-      41,
-      42,
-      43,
-      2,
-      3,
-      31,
-      1,
-      40
-    ],
+    "DescFields": [29, 41, 42, 43, 2, 3, 31, 1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -31739,17 +31422,7 @@
     "StackSize": 200,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      29,
-      41,
-      42,
-      43,
-      2,
-      3,
-      31,
-      1,
-      40
-    ],
+    "DescFields": [29, 41, 42, 43, 2, 3, 31, 1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -32138,17 +31811,7 @@
     "StackSize": 200,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      29,
-      41,
-      42,
-      43,
-      2,
-      3,
-      31,
-      1,
-      40
-    ],
+    "DescFields": [29, 41, 42, 43, 2, 3, 31, 1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -32538,14 +32201,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      48,
-      55,
-      52,
-      47,
-      1,
-      40
-    ],
+    "DescFields": [48, 55, 52, 47, 1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -32929,14 +32585,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      48,
-      55,
-      52,
-      47,
-      1,
-      40
-    ],
+    "DescFields": [48, 55, 52, 47, 1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -33325,14 +32974,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      48,
-      55,
-      52,
-      47,
-      1,
-      40
-    ],
+    "DescFields": [48, 55, 52, 47, 1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -33722,15 +33364,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      48,
-      55,
-      52,
-      61,
-      47,
-      1,
-      40
-    ],
+    "DescFields": [48, 55, 52, 61, 47, 1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -34119,15 +33753,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      48,
-      55,
-      52,
-      61,
-      47,
-      1,
-      40
-    ],
+    "DescFields": [48, 55, 52, 61, 47, 1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -34526,15 +34152,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      48,
-      55,
-      52,
-      61,
-      47,
-      1,
-      40
-    ],
+    "DescFields": [48, 55, 52, 61, 47, 1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -34939,15 +34557,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      48,
-      55,
-      52,
-      61,
-      47,
-      1,
-      40
-    ],
+    "DescFields": [48, 55, 52, 61, 47, 1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -35341,15 +34951,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      48,
-      55,
-      52,
-      61,
-      47,
-      1,
-      40
-    ],
+    "DescFields": [48, 55, 52, 61, 47, 1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -35747,15 +35349,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      48,
-      55,
-      52,
-      61,
-      47,
-      1,
-      40
-    ],
+    "DescFields": [48, 55, 52, 61, 47, 1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -36150,15 +35744,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      48,
-      55,
-      52,
-      61,
-      47,
-      1,
-      40
-    ],
+    "DescFields": [48, 55, 52, 61, 47, 1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -36568,15 +36154,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      48,
-      55,
-      52,
-      61,
-      47,
-      1,
-      40
-    ],
+    "DescFields": [48, 55, 52, 61, 47, 1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -36992,16 +36570,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      48,
-      55,
-      49,
-      60,
-      59,
-      1,
-      40
-    ],
+    "DescFields": [53, 48, 55, 49, 60, 59, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": false,
@@ -37399,16 +36968,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      48,
-      55,
-      49,
-      60,
-      59,
-      1,
-      40
-    ],
+    "DescFields": [53, 48, 55, 49, 60, 59, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": false,
@@ -37799,16 +37359,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      48,
-      55,
-      49,
-      60,
-      59,
-      1,
-      40
-    ],
+    "DescFields": [53, 48, 55, 49, 60, 59, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": false,
@@ -38209,16 +37760,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      48,
-      55,
-      49,
-      60,
-      59,
-      1,
-      40
-    ],
+    "DescFields": [53, 48, 55, 49, 60, 59, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": false,
@@ -38619,19 +38161,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      55,
-      62,
-      63,
-      64,
-      65,
-      66,
-      67,
-      59,
-      1,
-      40
-    ],
+    "DescFields": [53, 55, 62, 63, 64, 65, 66, 67, 59, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": false,
@@ -39037,10 +38567,7 @@
     "StackSize": 200,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      0,
-      40
-    ],
+    "DescFields": [0, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -39401,10 +38928,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      0,
-      40
-    ],
+    "DescFields": [0, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -39765,10 +39289,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      0,
-      40
-    ],
+    "DescFields": [0, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -40129,10 +39650,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      0,
-      40
-    ],
+    "DescFields": [0, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -40493,10 +40011,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      0,
-      40
-    ],
+    "DescFields": [0, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -40528,7 +40043,7 @@
     "EnemyDropMask": 2147483647,
     "EnemyDropRange": {
       "x": 0.451,
-      "y": 0.010
+      "y": 0.01
     },
     "handcraftProductCount": 0,
     "maincraftProductCount": 0,
@@ -40857,14 +40372,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      2,
-      3,
-      31,
-      54,
-      0,
-      40
-    ],
+    "DescFields": [2, 3, 31, 54, 0, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -41227,17 +40735,8 @@
     "fuelTypeString": "-",
     "StackSize": 300,
     "Grade": 1,
-    "Upgrades": [
-      2001,
-      2002,
-      2003
-    ],
-    "DescFields": [
-      53,
-      15,
-      1,
-      40
-    ],
+    "Upgrades": [2001, 2002, 2003],
+    "DescFields": [53, 15, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -41621,17 +41120,8 @@
     "fuelTypeString": "-",
     "StackSize": 300,
     "Grade": 2,
-    "Upgrades": [
-      2001,
-      2002,
-      2003
-    ],
-    "DescFields": [
-      53,
-      15,
-      1,
-      40
-    ],
+    "Upgrades": [2001, 2002, 2003],
+    "DescFields": [53, 15, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -42020,17 +41510,8 @@
     "fuelTypeString": "-",
     "StackSize": 300,
     "Grade": 3,
-    "Upgrades": [
-      2001,
-      2002,
-      2003
-    ],
-    "DescFields": [
-      53,
-      15,
-      1,
-      40
-    ],
+    "Upgrades": [2001, 2002, 2003],
+    "DescFields": [53, 15, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -42425,20 +41906,8 @@
     "fuelTypeString": "-",
     "StackSize": 200,
     "Grade": 1,
-    "Upgrades": [
-      2011,
-      2012,
-      2013
-    ],
-    "DescFields": [
-      53,
-      20,
-      21,
-      11,
-      12,
-      1,
-      40
-    ],
+    "Upgrades": [2011, 2012, 2013],
+    "DescFields": [53, 20, 21, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -42829,20 +42298,8 @@
     "fuelTypeString": "-",
     "StackSize": 200,
     "Grade": 2,
-    "Upgrades": [
-      2011,
-      2012,
-      2013
-    ],
-    "DescFields": [
-      53,
-      20,
-      21,
-      11,
-      12,
-      1,
-      40
-    ],
+    "Upgrades": [2011, 2012, 2013],
+    "DescFields": [53, 20, 21, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -43233,20 +42690,8 @@
     "fuelTypeString": "-",
     "StackSize": 200,
     "Grade": 3,
-    "Upgrades": [
-      2011,
-      2012,
-      2013
-    ],
-    "DescFields": [
-      53,
-      20,
-      21,
-      11,
-      12,
-      1,
-      40
-    ],
+    "Upgrades": [2011, 2012, 2013],
+    "DescFields": [53, 20, 21, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -43634,12 +43079,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      16,
-      1,
-      40
-    ],
+    "DescFields": [53, 16, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -44027,13 +43467,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -44436,13 +43870,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -44835,13 +44263,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -45244,15 +44666,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      38,
-      12,
-      10,
-      44,
-      1,
-      40
-    ],
+    "DescFields": [53, 38, 12, 10, 44, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -45650,12 +45064,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      17,
-      1,
-      40
-    ],
+    "DescFields": [53, 17, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -46043,12 +45452,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      17,
-      1,
-      40
-    ],
+    "DescFields": [53, 17, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -46436,12 +45840,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      30,
-      1,
-      40
-    ],
+    "DescFields": [53, 30, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -46828,20 +46227,8 @@
     "fuelTypeString": "-",
     "StackSize": 50,
     "Grade": 1,
-    "Upgrades": [
-      2303,
-      2304,
-      2305,
-      2318
-    ],
-    "DescFields": [
-      53,
-      22,
-      11,
-      12,
-      1,
-      40
-    ],
+    "Upgrades": [2303, 2304, 2305, 2318],
+    "DescFields": [53, 22, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -47232,20 +46619,8 @@
     "fuelTypeString": "-",
     "StackSize": 50,
     "Grade": 2,
-    "Upgrades": [
-      2303,
-      2304,
-      2305,
-      2318
-    ],
-    "DescFields": [
-      53,
-      22,
-      11,
-      12,
-      1,
-      40
-    ],
+    "Upgrades": [2303, 2304, 2305, 2318],
+    "DescFields": [53, 22, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -47646,20 +47021,8 @@
     "fuelTypeString": "-",
     "StackSize": 50,
     "Grade": 3,
-    "Upgrades": [
-      2303,
-      2304,
-      2305,
-      2318
-    ],
-    "DescFields": [
-      53,
-      22,
-      11,
-      12,
-      1,
-      40
-    ],
+    "Upgrades": [2303, 2304, 2305, 2318],
+    "DescFields": [53, 22, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -48100,20 +47463,8 @@
     "fuelTypeString": "-",
     "StackSize": 50,
     "Grade": 4,
-    "Upgrades": [
-      2303,
-      2304,
-      2305,
-      2318
-    ],
-    "DescFields": [
-      53,
-      22,
-      11,
-      12,
-      1,
-      40
-    ],
+    "Upgrades": [2303, 2304, 2305, 2318],
+    "DescFields": [53, 22, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -48561,13 +47912,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      13,
-      14,
-      1,
-      40
-    ],
+    "DescFields": [53, 13, 14, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -48959,15 +48304,7 @@
     "StackSize": 100,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      13,
-      14,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 13, 14, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -49367,14 +48704,7 @@
     "StackSize": 30,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      13,
-      14,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 13, 14, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -49787,15 +49117,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      4,
-      5,
-      13,
-      14,
-      1,
-      40
-    ],
+    "DescFields": [53, 4, 5, 13, 14, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -50183,14 +49505,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      4,
-      5,
-      6,
-      1,
-      40
-    ],
+    "DescFields": [53, 4, 5, 6, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -50583,13 +49898,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      4,
-      5,
-      1,
-      40
-    ],
+    "DescFields": [53, 4, 5, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -50997,13 +50306,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      4,
-      39,
-      1,
-      40
-    ],
+    "DescFields": [53, 4, 39, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -51406,15 +50709,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      18,
-      19,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 18, 19, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -51802,15 +51097,7 @@
     "StackSize": 30,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      18,
-      19,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 18, 19, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -52258,15 +51545,7 @@
     "StackSize": 30,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      18,
-      19,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 18, 19, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -52658,19 +51937,8 @@
     "fuelTypeString": "-",
     "StackSize": 50,
     "Grade": 1,
-    "Upgrades": [
-      2302,
-      2315,
-      2319
-    ],
-    "DescFields": [
-      53,
-      22,
-      11,
-      12,
-      1,
-      40
-    ],
+    "Upgrades": [2302, 2315, 2319],
+    "DescFields": [53, 22, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -53066,19 +52334,8 @@
     "fuelTypeString": "-",
     "StackSize": 50,
     "Grade": 2,
-    "Upgrades": [
-      2302,
-      2315,
-      2319
-    ],
-    "DescFields": [
-      53,
-      22,
-      11,
-      12,
-      1,
-      40
-    ],
+    "Upgrades": [2302, 2315, 2319],
+    "DescFields": [53, 22, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -53524,19 +52781,8 @@
     "fuelTypeString": "-",
     "StackSize": 50,
     "Grade": 3,
-    "Upgrades": [
-      2302,
-      2315,
-      2319
-    ],
-    "DescFields": [
-      53,
-      22,
-      11,
-      12,
-      1,
-      40
-    ],
+    "Upgrades": [2302, 2315, 2319],
+    "DescFields": [53, 22, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -53989,15 +53235,7 @@
     "StackSize": 20,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      18,
-      19,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 18, 19, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -54395,14 +53633,7 @@
     "StackSize": 30,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      22,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 22, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -54799,18 +54030,8 @@
     "fuelTypeString": "-",
     "StackSize": 30,
     "Grade": 1,
-    "Upgrades": [
-      2309,
-      2317
-    ],
-    "DescFields": [
-      53,
-      22,
-      11,
-      12,
-      1,
-      40
-    ],
+    "Upgrades": [2309, 2317],
+    "DescFields": [53, 22, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -55211,18 +54432,8 @@
     "fuelTypeString": "-",
     "StackSize": 30,
     "Grade": 2,
-    "Upgrades": [
-      2309,
-      2317
-    ],
-    "DescFields": [
-      53,
-      22,
-      11,
-      12,
-      1,
-      40
-    ],
+    "Upgrades": [2309, 2317],
+    "DescFields": [53, 22, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -55660,13 +54871,7 @@
     "StackSize": 30,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -56069,13 +55274,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      4,
-      39,
-      1,
-      40
-    ],
+    "DescFields": [53, 4, 39, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -56468,14 +55667,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      8,
-      9,
-      10,
-      1,
-      40
-    ],
+    "DescFields": [53, 8, 9, 10, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -56873,17 +56065,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      2,
-      3,
-      31,
-      8,
-      9,
-      10,
-      1,
-      40
-    ],
+    "DescFields": [53, 2, 3, 31, 8, 9, 10, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -57250,14 +56432,7 @@
     "StackSize": 30,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      34,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 34, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -57660,13 +56835,7 @@
     "StackSize": 20,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      4,
-      39,
-      1,
-      40
-    ],
+    "DescFields": [53, 4, 39, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -58074,14 +57243,7 @@
     "StackSize": 10,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      35,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 35, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -58529,14 +57691,7 @@
     "StackSize": 20,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      8,
-      9,
-      10,
-      1,
-      40
-    ],
+    "DescFields": [53, 8, 9, 10, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -58944,14 +58099,7 @@
     "StackSize": 20,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      22,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 22, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -59364,14 +58512,7 @@
     "StackSize": 20,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      4,
-      5,
-      6,
-      1,
-      40
-    ],
+    "DescFields": [53, 4, 5, 6, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -59809,15 +58950,7 @@
     "StackSize": 10,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      24,
-      38,
-      12,
-      10,
-      1,
-      40
-    ],
+    "DescFields": [53, 24, 38, 12, 10, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -60229,15 +59362,7 @@
     "StackSize": 10,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      24,
-      38,
-      12,
-      10,
-      1,
-      40
-    ],
+    "DescFields": [53, 24, 38, 12, 10, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -60654,14 +59779,7 @@
     "StackSize": 10,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      18,
-      11,
-      32,
-      1,
-      40
-    ],
+    "DescFields": [53, 18, 11, 32, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -61083,19 +60201,8 @@
     "fuelTypeString": "-",
     "StackSize": 50,
     "Grade": 1,
-    "Upgrades": [
-      2901,
-      2902
-    ],
-    "DescFields": [
-      53,
-      22,
-      33,
-      11,
-      12,
-      1,
-      40
-    ],
+    "Upgrades": [2901, 2902],
+    "DescFields": [53, 22, 33, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -61491,19 +60598,8 @@
     "fuelTypeString": "-",
     "StackSize": 50,
     "Grade": 2,
-    "Upgrades": [
-      2901,
-      2902
-    ],
-    "DescFields": [
-      53,
-      22,
-      33,
-      11,
-      12,
-      1,
-      40
-    ],
+    "Upgrades": [2901, 2902],
+    "DescFields": [53, 22, 33, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -61941,18 +61037,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      51,
-      56,
-      57,
-      52,
-      49,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 51, 56, 57, 52, 49, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -62340,17 +61425,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      51,
-      56,
-      57,
-      50,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 51, 56, 57, 50, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -62748,18 +61823,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      51,
-      56,
-      57,
-      52,
-      49,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 51, 56, 57, 52, 49, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -63157,18 +62221,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      51,
-      56,
-      58,
-      52,
-      49,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 51, 56, 58, 52, 49, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -63586,19 +62639,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      51,
-      56,
-      57,
-      58,
-      52,
-      49,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 51, 56, 57, 58, 52, 49, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -63991,13 +63032,7 @@
     "StackSize": 50,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -64397,15 +63432,7 @@
     "StackSize": 20,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      13,
-      14,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 13, 14, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -64808,13 +63835,7 @@
     "StackSize": 20,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 11, 12, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -65217,14 +64238,7 @@
     "StackSize": 20,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      53,
-      11,
-      12,
-      14,
-      1,
-      40
-    ],
+    "DescFields": [53, 11, 12, 14, 1, 40],
     "IsFluid": false,
     "IsEntity": true,
     "CanBuild": true,
@@ -65623,10 +64637,7 @@
     "StackSize": 200,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -66016,10 +65027,7 @@
     "StackSize": 200,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -66409,10 +65417,7 @@
     "StackSize": 200,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -66817,10 +65822,7 @@
     "StackSize": 200,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -67230,10 +66232,7 @@
     "StackSize": 200,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -67676,10 +66675,7 @@
     "StackSize": 200,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,
@@ -68127,9 +67123,7 @@
     "StackSize": 1000000,
     "Grade": 0,
     "Upgrades": [],
-    "DescFields": [
-      0
-    ],
+    "DescFields": [0],
     "IsFluid": false,
     "IsEntity": false,
     "CanBuild": false,

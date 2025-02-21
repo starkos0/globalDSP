@@ -7,10 +7,7 @@
     "GridIndex": 1101,
     "UnlockKey": -1,
     "Productive": true,
-    "DescFields": [
-      0,
-      40
-    ],
+    "DescFields": [0, 40],
     "isRaw": true,
     "makes": [
       {
@@ -49,10 +46,7 @@
     "GridIndex": 1102,
     "UnlockKey": -1,
     "Productive": true,
-    "DescFields": [
-      0,
-      40
-    ],
+    "DescFields": [0, 40],
     "isRaw": true,
     "makes": [
       {
@@ -88,11 +82,7 @@
     "GridIndex": 1105,
     "UnlockKey": 6001,
     "Productive": true,
-    "DescFields": [
-      0,
-      1,
-      40
-    ],
+    "DescFields": [0, 1, 40],
     "isRaw": true,
     "maincraft": {
       "ID": 34,
@@ -149,10 +139,7 @@
     "GridIndex": 1106,
     "UnlockKey": 6002,
     "Productive": true,
-    "DescFields": [
-      0,
-      40
-    ],
+    "DescFields": [0, 40],
     "isRaw": true,
     "makes": [
       {
@@ -188,10 +175,7 @@
     "GridIndex": 1103,
     "UnlockKey": -1,
     "Productive": true,
-    "DescFields": [
-      0,
-      40
-    ],
+    "DescFields": [0, 40],
     "isRaw": true,
     "makes": [
       {
@@ -241,13 +225,7 @@
     "GridIndex": 1104,
     "UnlockKey": -1,
     "Productive": true,
-    "DescFields": [
-      2,
-      3,
-      31,
-      0,
-      40
-    ],
+    "DescFields": [2, 3, 31, 0, 40],
     "isRaw": true,
     "makes": [
       {
@@ -304,13 +282,7 @@
     },
     "EnemyDropCount": 4,
     "EnemyDropMask": 2097695762,
-    "DescFields": [
-      2,
-      3,
-      31,
-      0,
-      40
-    ],
+    "DescFields": [2, 3, 31, 0, 40],
     "isRaw": true,
     "makes": [
       {
@@ -355,13 +327,7 @@
     },
     "EnemyDropCount": 4,
     "EnemyDropMask": 2097695762,
-    "DescFields": [
-      2,
-      3,
-      31,
-      0,
-      40
-    ],
+    "DescFields": [2, 3, 31, 0, 40],
     "isRaw": true,
     "makes": [
       {
@@ -400,13 +366,7 @@
     "GridIndex": 1614,
     "UnlockKey": 1120,
     "Productive": true,
-    "DescFields": [
-      2,
-      3,
-      31,
-      0,
-      40
-    ],
+    "DescFields": [2, 3, 31, 0, 40],
     "isRaw": true,
     "makes": [
       {
@@ -442,10 +402,7 @@
     "GridIndex": 1114,
     "UnlockKey": 1112,
     "Productive": true,
-    "DescFields": [
-      0,
-      40
-    ],
+    "DescFields": [0, 40],
     "isRaw": true,
     "makes": [
       {
@@ -481,10 +438,7 @@
     "GridIndex": 1214,
     "UnlockKey": 1105,
     "Productive": true,
-    "DescFields": [
-      0,
-      40
-    ],
+    "DescFields": [0, 40],
     "isRaw": true,
     "makes": [
       {
@@ -527,10 +481,7 @@
     },
     "EnemyDropCount": 2,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      0,
-      40
-    ],
+    "DescFields": [0, 40],
     "isRaw": true,
     "makes": [
       {
@@ -574,10 +525,7 @@
     "GridIndex": 1414,
     "UnlockKey": 6002,
     "Productive": true,
-    "DescFields": [
-      0,
-      40
-    ],
+    "DescFields": [0, 40],
     "isRaw": true,
     "makes": [
       {
@@ -621,10 +569,7 @@
     },
     "EnemyDropCount": 2,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      0,
-      40
-    ],
+    "DescFields": [0, 40],
     "isRaw": true,
     "makes": [
       {
@@ -666,14 +611,11 @@
     "MechaMaterialID": 1,
     "EnemyDropRange": {
       "x": 0.016,
-      "y": 0.010
+      "y": 0.01
     },
     "EnemyDropCount": 2,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 1,
       "name": "Iron Ingot"
@@ -834,14 +776,11 @@
     "MechaMaterialID": 2,
     "EnemyDropRange": {
       "x": 0.026,
-      "y": 0.010
+      "y": 0.01
     },
     "EnemyDropCount": 2.4,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 3,
       "name": "Copper Ingot"
@@ -960,10 +899,7 @@
     "EnemyDropCount": 1.8,
     "EnemyDropMask": 2131618808,
     "EnemyDropMaskRatio": 0.3,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 59,
       "name": "High-purity Silicon"
@@ -1053,10 +989,7 @@
     "EnemyDropCount": 2.2,
     "EnemyDropMask": 2131733228,
     "EnemyDropMaskRatio": 0.25,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 65,
       "name": "Titanium Ingot"
@@ -1156,10 +1089,7 @@
     },
     "EnemyDropCount": 1.8,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 4,
       "name": "Stone Brick"
@@ -1273,13 +1203,7 @@
     "EnemyDropCount": 1.6,
     "EnemyDropMask": 2097798226,
     "EnemyDropMaskRatio": 0.7,
-    "DescFields": [
-      2,
-      3,
-      31,
-      1,
-      40
-    ],
+    "DescFields": [2, 3, 31, 1, 40],
     "handcraft": {
       "ID": 17,
       "name": "Energetic Graphite"
@@ -1372,10 +1296,7 @@
     },
     "EnemyDropCount": 1.6,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "isRaw": true,
     "maincraft": {
       "ID": 63,
@@ -1523,10 +1444,7 @@
     "EnemyDropCount": 1.1,
     "EnemyDropMask": 2131733228,
     "EnemyDropMaskRatio": 0.3,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "isRaw": true,
     "maincraft": {
       "ID": 66,
@@ -1657,10 +1575,7 @@
     },
     "EnemyDropCount": 1.7,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 57,
       "name": "Glass"
@@ -1758,10 +1673,7 @@
     "EnemyDropCount": 1.4,
     "EnemyDropMask": 2131733228,
     "EnemyDropMaskRatio": 0.4,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 30,
       "name": "Titanium Glass"
@@ -1854,10 +1766,7 @@
     },
     "EnemyDropCount": 1.4,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 11,
       "name": "Prism"
@@ -1937,13 +1846,7 @@
     },
     "EnemyDropCount": 1,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      2,
-      3,
-      31,
-      1,
-      40
-    ],
+    "DescFields": [2, 3, 31, 1, 40],
     "isRaw": true,
     "maincraft": {
       "ID": 60,
@@ -2023,10 +1926,7 @@
     "EnemyDropCount": 1.2,
     "EnemyDropMask": 2131618808,
     "EnemyDropMaskRatio": 0.4,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "isRaw": true,
     "maincraft": {
       "ID": 37,
@@ -2104,10 +2004,7 @@
     },
     "EnemyDropCount": 1.7,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 5,
       "name": "Gear"
@@ -2216,10 +2113,7 @@
     },
     "EnemyDropCount": 2,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 2,
       "name": "Magnet"
@@ -2296,10 +2190,7 @@
     },
     "EnemyDropCount": 2,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 6,
       "name": "Magnetic Coil"
@@ -2416,10 +2307,7 @@
     },
     "EnemyDropCount": 1.2,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 97,
       "name": "Electric Motor"
@@ -2511,10 +2399,7 @@
     },
     "EnemyDropCount": 0.8,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 98,
       "name": "Electromagnetic Turbine"
@@ -2622,10 +2507,7 @@
     },
     "EnemyDropCount": 0.5,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 103,
       "name": "Super-magnetic Ring"
@@ -2773,10 +2655,7 @@
     },
     "EnemyDropCount": 0.4,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 99,
       "name": "Particle Container"
@@ -2892,10 +2771,7 @@
     },
     "EnemyDropCount": 0.4,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "isRaw": true,
     "maincraft": {
       "ID": 104,
@@ -2985,10 +2861,7 @@
     },
     "EnemyDropCount": 2,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 50,
       "name": "Circuit Board"
@@ -3157,10 +3030,7 @@
     },
     "EnemyDropCount": 0.75,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 51,
       "name": "Processor"
@@ -3336,10 +3206,7 @@
     },
     "EnemyDropCount": 0.25,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 52,
       "name": "Quantum Chip"
@@ -3483,10 +3350,7 @@
     },
     "EnemyDropCount": 1,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 53,
       "name": "Microcrystalline Component"
@@ -3570,10 +3434,7 @@
     },
     "EnemyDropCount": 0.4,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 38,
       "name": "Plane Filter"
@@ -3673,10 +3534,7 @@
     },
     "EnemyDropCount": 0.25,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 36,
       "name": "Particle Broadband"
@@ -3760,10 +3618,7 @@
     },
     "EnemyDropCount": 1.3,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 12,
       "name": "Plasma Exciter"
@@ -3883,10 +3738,7 @@
     },
     "EnemyDropCount": 1.4,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 68,
       "name": "Photon Combiner"
@@ -3979,11 +3831,7 @@
     "HpMax": 1,
     "GridIndex": 1708,
     "Productive": true,
-    "DescFields": [
-      36,
-      1,
-      40
-    ],
+    "DescFields": [36, 1, 40],
     "handcraft": {
       "ID": 70,
       "name": "Solar Sail"
@@ -4064,11 +3912,7 @@
     "GridIndex": 1107,
     "UnlockKey": 2306,
     "Productive": true,
-    "DescFields": [
-      0,
-      71,
-      40
-    ],
+    "DescFields": [0, 71, 40],
     "isRaw": true,
     "makes": [
       {
@@ -4134,13 +3978,7 @@
     "GridIndex": 1108,
     "UnlockKey": 2307,
     "Productive": true,
-    "DescFields": [
-      2,
-      3,
-      31,
-      0,
-      40
-    ],
+    "DescFields": [2, 3, 31, 0, 40],
     "isRaw": true,
     "makes": [
       {
@@ -4179,13 +4017,7 @@
     "FuelType": 1,
     "GridIndex": 1208,
     "Productive": true,
-    "DescFields": [
-      2,
-      3,
-      31,
-      1,
-      40
-    ],
+    "DescFields": [2, 3, 31, 1, 40],
     "isRaw": true,
     "maincraft": {
       "ID": 121,
@@ -4269,11 +4101,7 @@
     "HpMax": 1,
     "GridIndex": 1207,
     "Productive": true,
-    "DescFields": [
-      1,
-      0,
-      40
-    ],
+    "DescFields": [1, 0, 40],
     "isRaw": true,
     "maincraft": {
       "ID": 24,
@@ -4356,14 +4184,7 @@
     },
     "EnemyDropCount": 1.5,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      2,
-      3,
-      31,
-      1,
-      0,
-      40
-    ],
+    "DescFields": [2, 3, 31, 1, 0, 40],
     "isRaw": true,
     "maincraft": {
       "ID": 16,
@@ -4484,14 +4305,7 @@
     },
     "EnemyDropCount": 0.8,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      2,
-      3,
-      31,
-      1,
-      0,
-      40
-    ],
+    "DescFields": [2, 3, 31, 1, 0, 40],
     "isRaw": true,
     "maincraft": {
       "ID": 40,
@@ -4568,11 +4382,7 @@
     },
     "EnemyDropCount": 0.3,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      37,
-      1,
-      40
-    ],
+    "DescFields": [37, 1, 40],
     "isRaw": true,
     "maincraft": {
       "ID": 74,
@@ -4637,11 +4447,7 @@
     "GridIndex": 1113,
     "UnlockKey": 1122,
     "PreTechOverride": 1506,
-    "DescFields": [
-      37,
-      1,
-      40
-    ],
+    "DescFields": [37, 1, 40],
     "isRaw": true,
     "makes": [
       {
@@ -4690,13 +4496,7 @@
     },
     "EnemyDropCount": 0.5,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      2,
-      3,
-      31,
-      1,
-      40
-    ],
+    "DescFields": [2, 3, 31, 1, 40],
     "handcraft": {
       "ID": 19,
       "name": "Hydrogen Fuel Rod"
@@ -4769,13 +4569,7 @@
     },
     "EnemyDropCount": 0.4,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      2,
-      3,
-      31,
-      1,
-      40
-    ],
+    "DescFields": [2, 3, 31, 1, 40],
     "handcraft": {
       "ID": 41,
       "name": "Deuteron Fuel Rod"
@@ -4865,13 +4659,7 @@
     },
     "EnemyDropCount": 0.3,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      2,
-      3,
-      31,
-      1,
-      40
-    ],
+    "DescFields": [2, 3, 31, 1, 40],
     "isRaw": true,
     "maincraft": {
       "ID": 44,
@@ -4952,13 +4740,7 @@
     "ReactorInc": 11,
     "FuelType": 4,
     "GridIndex": 1212,
-    "DescFields": [
-      2,
-      3,
-      31,
-      1,
-      40
-    ],
+    "DescFields": [2, 3, 31, 1, 40],
     "isRaw": true,
     "maincraft": {
       "ID": 156,
@@ -5036,10 +4818,7 @@
     "EnemyDropCount": 1,
     "EnemyDropMask": 2097798226,
     "EnemyDropMaskRatio": 0.3,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "isRaw": true,
     "maincraft": {
       "ID": 23,
@@ -5118,13 +4897,7 @@
     "EnemyDropCount": 1,
     "EnemyDropMask": 2097798226,
     "EnemyDropMaskRatio": 0.5,
-    "DescFields": [
-      2,
-      3,
-      31,
-      1,
-      40
-    ],
+    "DescFields": [2, 3, 31, 1, 40],
     "isRaw": true,
     "maincraft": {
       "ID": 31,
@@ -5230,13 +5003,7 @@
     },
     "EnemyDropCount": 0.8,
     "EnemyDropMask": 2097798226,
-    "DescFields": [
-      2,
-      3,
-      31,
-      1,
-      40
-    ],
+    "DescFields": [2, 3, 31, 1, 40],
     "isRaw": true,
     "maincraft": {
       "ID": 33,
@@ -5315,14 +5082,7 @@
     "GridIndex": 1309,
     "Productive": true,
     "MechaMaterialID": 17,
-    "DescFields": [
-      2,
-      3,
-      31,
-      1,
-      0,
-      40
-    ],
+    "DescFields": [2, 3, 31, 1, 0, 40],
     "handcraft": {
       "ID": 54,
       "name": "Organic Crystal (original)"
@@ -5409,10 +5169,7 @@
     "EnemyDropCount": 0.8,
     "EnemyDropMask": 2131733228,
     "EnemyDropMaskRatio": 0.5,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 26,
       "name": "Titanium Crystal"
@@ -5501,10 +5258,7 @@
     },
     "EnemyDropCount": 0.55,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 28,
       "name": "Casimir Crystal"
@@ -5611,16 +5365,7 @@
     "EnemyDropCount": 1,
     "EnemyDropMask": 2097798226,
     "EnemyDropMaskRatio": 0.7,
-    "DescFields": [
-      2,
-      3,
-      31,
-      1,
-      40,
-      71,
-      55,
-      61
-    ],
+    "DescFields": [2, 3, 31, 1, 40, 71, 55, 61],
     "handcraft": {
       "ID": 133,
       "name": "Combustible Unit"
@@ -5720,16 +5465,7 @@
     },
     "EnemyDropCount": 0.7,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      2,
-      3,
-      31,
-      1,
-      40,
-      71,
-      55,
-      61
-    ],
+    "DescFields": [2, 3, 31, 1, 40, 71, 55, 61],
     "isRaw": true,
     "maincraft": {
       "ID": 134,
@@ -5827,16 +5563,7 @@
     },
     "EnemyDropCount": 0.5,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      2,
-      3,
-      31,
-      1,
-      40,
-      71,
-      55,
-      61
-    ],
+    "DescFields": [2, 3, 31, 1, 40, 71, 55, 61],
     "isRaw": true,
     "maincraft": {
       "ID": 135,
@@ -5945,10 +5672,7 @@
     },
     "EnemyDropCount": 0.4,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 101,
       "name": "Graviton Lens"
@@ -6032,10 +5756,7 @@
     },
     "EnemyDropCount": 0.3,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 78,
       "name": "Space Warper"
@@ -6113,10 +5834,7 @@
     },
     "EnemyDropCount": 0.3,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 42,
       "name": "Annihilation Constraint Sphere"
@@ -6204,10 +5922,7 @@
     },
     "EnemyDropCount": 1,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 105,
       "name": "Engine"
@@ -6299,10 +6014,7 @@
     },
     "EnemyDropCount": 0.6,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 20,
       "name": " - Thruster"
@@ -6382,10 +6094,7 @@
     },
     "EnemyDropCount": 0.3,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 21,
       "name": "Reinforced Thruster"
@@ -6472,12 +6181,7 @@
     "ModelCount": 1,
     "HpMax": 200,
     "GridIndex": 1701,
-    "DescFields": [
-      45,
-      46,
-      1,
-      40
-    ],
+    "DescFields": [45, 46, 1, 40],
     "handcraft": {
       "ID": 123,
       "name": "Logistics Bot"
@@ -6522,12 +6226,7 @@
       "modelIndex": 372,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        5000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [5000, 0, 0, 0],
       "startInstCapacity": 64,
       "batchCapacity": 256,
       "cullingHeight": 1,
@@ -6563,12 +6262,7 @@
     "ModelCount": 1,
     "HpMax": 300,
     "GridIndex": 1702,
-    "DescFields": [
-      25,
-      27,
-      1,
-      40
-    ],
+    "DescFields": [25, 27, 1, 40],
     "handcraft": {
       "ID": 94,
       "name": "Logistics Drone"
@@ -6617,12 +6311,7 @@
       "modelIndex": 47,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        5000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [5000, 0, 0, 0],
       "startInstCapacity": 64,
       "batchCapacity": 256,
       "cullingHeight": 2,
@@ -6658,11 +6347,7 @@
     "ModelCount": 1,
     "HpMax": 800,
     "GridIndex": 1703,
-    "DescFields": [
-      26,
-      1,
-      40
-    ],
+    "DescFields": [26, 1, 40],
     "handcraft": {
       "ID": 96,
       "name": "Interstellar Logistics Vessel"
@@ -6711,12 +6396,7 @@
       "modelIndex": 48,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        5000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [5000, 0, 0, 0],
       "startInstCapacity": 64,
       "batchCapacity": 256,
       "cullingHeight": 7,
@@ -6751,10 +6431,7 @@
     "GridIndex": 1709,
     "Productive": true,
     "MechaMaterialID": 24,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 80,
       "name": "Frame Material"
@@ -6859,10 +6536,7 @@
     "HpMax": 1,
     "GridIndex": 1710,
     "Productive": true,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 81,
       "name": "Dyson Sphere Component"
@@ -6952,10 +6626,7 @@
     "ModelIndex": 75,
     "HpMax": 1,
     "GridIndex": 1711,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 83,
       "name": "Small Carrier Rocket"
@@ -7044,12 +6715,7 @@
       "modelIndex": 75,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        5000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [5000, 0, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 2048,
       "cullingHeight": 2,
@@ -7093,10 +6759,7 @@
     },
     "EnemyDropCount": 2,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 112,
       "name": "Foundation"
@@ -7163,17 +6826,7 @@
     "FuelType": 1,
     "GridIndex": 1406,
     "Productive": true,
-    "DescFields": [
-      29,
-      41,
-      42,
-      43,
-      2,
-      3,
-      31,
-      1,
-      40
-    ],
+    "DescFields": [29, 41, 42, 43, 2, 3, 31, 1, 40],
     "handcraft": {
       "ID": 106,
       "name": "Proliferator Mk.I"
@@ -7242,17 +6895,7 @@
     "FuelType": 1,
     "GridIndex": 1506,
     "Productive": true,
-    "DescFields": [
-      29,
-      41,
-      42,
-      43,
-      2,
-      3,
-      31,
-      1,
-      40
-    ],
+    "DescFields": [29, 41, 42, 43, 2, 3, 31, 1, 40],
     "handcraft": {
       "ID": 107,
       "name": "Proliferator Mk.II"
@@ -7325,17 +6968,7 @@
     "FuelType": 1,
     "GridIndex": 1606,
     "Productive": true,
-    "DescFields": [
-      29,
-      41,
-      42,
-      43,
-      2,
-      3,
-      31,
-      1,
-      40
-    ],
+    "DescFields": [29, 41, 42, 43, 2, 3, 31, 1, 40],
     "handcraft": {
       "ID": 108,
       "name": "Proliferator Mk.III"
@@ -7404,14 +7037,7 @@
     "AmmoType": "Bullet",
     "GridIndex": 1312,
     "Productive": true,
-    "DescFields": [
-      48,
-      55,
-      52,
-      47,
-      1,
-      40
-    ],
+    "DescFields": [48, 55, 52, 47, 1, 40],
     "handcraft": {
       "ID": 136,
       "name": "Magnum Ammo Box"
@@ -7479,14 +7105,7 @@
     "AmmoType": "Bullet",
     "GridIndex": 1412,
     "Productive": true,
-    "DescFields": [
-      48,
-      55,
-      52,
-      47,
-      1,
-      40
-    ],
+    "DescFields": [48, 55, 52, 47, 1, 40],
     "handcraft": {
       "ID": 137,
       "name": "Titanium Ammo Box"
@@ -7558,14 +7177,7 @@
     "AmmoType": "Bullet",
     "GridIndex": 1512,
     "Productive": true,
-    "DescFields": [
-      48,
-      55,
-      52,
-      47,
-      1,
-      40
-    ],
+    "DescFields": [48, 55, 52, 47, 1, 40],
     "handcraft": {
       "ID": 138,
       "name": "Superalloy Ammo Box"
@@ -7636,15 +7248,7 @@
     "AmmoType": "Cannon",
     "GridIndex": 1513,
     "Productive": true,
-    "DescFields": [
-      48,
-      55,
-      52,
-      61,
-      47,
-      1,
-      40
-    ],
+    "DescFields": [48, 55, 52, 61, 47, 1, 40],
     "handcraft": {
       "ID": 139,
       "name": "Shell Set"
@@ -7729,15 +7333,7 @@
     "AmmoType": "Cannon",
     "GridIndex": 1613,
     "Productive": true,
-    "DescFields": [
-      48,
-      55,
-      52,
-      61,
-      47,
-      1,
-      40
-    ],
+    "DescFields": [48, 55, 52, 61, 47, 1, 40],
     "handcraft": {
       "ID": 140,
       "name": "High-Explosive Shell Set"
@@ -7830,15 +7426,7 @@
     "AmmoType": "Cannon",
     "GridIndex": 1713,
     "Productive": true,
-    "DescFields": [
-      48,
-      55,
-      52,
-      61,
-      47,
-      1,
-      40
-    ],
+    "DescFields": [48, 55, 52, 61, 47, 1, 40],
     "handcraft": {
       "ID": 141,
       "name": "Crystal Shell Set"
@@ -7932,15 +7520,7 @@
     "AmmoType": "Plasma",
     "GridIndex": 1612,
     "Productive": true,
-    "DescFields": [
-      48,
-      55,
-      52,
-      61,
-      47,
-      1,
-      40
-    ],
+    "DescFields": [48, 55, 52, 61, 47, 1, 40],
     "handcraft": {
       "ID": 142,
       "name": "Plasma Capsule"
@@ -8016,15 +7596,7 @@
     "AmmoType": "Plasma",
     "GridIndex": 1712,
     "Productive": true,
-    "DescFields": [
-      48,
-      55,
-      52,
-      61,
-      47,
-      1,
-      40
-    ],
+    "DescFields": [48, 55, 52, 61, 47, 1, 40],
     "isRaw": true,
     "maincraft": {
       "ID": 143,
@@ -8097,15 +7669,7 @@
     "AmmoType": "Missile",
     "GridIndex": 1213,
     "Productive": true,
-    "DescFields": [
-      48,
-      55,
-      52,
-      61,
-      47,
-      1,
-      40
-    ],
+    "DescFields": [48, 55, 52, 61, 47, 1, 40],
     "handcraft": {
       "ID": 144,
       "name": "Missile Set"
@@ -8196,15 +7760,7 @@
     "AmmoType": "Missile",
     "GridIndex": 1313,
     "Productive": true,
-    "DescFields": [
-      48,
-      55,
-      52,
-      61,
-      47,
-      1,
-      40
-    ],
+    "DescFields": [48, 55, 52, 61, 47, 1, 40],
     "handcraft": {
       "ID": 145,
       "name": "Supersonic Missile Set"
@@ -8307,15 +7863,7 @@
     "AmmoType": "Missile",
     "GridIndex": 1413,
     "Productive": true,
-    "DescFields": [
-      48,
-      55,
-      52,
-      61,
-      47,
-      1,
-      40
-    ],
+    "DescFields": [48, 55, 52, 61, 47, 1, 40],
     "handcraft": {
       "ID": 146,
       "name": "Gravity Missile Set"
@@ -8421,15 +7969,7 @@
     "BombType": "EMCapusle",
     "GridIndex": 1812,
     "Productive": true,
-    "DescFields": [
-      68,
-      69,
-      70,
-      52,
-      1,
-      40,
-      71
-    ],
+    "DescFields": [68, 69, 70, 52, 1, 40, 71],
     "handcraft": {
       "ID": 158,
       "name": "Jamming Capsule"
@@ -8525,15 +8065,7 @@
     "BombType": "EMCapusle",
     "GridIndex": 1813,
     "Productive": true,
-    "DescFields": [
-      68,
-      69,
-      70,
-      52,
-      1,
-      40,
-      71
-    ],
+    "DescFields": [68, 69, 70, 52, 1, 40, 71],
     "handcraft": {
       "ID": 159,
       "name": "Suppressing Capsule"
@@ -8635,16 +8167,7 @@
     "CraftType": 1,
     "GridIndex": 1607,
     "Productive": true,
-    "DescFields": [
-      53,
-      48,
-      55,
-      49,
-      60,
-      59,
-      1,
-      40
-    ],
+    "DescFields": [53, 48, 55, 49, 60, 59, 1, 40],
     "handcraft": {
       "ID": 147,
       "name": "Prototype"
@@ -8699,12 +8222,7 @@
       "modelIndex": 448,
       "hasObject": true,
       "lodCount": 2,
-      "lodDistances": [
-        35,
-        5000,
-        0,
-        0
-      ],
+      "lodDistances": [35, 5000, 0, 0],
       "startInstCapacity": 1024,
       "batchCapacity": 2048,
       "cullingHeight": 2.5,
@@ -8765,16 +8283,7 @@
     "HpMax": 1500,
     "CraftType": 1,
     "GridIndex": 1608,
-    "DescFields": [
-      53,
-      48,
-      55,
-      49,
-      60,
-      59,
-      1,
-      40
-    ],
+    "DescFields": [53, 48, 55, 49, 60, 59, 1, 40],
     "handcraft": {
       "ID": 148,
       "name": "Precision Drone"
@@ -8819,12 +8328,7 @@
       "modelIndex": 449,
       "hasObject": true,
       "lodCount": 2,
-      "lodDistances": [
-        40,
-        5000,
-        0,
-        0
-      ],
+      "lodDistances": [40, 5000, 0, 0],
       "startInstCapacity": 1024,
       "batchCapacity": 2048,
       "cullingHeight": 2.5,
@@ -8885,16 +8389,7 @@
     "HpMax": 1500,
     "CraftType": 1,
     "GridIndex": 1609,
-    "DescFields": [
-      53,
-      48,
-      55,
-      49,
-      60,
-      59,
-      1,
-      40
-    ],
+    "DescFields": [53, 48, 55, 49, 60, 59, 1, 40],
     "handcraft": {
       "ID": 149,
       "name": "Attack Drone"
@@ -8947,12 +8442,7 @@
       "modelIndex": 450,
       "hasObject": true,
       "lodCount": 2,
-      "lodDistances": [
-        30,
-        5000,
-        0,
-        0
-      ],
+      "lodDistances": [30, 5000, 0, 0],
       "startInstCapacity": 1024,
       "batchCapacity": 2048,
       "cullingHeight": 2.5,
@@ -9013,16 +8503,7 @@
     "HpMax": 8000,
     "CraftType": 3,
     "GridIndex": 1610,
-    "DescFields": [
-      53,
-      48,
-      55,
-      49,
-      60,
-      59,
-      1,
-      40
-    ],
+    "DescFields": [53, 48, 55, 49, 60, 59, 1, 40],
     "handcraft": {
       "ID": 150,
       "name": "Corvette"
@@ -9075,12 +8556,7 @@
       "modelIndex": 451,
       "hasObject": true,
       "lodCount": 2,
-      "lodDistances": [
-        10000,
-        1000000,
-        0,
-        0
-      ],
+      "lodDistances": [10000, 1000000, 0, 0],
       "disableStarmapCulling": true,
       "startInstCapacity": 1024,
       "batchCapacity": 2048,
@@ -9223,19 +8699,7 @@
     "HpMax": 8000,
     "CraftType": 7,
     "GridIndex": 1611,
-    "DescFields": [
-      53,
-      55,
-      62,
-      63,
-      64,
-      65,
-      66,
-      67,
-      59,
-      1,
-      40
-    ],
+    "DescFields": [53, 55, 62, 63, 64, 65, 66, 67, 59, 1, 40],
     "handcraft": {
       "ID": 151,
       "name": "Destroyer"
@@ -9292,12 +8756,7 @@
       "modelIndex": 452,
       "hasObject": true,
       "lodCount": 2,
-      "lodDistances": [
-        10000,
-        1000000,
-        0,
-        0
-      ],
+      "lodDistances": [10000, 1000000, 0, 0],
       "disableStarmapCulling": true,
       "startInstCapacity": 1024,
       "batchCapacity": 2048,
@@ -9486,14 +8945,11 @@
     "EnemyDropLevel": 4,
     "EnemyDropRange": {
       "x": 0.2485,
-      "y": 0.010
+      "y": 0.01
     },
     "EnemyDropCount": 2.5,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      0,
-      40
-    ],
+    "DescFields": [0, 40],
     "isRaw": true,
     "makes": [
       {
@@ -9536,10 +8992,7 @@
     },
     "EnemyDropCount": 1.5,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      0,
-      40
-    ],
+    "DescFields": [0, 40],
     "isRaw": true,
     "makes": [
       {
@@ -9582,10 +9035,7 @@
     },
     "EnemyDropCount": 1.5,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      0,
-      40
-    ],
+    "DescFields": [0, 40],
     "isRaw": true,
     "makes": [
       {
@@ -9628,10 +9078,7 @@
     },
     "EnemyDropCount": 1.4,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      0,
-      40
-    ],
+    "DescFields": [0, 40],
     "isRaw": true,
     "makes": [
       {
@@ -9674,10 +9121,7 @@
     },
     "EnemyDropCount": 1.5,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      0,
-      40
-    ],
+    "DescFields": [0, 40],
     "isRaw": true,
     "makes": [
       {
@@ -9724,14 +9168,7 @@
     },
     "EnemyDropCount": 2.5,
     "EnemyDropMask": 2147483647,
-    "DescFields": [
-      2,
-      3,
-      31,
-      54,
-      0,
-      40
-    ],
+    "DescFields": [2, 3, 31, 54, 0, 40],
     "isRaw": true,
     "makes": [
       {
@@ -9768,11 +9205,7 @@
     "SubID": 1,
     "StackSize": 300,
     "Grade": 1,
-    "Upgrades": [
-      2001,
-      2002,
-      2003
-    ],
+    "Upgrades": [2001, 2002, 2003],
     "IsEntity": true,
     "CanBuild": true,
     "IconPath": "Icons/ItemRecipe/belt-1",
@@ -9782,12 +9215,7 @@
     "BuildIndex": 301,
     "BuildMode": 2,
     "GridIndex": 2201,
-    "DescFields": [
-      53,
-      15,
-      1,
-      40
-    ],
+    "DescFields": [53, 15, 1, 40],
     "handcraft": {
       "ID": 84,
       "name": "Conveyor Belt MK.I"
@@ -9919,11 +9347,7 @@
     "SubID": 2,
     "StackSize": 300,
     "Grade": 2,
-    "Upgrades": [
-      2001,
-      2002,
-      2003
-    ],
+    "Upgrades": [2001, 2002, 2003],
     "IsEntity": true,
     "CanBuild": true,
     "IconPath": "Icons/ItemRecipe/belt-2",
@@ -9933,12 +9357,7 @@
     "BuildIndex": 302,
     "BuildMode": 2,
     "GridIndex": 2202,
-    "DescFields": [
-      53,
-      15,
-      1,
-      40
-    ],
+    "DescFields": [53, 15, 1, 40],
     "handcraft": {
       "ID": 89,
       "name": "Conveyor Belt MK.II"
@@ -10074,11 +9493,7 @@
     "SubID": 3,
     "StackSize": 300,
     "Grade": 3,
-    "Upgrades": [
-      2001,
-      2002,
-      2003
-    ],
+    "Upgrades": [2001, 2002, 2003],
     "IsEntity": true,
     "CanBuild": true,
     "IconPath": "Icons/ItemRecipe/belt-3",
@@ -10088,12 +9503,7 @@
     "BuildIndex": 303,
     "BuildMode": 2,
     "GridIndex": 2203,
-    "DescFields": [
-      53,
-      15,
-      1,
-      40
-    ],
+    "DescFields": [53, 15, 1, 40],
     "handcraft": {
       "ID": 92,
       "name": "Conveyor Belt MK.III"
@@ -10231,12 +9641,7 @@
     "SubID": 1,
     "StackSize": 200,
     "Grade": 1,
-    "Upgrades": [
-      2011,
-      2012,
-      2013,
-      2014
-    ],
+    "Upgrades": [2011, 2012, 2013, 2014],
     "IsEntity": true,
     "CanBuild": true,
     "IconPath": "Icons/ItemRecipe/inserter-1",
@@ -10246,15 +9651,7 @@
     "BuildIndex": 304,
     "BuildMode": 3,
     "GridIndex": 2301,
-    "DescFields": [
-      53,
-      20,
-      21,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 20, 21, 11, 12, 1, 40],
     "handcraft": {
       "ID": 85,
       "name": "Sorter MK.I"
@@ -10302,12 +9699,7 @@
       "subId": 1,
       "hasObject": true,
       "lodCount": 3,
-      "lodDistances": [
-        85,
-        170,
-        5000,
-        0
-      ],
+      "lodDistances": [85, 170, 5000, 0],
       "startInstCapacity": 256,
       "batchCapacity": 16384,
       "cullingHeight": 3,
@@ -10418,12 +9810,7 @@
     "SubID": 2,
     "StackSize": 200,
     "Grade": 2,
-    "Upgrades": [
-      2011,
-      2012,
-      2013,
-      2014
-    ],
+    "Upgrades": [2011, 2012, 2013, 2014],
     "IsEntity": true,
     "CanBuild": true,
     "IconPath": "Icons/ItemRecipe/inserter-2",
@@ -10433,15 +9820,7 @@
     "BuildIndex": 305,
     "BuildMode": 3,
     "GridIndex": 2302,
-    "DescFields": [
-      53,
-      20,
-      21,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 20, 21, 11, 12, 1, 40],
     "handcraft": {
       "ID": 88,
       "name": "Sorter MK.II"
@@ -10489,12 +9868,7 @@
       "subId": 2,
       "hasObject": true,
       "lodCount": 3,
-      "lodDistances": [
-        85,
-        170,
-        5000,
-        0
-      ],
+      "lodDistances": [85, 170, 5000, 0],
       "startInstCapacity": 256,
       "batchCapacity": 16384,
       "cullingHeight": 3,
@@ -10605,12 +9979,7 @@
     "SubID": 3,
     "StackSize": 200,
     "Grade": 3,
-    "Upgrades": [
-      2011,
-      2012,
-      2013,
-      2014
-    ],
+    "Upgrades": [2011, 2012, 2013, 2014],
     "IsEntity": true,
     "CanBuild": true,
     "IconPath": "Icons/ItemRecipe/inserter-3",
@@ -10620,15 +9989,7 @@
     "BuildIndex": 306,
     "BuildMode": 3,
     "GridIndex": 2303,
-    "DescFields": [
-      53,
-      20,
-      21,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 20, 21, 11, 12, 1, 40],
     "handcraft": {
       "ID": 90,
       "name": "Sorter MK.III"
@@ -10676,12 +10037,7 @@
       "subId": 3,
       "hasObject": true,
       "lodCount": 3,
-      "lodDistances": [
-        85,
-        170,
-        5000,
-        0
-      ],
+      "lodDistances": [85, 170, 5000, 0],
       "startInstCapacity": 256,
       "batchCapacity": 16384,
       "cullingHeight": 3,
@@ -10793,12 +10149,7 @@
     "SubID": 4,
     "StackSize": 200,
     "Grade": 4,
-    "Upgrades": [
-      2011,
-      2012,
-      2013,
-      2014
-    ],
+    "Upgrades": [2011, 2012, 2013, 2014],
     "IsEntity": true,
     "CanBuild": true,
     "IconPath": "Icons/ItemRecipe/inserter-4",
@@ -10808,16 +10159,7 @@
     "BuildIndex": 307,
     "BuildMode": 3,
     "GridIndex": 2304,
-    "DescFields": [
-      53,
-      20,
-      72,
-      73,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 20, 72, 73, 11, 12, 1, 40],
     "handcraft": {
       "ID": 160,
       "name": "Pile Sorter"
@@ -10867,12 +10209,7 @@
       "subId": 4,
       "hasObject": true,
       "lodCount": 3,
-      "lodDistances": [
-        85,
-        170,
-        5000,
-        0
-      ],
+      "lodDistances": [85, 170, 5000, 0],
       "startInstCapacity": 256,
       "batchCapacity": 16384,
       "cullingHeight": 3,
@@ -10991,12 +10328,7 @@
     "BuildIndex": 308,
     "BuildMode": 1,
     "GridIndex": 2204,
-    "DescFields": [
-      53,
-      16,
-      1,
-      40
-    ],
+    "DescFields": [53, 16, 1, 40],
     "handcraft": {
       "ID": 87,
       "name": "Splitter"
@@ -11037,12 +10369,7 @@
       "modelIndex": 38,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        5000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [5000, 0, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 2048,
       "cullingHeight": 2.8,
@@ -11321,13 +10648,7 @@
     "BuildIndex": 602,
     "BuildMode": 1,
     "GridIndex": 2205,
-    "DescFields": [
-      53,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 11, 12, 1, 40],
     "handcraft": {
       "ID": 120,
       "name": "Automatic Piler"
@@ -11380,12 +10701,7 @@
       "modelIndex": 257,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        5000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [5000, 0, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 2048,
       "cullingHeight": 3,
@@ -11633,13 +10949,7 @@
     "BuildIndex": 309,
     "BuildMode": 5,
     "GridIndex": 2206,
-    "DescFields": [
-      53,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 11, 12, 1, 40],
     "handcraft": {
       "ID": 117,
       "name": "Traffic Monitor"
@@ -11684,12 +10994,7 @@
       "modelIndex": 208,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        5000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [5000, 0, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 2048,
       "cullingHeight": 1.5,
@@ -11757,9 +11062,7 @@
       "colliderComplexity": 2,
       "barWidth": 1.642,
       "barHeight": 0.9209999,
-      "landPoints": [
-        {}
-      ],
+      "landPoints": [{}],
       "addonType": "Belt",
       "dragBuildDist": {
         "x": 0.9,
@@ -11864,13 +11167,7 @@
     "BuildIndex": 310,
     "BuildMode": 5,
     "GridIndex": 2207,
-    "DescFields": [
-      53,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 11, 12, 1, 40],
     "handcraft": {
       "ID": 109,
       "name": "Spray Coater"
@@ -11923,12 +11220,7 @@
       "modelIndex": 120,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        5000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [5000, 0, 0, 0],
       "startInstCapacity": 128,
       "batchCapacity": 1536,
       "cullingHeight": 2.7,
@@ -12193,11 +11485,7 @@
         }
       ],
       "incCapacity": 600,
-      "incItemId": [
-        1141,
-        1142,
-        1143
-      ]
+      "incItemId": [1141, 1142, 1143]
     },
     "ID": 2313,
     "description": "Fitting the Spray Coater to a Conveyor Belt and feeding it to the Proliferator through the upper port allows cargo on the Conveyor Belt to be sprayed. Production is either accelerated or extra products gained when cargo sprayed with the Proliferator is used as raw material to create next-level products.",
@@ -12219,15 +11507,7 @@
     "BuildIndex": 601,
     "BuildMode": 5,
     "GridIndex": 2211,
-    "DescFields": [
-      53,
-      38,
-      12,
-      10,
-      44,
-      1,
-      40
-    ],
+    "DescFields": [53, 38, 12, 10, 44, 1, 40],
     "handcraft": {
       "ID": 122,
       "name": "Logistics Distributor"
@@ -12276,12 +11556,7 @@
       "modelIndex": 371,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        5000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [5000, 0, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 1024,
       "cullingHeight": 2.3,
@@ -12456,12 +11731,7 @@
     "BuildMode": 1,
     "GridIndex": 2208,
     "DropRate": 0.5,
-    "DescFields": [
-      53,
-      17,
-      1,
-      40
-    ],
+    "DescFields": [53, 17, 1, 40],
     "handcraft": {
       "ID": 86,
       "name": "Depot MK.I"
@@ -12503,12 +11773,7 @@
       "subId": 1,
       "hasObject": true,
       "lodCount": 2,
-      "lodDistances": [
-        85,
-        5000,
-        0,
-        0
-      ],
+      "lodDistances": [85, 5000, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 8192,
       "cullingHeight": 3.1,
@@ -12619,12 +11884,8 @@
         "y": 2.666667
       },
       "multiLevelAllowPortsOrSlots": true,
-      "multiLevelAlternativeIds": [
-        2020
-      ],
-      "multiLevelAlternativeYawTransposes": [
-        false
-      ],
+      "multiLevelAlternativeIds": [2020],
+      "multiLevelAlternativeYawTransposes": [false],
       "dragBuild": true,
       "dragBuildDist": {
         "x": 3,
@@ -12981,12 +12242,7 @@
     "BuildMode": 1,
     "GridIndex": 2209,
     "DropRate": 0.5,
-    "DescFields": [
-      53,
-      17,
-      1,
-      40
-    ],
+    "DescFields": [53, 17, 1, 40],
     "handcraft": {
       "ID": 91,
       "name": "Depot MK.II"
@@ -13028,12 +12284,7 @@
       "subId": 2,
       "hasObject": true,
       "lodCount": 2,
-      "lodDistances": [
-        85,
-        5000,
-        0,
-        0
-      ],
+      "lodDistances": [85, 5000, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 16384,
       "cullingHeight": 4.5,
@@ -13144,12 +12395,8 @@
         "y": 4
       },
       "multiLevelAllowPortsOrSlots": true,
-      "multiLevelAlternativeIds": [
-        3009
-      ],
-      "multiLevelAlternativeYawTransposes": [
-        true
-      ],
+      "multiLevelAlternativeIds": [3009],
+      "multiLevelAlternativeYawTransposes": [true],
       "dragBuild": true,
       "dragBuildDist": {
         "x": 5.85,
@@ -13483,12 +12730,7 @@
     "BuildIndex": 403,
     "BuildMode": 1,
     "GridIndex": 2210,
-    "DescFields": [
-      53,
-      30,
-      1,
-      40
-    ],
+    "DescFields": [53, 30, 1, 40],
     "handcraft": {
       "ID": 114,
       "name": "Storage Tank"
@@ -13529,12 +12771,7 @@
       "modelIndex": 121,
       "hasObject": true,
       "lodCount": 2,
-      "lodDistances": [
-        190,
-        5000,
-        0,
-        0
-      ],
+      "lodDistances": [190, 5000, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 8192,
       "cullingHeight": 4.5,
@@ -13812,12 +13049,7 @@
     "Type": "Production",
     "StackSize": 50,
     "Grade": 1,
-    "Upgrades": [
-      2303,
-      2304,
-      2305,
-      2318
-    ],
+    "Upgrades": [2303, 2304, 2305, 2318],
     "IsEntity": true,
     "CanBuild": true,
     "IconPath": "Icons/ItemRecipe/assembler-1",
@@ -13827,14 +13059,7 @@
     "BuildIndex": 503,
     "BuildMode": 1,
     "GridIndex": 2404,
-    "DescFields": [
-      53,
-      22,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 22, 11, 12, 1, 40],
     "handcraft": {
       "ID": 45,
       "name": "Assembling Machine Mk.I"
@@ -13881,12 +13106,7 @@
       "modelIndex": 65,
       "hasObject": true,
       "lodCount": 3,
-      "lodDistances": [
-        125,
-        180,
-        5000,
-        0
-      ],
+      "lodDistances": [125, 180, 5000, 0],
       "startInstCapacity": 256,
       "batchCapacity": 4096,
       "cullingHeight": 5,
@@ -14348,12 +13568,7 @@
     "Type": "Production",
     "StackSize": 50,
     "Grade": 2,
-    "Upgrades": [
-      2303,
-      2304,
-      2305,
-      2318
-    ],
+    "Upgrades": [2303, 2304, 2305, 2318],
     "IsEntity": true,
     "CanBuild": true,
     "IconPath": "Icons/ItemRecipe/assembler-2",
@@ -14363,14 +13578,7 @@
     "BuildIndex": 504,
     "BuildMode": 1,
     "GridIndex": 2405,
-    "DescFields": [
-      53,
-      22,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 22, 11, 12, 1, 40],
     "handcraft": {
       "ID": 46,
       "name": "Assembling Machine Mk.II"
@@ -14425,12 +13633,7 @@
       "modelIndex": 66,
       "hasObject": true,
       "lodCount": 3,
-      "lodDistances": [
-        125,
-        180,
-        5000,
-        0
-      ],
+      "lodDistances": [125, 180, 5000, 0],
       "startInstCapacity": 256,
       "batchCapacity": 4096,
       "cullingHeight": 5,
@@ -14892,12 +14095,7 @@
     "Type": "Production",
     "StackSize": 50,
     "Grade": 3,
-    "Upgrades": [
-      2303,
-      2304,
-      2305,
-      2318
-    ],
+    "Upgrades": [2303, 2304, 2305, 2318],
     "IsEntity": true,
     "CanBuild": true,
     "IconPath": "Icons/ItemRecipe/assembler-3",
@@ -14907,14 +14105,7 @@
     "BuildIndex": 505,
     "BuildMode": 1,
     "GridIndex": 2406,
-    "DescFields": [
-      53,
-      22,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 22, 11, 12, 1, 40],
     "handcraft": {
       "ID": 47,
       "name": "Assembling Machine Mk.III"
@@ -15001,12 +14192,7 @@
       "modelIndex": 67,
       "hasObject": true,
       "lodCount": 3,
-      "lodDistances": [
-        125,
-        180,
-        5000,
-        0
-      ],
+      "lodDistances": [125, 180, 5000, 0],
       "startInstCapacity": 256,
       "batchCapacity": 4096,
       "cullingHeight": 5,
@@ -15468,12 +14654,7 @@
     "Type": "Production",
     "StackSize": 50,
     "Grade": 4,
-    "Upgrades": [
-      2303,
-      2304,
-      2305,
-      2318
-    ],
+    "Upgrades": [2303, 2304, 2305, 2318],
     "IsEntity": true,
     "CanBuild": true,
     "IconPath": "Icons/ItemRecipe/assembler-4",
@@ -15483,14 +14664,7 @@
     "BuildIndex": 808,
     "BuildMode": 1,
     "GridIndex": 2407,
-    "DescFields": [
-      53,
-      22,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 22, 11, 12, 1, 40],
     "handcraft": {
       "ID": 154,
       "name": "Re-composing Assembler"
@@ -15579,12 +14753,7 @@
       "modelIndex": 456,
       "hasObject": true,
       "lodCount": 3,
-      "lodDistances": [
-        125,
-        180,
-        5000,
-        0
-      ],
+      "lodDistances": [125, 180, 5000, 0],
       "startInstCapacity": 256,
       "batchCapacity": 4096,
       "cullingHeight": 5,
@@ -16055,13 +15224,7 @@
     "BuildIndex": 101,
     "BuildMode": 1,
     "GridIndex": 2101,
-    "DescFields": [
-      53,
-      13,
-      14,
-      1,
-      40
-    ],
+    "DescFields": [53, 13, 14, 1, 40],
     "handcraft": {
       "ID": 8,
       "name": "Tesla Tower"
@@ -16109,12 +15272,7 @@
       "subId": 1,
       "hasObject": true,
       "lodCount": 2,
-      "lodDistances": [
-        140,
-        5000,
-        0,
-        0
-      ],
+      "lodDistances": [140, 5000, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 2048,
       "cullingHeight": 6.5,
@@ -16251,15 +15409,7 @@
     "BuildIndex": 102,
     "BuildMode": 1,
     "GridIndex": 2102,
-    "DescFields": [
-      53,
-      13,
-      14,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 13, 14, 11, 12, 1, 40],
     "handcraft": {
       "ID": 13,
       "name": "Wireless Power Tower"
@@ -16315,12 +15465,7 @@
       "subId": 2,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        5000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [5000, 0, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 2048,
       "cullingHeight": 9.7,
@@ -16461,14 +15606,7 @@
     "BuildIndex": 103,
     "BuildMode": 1,
     "GridIndex": 2103,
-    "DescFields": [
-      53,
-      13,
-      14,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 13, 14, 12, 1, 40],
     "handcraft": {
       "ID": 73,
       "name": "Satellite Substation"
@@ -16530,12 +15668,7 @@
       "subId": 3,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        5000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [5000, 0, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 2048,
       "cullingHeight": 77,
@@ -16728,15 +15861,7 @@
     "BuildIndex": 104,
     "BuildMode": 1,
     "GridIndex": 2104,
-    "DescFields": [
-      53,
-      4,
-      5,
-      13,
-      14,
-      1,
-      40
-    ],
+    "DescFields": [53, 4, 5, 13, 14, 1, 40],
     "handcraft": {
       "ID": 7,
       "name": "Wind Turbine"
@@ -16778,12 +15903,7 @@
       "subId": 4,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        5000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [5000, 0, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 2048,
       "cullingHeight": 7.8,
@@ -16902,9 +16022,7 @@
       "landOffset": 0.15,
       "allowBuildInWater": true,
       "needBuildInWaterTech": true,
-      "waterTypes": [
-        1000
-      ],
+      "waterTypes": [1000],
       "dragBuild": true,
       "dragBuildDist": {
         "x": 10.5,
@@ -16969,14 +16087,7 @@
     "BuildIndex": 105,
     "BuildMode": 1,
     "GridIndex": 2105,
-    "DescFields": [
-      53,
-      4,
-      5,
-      6,
-      1,
-      40
-    ],
+    "DescFields": [53, 4, 5, 6, 1, 40],
     "handcraft": {
       "ID": 64,
       "name": "Thermal Power Plant"
@@ -17022,12 +16133,7 @@
       "subId": 5,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        5000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [5000, 0, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 3072,
       "cullingHeight": 5.5,
@@ -17175,7 +16281,7 @@
         {
           "position": {
             "x": -2.12,
-            "y": -0.010,
+            "y": -0.01,
             "z": 1
           },
           "rotation": {
@@ -17201,7 +16307,7 @@
         {
           "position": {
             "x": -2.12,
-            "y": -0.010
+            "y": -0.01
           },
           "rotation": {
             "x": 0.005195653,
@@ -17226,7 +16332,7 @@
         {
           "position": {
             "x": -2.12,
-            "y": -0.010,
+            "y": -0.01,
             "z": -1
           },
           "rotation": {
@@ -17337,13 +16443,7 @@
     "BuildIndex": 108,
     "BuildMode": 1,
     "GridIndex": 2108,
-    "DescFields": [
-      53,
-      4,
-      5,
-      1,
-      40
-    ],
+    "DescFields": [53, 4, 5, 1, 40],
     "handcraft": {
       "ID": 113,
       "name": "Mini Fusion Power Plant"
@@ -17401,12 +16501,7 @@
       "subId": 6,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        5000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [5000, 0, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 3072,
       "cullingHeight": 5.5,
@@ -17572,7 +16667,7 @@
         {
           "position": {
             "x": -2.12,
-            "y": -0.010,
+            "y": -0.01,
             "z": 1
           },
           "rotation": {
@@ -17598,7 +16693,7 @@
         {
           "position": {
             "x": -2.12,
-            "y": -0.010
+            "y": -0.01
           },
           "rotation": {
             "x": 0.005195653,
@@ -17623,7 +16718,7 @@
         {
           "position": {
             "x": -2.12,
-            "y": -0.010,
+            "y": -0.01,
             "z": -1
           },
           "rotation": {
@@ -17734,13 +16829,7 @@
     "BuildIndex": 107,
     "BuildMode": 1,
     "GridIndex": 2107,
-    "DescFields": [
-      53,
-      4,
-      39,
-      1,
-      40
-    ],
+    "DescFields": [53, 4, 39, 1, 40],
     "handcraft": {
       "ID": 118,
       "name": "Geothermal Power Station"
@@ -17794,12 +16883,7 @@
       "subId": 12,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        5000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [5000, 0, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 2048,
       "cullingHeight": 8.5,
@@ -17988,9 +17072,7 @@
           "z": 1.3
         }
       ],
-      "waterTypes": [
-        -1
-      ],
+      "waterTypes": [-1],
       "dragBuild": true,
       "dragBuildDist": {
         "x": 12,
@@ -18044,15 +17126,7 @@
     "BuildIndex": 201,
     "BuildMode": 1,
     "GridIndex": 2305,
-    "DescFields": [
-      53,
-      18,
-      19,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 18, 19, 11, 12, 1, 40],
     "handcraft": {
       "ID": 48,
       "name": "Mining Machine"
@@ -18094,12 +17168,7 @@
       "subId": 1,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        5000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [5000, 0, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 1024,
       "cullingHeight": 4.3,
@@ -18396,15 +17465,7 @@
     "BuildIndex": 202,
     "BuildMode": 1,
     "GridIndex": 2306,
-    "DescFields": [
-      53,
-      18,
-      19,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 18, 19, 11, 12, 1, 40],
     "handcraft": {
       "ID": 119,
       "name": "Advanced Mining Machine"
@@ -18494,12 +17555,7 @@
       "subId": 2,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        5000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [5000, 0, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 2048,
       "cullingHeight": 18.5,
@@ -19021,15 +18077,7 @@
     "BuildIndex": 203,
     "BuildMode": 1,
     "GridIndex": 2307,
-    "DescFields": [
-      53,
-      18,
-      19,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 18, 19, 11, 12, 1, 40],
     "handcraft": {
       "ID": 49,
       "name": "Water Pump"
@@ -19074,12 +18122,7 @@
       "modelIndex": 60,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        5000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [5000, 0, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 1024,
       "cullingHeight": 6.4,
@@ -19210,10 +18253,7 @@
           "z": -1.8
         }
       ],
-      "waterTypes": [
-        1000,
-        1116
-      ],
+      "waterTypes": [1000, 1116],
       "dragBuild": true,
       "dragBuildDist": {
         "x": 2.4,
@@ -19284,11 +18324,7 @@
     "Type": "Production",
     "StackSize": 50,
     "Grade": 1,
-    "Upgrades": [
-      2302,
-      2315,
-      2319
-    ],
+    "Upgrades": [2302, 2315, 2319],
     "IsEntity": true,
     "CanBuild": true,
     "IconPath": "Icons/ItemRecipe/smelter",
@@ -19298,14 +18334,7 @@
     "BuildIndex": 501,
     "BuildMode": 1,
     "GridIndex": 2401,
-    "DescFields": [
-      53,
-      22,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 22, 11, 12, 1, 40],
     "handcraft": {
       "ID": 56,
       "name": "Arc Smelter"
@@ -19356,12 +18385,7 @@
       "modelIndex": 62,
       "hasObject": true,
       "lodCount": 3,
-      "lodDistances": [
-        120,
-        170,
-        5000,
-        0
-      ],
+      "lodDistances": [120, 170, 5000, 0],
       "startInstCapacity": 256,
       "batchCapacity": 4096,
       "cullingHeight": 4.3,
@@ -19827,11 +18851,7 @@
     "Type": "Production",
     "StackSize": 50,
     "Grade": 2,
-    "Upgrades": [
-      2302,
-      2315,
-      2319
-    ],
+    "Upgrades": [2302, 2315, 2319],
     "IsEntity": true,
     "CanBuild": true,
     "IconPath": "Icons/ItemRecipe/smelter-2",
@@ -19841,14 +18861,7 @@
     "BuildIndex": 502,
     "BuildMode": 1,
     "GridIndex": 2402,
-    "DescFields": [
-      53,
-      22,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 22, 11, 12, 1, 40],
     "handcraft": {
       "ID": 116,
       "name": "Plane Smelter"
@@ -19939,12 +18952,7 @@
       "modelIndex": 194,
       "hasObject": true,
       "lodCount": 3,
-      "lodDistances": [
-        120,
-        300,
-        5000,
-        0
-      ],
+      "lodDistances": [120, 300, 5000, 0],
       "startInstCapacity": 256,
       "batchCapacity": 6144,
       "cullingHeight": 4.3,
@@ -20408,11 +19416,7 @@
     "Type": "Production",
     "StackSize": 50,
     "Grade": 3,
-    "Upgrades": [
-      2302,
-      2315,
-      2319
-    ],
+    "Upgrades": [2302, 2315, 2319],
     "IsEntity": true,
     "CanBuild": true,
     "IconPath": "Icons/ItemRecipe/smelter-3",
@@ -20422,14 +19426,7 @@
     "BuildIndex": 807,
     "BuildMode": 1,
     "GridIndex": 2403,
-    "DescFields": [
-      53,
-      22,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 22, 11, 12, 1, 40],
     "handcraft": {
       "ID": 155,
       "name": "Negentropy Smelter"
@@ -20522,12 +19519,7 @@
       "modelIndex": 457,
       "hasObject": true,
       "lodCount": 3,
-      "lodDistances": [
-        100,
-        250,
-        5000,
-        0
-      ],
+      "lodDistances": [100, 250, 5000, 0],
       "startInstCapacity": 256,
       "batchCapacity": 6144,
       "cullingHeight": 4.3,
@@ -20999,15 +19991,7 @@
     "BuildIndex": 204,
     "BuildMode": 1,
     "GridIndex": 2308,
-    "DescFields": [
-      53,
-      18,
-      19,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 18, 19, 11, 12, 1, 40],
     "handcraft": {
       "ID": 14,
       "name": "Oil Extractor"
@@ -21056,12 +20040,7 @@
       "modelIndex": 61,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        5000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [5000, 0, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 300,
       "cullingHeight": 15.8,
@@ -21262,14 +20241,7 @@
     "BuildIndex": 506,
     "BuildMode": 1,
     "GridIndex": 2309,
-    "DescFields": [
-      53,
-      22,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 22, 11, 12, 1, 40],
     "handcraft": {
       "ID": 15,
       "name": "Oil Refinery"
@@ -21318,12 +20290,7 @@
       "modelIndex": 63,
       "hasObject": true,
       "lodCount": 3,
-      "lodDistances": [
-        140,
-        300,
-        5000,
-        0
-      ],
+      "lodDistances": [140, 300, 5000, 0],
       "startInstCapacity": 256,
       "batchCapacity": 2048,
       "cullingHeight": 15.2,
@@ -21725,10 +20692,7 @@
     "Type": "Production",
     "StackSize": 30,
     "Grade": 1,
-    "Upgrades": [
-      2309,
-      2317
-    ],
+    "Upgrades": [2309, 2317],
     "IsEntity": true,
     "CanBuild": true,
     "IconPath": "Icons/ItemRecipe/chemical-plant",
@@ -21738,14 +20702,7 @@
     "BuildIndex": 508,
     "BuildMode": 1,
     "GridIndex": 2311,
-    "DescFields": [
-      53,
-      22,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 22, 11, 12, 1, 40],
     "handcraft": {
       "ID": 22,
       "name": "Chemical Plant"
@@ -21800,12 +20757,7 @@
       "modelIndex": 64,
       "hasObject": true,
       "lodCount": 3,
-      "lodDistances": [
-        120,
-        300,
-        5000,
-        0
-      ],
+      "lodDistances": [120, 300, 5000, 0],
       "startInstCapacity": 256,
       "batchCapacity": 2048,
       "cullingHeight": 7.3,
@@ -22285,10 +21237,7 @@
     "Type": "Production",
     "StackSize": 30,
     "Grade": 2,
-    "Upgrades": [
-      2309,
-      2317
-    ],
+    "Upgrades": [2309, 2317],
     "IsEntity": true,
     "CanBuild": true,
     "IconPath": "Icons/ItemRecipe/chemical-plant-2",
@@ -22298,14 +21247,7 @@
     "BuildIndex": 509,
     "BuildMode": 1,
     "GridIndex": 2312,
-    "DescFields": [
-      53,
-      22,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 22, 11, 12, 1, 40],
     "handcraft": {
       "ID": 124,
       "name": "Quantum Chemical Plant"
@@ -22386,12 +21328,7 @@
       "modelIndex": 376,
       "hasObject": true,
       "lodCount": 3,
-      "lodDistances": [
-        120,
-        300,
-        5000,
-        0
-      ],
+      "lodDistances": [120, 300, 5000, 0],
       "startInstCapacity": 256,
       "batchCapacity": 2048,
       "cullingHeight": 7.3,
@@ -22879,13 +21816,7 @@
     "BuildIndex": 507,
     "BuildMode": 1,
     "GridIndex": 2310,
-    "DescFields": [
-      53,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 11, 12, 1, 40],
     "handcraft": {
       "ID": 110,
       "name": "Fractionator"
@@ -22938,12 +21869,7 @@
       "modelIndex": 119,
       "hasObject": true,
       "lodCount": 3,
-      "lodDistances": [
-        130,
-        250,
-        5000,
-        0
-      ],
+      "lodDistances": [130, 250, 5000, 0],
       "startInstCapacity": 256,
       "batchCapacity": 4096,
       "cullingHeight": 10.1,
@@ -23166,13 +22092,7 @@
     "BuildIndex": 106,
     "BuildMode": 1,
     "GridIndex": 2106,
-    "DescFields": [
-      53,
-      4,
-      39,
-      1,
-      40
-    ],
+    "DescFields": [53, 4, 39, 1, 40],
     "handcraft": {
       "ID": 67,
       "name": "Solar Panel"
@@ -23218,12 +22138,7 @@
       "subId": 7,
       "hasObject": true,
       "lodCount": 3,
-      "lodDistances": [
-        80,
-        170,
-        5000,
-        0
-      ],
+      "lodDistances": [80, 170, 5000, 0],
       "startInstCapacity": 256,
       "batchCapacity": 16384,
       "cullingHeight": 4.5,
@@ -23397,14 +22312,7 @@
     "BuildIndex": 109,
     "BuildMode": 1,
     "GridIndex": 2110,
-    "DescFields": [
-      53,
-      8,
-      9,
-      10,
-      1,
-      40
-    ],
+    "DescFields": [53, 8, 9, 10, 1, 40],
     "handcraft": {
       "ID": 76,
       "name": "Accumulator"
@@ -23454,12 +22362,7 @@
       "subId": 8,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        5000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [5000, 0, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 8192,
       "cullingHeight": 4.9,
@@ -23641,17 +22544,7 @@
     "GridIndex": 2111,
     "UnlockKey": 2206,
     "PreTechOverride": 1511,
-    "DescFields": [
-      53,
-      2,
-      3,
-      31,
-      8,
-      9,
-      10,
-      1,
-      40
-    ],
+    "DescFields": [53, 2, 3, 31, 8, 9, 10, 1, 40],
     "isRaw": true,
     "makes": [
       {
@@ -23668,12 +22561,7 @@
       "subId": 8,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        5000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [5000, 0, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 8192,
       "cullingHeight": 4.9,
@@ -23851,14 +22739,7 @@
     "BuildIndex": 802,
     "BuildMode": 1,
     "GridIndex": 2410,
-    "DescFields": [
-      53,
-      34,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 34, 11, 12, 1, 40],
     "handcraft": {
       "ID": 71,
       "name": "EM-Rail Ejector"
@@ -23911,12 +22792,7 @@
       "modelIndex": 72,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        5000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [5000, 0, 0, 0],
       "startInstCapacity": 128,
       "batchCapacity": 1024,
       "cullingHeight": 16,
@@ -24162,13 +23038,7 @@
     "BuildIndex": 803,
     "BuildMode": 1,
     "GridIndex": 2112,
-    "DescFields": [
-      53,
-      4,
-      39,
-      1,
-      40
-    ],
+    "DescFields": [53, 4, 39, 1, 40],
     "handcraft": {
       "ID": 72,
       "name": "Ray Receiver"
@@ -24226,12 +23096,7 @@
       "subId": 9,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        5000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [5000, 0, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 4096,
       "cullingHeight": 60,
@@ -24535,14 +23400,7 @@
     "BuildIndex": 804,
     "BuildMode": 1,
     "GridIndex": 2411,
-    "DescFields": [
-      53,
-      35,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 35, 11, 12, 1, 40],
     "handcraft": {
       "ID": 82,
       "name": "Vertical Launching Silo"
@@ -24631,12 +23489,7 @@
       "modelIndex": 74,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        5000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [5000, 0, 0, 0],
       "startInstCapacity": 64,
       "batchCapacity": 2048,
       "cullingHeight": 60,
@@ -24978,14 +23831,7 @@
     "BuildIndex": 606,
     "BuildMode": 1,
     "GridIndex": 2109,
-    "DescFields": [
-      53,
-      8,
-      9,
-      10,
-      1,
-      40
-    ],
+    "DescFields": [53, 8, 9, 10, 1, 40],
     "handcraft": {
       "ID": 77,
       "name": "Energy Exchanger"
@@ -25043,12 +23889,7 @@
       "subId": 10,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        5000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [5000, 0, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 1024,
       "cullingHeight": 11.1,
@@ -25332,14 +24173,7 @@
     "BuildIndex": 510,
     "BuildMode": 1,
     "GridIndex": 2313,
-    "DescFields": [
-      53,
-      22,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 22, 11, 12, 1, 40],
     "handcraft": {
       "ID": 39,
       "name": "Miniature Particle Collider"
@@ -25400,12 +24234,7 @@
       "modelIndex": 69,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        5000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [5000, 0, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 2048,
       "cullingHeight": 17.2,
@@ -25860,14 +24689,7 @@
     "BuildIndex": 805,
     "BuildMode": 1,
     "GridIndex": 2113,
-    "DescFields": [
-      53,
-      4,
-      5,
-      6,
-      1,
-      40
-    ],
+    "DescFields": [53, 4, 5, 6, 1, 40],
     "handcraft": {
       "ID": 43,
       "name": "Artificial Star"
@@ -25949,12 +24771,7 @@
       "subId": 11,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        5000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [5000, 0, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 4096,
       "cullingHeight": 10.6,
@@ -26298,15 +25115,7 @@
     "BuildMode": 1,
     "GridIndex": 2212,
     "DropRate": 0.5,
-    "DescFields": [
-      53,
-      24,
-      38,
-      12,
-      10,
-      1,
-      40
-    ],
+    "DescFields": [53, 24, 38, 12, 10, 1, 40],
     "handcraft": {
       "ID": 93,
       "name": "Planetary Logistics Station"
@@ -26369,12 +25178,7 @@
       "modelIndex": 49,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        20000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [20000, 0, 0, 0],
       "startInstCapacity": 128,
       "batchCapacity": 512,
       "cullingHeight": 28,
@@ -26578,7 +25382,7 @@
         {
           "position": {
             "x": 1.256,
-            "y": -0.010,
+            "y": -0.01,
             "z": 2.7
           },
           "rotation": {
@@ -26596,7 +25400,7 @@
         },
         {
           "position": {
-            "y": -0.010,
+            "y": -0.01,
             "z": 2.7
           },
           "rotation": {
@@ -26615,7 +25419,7 @@
         {
           "position": {
             "x": -1.256,
-            "y": -0.010,
+            "y": -0.01,
             "z": 2.7
           },
           "rotation": {
@@ -26634,7 +25438,7 @@
         {
           "position": {
             "x": -2.7,
-            "y": -0.010,
+            "y": -0.01,
             "z": 1.256
           },
           "rotation": {
@@ -26656,7 +25460,7 @@
         {
           "position": {
             "x": -2.7,
-            "y": -0.010
+            "y": -0.01
           },
           "rotation": {
             "y": -0.7071068,
@@ -26677,7 +25481,7 @@
         {
           "position": {
             "x": -2.7,
-            "y": -0.010,
+            "y": -0.01,
             "z": -1.256
           },
           "rotation": {
@@ -26699,7 +25503,7 @@
         {
           "position": {
             "x": -1.256,
-            "y": -0.010,
+            "y": -0.01,
             "z": -2.7
           },
           "rotation": {
@@ -26720,7 +25524,7 @@
         },
         {
           "position": {
-            "y": -0.010,
+            "y": -0.01,
             "z": -2.7
           },
           "rotation": {
@@ -26742,7 +25546,7 @@
         {
           "position": {
             "x": 1.256,
-            "y": -0.010,
+            "y": -0.01,
             "z": -2.7
           },
           "rotation": {
@@ -26764,7 +25568,7 @@
         {
           "position": {
             "x": 2.7,
-            "y": -0.010,
+            "y": -0.01,
             "z": -1.256
           },
           "rotation": {
@@ -26786,7 +25590,7 @@
         {
           "position": {
             "x": 2.7,
-            "y": -0.010
+            "y": -0.01
           },
           "rotation": {
             "y": 0.7071068,
@@ -26807,7 +25611,7 @@
         {
           "position": {
             "x": 2.7,
-            "y": -0.010,
+            "y": -0.01,
             "z": 1.256
           },
           "rotation": {
@@ -26861,15 +25665,7 @@
     "BuildMode": 1,
     "GridIndex": 2213,
     "DropRate": 0.5,
-    "DescFields": [
-      53,
-      24,
-      38,
-      12,
-      10,
-      1,
-      40
-    ],
+    "DescFields": [53, 24, 38, 12, 10, 1, 40],
     "handcraft": {
       "ID": 95,
       "name": "Interstellar Logistics Station"
@@ -26936,12 +25732,7 @@
       "modelIndex": 50,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        20000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [20000, 0, 0, 0],
       "startInstCapacity": 64,
       "batchCapacity": 256,
       "cullingHeight": 40,
@@ -27147,7 +25938,7 @@
         {
           "position": {
             "x": 1.256,
-            "y": -0.010,
+            "y": -0.01,
             "z": 2.7
           },
           "rotation": {
@@ -27165,7 +25956,7 @@
         },
         {
           "position": {
-            "y": -0.010,
+            "y": -0.01,
             "z": 2.7
           },
           "rotation": {
@@ -27184,7 +25975,7 @@
         {
           "position": {
             "x": -1.256,
-            "y": -0.010,
+            "y": -0.01,
             "z": 2.7
           },
           "rotation": {
@@ -27203,7 +25994,7 @@
         {
           "position": {
             "x": -2.7,
-            "y": -0.010,
+            "y": -0.01,
             "z": 1.256
           },
           "rotation": {
@@ -27225,7 +26016,7 @@
         {
           "position": {
             "x": -2.7,
-            "y": -0.010
+            "y": -0.01
           },
           "rotation": {
             "y": -0.7071068,
@@ -27246,7 +26037,7 @@
         {
           "position": {
             "x": -2.7,
-            "y": -0.010,
+            "y": -0.01,
             "z": -1.256
           },
           "rotation": {
@@ -27268,7 +26059,7 @@
         {
           "position": {
             "x": -1.256,
-            "y": -0.010,
+            "y": -0.01,
             "z": -2.7
           },
           "rotation": {
@@ -27289,7 +26080,7 @@
         },
         {
           "position": {
-            "y": -0.010,
+            "y": -0.01,
             "z": -2.7
           },
           "rotation": {
@@ -27311,7 +26102,7 @@
         {
           "position": {
             "x": 1.256,
-            "y": -0.010,
+            "y": -0.01,
             "z": -2.7
           },
           "rotation": {
@@ -27333,7 +26124,7 @@
         {
           "position": {
             "x": 2.7,
-            "y": -0.010,
+            "y": -0.01,
             "z": -1.256
           },
           "rotation": {
@@ -27355,7 +26146,7 @@
         {
           "position": {
             "x": 2.7,
-            "y": -0.010
+            "y": -0.01
           },
           "rotation": {
             "y": 0.7071068,
@@ -27376,7 +26167,7 @@
         {
           "position": {
             "x": 2.7,
-            "y": -0.010,
+            "y": -0.01,
             "z": 1.256
           },
           "rotation": {
@@ -27430,14 +26221,7 @@
     "BuildIndex": 605,
     "BuildMode": 1,
     "GridIndex": 2214,
-    "DescFields": [
-      53,
-      18,
-      11,
-      32,
-      1,
-      40
-    ],
+    "DescFields": [53, 18, 11, 32, 1, 40],
     "handcraft": {
       "ID": 111,
       "name": "Orbital Collector"
@@ -27506,12 +26290,7 @@
       "modelIndex": 117,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        20000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [20000, 0, 0, 0],
       "startInstCapacity": 64,
       "batchCapacity": 256,
       "cullingHeight": 40,
@@ -27747,10 +26526,7 @@
     "Type": "Production",
     "StackSize": 50,
     "Grade": 1,
-    "Upgrades": [
-      2901,
-      2902
-    ],
+    "Upgrades": [2901, 2902],
     "IsEntity": true,
     "CanBuild": true,
     "IconPath": "Icons/ItemRecipe/lab",
@@ -27760,15 +26536,7 @@
     "BuildIndex": 801,
     "BuildMode": 1,
     "GridIndex": 2408,
-    "DescFields": [
-      53,
-      22,
-      33,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 22, 33, 11, 12, 1, 40],
     "handcraft": {
       "ID": 10,
       "name": "Matrix Lab"
@@ -27819,12 +26587,7 @@
       "modelIndex": 70,
       "hasObject": true,
       "lodCount": 3,
-      "lodDistances": [
-        125,
-        300,
-        5000,
-        0
-      ],
+      "lodDistances": [125, 300, 5000, 0],
       "startInstCapacity": 256,
       "batchCapacity": 8192,
       "cullingHeight": 5,
@@ -27946,12 +26709,8 @@
       "lapJoint": {
         "y": 4
       },
-      "multiLevelAlternativeIds": [
-        2902
-      ],
-      "multiLevelAlternativeYawTransposes": [
-        false
-      ],
+      "multiLevelAlternativeIds": [2902],
+      "multiLevelAlternativeYawTransposes": [false],
       "dragBuild": true,
       "dragBuildDist": {
         "x": 5.6,
@@ -28297,10 +27056,7 @@
     "Type": "Production",
     "StackSize": 50,
     "Grade": 2,
-    "Upgrades": [
-      2901,
-      2902
-    ],
+    "Upgrades": [2901, 2902],
     "IsEntity": true,
     "CanBuild": true,
     "IconPath": "Icons/ItemRecipe/lab-2",
@@ -28310,15 +27066,7 @@
     "BuildIndex": 806,
     "BuildMode": 1,
     "GridIndex": 2409,
-    "DescFields": [
-      53,
-      22,
-      33,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 22, 33, 11, 12, 1, 40],
     "handcraft": {
       "ID": 153,
       "name": "Self-evolution Lab"
@@ -28399,12 +27147,7 @@
       "modelIndex": 455,
       "hasObject": true,
       "lodCount": 3,
-      "lodDistances": [
-        125,
-        300,
-        5000,
-        0
-      ],
+      "lodDistances": [125, 300, 5000, 0],
       "startInstCapacity": 256,
       "batchCapacity": 8192,
       "cullingHeight": 5,
@@ -28526,12 +27269,8 @@
       "lapJoint": {
         "y": 4
       },
-      "multiLevelAlternativeIds": [
-        2901
-      ],
-      "multiLevelAlternativeYawTransposes": [
-        false
-      ],
+      "multiLevelAlternativeIds": [2901],
+      "multiLevelAlternativeYawTransposes": [false],
       "dragBuild": true,
       "dragBuildDist": {
         "x": 5.6,
@@ -28885,18 +27624,7 @@
     "BuildIndex": 701,
     "BuildMode": 5,
     "GridIndex": 2501,
-    "DescFields": [
-      53,
-      51,
-      56,
-      57,
-      52,
-      49,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 51, 56, 57, 52, 49, 11, 12, 1, 40],
     "handcraft": {
       "ID": 125,
       "name": "Gauss Turret"
@@ -28937,12 +27665,7 @@
       "modelIndex": 374,
       "hasObject": true,
       "lodCount": 2,
-      "lodDistances": [
-        110,
-        5000,
-        0,
-        0
-      ],
+      "lodDistances": [110, 5000, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 2048,
       "cullingHeight": 5,
@@ -29171,17 +27894,7 @@
     "BuildIndex": 704,
     "BuildMode": 1,
     "GridIndex": 2504,
-    "DescFields": [
-      53,
-      51,
-      56,
-      57,
-      50,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 51, 56, 57, 50, 11, 12, 1, 40],
     "handcraft": {
       "ID": 126,
       "name": "Laser Turret"
@@ -29230,12 +27943,7 @@
       "modelIndex": 373,
       "hasObject": true,
       "lodCount": 2,
-      "lodDistances": [
-        110,
-        5000,
-        0,
-        0
-      ],
+      "lodDistances": [110, 5000, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 2048,
       "cullingHeight": 7,
@@ -29507,18 +28215,7 @@
     "BuildIndex": 703,
     "BuildMode": 5,
     "GridIndex": 2503,
-    "DescFields": [
-      53,
-      51,
-      56,
-      57,
-      52,
-      49,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 51, 56, 57, 52, 49, 11, 12, 1, 40],
     "handcraft": {
       "ID": 127,
       "name": "Implosion Cannon"
@@ -29567,12 +28264,7 @@
       "modelIndex": 375,
       "hasObject": true,
       "lodCount": 2,
-      "lodDistances": [
-        100,
-        5000,
-        0,
-        0
-      ],
+      "lodDistances": [100, 5000, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 2048,
       "cullingHeight": 6.6,
@@ -29969,18 +28661,7 @@
     "BuildIndex": 705,
     "BuildMode": 5,
     "GridIndex": 2505,
-    "DescFields": [
-      53,
-      51,
-      56,
-      58,
-      52,
-      49,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 51, 56, 58, 52, 49, 11, 12, 1, 40],
     "handcraft": {
       "ID": 128,
       "name": "Plasma Turret"
@@ -30045,12 +28726,7 @@
       "modelIndex": 408,
       "hasObject": true,
       "lodCount": 3,
-      "lodDistances": [
-        135,
-        250,
-        5000,
-        0
-      ],
+      "lodDistances": [135, 250, 5000, 0],
       "startInstCapacity": 256,
       "batchCapacity": 2048,
       "cullingHeight": 15,
@@ -30439,19 +29115,7 @@
     "BuildIndex": 702,
     "BuildMode": 5,
     "GridIndex": 2502,
-    "DescFields": [
-      53,
-      51,
-      56,
-      57,
-      58,
-      52,
-      49,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 51, 56, 57, 58, 52, 49, 11, 12, 1, 40],
     "handcraft": {
       "ID": 129,
       "name": "Missile Turret"
@@ -30496,12 +29160,7 @@
       "modelIndex": 407,
       "hasObject": true,
       "lodCount": 2,
-      "lodDistances": [
-        110,
-        5000,
-        0,
-        0
-      ],
+      "lodDistances": [110, 5000, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 2048,
       "cullingHeight": 6,
@@ -30893,18 +29552,7 @@
     "BuildIndex": 708,
     "BuildMode": 5,
     "GridIndex": 2508,
-    "DescFields": [
-      53,
-      51,
-      56,
-      57,
-      52,
-      49,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 51, 56, 57, 52, 49, 11, 12, 1, 40],
     "handcraft": {
       "ID": 130,
       "name": "Jammer Tower"
@@ -30957,12 +29605,7 @@
       "modelIndex": 422,
       "hasObject": true,
       "lodCount": 2,
-      "lodDistances": [
-        100,
-        5000,
-        0,
-        0
-      ],
+      "lodDistances": [100, 5000, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 2048,
       "cullingHeight": 7,
@@ -31265,15 +29908,7 @@
     "BuildIndex": 709,
     "BuildMode": 1,
     "GridIndex": 2509,
-    "DescFields": [
-      53,
-      13,
-      14,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 13, 14, 11, 12, 1, 40],
     "handcraft": {
       "ID": 131,
       "name": "Signal Tower"
@@ -31326,12 +29961,7 @@
       "modelIndex": 403,
       "hasObject": true,
       "lodCount": 2,
-      "lodDistances": [
-        120,
-        5000,
-        0,
-        0
-      ],
+      "lodDistances": [120, 5000, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 2048,
       "cullingHeight": 16,
@@ -31614,13 +30244,7 @@
     "BuildIndex": 710,
     "BuildMode": 1,
     "GridIndex": 2510,
-    "DescFields": [
-      53,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 11, 12, 1, 40],
     "handcraft": {
       "ID": 132,
       "name": "Planetary Shield Generator"
@@ -31673,12 +30297,7 @@
       "modelIndex": 402,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        5000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [5000, 0, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 2048,
       "cullingHeight": 60,
@@ -31948,14 +30567,7 @@
     "BuildMode": 1,
     "GridIndex": 2507,
     "DropRate": 0.5,
-    "DescFields": [
-      53,
-      11,
-      12,
-      14,
-      1,
-      40
-    ],
+    "DescFields": [53, 11, 12, 14, 1, 40],
     "handcraft": {
       "ID": 152,
       "name": "Battlefield Analysis Base"
@@ -32004,12 +30616,7 @@
       "modelIndex": 453,
       "hasObject": true,
       "lodCount": 2,
-      "lodDistances": [
-        100,
-        5000,
-        0,
-        0
-      ],
+      "lodDistances": [100, 5000, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 2048,
       "cullingHeight": 13,
@@ -32411,18 +31018,7 @@
     "BuildIndex": 706,
     "BuildMode": 5,
     "GridIndex": 2506,
-    "DescFields": [
-      53,
-      51,
-      56,
-      57,
-      52,
-      49,
-      11,
-      12,
-      1,
-      40
-    ],
+    "DescFields": [53, 51, 56, 57, 52, 49, 11, 12, 1, 40],
     "handcraft": {
       "ID": 157,
       "name": "SR Plasma Turret"
@@ -32479,12 +31075,7 @@
       "modelIndex": 482,
       "hasObject": true,
       "lodCount": 1,
-      "lodDistances": [
-        5000,
-        0,
-        0,
-        0
-      ],
+      "lodDistances": [5000, 0, 0, 0],
       "startInstCapacity": 256,
       "batchCapacity": 2048,
       "cullingHeight": 13,
@@ -32799,10 +31390,7 @@
     "GridIndex": 1801,
     "Productive": true,
     "MechaMaterialID": 25,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 9,
       "name": "Electromagnetic Matrix"
@@ -32875,10 +31463,7 @@
     "GridIndex": 1802,
     "Productive": true,
     "MechaMaterialID": 26,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 18,
       "name": "Energy Matrix"
@@ -32951,10 +31536,7 @@
     "GridIndex": 1803,
     "Productive": true,
     "MechaMaterialID": 27,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 27,
       "name": "Structure Matrix"
@@ -33039,10 +31621,7 @@
     "GridIndex": 1804,
     "Productive": true,
     "MechaMaterialID": 28,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 55,
       "name": "Information Matrix"
@@ -33131,10 +31710,7 @@
     "GridIndex": 1805,
     "Productive": true,
     "MechaMaterialID": 29,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "handcraft": {
       "ID": 102,
       "name": "Gravity Matrix"
@@ -33251,10 +31827,7 @@
     "GridIndex": 1806,
     "Productive": true,
     "MechaMaterialID": 30,
-    "DescFields": [
-      1,
-      40
-    ],
+    "DescFields": [1, 40],
     "isRaw": true,
     "maincraft": {
       "ID": 75,
@@ -33365,9 +31938,7 @@
     "IconPath": "Icons/ItemRecipe/soil-pile",
     "HpMax": 1,
     "Productive": true,
-    "DescFields": [
-      0
-    ],
+    "DescFields": [0],
     "isRaw": true,
     "prefabDesc": {
       "startInstCapacity": 256,
