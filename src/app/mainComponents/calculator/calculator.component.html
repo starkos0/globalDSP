@@ -181,11 +181,12 @@
           </div>
         </div>
         <div class="relative w-1/2 border border-primary border-1 p-4">
-          <span class="material-symbols-outlined absolute top-0 right-0 m-2 z-50 select-none hover:cursor-pointer">
+          <span class="material-symbols-outlined absolute top-0 right-0 m-2 z-50 select-none hover:cursor-pointer"
+            (click)="moveGraphToModal()">
             zoom_out_map
           </span>
-          <app-network-graph></app-network-graph>
-
+          <!-- Initial position of the graph, user can zoom in with a modal -->
+          <ng-container #graphMainContainer></ng-container>
         </div>
 
       </div>
@@ -199,3 +200,15 @@
     </div>
   </div>
 </div>
+
+<dialog id="my_modal_1" class="modal">
+  <div class="modal-box w-11/12 max-w-none h-2/3">
+    <h3 class="text-lg font-bold">Graph in Modal</h3>
+    <ng-container #graphContainer></ng-container>
+    <div class="modal-action">
+      <form method="dialog">
+        <button class="btn" (click)="moveGraphToOriginalDiv()">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>

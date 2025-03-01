@@ -33,3 +33,7 @@
 .font-title {
   font-family: 'Satoshi', sans-serif;
 }
+//in daisyiu, if you open a modal, it creates an auto scroll-bar in chrome, this disable it
+html {
+  scrollbar-gutter: auto !important;
+}
