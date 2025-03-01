@@ -35,7 +35,12 @@
                 <td>
                   <div class="flex items-center justify-center">
                     <img class="w-10 h-10 m-2" [src]="'assets/' + item.IconPath + '.png'" alt="" />
-                    <input (blur)="changeItemTotalValue(item)" [(ngModel)]="item.totalValue" type="number" class="input input-bordered input-xs w-20 max-w-xs rounded-sm" />
+                    <input
+                      (blur)="changeItemTotalValue(item)"
+                      [(ngModel)]="item.totalValue"
+                      type="number"
+                      class="input input-bordered input-xs w-20 max-w-xs rounded-sm"
+                    />
                   </div>
                 </td>
               </div>
@@ -44,40 +49,58 @@
                 <div class="tooltip" [attr.data-tip]="item.madeFromString">
                   <div class="flex justify-center items-center">
                     <img class="w-10 h-10 m-2" [src]="'assets/' + this.dataManagement.powerFacilitiesMap()[item.madeFromString] + '.png'" alt="" />
-                    <input min="0" [value]="item.totalMachine" type="number" class="input input-bordered input-xs w-20 max-w-xs rounded-sm" />
+                    <input
+                      min="0"
+                      [value]="item.totalMachine | number: '1.0-2'"
+                      type="number"
+                      class="input input-bordered input-xs w-20 max-w-xs rounded-sm"
+                    />
                   </div>
                 </div>
               </td>
               <!-- RECIPES COL -->
               <td>
-                  @for (recipe of this.dataManagement.getPreprocessedRecipes(item.nodeUUID); track $index) {
-                    <label class="label cursor-pointer flex">
-                      <input
-                        type="radio"
-                        [name]="item.nodeUUID"
-                        [id]="item.nodeUUID"
-                        [value]="recipe.ID"
-                        class="radio hidden"
-                        (click)="storePreviousValues()"
-                        [checked]="recipe.ID === item.selectedRecipe?.ID"
-                        (change)="updateSelectedRecipe(item, recipe)"
-                        />
-                      <span
-                        class="label-text flex items-center justify-center border border-primary rounded-sm hover:bg-secondary duration-200"
-                        [ngClass]="{
-                          'bg-secondary': recipe.ID === item.selectedRecipe?.ID,
-                        }"
-                      >
-                        @for (recSrc of recipe.itemsSrc; track $index) {
-                          <img loading="lazy" [src]="'assets/' + recSrc + '.png'" class="w-8 h-8 m-2" alt="" />
-                        }
+                @for (recipe of this.dataManagement.getPreprocessedRecipes(item.nodeUUID); track $index) {
+                  <label class="label cursor-pointer flex">
+                    <input
+                      type="radio"
+                      [name]="item.nodeUUID"
+                      [id]="item.nodeUUID"
+                      [value]="recipe.ID"
+                      class="radio hidden"
+                      (click)="storePreviousValues()"
+                      [checked]="recipe.ID === item.selectedRecipe?.ID"
+                      (change)="updateSelectedRecipe(item, recipe)"
+                    />
+                    <span
+                      class="label-text flex items-center justify-center border border-primary rounded-sm hover:bg-secondary duration-200"
+                      [ngClass]="{
+                        'bg-secondary': recipe.ID === item.selectedRecipe?.ID,
+                      }"
+                    >
+                      @for (needed of recipe.itemsNeeded; track $index) {
+                        <div class="indicator">
+                          <span class="indicator-item badge badge-primary">{{ needed.itemsNeeded}}</span>
+                          <img loading="lazy" [src]="'assets/' + needed.iconpath + '.png'" class="w-8 h-8 m-2" alt="{{ needed.name }}" />
+                        </div>
+                      }
+
+                      <!-- Arrow with Time Needed -->
+                      <div class="flex flex-col items-center mx-2">
                         <span class="material-symbols-outlined">arrow_forward</span>
-                        @for (recSrc of recipe.resultsSrc; track $index) {
-                          <img loading="lazy" [src]="'assets/' + recSrc + '.png'" class="w-8 h-8 m-2" alt="" />
-                        }
-                      </span>
-                    </label>
-                  }
+                        <span class="text-xs text-gray-500">{{ recipe.timeNeeded / 60}}s</span>
+                      </div>
+
+                      <!-- Result Items -->
+                      @for (result of recipe.resultItems; track $index) {
+                        <div class="indicator">
+                          <span class="indicator-item badge badge-success">{{ result.itemsResult }}</span>
+                          <img loading="lazy" [src]="'assets/' + result.iconpath + '.png'" class="w-8 h-8 m-2" alt="{{ result.name }}" />
+                        </div>
+                      }
+                    </span>
+                  </label>
+                }
               </td>
               <!-- PROLIFERATION COL -->
               <td>
@@ -146,7 +169,6 @@
         </tr>
       </tbody>
     </table>
-    
   </div>
 } @loading {
   <div class="skeleton h-20 w-full"></div>
@@ -154,6 +176,7 @@
 } @error {
   <h1 class="text-red-500">Error loading data</h1>
 }
-<div>
+
+<!-- <div>
   <pre>{{ this.dataManagement.selectedItems() | json }}</pre>
-</div>
+</div> -->

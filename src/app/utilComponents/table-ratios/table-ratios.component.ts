@@ -9,6 +9,7 @@ import { recipes, TransformedItems } from '../../interfaces/transformed-items';
 import { GlobalSettingsServiceService } from '../../services/global-settings-service.service';
 import { PowerConversionPipe } from '../../pipes/power-conversion.pipe';
 import { PreprocessedRecipe } from '../../interfaces/mainData/preprocessed-item';
+import { createBlendy } from 'blendy';
 
 @Component({
   selector: 'app-table-ratios',
@@ -272,6 +273,7 @@ export class TableRatiosComponent implements OnInit {
   }
 
   async updateSelectedRecipe(item: TransformedItems, recipe: PreprocessedRecipe) {
+
     item.selectedRecipe = { ID: recipe.ID, name: recipe.name };
 
     if (item.childs.length > 0) {
@@ -282,7 +284,10 @@ export class TableRatiosComponent implements OnInit {
 
   }
 
-  changeItemTotalValue(item: TransformedItems) {
+  changeItemTotalValue(item: TransformedItems, newTotalValue?: number) {
+    if(newTotalValue){
+      item.totalValue = newTotalValue
+    }
     const recipe = this.dataManagement.recipesMap.get(item.selectedRecipe.ID);
     if (recipe) {
       const resultitemindex = recipe.Results.indexOf(item.ID);
@@ -293,26 +298,18 @@ export class TableRatiosComponent implements OnInit {
         this.globalSettingsService.checkValidKey(item.madeFromString.split(' ')[0].toLowerCase() + 'Select')
       );
     }
-    this.visitedNodes = new Set();
     console.log(item)
     let selectedItems = this.dataManagement.selectedItems();
     this.dataManagement.selectedItems.set([...selectedItems]);
-    let parent = this.findParentNode(this.dataManagement.selectedItems(), item.nodeUUID);
-    console.log("parent: ", parent);
     const originalNode = item;
 
     this.updateSubtree(originalNode);
     this.updateUpwards(originalNode);
   }
 
-  public visitedNodes = new Set<string>();
-
   updateSubtree(node: TransformedItems) {
-    console.log(`🔽 Updating subtree of: ${node.name}`);
-
     for (const child of node.childs) {
-      console.log(`  ↳ Updating child: ${child.name}`);
-      child.IconPath = ""
+      this.calculateTotalValueForChild(node, child);
       this.updateSubtree(child);
     }
   }
@@ -327,18 +324,121 @@ export class TableRatiosComponent implements OnInit {
         break;
       }
 
-      console.log(`🔼 Moving up to parent: ${parent.name}`);
-      parent.IconPath = ""
-      for (const sibling of parent.childs) {
-        if (sibling.nodeUUID !== current.nodeUUID) {
-          console.log(`🔄 Updating sibling subtree: ${sibling.name}`);
-          sibling.IconPath = ""
-          this.updateSubtree(sibling);
-        }
+      if (parent.childs.length === 1) {
+        console.log(`🔼 Updating single-child parent: ${parent.name}`);
+        this.calculateTotalValueForParent(parent);
+      } else {
+        console.log(`🟠 Parent has multiple children. Updating siblings first.`);
+        this.updateSiblings(parent, current);
+        break; // Stop further upwards updates, let updateSiblings handle it.
       }
 
-      current = parent;
+      current = parent; // Move upwards
     }
+  }
+
+  updateSiblings(parent: TransformedItems, updatedChild: TransformedItems) {
+    console.log(`🔄 Updating siblings for parent: ${parent.name}`);
+
+    const recipeDetails = this.dataManagement.recipesMap.get(parent.selectedRecipe.ID);
+    if (!recipeDetails) {
+      console.warn(`⚠️ Recipe details missing for ${parent.name}`);
+      return;
+    }
+
+    // Find the updated child in the recipe
+    const updatedChildIndex = recipeDetails.Items.indexOf(updatedChild.ID);
+    if (updatedChildIndex === -1) {
+      console.warn(`⚠️ Updated child ${updatedChild.name} not found in parent recipe.`);
+      return;
+    }
+
+    const updatedChildAmount = recipeDetails.ItemCounts[updatedChildIndex];
+    const missingSiblings = parent.childs.filter(child => child.nodeUUID !== updatedChild.nodeUUID);
+
+    for (const sibling of missingSiblings) {
+      const siblingIndex = recipeDetails.Items.indexOf(sibling.ID);
+      if (siblingIndex === -1) {
+        console.warn(`⚠️ Sibling ${sibling.name} not found in parent recipe.`);
+        continue;
+      }
+
+      const siblingAmount = recipeDetails.ItemCounts[siblingIndex];
+
+      const siblingTotalValue = (updatedChild.totalValue * siblingAmount) / updatedChildAmount;
+
+      console.log(`🔹 Calculated sibling ${sibling.name}: ${siblingTotalValue}`);
+      sibling.totalValue = siblingTotalValue;
+
+      this.updateSubtree(sibling);
+    }
+
+    this.calculateTotalValueForParent(parent);
+    this.updateUpwards(parent);
+  }
+
+  calculateTotalValueForParent(node: TransformedItems) {
+    const recipeDetails = this.dataManagement.recipesMap.get(node.selectedRecipe.ID);
+    if (!recipeDetails) {
+      console.warn(`⚠️ Recipe details not found for parent: ${node.name}`);
+      return;
+    }
+
+    const child = node.childs[0];
+
+    const itemIndex = recipeDetails.Items.indexOf(child.ID);
+    const itemCount = itemIndex >= 0 ? recipeDetails.ItemCounts[itemIndex] : 1;
+    const resultIndex = recipeDetails.Results.indexOf(node.ID);
+    const resultCount = resultIndex >= 0 ? recipeDetails.ResultCounts[resultIndex] : 1;
+
+    if (itemIndex === -1 || resultIndex === -1) {
+      console.warn(`⚠️ Parent ${node.name} cannot be updated due to missing recipe mappings.`);
+      return;
+    }
+
+    // Apply the totalValue formula
+    node.totalValue = (child.totalValue * resultCount) / itemCount;
+
+    node.totalMachine = this.dataManagement.calculateMachinesNeeded(
+      node.totalValue,
+      recipeDetails.ResultCounts[resultIndex],
+      recipeDetails.TimeSpend,
+      this.globalSettingsService.checkValidKey(node.madeFromString.split(' ')[0].toLowerCase() + 'Select')
+    );
+    console.log(node)
+    node.power = node.totalValue * 10;
+  }
+
+  calculateTotalValueForChild(parent: TransformedItems, child: TransformedItems) {
+    const recipeDetails = this.dataManagement.recipesMap.get(parent.selectedRecipe.ID);
+    if (!recipeDetails) {
+      console.warn("⚠️ Recipe details not found for parent:", parent.name);
+      return;
+    }
+
+    const resultIndex = recipeDetails.Results.indexOf(parent.ID);
+    const resultCount = resultIndex >= 0 ? recipeDetails.ResultCounts[resultIndex] : 1;
+
+    const itemIndex = recipeDetails.Items.indexOf(child.ID);
+    const itemCount = itemIndex >= 0 ? recipeDetails.ItemCounts[itemIndex] : 1;
+
+    if (itemIndex === -1 || resultIndex === -1) {
+      console.warn("⚠️ Invalid indices for child:", child.name);
+      return;
+    }
+
+    child.totalValue = (parent.totalValue * itemCount) / resultCount;
+
+    child.totalMachine = this.dataManagement.calculateMachinesNeeded(
+      child.totalValue,
+      recipeDetails.ItemCounts[itemIndex],
+      child.TimeSpend,
+      this.globalSettingsService.checkValidKey(child.madeFromString.split(' ')[0].toLowerCase() + 'Select')
+    );
+    if(child.name.toLowerCase().includes("circuit") || child.name.toLowerCase().includes("processor")){
+      console.log(recipeDetails)
+    }
+    child.power = child.totalValue * 10;
   }
 
   findParentNode(tree: TransformedItems[], childUUID: string): TransformedItems | null {
@@ -348,13 +448,19 @@ export class TableRatiosComponent implements OnInit {
       }
 
       const parent = this.findParentNode(node.childs, childUUID);
-      if (parent) {
-        return parent;
-      }
+      if (parent) return parent;
     }
     return null;
   }
+  private blendy: any;
 
+  ngAfterViewInit() {
+    this.blendy = createBlendy({
+      animation: 'dynamic'
+    });
+  }
 
-
+  toggleTransition() {
+    this.blendy.toggle('transicion-ejemplo');
+  }
 }

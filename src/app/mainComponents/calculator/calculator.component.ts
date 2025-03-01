@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, effect, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ComponentRef, effect, ElementRef, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from '../../utilComponents/navbar/navbar.component';
 import { AppDB } from '../../services/db';
@@ -24,6 +24,15 @@ export class CalculatorComponent implements OnInit, AfterViewInit {
   @ViewChild('myModal') myModal!: ElementRef;
   @ViewChild('resizableDiv', { static: false }) resizableDiv!: ElementRef;
   @ViewChild('resizeHandle', { static: false }) resizeHandle!: ElementRef;
+
+  @ViewChild('graphMainContainer', { read: ViewContainerRef, static: true })
+  graphMainContainer!: ViewContainerRef;
+
+  @ViewChild('graphContainer', { read: ViewContainerRef })
+  graphContainer!: ViewContainerRef;
+
+  // Referencia al componente creado dinámicamente
+  private graphComponentRef!: ComponentRef<NetworkGraphComponent>;
 
 
   public defaultItem: Item = {
@@ -160,6 +169,8 @@ export class CalculatorComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngAfterViewInit() {
+    this.createGraphComponent(this.graphMainContainer);
+
     interact(this.resizeHandle.nativeElement)
     .draggable({
       listeners: {
@@ -343,5 +354,31 @@ export class CalculatorComponent implements OnInit, AfterViewInit {
     }
 
     return src;
+  }
+
+  private createGraphComponent(container: ViewContainerRef) {
+    this.graphComponentRef = container.createComponent(NetworkGraphComponent);
+  }
+
+  // Método para mover el componente al modal
+  moveGraphToModal() {
+    if (this.graphComponentRef) {
+      // Desconectar el componente del contenedor actual
+      this.graphMainContainer.detach();
+      // Insertar el componente en el contenedor del modal
+      this.graphContainer.insert(this.graphComponentRef.hostView);
+      // Abrir el modal
+      (document.getElementById('my_modal_1') as HTMLDialogElement).showModal();
+    }
+  }
+
+  // Método para mover el componente de vuelta al contenedor original
+  moveGraphToOriginalDiv() {
+    if (this.graphComponentRef) {
+      // Desconectar el componente del modal
+      this.graphContainer.detach();
+      // Insertar el componente en el contenedor original
+      this.graphMainContainer.insert(this.graphComponentRef.hostView);
+    }
   }
 }

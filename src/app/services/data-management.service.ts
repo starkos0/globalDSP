@@ -10,7 +10,7 @@ import { recipes, TransformedItems } from '../interfaces/transformed-items';
 import { GlobalSettingsFormValues } from '../interfaces/mainData/global-settings-form-values';
 import { GlobalSettingsServiceService } from './global-settings-service.service';
 import { Item } from '../interfaces/mainData/Item';
-import { PreprocessedRecipe } from '../interfaces/mainData/preprocessed-item';
+import { ItemsNeeded, PreprocessedRecipe, ResultItem } from '../interfaces/mainData/preprocessed-item';
 import { Totals } from '../interfaces/miscTypes/totals';
 import { TotalItems } from '../interfaces/miscTypes/TotalItems';
 
@@ -309,7 +309,7 @@ export class DataManagementService {
 
     
     this.preprocessAllRecipes(this.selectedItems(), true);
-
+    console.log("recipes preprocessed: ", this.preprocessedRecipesMap)
     this.isRecipesFormInitialized.set(true);
     const end = performance.now();
 
@@ -320,24 +320,28 @@ export class DataManagementService {
     this.calculateTotales(this.selectedItems());
     
   }
-
+ 
   preprocessAllRecipes(selectedItems: TransformedItems[], firstTime?: boolean): void {
-    if(firstTime){
+    if (firstTime) {
       this.preprocessedRecipesMap.clear();
     }
-      
-
+  
+    let selectedItems2 = this.selectedItems();
+    this.selectedItems.set([...selectedItems2]);
+  
     const processItem = (item: TransformedItems) => {
       this.preprocessedRecipesMap.delete(item.nodeUUID);
-
-      const preprocessedRecipes = item.recipes.map((recipe) => ({
-        ...recipe,
-        itemsSrc: this.getRecipesItemsSrc(recipe.ID),
-        resultsSrc: this.getRecipesResultsSrc(recipe.ID),
+  
+      const preprocessedRecipes: PreprocessedRecipe[] = item.recipes.map((recipe) => ({
+        ID: recipe.ID,
+        name: recipe.name,
+        timeNeeded: this.recipesMap.get(recipe.ID)?.TimeSpend || 0,
+        itemsNeeded: this.getRecipesItemsSrc(recipe.ID),
+        resultItems: this.getRecipesResultsSrc(recipe.ID),
       }));
-
+  
       this.preprocessedRecipesMap.set(item.nodeUUID, preprocessedRecipes);
-
+  
       item.childs.forEach((child) => processItem(child));
     };
     selectedItems.forEach((item) => processItem(item));
@@ -719,13 +723,31 @@ export class DataManagementService {
     return this.preprocessedRecipesMap.get(nodeUUID) || [];
   }
 
-  getRecipesItemsSrc(recipeID: number): string[] {
+  getRecipesItemsSrc(recipeID: number): ItemsNeeded[] {
     const recipe = this.recipesMap.get(recipeID);
-    return recipe?.Items?.map((itemID) => this.itemsMap.get(itemID)?.IconPath || '') || [];
+    if (!recipe) return [];
+    return recipe.Items.map((itemID, index) => {
+      const item = this.itemsMap.get(itemID);
+      return {
+        name: item?.name || "Unknown Item",
+        iconpath: item?.IconPath || "",
+        itemsNeeded: recipe.ItemCounts[index] || 0,
+      };
+    });
   }
 
-  getRecipesResultsSrc(recipeID: number): string[] {
+  getRecipesResultsSrc(recipeID: number): ResultItem[] {
     const recipe = this.recipesMap.get(recipeID);
-    return recipe?.Results?.map((resultID) => this.itemsMap.get(resultID)?.IconPath || '') || [];
+    if (!recipe) return [];
+  
+    return recipe.Results.map((resultID, index) => {
+      const result = this.itemsMap.get(resultID);
+      return {
+        name: result?.name || "Unknown Result",
+        iconpath: result?.IconPath || "",
+        itemsResult: recipe.ResultCounts[index] || 0,
+      };
+    });
   }
+  
 }
