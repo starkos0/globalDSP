@@ -12,11 +12,10 @@ import { PreprocessedRecipe } from '../../interfaces/mainData/preprocessed-item'
 import { createBlendy } from 'blendy';
 
 @Component({
-  selector: 'app-table-ratios',
-  standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, FormsModule, PowerConversionPipe],
-  templateUrl: './table-ratios.component.html',
-  styleUrl: './table-ratios.component.scss',
+    selector: 'app-table-ratios',
+    imports: [ReactiveFormsModule, CommonModule, FormsModule, PowerConversionPipe],
+    templateUrl: './table-ratios.component.html',
+    styleUrl: './table-ratios.component.scss'
 })
 export class TableRatiosComponent implements OnInit {
   public childs: Item[] = [];

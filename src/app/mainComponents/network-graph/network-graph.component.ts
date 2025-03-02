@@ -4,11 +4,10 @@ import * as d3 from "d3";
 import { DataManagementService } from '../../services/data-management.service';
 import { TransformedItems } from '../../interfaces/transformed-items';
 @Component({
-  selector: 'app-network-graph',
-  standalone: true,
-  imports: [],
-  templateUrl: './network-graph.component.html',
-  styleUrl: './network-graph.component.scss'
+    selector: 'app-network-graph',
+    imports: [],
+    templateUrl: './network-graph.component.html',
+    styleUrl: './network-graph.component.scss'
 })
 export class NetworkGraphComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('treeContainer', { static: true }) private treeContainer!: ElementRef;

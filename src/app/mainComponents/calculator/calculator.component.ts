@@ -14,11 +14,10 @@ import { GlobalSettingsFormValues } from '../../interfaces/mainData/global-setti
 import interact from 'interactjs';
 import { NetworkGraphComponent } from '../network-graph/network-graph.component';
 @Component({
-  selector: 'app-calculator',
-  standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive, NavbarComponent, FormsModule, ReactiveFormsModule, CommonModule, TableRatiosComponent,NetworkGraphComponent],
-  templateUrl: './calculator.component.html',
-  styleUrl: './calculator.component.scss',
+    selector: 'app-calculator',
+    imports: [RouterOutlet, RouterLink, RouterLinkActive, NavbarComponent, FormsModule, ReactiveFormsModule, CommonModule, TableRatiosComponent, NetworkGraphComponent],
+    templateUrl: './calculator.component.html',
+    styleUrl: './calculator.component.scss'
 })
 export class CalculatorComponent implements OnInit, AfterViewInit {
   @ViewChild('myModal') myModal!: ElementRef;

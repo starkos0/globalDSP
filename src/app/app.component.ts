@@ -9,11 +9,10 @@ import { Recipe } from './interfaces/mainData/Recipe';
 import { Item } from './interfaces/mainData/Item';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+    selector: 'app-root',
+    imports: [RouterOutlet, RouterLink, RouterLinkActive],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
   title = 'globalDSP';
