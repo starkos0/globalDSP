@@ -23,7 +23,7 @@ export class NetworkGraphComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(public dataManagement: DataManagementService) {
     this.effectRef = effect(() => {
-      
+
       const data = this.dataManagement.selectedItems();
       if (this.dataManagement.selectedItems().length > 0 && this.dataManagement.isRecipesFormInitialized()) {
         this.updateTree(data);
@@ -43,19 +43,21 @@ export class NetworkGraphComponent implements OnInit, AfterViewInit, OnDestroy {
   private initSvg(): void {
     const element = this.treeContainer.nativeElement;
 
-    this.svg = d3.select<SVGSVGElement, unknown>(element) // <--- Asegurar que es un SVG
+    this.svg = d3.select<SVGSVGElement, unknown>(element)
       .append('svg')
-      .attr('width', this.width)
-      .attr('height', this.height)
+      .attr('width', '100%')  // ✔ Asegura que ocupe todo el ancho
+      .attr('height', '100%') // ✔ Asegura que ocupe todo el alto
+      .attr('viewBox', `0 0 ${this.width} ${this.height}`)
+      .attr('preserveAspectRatio', 'xMidYMid meet') // ✔ Permite que el SVG se escale correctamente
       .call(
-        d3.zoom<SVGSVGElement, unknown>() // <--- Especificar que es un zoom para SVG
+        d3.zoom<SVGSVGElement, unknown>()
           .on('zoom', (event) => this.g.attr('transform', event.transform))
       )
       .append('g');
 
-
     this.treeLayout = d3.tree().size([this.width, this.height]);
   }
+
 
   private updateTree(data: TransformedItems[]): void {
     this.svg.selectAll('*').remove(); // Clear previous tree
@@ -96,25 +98,20 @@ export class NetworkGraphComponent implements OnInit, AfterViewInit, OnDestroy {
       .attr('height', (d: d3.HierarchyPointNode<TransformedItems>) => Math.max(10, ROOT_SIZE * Math.pow(SCALE_FACTOR, d.depth)))
       .attr('href', (d: d3.HierarchyPointNode<TransformedItems>) => 'assets/' + d.data.IconPath + '.png')
       .on("mouseover", (event: MouseEvent, d: d3.HierarchyPointNode<TransformedItems>) => {
-        const [x, y] = d3.pointer(event, this.svg.node());
-
         tooltip
           .style("opacity", "1")
           .style("visibility", "visible")
-          .html(d.data.name)
-          .style("left", `${x + 60}px`)
-          .style("top", `${y + 10}px`);
+          .html(d.data.name);
       })
       .on("mousemove", (event: MouseEvent) => {
-        const [x, y] = d3.pointer(event, this.svg.node());
-
         tooltip
-          .style("left", `${x + 30}px`)
-          .style("top", `${y + 10}px`);
+          .style("left", `${event.clientX + 10}px`) // Usar `clientX` para coordenada absoluta
+          .style("top", `${event.clientY + 10}px`); // Usar `clientY` para coordenada absoluta
       })
       .on("mouseout", () => {
         tooltip.style("opacity", "0").style("visibility", "hidden");
       });
+      
 
     // 🔹 Selección de etiquetas para `totalValue`
     this.g.selectAll('.value-label')

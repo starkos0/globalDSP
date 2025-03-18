@@ -7,7 +7,7 @@
         <div class="w-1/2">
           <div class="flex-grow flex flex-col">
             <input [(ngModel)]="this.globalSettingsService.globalSettingsSignal().initialAmountValue"
-              (ngModelChange)="this.globalSettingsService.updateProperty('initialAmountValue', $event)" type="number"
+              (blur)="this.globalSettingsService.updateProperty('initialAmountValue', this.globalSettingsService.globalSettingsSignal().initialAmountValue)" type="number"
               class="input input-bordered input-xs w-24 max-w-xs rounded-sm" />
 
             <select [(ngModel)]="this.globalSettingsService.globalSettingsSignal().unitSelected"
@@ -27,7 +27,8 @@
               <img class="w-5 h-5" src="assets/Icons/ItemRecipe/various/select-recipe.png" alt="" />
               Add Recipe +
             </button>
-
+            <button class="btn btn-sm w-40 rounded-sm bg-secondary">Mining Options</button>
+            
             <dialog id="my_modal_2" #myModal class="modal">
               <div class="modal-box w-11/12 max-w-5xl">
                 <div class="flex flex-col">
@@ -203,7 +204,6 @@
 
 <dialog id="my_modal_1" class="modal">
   <div class="modal-box w-11/12 max-w-none h-2/3">
-    <h3 class="text-lg font-bold">Graph in Modal</h3>
     <ng-container #graphContainer></ng-container>
     <div class="modal-action">
       <form method="dialog">

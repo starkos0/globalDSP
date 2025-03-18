@@ -2,15 +2,16 @@
     overflow: hidden;
     position: relative;
 }
-.tooltip {
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.8);
+
+#tooltip {
+    position: fixed;
+    background: rgba(0, 0, 0, 0.8);
     color: white;
     padding: 5px 10px;
     border-radius: 5px;
     font-size: 12px;
-    pointer-events: none;
-    transition: opacity 0.2s;
+    visibility: hidden;
     opacity: 0;
-  }
-  
+    transition: opacity 0.2s ease-in-out;
+    pointer-events: none;
+}

@@ -530,8 +530,9 @@ export class DataManagementService {
         } else if (machineType === 'researchSelect') {
           assemblerSpeed = property.prefabDesc.labAssembleSpeed;
         } else {
-          assemblerSpeed = property?.prefabDesc?.assemblerSpeed;
+        assemblerSpeed = property?.prefabDesc?.assemblerSpeed;
         }
+        console.log("assembler speed: ", assemblerSpeed)
         const outputUnit = this.globalSettingsService.getProperty('unitSelected');
         const desiredItemsPerMinute = outputUnit === 's' ? desiredOutput * 60 : desiredOutput;
         const itemsPerMachinePerMinute = ((itemsPerRecipe * 60) / (recipeTime / 60)) * (assemblerSpeed / 10000);
@@ -749,5 +750,183 @@ export class DataManagementService {
       };
     });
   }
-  
+  changeItemTotalValue(item: TransformedItems, newTotalValue?: number) {
+    if(newTotalValue){
+      item.totalValue = newTotalValue
+    }
+    const recipe = this.recipesMap.get(item.selectedRecipe.ID);
+    if (recipe) {
+      const resultitemindex = recipe.Results.indexOf(item.ID);
+      item.totalMachine = this.calculateMachinesNeeded(
+        item.totalValue,
+        item.ResultCounts[resultitemindex],
+        item.TimeSpend,
+        this.globalSettingsService.checkValidKey(item.madeFromString.split(' ')[0].toLowerCase() + 'Select')
+      );
+    }
+    console.log(item)
+    let selectedItems = this.selectedItems();
+    this.selectedItems.set([...selectedItems]);
+    const originalNode = item;
+
+    this.updateSubtree(originalNode);
+    this.updateUpwards(originalNode);
+  }
+
+  updateSubtree(node: TransformedItems) {
+    for (const child of node.childs) {
+      this.calculateTotalValueForChild(node, child);
+      this.updateSubtree(child);
+    }
+  }
+
+  updateUpwards(originalNode: TransformedItems) {
+    let current = originalNode;
+
+    while (true) {
+      const parent = this.findParentNode(this.selectedItems(), current.nodeUUID);
+      if (!parent) {
+        console.warn("🔝 No more parents to update.");
+        break;
+      }
+
+      if (parent.childs.length === 1) {
+        console.log(`🔼 Updating single-child parent: ${parent.name}`);
+        this.calculateTotalValueForParent(parent);
+      } else {
+        console.log(`🟠 Parent has multiple children. Updating siblings first.`);
+        this.updateSiblings(parent, current);
+        break; // Stop further upwards updates, let updateSiblings handle it.
+      }
+
+      current = parent; // Move upwards
+    }
+  }
+
+  updateSiblings(parent: TransformedItems, updatedChild: TransformedItems) {
+    console.log(`🔄 Updating siblings for parent: ${parent.name}`);
+
+    const recipeDetails = this.recipesMap.get(parent.selectedRecipe.ID);
+    if (!recipeDetails) {
+      console.warn(`⚠️ Recipe details missing for ${parent.name}`);
+      return;
+    }
+
+    // Find the updated child in the recipe
+    const updatedChildIndex = recipeDetails.Items.indexOf(updatedChild.ID);
+    if (updatedChildIndex === -1) {
+      console.warn(`⚠️ Updated child ${updatedChild.name} not found in parent recipe.`);
+      return;
+    }
+
+    const updatedChildAmount = recipeDetails.ItemCounts[updatedChildIndex];
+    const missingSiblings = parent.childs.filter(child => child.nodeUUID !== updatedChild.nodeUUID);
+
+    for (const sibling of missingSiblings) {
+      const siblingIndex = recipeDetails.Items.indexOf(sibling.ID);
+      if (siblingIndex === -1) {
+        console.warn(`⚠️ Sibling ${sibling.name} not found in parent recipe.`);
+        continue;
+      }
+
+      const siblingAmount = recipeDetails.ItemCounts[siblingIndex];
+
+      const siblingTotalValue = (updatedChild.totalValue * siblingAmount) / updatedChildAmount;
+
+      console.log(`🔹 Calculated sibling ${sibling.name}: ${siblingTotalValue}`);
+      sibling.totalValue = siblingTotalValue;
+
+      this.updateSubtree(sibling);
+    }
+
+    this.calculateTotalValueForParent(parent);
+    this.updateUpwards(parent);
+  }
+
+  calculateTotalValueForParent(node: TransformedItems) {
+    const recipeDetails = this.recipesMap.get(node.selectedRecipe.ID);
+    if (!recipeDetails) {
+      console.warn(`⚠️ Recipe details not found for parent: ${node.name}`);
+      return;
+    }
+
+    const child = node.childs[0];
+
+    const itemIndex = recipeDetails.Items.indexOf(child.ID);
+    const itemCount = itemIndex >= 0 ? recipeDetails.ItemCounts[itemIndex] : 1;
+    const resultIndex = recipeDetails.Results.indexOf(node.ID);
+    const resultCount = resultIndex >= 0 ? recipeDetails.ResultCounts[resultIndex] : 1;
+
+    if (itemIndex === -1 || resultIndex === -1) {
+      console.warn(`⚠️ Parent ${node.name} cannot be updated due to missing recipe mappings.`);
+      return;
+    }
+
+    // Apply the totalValue formula
+    node.totalValue = (child.totalValue * resultCount) / itemCount;
+
+    node.totalMachine = this.calculateMachinesNeeded(
+      node.totalValue,
+      recipeDetails.ResultCounts[resultIndex],
+      recipeDetails.TimeSpend,
+      this.globalSettingsService.checkValidKey(node.madeFromString.split(' ')[0].toLowerCase() + 'Select')
+    );
+    console.log(node)
+    node.power = node.totalValue * 10;
+  }
+
+  calculateTotalValueForChild(parent: TransformedItems, child: TransformedItems) {
+    const recipeDetails = this.recipesMap.get(parent.selectedRecipe.ID);
+    if (!recipeDetails) {
+      console.warn("⚠️ Recipe details not found for parent:", parent.name);
+      return;
+    }
+
+    const resultIndex = recipeDetails.Results.indexOf(parent.ID);
+    const resultCount = resultIndex >= 0 ? recipeDetails.ResultCounts[resultIndex] : 1;
+
+    const itemIndex = recipeDetails.Items.indexOf(child.ID);
+    const itemCount = itemIndex >= 0 ? recipeDetails.ItemCounts[itemIndex] : 1;
+
+    if (itemIndex === -1 || resultIndex === -1) {
+      console.warn("⚠️ Invalid indices for child:", child.name);
+      return;
+    }
+
+    child.totalValue = (parent.totalValue * itemCount) / resultCount;
+
+    const childRecipe = this.recipesMap.get(child.selectedRecipe.ID);
+    
+    if (!childRecipe) return ;
+    let baseProduction = 0
+
+    const childResultIndex = childRecipe.Results.findIndex(id => id === child.ID)
+    const resultAmountChild = childRecipe.ResultCounts[childResultIndex];
+
+    baseProduction = resultAmountChild / (child.TimeSpend / 60);
+    
+    let assemblerSpeed = this.globalSettingsService.getMachineSpeed(
+      this.globalSettingsService.checkValidKey(child.madeFromString.split(' ')[0].toLowerCase() + 'Select')
+    );
+
+    
+    let totalmachine = 0;
+    let itemsPerMachine = baseProduction * (assemblerSpeed / 10000);
+    totalmachine = ((child.totalValue / 60) / itemsPerMachine) ; 
+    child.totalMachine = totalmachine
+
+    child.power = child.totalValue * 10;
+  }
+
+  findParentNode(tree: TransformedItems[], childUUID: string): TransformedItems | null {
+    for (const node of tree) {
+      if (node.childs.some(child => child.nodeUUID === childUUID)) {
+        return node;
+      }
+
+      const parent = this.findParentNode(node.childs, childUUID);
+      if (parent) return parent;
+    }
+    return null;
+  }
 }
